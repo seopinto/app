@@ -2022,17 +2022,20 @@ margin:0 0 5px 0;
 border:1px solid #ddd;
 }
 .contactform input.form_submit{ 
-width:100%;
-padding:4% 0 4% 0; 
-margin:10px 0 0 0; 
-font-weight:normal;
-text-align:center;
-cursor:pointer; 
-font-size:20px;
-background-color:#c7ba99;
-color:#222222;
-border: none;
-cursor:pointer;
+width: 78%;
+    padding: 2% 0 2% 0;
+    margin: 10px 0 0 0;
+    font-weight: normal;
+    text-align: center;
+    cursor: pointer;
+    font-size: 20px;
+    background-color: rgb(0, 0, 0);
+    color: #ffffff;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
 }
 h2#Note{
 	display:none;
