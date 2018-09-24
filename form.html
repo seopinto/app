@@ -34,8 +34,8 @@
                 </div>
                 
                 <div class="form_row">
-                <label>Email:</label>
-                <input type="text" name="email" value="" class="form_input" />
+                <label>Correo Electronico:</label>
+                <input type="text" name="email" value="" class="form_input" required validate/>
                 </div>
                   <div class="form_row">
                 <label>Telefono:</label>
@@ -55,28 +55,7 @@
                 
                 
                 <div class="form_row">
-                        <label>Radio:</label>
-                        <div class="form_row_right">
-                          <label class="label-radio item-content">
-                            <!-- Checked by default -->
-                            <input type="radio" name="my-radio" value="Books" checked="checked">
-                            <div class="item-inner">
-                              <div class="item-title">Books</div>
-                            </div>
-                          </label>
-                          
-                          <label class="label-radio item-content">
-                            <!-- Checked by default -->
-                            <input type="radio" name="my-radio" value="Movies">
-                            <div class="item-inner">
-                              <div class="item-title">Movies</div>
-                            </div>
-                          </label>
-                         </div> 
-                </div>
-                
-                <div class="form_row">
-                        <label>Checkbox:</label>
+                        <label>Sexo:</label>
                         <div class="form_row_right">
                           <label class="label-checkbox item-content">
                             <!-- Checked by default -->
@@ -85,7 +64,7 @@
                               <i class="icon icon-form-checkbox"></i>
                             </div>
                             <div class="item-inner">
-                              <div class="item-title">Books</div>
+                              <div class="item-title">M</div>
                             </div>
                           </label>
         
@@ -95,10 +74,20 @@
                               <i class="icon icon-form-checkbox"></i>
                             </div>
                             <div class="item-inner">
-                              <div class="item-title">Movies</div>
+                              <div class="item-title">F</div>
                             </div>
                           </label>
-                       </div>   
+                       </div>
+          
+      <div class="item-inner">
+        <div class="item-title item-label">Gender</div>
+        <div class="item-input-wrap">
+          <select class="form_select" placeholder="Please choose...">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+          </select>
+        </div>
+      </div>       
                 </div>
                 
                 <div class="form_row">  
