@@ -144,16 +144,20 @@ myApp.onPageInit('cart', function (page) {
 myApp.onPageInit('registro', function(page){
     
   $$('#registrar').click(function(){
-        var data = { numeroDocumento : $('#numeroDocumento').val(), primerNombre : $('#primerNombre').val(), segundoNombre : $('#segundoNombre').val(), primeroApellido : $('#primerApellido').val(), segundoApellido : $('#segundoApellido').val(), correo : $('#correo').val(), sexo : $('#sexo').val(), 
-                    telefono : $('#telefono').val() };
-        $$.ajax({
-                url : 'http://63056958.ngrok.io/clientes',
-                data: data,
+        var cliente = { numeroDocumento : $("#numeroDocumento").val(), primerNombre : $('#primerNombre').val(), segundoNombre : $('#segundoNombre').val(), primerApellido : $('#primerApellido').val(), segundoApellido : $('#segundoApellido').val(), correo : $('#correo').val(), sexo : $('#sexo').val(), 
+                    telefono : $('#telefono').val()};
+        $.ajax({
+                url : 'http://4e426f2e.ngrok.io/clientes',
+              //  data: JSON.parse({ numeroDocumento : '6666666', primerNombre : 'luffy', segundoNombre : 'D', primerApellido : 'monkey', segundoApellido : 'd', correo : 'cahmilo@gmail.cm', sexo : 'M', 
+            //        telefono : '3232534' }),
+            processData: false,
+             dataType : 'json',
+            contentType: 'application/json',
                 method : 'post', //en este caso
-                dataType : 'json',
+                data : JSON.stringify(cliente),
                 success : function(response){
                     
-                      console.log('Here goes alert text', 'Custom Title!');
+                      console.log(response.toString);
                 },
                 error: function(xhr, status, error){
                     console.log(xhr.responseText);
@@ -163,4 +167,4 @@ myApp.onPageInit('registro', function(page){
     
 })
 
-
+ 
