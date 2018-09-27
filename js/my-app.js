@@ -4,7 +4,7 @@ var myApp = new Framework7({
     // Enable templates auto precompilation
     precompileTemplates: true,
     // Enabled pages rendering using Template7
-	swipeBackPage: false,
+	swipeBackPage: true,
 	swipePanelOnlyClose: true,
 	pushState: true,
     template7Pages: true
@@ -16,9 +16,10 @@ var $$ = Dom7;
 // Add main View
 var mainView = myApp.addView('.view-main', {
     // Enable dynamic Navbar
-    dynamicNavbar: false,
+    dynamicNavbar: true,
 });
 var subnaview = myApp.addView('.view-subnav');
+
 
 $(document).ready(function() {
         circlemenu();
@@ -138,77 +139,28 @@ myApp.onPageInit('cart', function (page) {
     });
   
 })
-myApp.onPageInit('photos', function (page) {
-	$(".swipebox").swipebox();
-	$("a.switcher").bind("click", function(e){
-		e.preventDefault();
-		
-		var theid = $(this).attr("id");
-		var theproducts = $("ul#photoslist");
-		var classNames = $(this).attr('class').split(' ');
-		
-		
-		if($(this).hasClass("active")) {
-			// if currently clicked button has the active class
-			// then we do nothing!
-			return false;
-		} else {
-			// otherwise we are clicking on the inactive button
-			// and in the process of switching views!
 
-  			if(theid == "view13") {
-				$(this).addClass("active");
-				$("#view11").removeClass("active");
-				$("#view11").children("img").attr("src","images/switch_11.png");
-				
-				$("#view12").removeClass("active");
-				$("#view12").children("img").attr("src","images/switch_12.png");
-			
-				var theimg = $(this).children("img");
-				theimg.attr("src","images/switch_13_active.png");
-			
-				// remove the list class and change to grid
-				theproducts.removeClass("photo_gallery_11");
-				theproducts.removeClass("photo_gallery_12");
-				theproducts.addClass("photo_gallery_13");
 
-			}
-			
-			else if(theid == "view12") {
-				$(this).addClass("active");
-				$("#view11").removeClass("active");
-				$("#view11").children("img").attr("src","images/switch_11.png");
-				
-				$("#view13").removeClass("active");
-				$("#view13").children("img").attr("src","images/switch_13.png");
-			
-				var theimg = $(this).children("img");
-				theimg.attr("src","images/switch_12_active.png");
-			
-				// remove the list class and change to grid
-				theproducts.removeClass("photo_gallery_11");
-				theproducts.removeClass("photo_gallery_13");
-				theproducts.addClass("photo_gallery_12");
-
-			} 
-			else if(theid == "view11") {
-				$("#view12").removeClass("active");
-				$("#view12").children("img").attr("src","images/switch_12.png");
-				
-				$("#view13").removeClass("active");
-				$("#view13").children("img").attr("src","images/switch_13.png");
-			
-				var theimg = $(this).children("img");
-				theimg.attr("src","images/switch_11_active.png");
-			
-				// remove the list class and change to grid
-				theproducts.removeClass("photo_gallery_12");
-				theproducts.removeClass("photo_gallery_13");
-				theproducts.addClass("photo_gallery_11");
-
-			} 
-			
-		}
-
-	});	
+myApp.onPageInit('registro', function(page){
+    
+  $('#registrar').click(function(){
+        var data = { numeroDocumento : $('#numeroDocumento').val(), primerNombre : $('#primerNombre').val(), segundoNombre : $('#segundoNombre').val(), primeroApellido : $('#primerApellido').val(), segundoApellido : $('#segundoApellido').val(), correo : $('#correo').val(), sexo : $('#sexo').val(), 
+                    telefono : $('#telefono').val() };
+        $.ajax({
+                url : 'http://3ee27e74.ngrok.io/clientes',
+                data: data,
+                method : 'post', //en este caso
+                dataType : 'json',
+                success : function(response){
+                    
+                      console.log('Here goes alert text', 'Custom Title!');
+                },
+                error: function(xhr, status, error){
+                    console.log(xhr.responseText);
+                }
+        });
+});  
+    
 })
+
+
