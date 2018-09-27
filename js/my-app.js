@@ -147,17 +147,14 @@ myApp.onPageInit('registro', function(page){
         var cliente = { numeroDocumento : $("#numeroDocumento").val(), primerNombre : $('#primerNombre').val(), segundoNombre : $('#segundoNombre').val(), primerApellido : $('#primerApellido').val(), segundoApellido : $('#segundoApellido').val(), correo : $('#correo').val(), sexo : $('#sexo').val(), 
                     telefono : $('#telefono').val()};
         $.ajax({
-                url : 'http://4e426f2e.ngrok.io/clientes',
-              //  data: JSON.parse({ numeroDocumento : '6666666', primerNombre : 'luffy', segundoNombre : 'D', primerApellido : 'monkey', segundoApellido : 'd', correo : 'cahmilo@gmail.cm', sexo : 'M', 
-            //        telefono : '3232534' }),
+                url : 'http://55c62644.ngrok.io/clientes',
             processData: false,
              dataType : 'json',
             contentType: 'application/json',
                 method : 'post', //en este caso
                 data : JSON.stringify(cliente),
                 success : function(response){
-                    
-                      console.log(response.toString);
+                      alert (" " + response );
                 },
                 error: function(xhr, status, error){
                     console.log(xhr.responseText);
