@@ -143,11 +143,11 @@ myApp.onPageInit('cart', function (page) {
 
 myApp.onPageInit('registro', function(page){
     
-  $('#registrar').click(function(){
+  $$('#registrar').click(function(){
         var data = { numeroDocumento : $('#numeroDocumento').val(), primerNombre : $('#primerNombre').val(), segundoNombre : $('#segundoNombre').val(), primeroApellido : $('#primerApellido').val(), segundoApellido : $('#segundoApellido').val(), correo : $('#correo').val(), sexo : $('#sexo').val(), 
                     telefono : $('#telefono').val() };
-        $.ajax({
-                url : 'http://3ee27e74.ngrok.io/clientes',
+        $$.ajax({
+                url : 'http://63056958.ngrok.io/clientes',
                 data: data,
                 method : 'post', //en este caso
                 dataType : 'json',
