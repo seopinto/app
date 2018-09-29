@@ -163,5 +163,31 @@ myApp.onPageInit('registro', function(page){
 });  
     
 })
-
- 
+//myApp.onPageInit('pqrs', function(page){
+//    var titulo = document.querySelector('#titulo');
+//var descripcion = document.querySelector('#descripcion');
+//    var requestURL = 'http://0ecac117.ngrok.io/preguntasTienda';
+//    var request = new XMLHttpRequest();
+//    request.open('GET', requestURL);
+//request.responseType = 'json';
+//request.send();
+//    request.onload = function() {
+//  var preguntas = request.response;
+//  populateHeader(preguntas);
+//  showHeroes(preguntas);
+//}
+//    
+//
+//})
+myApp.onPageInit('pqrs', function(page){
+    
+ $$.ajax({ 
+    type: 'GET', 
+    url: 'http://0ecac117.ngrok.io/preguntasTienda',
+    data: { get_param: 'value' }, 
+    dataType: 'json',
+    success: function (data) { 
+          console.log (" " + data );
+    }
+});
+})
