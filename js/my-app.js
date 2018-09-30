@@ -13,6 +13,9 @@ var myApp = new Framework7({
 // Export selectors engine
 var $$ = Dom7;
 
+
+var getURLimagenesIntereses = "http://5a6e74f2.ngrok.io/multimedia/verImagenes/";
+
 // Add main View
 var mainView = myApp.addView('.view-main', {
     // Enable dynamic Navbar
@@ -33,56 +36,71 @@ $(document).ready(function() {
 
      
          $$('.login-screen .list-button').on('click', function () {
-            var uname = $$('.login-screen input[name = "username"]').val();
-            var pwd = $$('.login-screen input[name = "password"]').val();
+
+         	var loginaccess = { 
+         		empleado : $("#username").val(),
+         		contrasena : $('#password').val()
+         		};
+			        $.ajax({
+			            url : 'http://5a6e74f2.ngrok.io/empleado/autenticacion',
+			            processData: false,
+			            dataType : 'json',
+			            contentType: 'application/json',
+			            method : 'post', //en este caso
+			            data : JSON.stringify(loginaccess),
+			            success : function(data){
+			                if (data.id == 1) {
+			                	myApp.alert(data.error);
+						    }else if (data.id == -1 ) {
+						        myApp.alert(data.error);
+						    }else if (data.id == -2) {
+						        myApp.alert(data.error);
+						    }else{
+						    	var yetVisited = localStorage[loginaccess.empleado];
+						    	if (!yetVisited) {
+							        
+							        localStorage[loginaccess.empleado] = loginaccess.empleado;
+							    }
+							    
+					          	myApp.alert('Usuario: ' + loginaccess.empleado + ', Contrasena: ' + loginaccess.contrasena, function () {
+					               myApp.closeModal('.login-screen');
+					            });	
+
+					          	var html = "<div class='swiper-wrapper'>";
+
+					          	for(var i = 0;i<data.length;i++){							         
+							  		html+="<div class='swiper-slide' style='background-image:url("+getURLimagenesIntereses+data[i].url+");'></div>";
+							 	}
+        							
+        						$("#SliderHome").html(html + "<div class='swiper-pagination'></div></div>");
+
+						      } 
+			                },
+			            error: function(xhr, status, error){
+			                console.log(xhr.responseText);
+			            }
+			        });      
             
-            myApp.alert('Username: ' + uname + ', Password: ' + pwd, function () {
-               myApp.closeModal('.login-screen');
-            });
          });
 
 myApp.onPageInit('index', function (page) {
 		circlemenu();
 
-		$$.ajax({ 
-	    type: 'POST', 
-	    url: 'http://5a6e74f2.ngrok.io/empleado/autenticacion',
-	    data: { 
-	    	'empleado': $('#username').val(),
-	    	'contrasena': $('#password').val()
-	    }, 
-	    dataType: 'json',
-	    success: function (data) { 
-	          
-	          if (data == 1) {
-	          	alert('No existe');
-	          }else if (data == -1 ) {
-	          	alert('El usuario ingresado no existe');
-	          }else if (data == -2) {
-	          	alert('La clave ingresada es incorrecta');
-	          }else{
-				location.href = 'index.html';          	
-	          }         
-	   }
-	});
+		
 
 });
 
-$$(document).on('pageInit', function (e) {
-		$("#RegisterForm").validate();
-		$("#LoginForm").validate();
-		$("#ForgotForm").validate();
 		$(".close-popup").click(function() {					  
 			$("label.error").hide();
 		});
 
 	
+$$(document).on('pageInit', function (e) {
+		$("#RegisterForm").validate();
+		$("#LoginForm").validate();
+		$("#ForgotForm").validate();
 })
-myApp.onPageInit('music', function (page) {
-		  audiojs.events.ready(function() {
-			var as = audiojs.createAll();
-		  });
-})
+
 myApp.onPageInit('videos', function (page) {
 		  $(".videocontainer").fitVids();
 })
@@ -111,58 +129,6 @@ myApp.onPageInit('blog', function (page) {
 
 })
 
-myApp.onPageInit('shop', function (page) {
-			
-		$('.qntyplusshop').click(function(e){
-									  
-			e.preventDefault();
-			var fieldName = $(this).attr('field');
-			var currentVal = parseInt($('input[name='+fieldName+']').val());
-			if (!isNaN(currentVal)) {
-				$('input[name='+fieldName+']').val(currentVal + 1);
-			} else {
-				$('input[name='+fieldName+']').val(0);
-			}
-			
-		});
-		$(".qntyminusshop").click(function(e) {
-			e.preventDefault();
-			var fieldName = $(this).attr('field');
-			var currentVal = parseInt($('input[name='+fieldName+']').val());
-			if (!isNaN(currentVal) && currentVal > 0) {
-				$('input[name='+fieldName+']').val(currentVal - 1);
-			} else {
-				$('input[name='+fieldName+']').val(0);
-			}
-		});	
-  
-})
-myApp.onPageInit('shopitem', function (page) {
-		$(".swipebox").swipebox();	
-		$('.qntyplusshop').click(function(e){
-									  
-			e.preventDefault();
-			var fieldName = $(this).attr('field');
-			var currentVal = parseInt($('input[name='+fieldName+']').val());
-			if (!isNaN(currentVal)) {
-				$('input[name='+fieldName+']').val(currentVal + 1);
-			} else {
-				$('input[name='+fieldName+']').val(0);
-			}
-			
-		});
-		$(".qntyminusshop").click(function(e) {
-			e.preventDefault();
-			var fieldName = $(this).attr('field');
-			var currentVal = parseInt($('input[name='+fieldName+']').val());
-			if (!isNaN(currentVal) && currentVal > 0) {
-				$('input[name='+fieldName+']').val(currentVal - 1);
-			} else {
-				$('input[name='+fieldName+']').val(0);
-			}
-		});	
-  
-})
 
 
 
