@@ -186,7 +186,7 @@ myApp.onPageInit('pqrs', function(page){
     
  $$.ajax({ 
     type: 'GET', 
-    url: 'http://a24c4e94.ngrok.io/preguntasTienda',
+    url: 'http://5a6a74f2.ngrok.io/preguntasTienda',
     data: { get_param: 'value' }, 
     dataType: 'json',
     success: function (data) { 
@@ -196,23 +196,18 @@ myApp.onPageInit('pqrs', function(page){
             var html;
 
             for(var i = 0;i<obj.length;i++){
-
             	if (obj[i].imagen != null) {
-
             		html+="<div class='accordion-item'><div class='accordion-item-toggle'><i class='icon icon-plus'>+</i><i class='icon icon-minus'>-</i><span> "+obj[i].titulo+"</span></div><div class='accordion-item-content'><img src="+obj[i].imagen+"></div></div>";
-
             	}else{
-
             		html+="<div class='accordion-item'><div class='accordion-item-toggle'><i class='icon icon-plus'>+</i><i class='icon icon-minus'>-</i><span> "+obj[i].titulo+"</span></div><div class='accordion-item-content'><p>"+obj[i].informacion+"</p></div></div>";
-
-
-            	}
-			
-
+            	}			
 			}
-
 			$(".custom-accordion").html(html);
-
    }
 });
 })
+
+
+
+
+
