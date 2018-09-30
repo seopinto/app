@@ -184,7 +184,7 @@ myApp.onPageInit('pqrs', function(page){
     
  $$.ajax({ 
     type: 'GET', 
-    url: 'http://0ecac117.ngrok.io/preguntasTienda',
+    url: 'http://d5b42361.ngrok.io/preguntasTienda',
     data: { get_param: 'value' }, 
     dataType: 'json',
     success: function (data) { 
