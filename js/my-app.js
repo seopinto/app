@@ -31,9 +31,19 @@ $(document).ready(function() {
 		});
 });
 
+     
+         $$('.login-screen .list-button').on('click', function () {
+            var uname = $$('.login-screen input[name = "username"]').val();
+            var pwd = $$('.login-screen input[name = "password"]').val();
+            
+            myApp.alert('Username: ' + uname + ', Password: ' + pwd, function () {
+               myApp.closeModal('.login-screen');
+            });
+         });
+
 myApp.onPageInit('index', function (page) {
 		circlemenu();
-})
+});
 
 $$(document).on('pageInit', function (e) {
 		$("#RegisterForm").validate();
@@ -130,15 +140,7 @@ myApp.onPageInit('shopitem', function (page) {
 		});	
   
 })
-myApp.onPageInit('cart', function (page) {
-			
-    $('.item_delete').click(function(e){
-        e.preventDefault();
-        var currentVal = $(this).attr('id');
-        $('div#'+currentVal).fadeOut('slow');
-    });
-  
-})
+
 
 
 myApp.onPageInit('registro', function(page){
