@@ -186,7 +186,7 @@ myApp.onPageInit('pqrs', function(page){
     
  $$.ajax({ 
     type: 'GET', 
-    url: 'http://5a6a74f2.ngrok.io/preguntasTienda',
+    url: 'http://5a6e74f2.ngrok.io/preguntasTienda',
     data: { get_param: 'value' }, 
     dataType: 'json',
     success: function (data) { 
@@ -206,6 +206,7 @@ myApp.onPageInit('pqrs', function(page){
    }
 });
 })
+
 
 
 
