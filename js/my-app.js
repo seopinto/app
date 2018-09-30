@@ -43,6 +43,29 @@ $(document).ready(function() {
 
 myApp.onPageInit('index', function (page) {
 		circlemenu();
+
+		$$.ajax({ 
+	    type: 'POST', 
+	    url: 'http://5a6e74f2.ngrok.io/empleado/autenticacion',
+	    data: { 
+	    	'empleado': $('#username').val(),
+	    	'contrasena': $('#password').val()
+	    }, 
+	    dataType: 'json',
+	    success: function (data) { 
+	          
+	          if (data == 1) {
+	          	alert('No existe');
+	          }else if (data == -1 ) {
+	          	alert('El usuario ingresado no existe');
+	          }else if (data == -2) {
+	          	alert('La clave ingresada es incorrecta');
+	          }else{
+				location.href = 'index.html';          	
+	          }         
+	   }
+	});
+
 });
 
 $$(document).on('pageInit', function (e) {
@@ -186,7 +209,7 @@ myApp.onPageInit('pqrs', function(page){
     
  $$.ajax({ 
     type: 'GET', 
-    url: 'http://5a6e74f2.ngrok.io/preguntasTienda',
+    url: 'https://5a6e74f2.ngrok.io/preguntasTienda',
     data: { get_param: 'value' }, 
     dataType: 'json',
     success: function (data) { 
@@ -206,8 +229,6 @@ myApp.onPageInit('pqrs', function(page){
    }
 });
 })
-
-
 
 
 
