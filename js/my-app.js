@@ -169,14 +169,15 @@ myApp.onPageInit('registro', function(page){
 //    var requestURL = 'http://0ecac117.ngrok.io/preguntasTienda';
 //    var request = new XMLHttpRequest();
 //    request.open('GET', requestURL);
-//request.responseType = 'json';
-//request.send();
+//    request.responseType = 'json';
+//    request.send();
 //    request.onload = function() {
 //  var preguntas = request.response;
-//  populateHeader(preguntas);
-//  showHeroes(preguntas);
+//        console.log (" " +JSON.stringify(preguntas) );
+//        
+////  populateHeader(preguntas);
+////  showHeroes(preguntas);
 //}
-//    
 //
 //})
 myApp.onPageInit('pqrs', function(page){
@@ -187,7 +188,7 @@ myApp.onPageInit('pqrs', function(page){
     data: { get_param: 'value' }, 
     dataType: 'json',
     success: function (data) { 
-          console.log (" " + data );
+          console.log (" " + JSON.stringify(data) );
     }
 });
 })
