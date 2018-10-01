@@ -78,7 +78,7 @@ $(document).ready(function() {
 					          	for(var i = 0;i<data.length;i++){
 
 					          		localStorage.setItem("imgData"+i+"", getURLimagenesIntereses+data[i].url);
-					          		localStorage.setItem("Tienda", data[i].idTiendas);
+					          		localStorage.setItem("TiendaLocal", data[i].idTiendas);
 
 							  		html+="<div class='swiper-slide' style='background-image:url("+getURLimagenesIntereses+data[i].url+");'></div>";
 							  		itemsSlider++;
@@ -237,13 +237,13 @@ myApp.onPageInit('pqrs', function(page){
 
 
 $$('#EnviarPQRS').click(function(){
-	    var dataTienda = localStorage.getItem('Tienda');
+	    var dataTienda = localStorage.getItem('TiendaLocal');
         var pqrs = { 
          numeroDocumento : $("#identification").val(),
          pqrs : $('input[name=myradio]:checked', '.list-block').val(), 
          nota : $('#message').val()};
         $.ajax({
-                url : 'http://8a3ea36c.ngrok.io/pqrs/tienda/{'+dataTienda+'}/cliente/{'+pqrs.numeroDocumento+'}',
+                url : 'http://8a3ea36c.ngrok.io/pqrs/tienda/'+dataTienda+'/cliente/'+pqrs.numeroDocumento,
             processData: false,
              dataType : 'json',
             contentType: 'application/json',
