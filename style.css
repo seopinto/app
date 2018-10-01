@@ -1688,6 +1688,7 @@ margin:0;
 .list-block .item-content {
 padding-left:0px;
 padding-top:10px;
+    background: white;
 }
 .list-block .swipeout-actions-left a,
 .list-block .swipeout-actions-right a {
@@ -1704,6 +1705,9 @@ background:#efe907;
 }
 .list-block .swipeout-actions-right a:nth-child(3){
 background:#e3de0f;
+}
+.list-block .item-title.label{
+    text-align: center;
 }
 #pages_maincontent .list-block .swipeout-actions-left a img,
 #pages_maincontent .list-block .swipeout-actions-right a img{
@@ -1962,7 +1966,22 @@ font-size:12px;
 font-weight:700;
 }
 
+.login-screen-content{
+background: #000000;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to top, #434343, #000000);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to top, #434343, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
+}
+
+
+
+.login-screen-content .list-block .item-link.list-button {
+    padding: 0 15px;
+    text-align: center;
+    color: #fff;
+    display: block;
+    background: #007aff;
+    line-height: 43px;}
 
 
 
