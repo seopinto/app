@@ -15,7 +15,7 @@ var $$ = Dom7;
 
 var itemsSlider = 0;
 
-var getURLimagenesIntereses = "http://5a6e74f2.ngrok.io/multimedia/verImagenes/";
+var getURLimagenesIntereses = "http://8a3ea36c.ngrok.io/multimedia/verImagenes/";
 
 // Add main View
 var mainView = myApp.addView('.view-main', {
@@ -46,7 +46,7 @@ $(document).ready(function() {
          		contrasena : $('#password').val()
          		};
 			        $.ajax({
-			            url : 'http://5a6e74f2.ngrok.io/empleado/autenticacion',
+			            url : 'http://8a3ea36c.ngrok.io/empleado/autenticacion',
 			            processData: false,
 			            dataType : 'json',
 			            contentType: 'application/json',
@@ -60,11 +60,13 @@ $(document).ready(function() {
 						    }else if (data.id == -2) {
 						        myApp.alert(data.error);
 						    }else{
+						    	console.log(data.idTiendas);
 						    	var yetVisited = localStorage[loginaccess.empleado];
 						    	if (!yetVisited) {
 							        
 							        localStorage[loginaccess.empleado] = loginaccess.empleado;
 
+							        
 							    }
 							    
 					          	 myApp.alert('Usuario: ' + loginaccess.empleado + ', Contrasena: ' + loginaccess.contrasena, function () {
@@ -76,6 +78,7 @@ $(document).ready(function() {
 					          	for(var i = 0;i<data.length;i++){
 
 					          		localStorage.setItem("imgData"+i+"", getURLimagenesIntereses+data[i].url);
+					          		localStorage.setItem("Tienda", data[i].idTiendas);
 
 							  		html+="<div class='swiper-slide' style='background-image:url("+getURLimagenesIntereses+data[i].url+");'></div>";
 							  		itemsSlider++;
@@ -150,7 +153,7 @@ myApp.onPageInit('blog', function (page) {
    $$('#consultar').on('click', function () {
 
         $.ajax({
-            url : 'http://5a6e74f2.ngrok.io/clientes/'+$("#numeroDocumento").val()+'',
+            url : 'http://8a3ea36c.ngrok.io/clientes/'+$("#numeroDocumento").val()+'',
             processData: false,
              dataType : 'json',
             contentType: 'application/json',
@@ -190,7 +193,7 @@ myApp.onPageInit('registro', function(page){
          sexo : $('#sexo').val(), 
          telefono : $('#telefono').val()};
         $.ajax({
-                url : 'http://5a6e74f2.ngrok.io/clientes',
+                url : 'http://8a3ea36c.ngrok.io/clientes',
             processData: false,
              dataType : 'json',
             contentType: 'application/json',
@@ -212,7 +215,7 @@ myApp.onPageInit('pqrs', function(page){
     
  $$.ajax({ 
     type: 'GET', 
-    url: 'https://5a6e74f2.ngrok.io/preguntasTienda',
+    url: 'https://8a3ea36c.ngrok.io/preguntasTienda',
     data: { get_param: 'value' }, 
     dataType: 'json',
     success: function (data) { 
@@ -233,7 +236,27 @@ myApp.onPageInit('pqrs', function(page){
 });
 
 
-
+$$('#EnviarPQRS').click(function(){
+	    var dataTienda = localStorage.getItem('Tienda');
+        var pqrs = { 
+         numeroDocumento : $("#identification").val(),
+         pqrs : $('input[name=myradio]:checked', '.list-block').val(), 
+         nota : $('#message').val()};
+        $.ajax({
+                url : 'http://8a3ea36c.ngrok.io/pqrs/tienda/{'+dataTienda+'}/cliente/{'+pqrs.numeroDocumento+'}',
+            processData: false,
+             dataType : 'json',
+            contentType: 'application/json',
+                method : 'POST', //en este caso
+                data : JSON.stringify(pqrs),
+                success : function(response){
+                      alert (" " + response );
+                },
+                error: function(xhr, status, error){
+                    console.log(xhr.responseText);
+                }
+        });
+});  
 
 })
 
