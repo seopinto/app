@@ -1682,13 +1682,19 @@ background-color: #fff;
 background-color: #fff;
 }
 .list-block li{
-border-bottom:1px #f0f0f0 solid;
+
 margin:0;
 }
 .list-block .item-content {
 padding-left:0px;
 padding-top:10px;
     background: white;
+    border-radius: 50px;
+        margin: 3px 0 3px 0;
+
+}
+.list-block .item-inner:after{
+    display: none;
 }
 .list-block .swipeout-actions-left a,
 .list-block .swipeout-actions-right a {
@@ -1971,6 +1977,7 @@ background: #000000;  /* fallback for old browsers */
 background: -webkit-linear-gradient(to top, #434343, #000000);  /* Chrome 10-25, Safari 5.1-6 */
 background: linear-gradient(to top, #434343, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
+
 }
 
 
@@ -1981,7 +1988,9 @@ background: linear-gradient(to top, #434343, #000000); /* W3C, IE 10+/ Edge, Fir
     color: #fff;
     display: block;
     background: #007aff;
-    line-height: 43px;}
+    line-height: 43px;
+    border-radius: 50px;
+}
 
 
 
