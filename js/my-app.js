@@ -14,7 +14,6 @@ var myApp = new Framework7({
 var $$ = Dom7;
 
 var itemsSlider = 0;
-
 var getURLimagenesIntereses = "http://8a3ea36c.ngrok.io/multimedia/verImagenes/";
 
 // Add main View
@@ -63,10 +62,7 @@ $(document).ready(function() {
 						    	console.log(data.idTiendas);
 						    	var yetVisited = localStorage[loginaccess.empleado];
 						    	if (!yetVisited) {
-							        
-							        localStorage[loginaccess.empleado] = loginaccess.empleado;
-
-							        
+							        localStorage[loginaccess.empleado] = loginaccess.empleado;							        
 							    }
 							    
 					          	 myApp.alert('Usuario: ' + loginaccess.empleado + ', Contrasena: ' + loginaccess.contrasena, function () {
@@ -74,13 +70,20 @@ $(document).ready(function() {
 					             });	
 	
 								var html = "<div class='swiper-wrapper'>";
+								var cont = 0;
 
 					          	for(var i = 0;i<data.length;i++){
 
 					          		localStorage.setItem("imgData"+i+"", getURLimagenesIntereses+data[i].url);
 					          		localStorage.setItem("TiendaLocal", data[i].idTiendas);
 
-							  		html+="<div class='swiper-slide' style='background-image:url("+getURLimagenesIntereses+data[i].url+");'></div>";
+					          		if (cont == 0) {
+					          			html+="<div class='swiper-slide active-state' style='background-image:url("+getURLimagenesIntereses+data[i].url+");'></div>";
+					          			cont++;
+					          		}else{
+					          			html+="<div class='swiper-slide' style='background-image:url("+getURLimagenesIntereses+data[i].url+");'></div>";
+					          			cont++;
+					          		}							  		
 							  		itemsSlider++;
 							 	}
 
@@ -101,10 +104,17 @@ $(document).ready(function() {
 myApp.onPageInit('index', function (page) {
 	
 		var html1 = "<div class='swiper-wrapper'>";
+		var cont2 = 0;
 
 		for(var i = 0;i<itemsSlider;i++){
 			var dataImage = localStorage.getItem('imgData'+i+'');
-			html1+="<div class='swiper-slide' style='background-image:url("+dataImage+");'></div>";
+			if (cont2 == 0) {
+      			html1+="<div class='swiper-slide active-state' style='background-image:url("+dataImage+");'></div>";
+      			cont2++;
+      		}else{
+      			html1+="<div class='swiper-slide' style='background-image:url("+dataImage+");'></div>";
+      			cont2++;
+      		}			
 		}
 
 		$("#SliderHome").html(html1 + "<div class='swiper-pagination'></div></div>");
@@ -238,17 +248,16 @@ myApp.onPageInit('pqrs', function(page){
 
 $$('#EnviarPQRS').click(function(){
 	    var dataTienda = localStorage.getItem('TiendaLocal');
-        var pqrs = { 
-         numeroDocumento : $("#identification").val(),
+        var pqrsregister = { 
          pqrs : $('input[name=myradio]:checked', '.list-block').val(), 
          nota : $('#message').val()};
         $.ajax({
-                url : 'http://8a3ea36c.ngrok.io/pqrs/tienda/'+dataTienda+'/cliente/'+pqrs.numeroDocumento,
+                url : 'http://8a3ea36c.ngrok.io/pqrs/tienda/'+dataTienda+'/cliente/'+$("#identification").val(),
             processData: false,
              dataType : 'json',
             contentType: 'application/json',
                 method : 'POST', //en este caso
-                data : JSON.stringify(pqrs),
+                data : JSON.stringify(pqrsregister),
                 success : function(response){
                       alert (" " + response );
                 },
