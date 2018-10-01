@@ -70,20 +70,15 @@ $(document).ready(function() {
 					             });	
 	
 								var html = "<div class='swiper-wrapper'>";
-								var cont = 0;
+								
 
 					          	for(var i = 0;i<data.length;i++){
 
 					          		localStorage.setItem("imgData"+i+"", getURLimagenesIntereses+data[i].url);
 					          		localStorage.setItem("TiendaLocal", data[i].idTiendas);
 
-					          		if (cont == 0) {
-					          			html+="<div class='swiper-slide active-state' style='background-image:url("+getURLimagenesIntereses+data[i].url+");'></div>";
-					          			cont++;
-					          		}else{
-					          			html+="<div class='swiper-slide' style='background-image:url("+getURLimagenesIntereses+data[i].url+");'></div>";
-					          			cont++;
-					          		}							  		
+					          		html+="<div class='swiper-slide swiper-slide-active' style='background-image:url("+getURLimagenesIntereses+data[i].url+");'></div>";
+					          										  		
 							  		itemsSlider++;
 							 	}
 
@@ -104,17 +99,13 @@ $(document).ready(function() {
 myApp.onPageInit('index', function (page) {
 	
 		var html1 = "<div class='swiper-wrapper'>";
-		var cont2 = 0;
+
 
 		for(var i = 0;i<itemsSlider;i++){
 			var dataImage = localStorage.getItem('imgData'+i+'');
-			if (cont2 == 0) {
-      			html1+="<div class='swiper-slide active-state' style='background-image:url("+dataImage+");'></div>";
-      			cont2++;
-      		}else{
-      			html1+="<div class='swiper-slide' style='background-image:url("+dataImage+");'></div>";
-      			cont2++;
-      		}			
+			
+      		html1+="<div class='swiper-slide swiper-slide-active' style='background-image:url("+dataImage+");'></div>";
+      						
 		}
 
 		$("#SliderHome").html(html1 + "<div class='swiper-pagination'></div></div>");
