@@ -7,7 +7,8 @@ var myApp = new Framework7({
 	swipeBackPage: true,
 	swipePanelOnlyClose: true,
 	pushState: true,
-    template7Pages: true
+    template7Pages: true,
+    fastclick: false
 });
 
 // Export selectors engine
