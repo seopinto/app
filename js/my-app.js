@@ -13,6 +13,7 @@ var myApp = new Framework7({
 // Export selectors engine
 var $$ = Dom7;
 
+var itemsSlider = 0;
 
 var getURLimagenesIntereses = "http://5a6e74f2.ngrok.io/multimedia/verImagenes/";
 
@@ -32,6 +33,9 @@ $(document).ready(function() {
 		$(".close-popup").click(function() {					  
 			$("label.error").hide();
 		});
+
+
+		
 });
 
      
@@ -60,19 +64,27 @@ $(document).ready(function() {
 						    	if (!yetVisited) {
 							        
 							        localStorage[loginaccess.empleado] = loginaccess.empleado;
+
 							    }
 							    
-					          	myApp.alert('Usuario: ' + loginaccess.empleado + ', Contrasena: ' + loginaccess.contrasena, function () {
-					               myApp.closeModal('.login-screen');
-					            });	
+					          	 myApp.alert('Usuario: ' + loginaccess.empleado + ', Contrasena: ' + loginaccess.contrasena, function () {
+					                myApp.closeModal('.login-screen');
+					             });	
+	
+								var html = "<div class='swiper-wrapper'>";
 
-					          	var html = "<div class='swiper-wrapper'>";
+					          	for(var i = 0;i<data.length;i++){
 
-					          	for(var i = 0;i<data.length;i++){							         
+					          		localStorage.setItem("imgData"+i+"", getURLimagenesIntereses+data[i].url);
+
 							  		html+="<div class='swiper-slide' style='background-image:url("+getURLimagenesIntereses+data[i].url+");'></div>";
+							  		itemsSlider++;
 							 	}
+
+
         							
         						$("#SliderHome").html(html + "<div class='swiper-pagination'></div></div>");
+					          	
 
 						      } 
 			                },
@@ -84,11 +96,17 @@ $(document).ready(function() {
          });
 
 myApp.onPageInit('index', function (page) {
-		circlemenu();
+	
+		var html1 = "<div class='swiper-wrapper'>";
 
+		for(var i = 0;i<itemsSlider;i++){
+			var dataImage = localStorage.getItem('imgData'+i+'');
+			html1+="<div class='swiper-slide' style='background-image:url("+dataImage+");'></div>";
+		}
+
+		$("#SliderHome").html(html1 + "<div class='swiper-pagination'></div></div>");
 		
-
-});
+		});
 
 		$(".close-popup").click(function() {					  
 			$("label.error").hide();
