@@ -147,16 +147,50 @@ myApp.onPageInit('blog', function (page) {
 
 })
 
+   $$('#consultar').on('click', function () {
 
+        $.ajax({
+            url : 'http://5a6e74f2.ngrok.io/clientes/'+$("#numeroDocumento").val()+'',
+            processData: false,
+             dataType : 'json',
+            contentType: 'application/json',
+                method : 'post', //en este caso
+                data : JSON.stringify(cliente),
+                success : function(data){
+                     if (data.id == -1) {
+	                	myApp.alert(data.error);
+				    }else{
+				    	$("#primerNombre").val(data[0].primerNombre);	
+				    	$("#segundoNombre").val(data[0].segundoNombre);	
+				    	$("#primerApellido").val(data[0].primerApellido);	
+				    	$("#segundoApellido").val(data[0].segundoApellido);	
+				    	$("#correo").val(data[0].correo);	
+				    	$("#sexo").val(data[0].sexo);	
+				    	$("#telefono").val(data[0].telefono);	
+				    }
+                },
+                error: function(xhr, status, error){
+                    console.log(xhr.responseText);
+                }
+        });
+
+   });
 
 
 myApp.onPageInit('registro', function(page){
     
   $$('#registrar').click(function(){
-        var cliente = { numeroDocumento : $("#numeroDocumento").val(), primerNombre : $('#primerNombre').val(), segundoNombre : $('#segundoNombre').val(), primerApellido : $('#primerApellido').val(), segundoApellido : $('#segundoApellido').val(), correo : $('#correo').val(), sexo : $('#sexo').val(), 
-                    telefono : $('#telefono').val()};
+        var cliente = { 
+         numeroDocumento : $("#numeroDocumento").val(),
+         primerNombre : $('#primerNombre').val(), 
+         segundoNombre : $('#segundoNombre').val(), 
+         primerApellido : $('#primerApellido').val(),
+         segundoApellido : $('#segundoApellido').val(), 
+         correo : $('#correo').val(), 
+         sexo : $('#sexo').val(), 
+         telefono : $('#telefono').val()};
         $.ajax({
-                url : 'http://55c62644.ngrok.io/clientes',
+                url : 'http://5a6e74f2.ngrok.io/clientes',
             processData: false,
              dataType : 'json',
             contentType: 'application/json',
@@ -172,23 +206,8 @@ myApp.onPageInit('registro', function(page){
 });  
     
 })
-//myApp.onPageInit('pqrs', function(page){
-//    var titulo = document.querySelector('#titulo');
-//var descripcion = document.querySelector('#descripcion');
-//    var requestURL = 'http://0ecac117.ngrok.io/preguntasTienda';
-//    var request = new XMLHttpRequest();
-//    request.open('GET', requestURL);
-//    request.responseType = 'json';
-//    request.send();
-//    request.onload = function() {
-//  var preguntas = request.response;
-//        console.log (" " +JSON.stringify(preguntas) );
-//        
-////  populateHeader(preguntas);
-////  showHeroes(preguntas);
-//}
-//
-//})
+
+
 myApp.onPageInit('pqrs', function(page){
     
  $$.ajax({ 
@@ -212,6 +231,10 @@ myApp.onPageInit('pqrs', function(page){
 			$(".custom-accordion").html(html);
    }
 });
+
+
+
+
 })
 
 
