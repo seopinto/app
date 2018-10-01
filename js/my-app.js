@@ -15,7 +15,7 @@ var myApp = new Framework7({
 var $$ = Dom7;
 
 var itemsSlider = 0;
-var getURLimagenesIntereses = "https://a8c53ccb.ngrok.io/multimedia/verImagenes/";
+var getURLimagenesIntereses = "https://bf1a307c.ngrok.io/multimedia/verImagenes/";
 
 // Add main View
 var mainView = myApp.addView('.view-main', {
@@ -46,7 +46,7 @@ $(document).ready(function() {
          		contrasena : $('#password').val()
          		};
 			        $.ajax({
-			            url : 'https://a8c53ccb.ngrok.io/empleado/autenticacion',
+			            url : 'https://bf1a307c.ngrok.io/empleado/autenticacion',
 			            processData: false,
 			            dataType : 'json',
 			            contentType: 'application/json',
@@ -155,7 +155,7 @@ myApp.onPageInit('blog', function (page) {
    $$('#consultar').on('click', function () {
 
         $.ajax({
-            url : 'https://a8c53ccb.ngrok.io/clientes/'+$("#numeroDocumento").val()+'',
+            url : 'https://bf1a307c.ngrok.io/clientes/'+$("#numeroDocumento").val()+'',
             processData: false,
              dataType : 'json',
             contentType: 'application/json',
@@ -195,7 +195,7 @@ myApp.onPageInit('registro', function(page){
          sexo : $('#sexo').val(), 
          telefono : $('#telefono').val()};
         $.ajax({
-                url : 'https://a8c53ccb.ngrok.io/clientes',
+                url : 'https://bf1a307c.ngrok.io/clientes',
             processData: false,
              dataType : 'json',
             contentType: 'application/json',
@@ -217,7 +217,7 @@ myApp.onPageInit('pqrs', function(page){
     
  $$.ajax({ 
     type: 'GET', 
-    url: 'https://a8c53ccb.ngrok.io/preguntasTienda',
+    url: 'https://bf1a307c.ngrok.io/preguntasTienda',
     data: { get_param: 'value' }, 
     dataType: 'json',
     success: function (data) { 
@@ -244,7 +244,7 @@ $$('#EnviarPQRS').click(function(){
          pqrs : $('input[name=myradio]:checked', '.list-block').val(), 
          nota : $('#message').val()};
         $.ajax({
-                url : 'https://a8c53ccb.ngrok.io/pqrs/tienda/'+dataTienda+'/cliente/'+$("#identification").val(),
+                url : 'https://bf1a307c.ngrok.io/pqrs/tienda/'+dataTienda+'/cliente/'+$("#identification").val(),
             processData: false,
              dataType : 'json',
             contentType: 'application/json',
