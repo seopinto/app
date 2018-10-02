@@ -16,7 +16,7 @@ var myApp = new Framework7({
 var $$ = Dom7;
 
 var itemsSlider = 0;
-var getURLimagenesIntereses = "https://01bf36ef.ngrok.io/multimedia/verImagenes/";
+var getURLimagenesIntereses = "https://446ecc25.ngrok.io/multimedia/verImagenes/";
 
 // Add main View
 var mainView = myApp.addView('.view-main', {
@@ -47,7 +47,7 @@ $(document).ready(function() {
          		contrasena : $('#password').val()
          		};
 			        $.ajax({
-			            url : 'https://01bf36ef.ngrok.io/empleado/autenticacion',
+			            url : 'https://446ecc25.ngrok.io/empleado/autenticacion',
 			            processData: false,
 			            dataType : 'json',
 			            contentType: 'application/json',
@@ -209,8 +209,10 @@ myApp.onPageInit('blog', function (page) {
 })
 
 function finduser(){
+
+	var cliente = {numeroDocumento : $("#numeroDocumento").val() }
 	$.ajax({
-	            url : 'https://01bf36ef.ngrok.io/clientes/'+$("#numeroDocumento").val()+'',
+	            url : 'https://446ecc25.ngrok.io/clientes/'+$("#numeroDocumento").val()+'',
 	            processData: false,
 	             dataType : 'json',
 	            contentType: 'application/json',
@@ -220,13 +222,13 @@ function finduser(){
 	                     if (data.id == -1) {
 		                	myApp.alert(data.error);
 					    }else{
-					    	$("#primerNombre").val(data[0].primerNombre);	
-					    	$("#segundoNombre").val(data[0].segundoNombre);	
-					    	$("#primerApellido").val(data[0].primerApellido);	
-					    	$("#segundoApellido").val(data[0].segundoApellido);	
-					    	$("#correo").val(data[0].correo);	
-					    	$("#sexo").val(data[0].sexo);	
-					    	$("#telefono").val(data[0].telefono);	
+					    	$("#primerNombre").val(data.primerNombre);	
+					    	$("#segundoNombre").val(data.segundoNombre);	
+					    	$("#primerApellido").val(data.primerApellido);	
+					    	$("#segundoApellido").val(data.segundoApellido);	
+					    	$("#correo").val(data.correo);	
+					    	$("#sexo").val(data.sexo);	
+					    	$("#telefono").val(data.telefono);	
 					    }
 	                },
 	                error: function(xhr, status, error){
@@ -241,7 +243,7 @@ function finduserpqrs(){
 	var cliente = {numeroDocumento : $("#identification").val() }
 	$.ajax({
 
-	            url : 'https://01bf36ef.ngrok.io/clientes/'+$("#identification").val()+'',
+	            url : 'https://446ecc25.ngrok.io/clientes/'+$("#identification").val()+'',
 	            processData: false,
 	             dataType : 'json',
 	            contentType: 'application/json',
@@ -280,7 +282,7 @@ myApp.onPageInit('registro', function(page){
          sexo : $('#sexo').val(), 
          telefono : $('#telefono').val()};
         $.ajax({
-                url : 'https://01bf36ef.ngrok.io/clientes',
+                url : 'https://446ecc25.ngrok.io/clientes',
             processData: false,
              dataType : 'json',
             contentType: 'application/json',
@@ -302,7 +304,7 @@ myApp.onPageInit('pqrs', function(page){
     
  $$.ajax({ 
     type: 'GET', 
-    url: 'https://01bf36ef.ngrok.io/preguntasTienda',
+    url: 'https://446ecc25.ngrok.io/preguntasTienda',
     data: { get_param: 'value' }, 
     dataType: 'json',
     success: function (data) { 
@@ -329,7 +331,7 @@ $$('#EnviarPQRS').click(function(){
          pqrs : $('input[name=myradio]:checked', '.list-block').val(), 
          nota : $('#message').val()};
         $.ajax({
-                url : 'https://01bf36ef.ngrok.io/pqrs/tienda/'+dataTienda+'/cliente/'+$("#identification").val(),
+                url : 'https://446ecc25.ngrok.io/pqrs/tienda/'+dataTienda+'/cliente/'+$("#identification").val(),
             processData: false,
              dataType : 'json',
             contentType: 'application/json',
@@ -337,7 +339,7 @@ $$('#EnviarPQRS').click(function(){
                 data : JSON.stringify(pqrsregister),
                 success : function(response){
                 	myApp.alert("Señor(a) su "+pqrsregister.pqrs+" ha sido registrada correctamente");
-                      alert (" " + response );
+                      
                 },
                 error: function(xhr, status, error){
                     console.log(xhr.responseText);
@@ -348,10 +350,30 @@ $$('#EnviarPQRS').click(function(){
 })
 
 myApp.onPageInit('success', function(page){
-    
-    $('button.submit').disabled = true;	// disable button on load
 
-// Enable button 
+	$$('#SendCongratulations').click(function(){
+	    var dataTienda = localStorage.getItem('TiendaLocal');
+        var felregister = { 
+         puntaje : $('input[name=rating]:checked', '.ratingItemList').val()};
+        $.ajax({
+                url : 'https://446ecc25.ngrok.io/felicitaciones/tienda/'+dataTienda+'/cliente/'+$("#identification").val(),
+            processData: false,
+             dataType : 'json',
+            contentType: 'application/json',
+                method : 'POST', //en este caso
+                data : JSON.stringify(felregister),
+                success : function(response){
+                	myApp.alert("Su felicitación ha sido registrada correctamente");                      
+                },
+                error: function(xhr, status, error){
+                    console.log(xhr.responseText);
+                }
+        });
+}); 
+    
+   $('button.submit').disabled = true;	// disable button on load
+
+   // Enable button 
 function enable_submit() {
   $('button.submit').disabled = false;
   $('button.submit').addClass('not-disabled');
@@ -373,6 +395,7 @@ $('.rating').on('click', function() {
   
 });
 
+
 // Run enable button function based on input
 $('.feedback textarea').keyup(function() {
   if ($('.feedback textarea').val().length > 3)   {
@@ -391,6 +414,9 @@ function feedback_validate(val) {
   }
   
 }
+
+
+
 })
 
 
