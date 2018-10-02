@@ -8,7 +8,8 @@ var myApp = new Framework7({
 	swipePanelOnlyClose: true,
 	pushState: true,
     template7Pages: true,
-    fastclick: false
+    fastclick: false,
+    smartSelectOpenIn:'popup',
 });
 
 // Export selectors engine
