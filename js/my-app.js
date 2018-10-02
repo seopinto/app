@@ -152,34 +152,54 @@ myApp.onPageInit('blog', function (page) {
 
 })
 
-   $$('#consultar').on('click', function () {
+function finduser(){
+	$.ajax({
+	            url : 'https://bf1a307c.ngrok.io/clientes/'+$("#numeroDocumento").val()+'',
+	            processData: false,
+	             dataType : 'json',
+	            contentType: 'application/json',
+	                method : 'post', //en este caso
+	                data : JSON.stringify(cliente),
+	                success : function(data){
+	                     if (data.id == -1) {
+		                	myApp.alert(data.error);
+					    }else{
+					    	$("#primerNombre").val(data[0].primerNombre);	
+					    	$("#segundoNombre").val(data[0].segundoNombre);	
+					    	$("#primerApellido").val(data[0].primerApellido);	
+					    	$("#segundoApellido").val(data[0].segundoApellido);	
+					    	$("#correo").val(data[0].correo);	
+					    	$("#sexo").val(data[0].sexo);	
+					    	$("#telefono").val(data[0].telefono);	
+					    }
+	                },
+	                error: function(xhr, status, error){
+	                    console.log(xhr.responseText);
+	                }
+	        });
 
-        $.ajax({
-            url : 'https://bf1a307c.ngrok.io/clientes/'+$("#numeroDocumento").val()+'',
-            processData: false,
-             dataType : 'json',
-            contentType: 'application/json',
-                method : 'post', //en este caso
-                data : JSON.stringify(cliente),
-                success : function(data){
-                     if (data.id == -1) {
-	                	myApp.alert(data.error);
-				    }else{
-				    	$("#primerNombre").val(data[0].primerNombre);	
-				    	$("#segundoNombre").val(data[0].segundoNombre);	
-				    	$("#primerApellido").val(data[0].primerApellido);	
-				    	$("#segundoApellido").val(data[0].segundoApellido);	
-				    	$("#correo").val(data[0].correo);	
-				    	$("#sexo").val(data[0].sexo);	
-				    	$("#telefono").val(data[0].telefono);	
-				    }
-                },
-                error: function(xhr, status, error){
-                    console.log(xhr.responseText);
-                }
-        });
+}
 
-   });
+function finduserpqrs(){
+	$.ajax({
+	            url : 'https://bf1a307c.ngrok.io/clientes/'+$("#identification").val()+'',
+	            processData: false,
+	             dataType : 'json',
+	            contentType: 'application/json',
+	                method : 'post', //en este caso
+	                data : JSON.stringify(cliente),
+	                success : function(data){
+	                     if (data.id == -1) {
+		                	//myApp.alert(data.error);
+		                	myApp.alert('El Usuario no se encuentra registrado', location.href('/registro.html'));
+					    }
+	                },
+	                error: function(xhr, status, error){
+	                    console.log(xhr.responseText);
+	                }
+	        });
+
+}
 
 
 myApp.onPageInit('registro', function(page){
@@ -251,6 +271,7 @@ $$('#EnviarPQRS').click(function(){
                 method : 'POST', //en este caso
                 data : JSON.stringify(pqrsregister),
                 success : function(response){
+                	myApp.alert("Señor(a) su "+pqrsregister.pqrs+" ha sido registrada correctamente");
                       alert (" " + response );
                 },
                 error: function(xhr, status, error){
