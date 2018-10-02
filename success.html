@@ -4,24 +4,39 @@
     
 	<div class="navbarpages graybg">
 		<div class="navbar_left">
-			<div class="logo_image"><a href="index.html"><img src="images/logo_image_dark.png" alt="" title=""/></div>
+            <div class="logo_image"><a href="index.html"><img src="images/logo_image_dark.png" alt="" title=""/></a></div>
 		</div>			
 		<a href="#" data-panel="left" class="open-panel">
 			<div class="navbar_right"><img src="images/icons/black/menu.png" alt="" title="" /></div>
 		</a>
-		<a href="#" data-panel="right" class="open-panel">
-			<div class="navbar_right whitebg"><img src="images/icons/black/user.png" alt="" title="" /></div>
-		</a>					
+							
 	</div>
      
      <div id="pages_maincontent">
 
 	<div class="page_single layout_fullwidth_padding">
-            <div class="success_message">
-            <span>Thank You!</span>
-            <img src="images/icons/black/rocket.png" alt="" title="" />
-            <p>Your Order <br />Has Been successfully completed.</p>            
-            </div>
+         
+<form class="rating-wrapper">
+  <label class="rating-label">Califica tu experiencia?
+    <div class="ratingItemList">
+      <input class="rating rating-1" id="rating-1-2" type="radio" value="1" name="rating"/>
+      <label class="rating rating-1" for="rating-1-2"><i class="em em-angry"></i></label>
+      <input class="rating rating-2" id="rating-2-2" type="radio" value="2" name="rating"/>
+      <label class="rating rating-2" for="rating-2-2"><i class="em em-disappointed"></i></label>
+      <input class="rating rating-3" id="rating-3-2" type="radio" value="3" name="rating"/>
+      <label class="rating rating-3" for="rating-3-2"><i class="em em-expressionless"></i></label>
+      <input class="rating rating-4" id="rating-4-2" type="radio" value="4" name="rating"/>
+      <label class="rating rating-4" for="rating-4-2"><i class="em em-grinning"></i></label>
+      <input class="rating rating-5" id="rating-5-2" type="radio" value="5" name="rating"/>
+      <label class="rating rating-5" for="rating-5-2"><i class="em em-heart_eyes"></i></label>
+    </div>
+  </label>
+  <div class="feedback">
+    <textarea placeholder="What can we do to improve?"></textarea>
+    <input type="text" placeholder="Email"/>
+    <button class="submit">Envíe sus comentarios</button>
+  </div>
+</form>
       </div>
       
       </div>

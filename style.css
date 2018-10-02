@@ -1557,6 +1557,117 @@ display:block;
 .success_message p{
 line-height:35px;
 }
+
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.rating-wrapper {
+  max-width: 400px;
+  margin: 80px auto;
+  background: #fff;
+  padding: 1em;
+  border-radius: 3px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+}
+.rating-wrapper .rating-label {
+  text-align: center;
+  font-weight: 700;
+  display: block;
+}
+.rating-wrapper .ratingItemList {
+  max-width: 300px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  padding: 1em 0;
+}
+.rating-wrapper input.rating {
+  display: none;
+}
+.rating-wrapper label.rating {
+  padding: 5px 3px;
+  font-size: 32px;
+  -webkit-filter: grayscale(1);
+          filter: grayscale(1);
+  opacity: .7;
+  cursor: pointer;
+}
+.rating-wrapper label.rating:hover {
+  -webkit-filter: grayscale(0.84);
+          filter: grayscale(0.84);
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+  transition: 100ms ease;
+}
+.rating-wrapper input.rating:checked + label.rating {
+  -webkit-filter: grayscale(0);
+          filter: grayscale(0);
+  opacity: 1;
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.feedback {
+  width: 100%;
+  display: none;
+}
+.feedback textarea, .feedback input {
+  max-width: 300px;
+  width: 100%;
+  display: block;
+  margin: .5em auto;
+  padding: .5em;
+  font-family: 'Source Sans Pro', Arial, sans-serif;
+  border: 1px solid #d1d2d7;
+  border-radius: 3px;
+}
+.feedback textarea:focus, .feedback textarea:active, .feedback input:focus, .feedback input:active {
+  border-color: #c80000;
+  box-shadow: 0px 0px 1px 1px #c80000;
+  transition: 100ms;
+}
+.feedback textarea {
+  height: 100px;
+}
+.feedback button {
+  margin: 1em auto;
+  display: table;
+  text-align: center;
+}
+
+.cb911_logo {
+  width: 250px;
+  position: absolute;
+  top: 1em;
+  left: 50%;
+  margin-left: -125px;
+}
+
+button {
+  color: #ecedef;
+  background-color: #9a9da8;
+  border-radius: 3px;
+  font-family: 'Source Sans Pro', Arial, sans-serif;
+  border: 0;
+  padding: 9px 15px;
+  font-size: 15px;
+}
+
+button.not-disabled {
+  color: white;
+  background-color: #c80000;
+  text-shadow: 0px 1px 1px #620000;
+  cursor: pointer;
+}
+button.not-disabled:hover {
+  background-color: #950000;
+  transition: 100ms;
+}
+
 /*===============================================*/
 /* 10. PHOTO GALLERY */
 /*===============================================*/
