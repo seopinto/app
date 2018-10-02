@@ -78,14 +78,14 @@ $(document).ready(function() {
 					          		localStorage.setItem("imgData"+i+"", getURLimagenesIntereses+data[i].url);
 					          		localStorage.setItem("TiendaLocal", data[i].idTiendas);
 
-					          		html+="<div class='swiper-slide swiper-slide-active' style='background-image:url("+getURLimagenesIntereses+data[i].url+");'></div>";
+					          		html+="<div class='swiper-slide' style='background-image:url("+getURLimagenesIntereses+data[i].url+");'></div>";
 					          										  		
 							  		itemsSlider++;
 							 	}
 
 
         							
-        						$("#SliderHome").html(html + "<div class='swiper-pagination'></div></div>");
+        						$("#SliderHome").html(html + "</div><div class='swiper-pagination'></div>");
 					          	
 
 						      } 
@@ -105,11 +105,11 @@ myApp.onPageInit('index', function (page) {
 		for(var i = 0;i<itemsSlider;i++){
 			var dataImage = localStorage.getItem('imgData'+i+'');
 			
-      		html1+="<div class='swiper-slide swiper-slide-active' style='background-image:url("+dataImage+");'></div>";
+      		html1+="<div class='swiper-slide' style='background-image:url("+dataImage+");'></div>";
       						
 		}
 
-		$("#SliderHome").html(html1 + "<div class='swiper-pagination'></div></div>");
+		$("#SliderHome").html(html1 + "</div><div class='swiper-pagination'></div>");
 		
 		});
 
