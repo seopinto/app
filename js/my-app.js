@@ -64,29 +64,50 @@ $(document).ready(function() {
 						    	var yetVisited = localStorage[loginaccess.empleado];
 						    	if (!yetVisited) {
 							        localStorage[loginaccess.empleado] = loginaccess.empleado;							        
-							    }
-							    
+							    }							    
 					          	 myApp.alert('Usuario: ' + loginaccess.empleado + ', Contrasena: ' + loginaccess.contrasena, function () {
 					                myApp.closeModal('.login-screen');
-					             });	
-	
-								var html = "<div class='swiper-wrapper'>";
-								
-
+					             });		
+								var html = "<div class='swiper-wrapper'>";								
 					          	for(var i = 0;i<data.length;i++){
-
 					          		localStorage.setItem("imgData"+i+"", getURLimagenesIntereses+data[i].url);
 					          		localStorage.setItem("TiendaLocal", data[i].idTiendas);
-
-					          		html+="<div class='swiper-slide' style='background-image:url("+getURLimagenesIntereses+data[i].url+");'></div>";
-					          										  		
+					          		
+					          		html+="<div class='swiper-slide' style='background-image:url("+getURLimagenesIntereses+data[i].url+");'><div class='slider_trans'></div></div>";
 							  		itemsSlider++;
 							 	}
-
-
         							
-        						$("#SliderHome").html(html + "</div><div class='swiper-pagination'></div>");
-					          	
+        						$("#SliderHome").html(html + "</div><div class='swiper-pagination'></div>");					          	
+					          	var mySwiper = new Swiper ('.swiper-container', {
+					          		autoplay:3000,
+					          		speed: 1200,
+					          		autoplayDisableOnInteraction: false,
+
+					          		watchSlidesProgress: true,
+					                watchVisibility: true,
+
+					                // Loop
+					                loop: true,
+					                loopAdditionalSlides: 2,
+					                loopedSlides: 2,
+
+					                // Position
+					                //slidesPerView: 1, //If "auto" or slidesPerView > 1, enable watchSlidesVisibility for lazy load
+					            
+					                preloadImages: true,
+								    // Enable lazy loading
+								    lazy: true,
+					        
+
+					                // Lazy Loading 
+					                watchSlidesVisibility: true,
+					                lazyLoading: true,
+
+							    pagination: {
+							      el: '.swiper-pagination',
+										clickable: true,
+							    },
+							  })
 
 						      } 
 			                },
@@ -97,20 +118,54 @@ $(document).ready(function() {
             
          });
 
+
 myApp.onPageInit('index', function (page) {
 	
+		
+
 		var html1 = "<div class='swiper-wrapper'>";
 
 
 		for(var i = 0;i<itemsSlider;i++){
 			var dataImage = localStorage.getItem('imgData'+i+'');
 			
-      		html1+="<div class='swiper-slide' style='background-image:url("+dataImage+");'></div>";
+      		html1+="<div class='swiper-slide' style='background-image:url("+dataImage+");'><div class='slider_trans'></div></div>";
       						
 		}
 
 		$("#SliderHome").html(html1 + "</div><div class='swiper-pagination'></div>");
 		
+		var mySwiper = new Swiper ('.swiper-container', {
+					          		autoplay:3000,
+					          		speed: 1200,
+					          		autoplayDisableOnInteraction: false,
+
+					          		watchSlidesProgress: true,
+					                watchVisibility: true,
+
+					                // Loop
+					                loop: true,
+					                loopAdditionalSlides: 2,
+					                loopedSlides: 2,
+
+					                // Position
+					                //slidesPerView: 1, //If "auto" or slidesPerView > 1, enable watchSlidesVisibility for lazy load
+					            
+					                preloadImages: true,
+								    // Enable lazy loading
+								    lazy: true,
+					        
+
+					                // Lazy Loading 
+					                watchSlidesVisibility: true,
+					                lazyLoading: true,
+
+							    pagination: {
+							      el: '.swiper-pagination',
+										clickable: true,
+							    },
+							  })
+
 		});
 
 		$(".close-popup").click(function() {					  
@@ -181,17 +236,26 @@ function finduser(){
 }
 
 function finduserpqrs(){
+
+	var cliente = {numeroDocumento : $("#identification").val() }
 	$.ajax({
+
 	            url : 'https://bf1a307c.ngrok.io/clientes/'+$("#identification").val()+'',
 	            processData: false,
 	             dataType : 'json',
 	            contentType: 'application/json',
 	                method : 'post', //en este caso
-	                data : JSON.stringify(cliente),
-	                success : function(data){
-	                     if (data.id == -1) {
+	                data1 : JSON.stringify(cliente),
+	                success : function(data1){
+	                	console.log(data1);
+
+	                     if (data1.id == -1) {
 		                	//myApp.alert(data.error);
-		                	myApp.alert('El Usuario no se encuentra registrado', location.href('/registro.html'));
+
+		                	myApp.alert('El Usuario no se encuentra registrado' + '<a href="registro.html" data-view=".view-main">Registrar usuario</a>', function () {
+					                myApp.closeModal('.modal');
+					             });
+
 					    }
 	                },
 	                error: function(xhr, status, error){
