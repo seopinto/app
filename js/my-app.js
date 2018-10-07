@@ -37,6 +37,8 @@ $(document).ready(function() {
 		});
 
 
+
+
 		
 });
 
@@ -54,12 +56,14 @@ function LoginUser(){
 			            method : 'post', //en este caso
 			            data : JSON.stringify(loginaccess),
 			            success : function(data){
-			                if (data.id == 1) {
+			            	if ($('#password').val() == "" && $("#username").val() == "") {
+						       myApp.alert('Por favor ingrese el usuario y contraseña');
+						    }else if (data.id == 1) {
 			                	myApp.alert(data.error);   
 						    }else if (data.id == -1 ) {
 						        myApp.alert(data.error);
-						    }else if (data.id == -2) {
-						       myApp.alert(data.error);
+						    }else if (data.id == -1 ) {
+						        myApp.alert(data.error);
 						    }else{
 						    	
 						    	var yetVisited = localStorage[loginaccess.empleado];
@@ -137,7 +141,9 @@ function LoginUser(){
 			            method : 'post', //en este caso
 			            data : JSON.stringify(loginaccess),
 			            success : function(data){
-			                if (data.id == 1) {
+			            	if ($('#password').val() == "" && $("#username").val() == "") {
+						       myApp.alert('Por favor ingrese el usuario y contraseña');
+						    }else if (data.id == 1) {
 			                	myApp.alert(data.error);
 						    }else if (data.id == -1 ) {
 						        myApp.alert(data.error);
