@@ -14,7 +14,8 @@ html, .body, .container {
 	font-size: 1em;
 	font-family: 'Raleway', Arial, sans-serif;
 	overflow: hidden;
-	min-height: 800px;
+	overflow-y: scroll;
+	min-height: 400px;
 }
 
 
@@ -68,18 +69,18 @@ a:hover, a:focus {
 
 /* Views (fullscreen and overview)*/
 .fs-form-full {
-	top: 32%;
-	margin: 0 auto;
-	width: 70%;
+	top: 20%;
+    margin: 0 auto;
+    width: 80%;
 }
 
 .fs-form-full,
 .fs-message-error {
-	max-width: 960px;
+	max-width: 900px;
 }
 
 .fs-form-overview {
-	padding: 1.5em 10% 1.2em;
+	padding: 1em 6% 3.2em;
     width: 100%;
     height: 100%;
     background: #fffed8;
@@ -89,7 +90,7 @@ a:hover, a:focus {
 
 .fs-form-overview .fs-fields::before {
 	display: block;
-	margin-bottom: 2.5em;
+	margin-bottom: 1em;
 	color: #3b3f45;
 	content: 'Review & Submit';
 	font-weight: 700;
@@ -197,8 +198,8 @@ button.fs-continue,
 
 .fs-form-overview .fs-fields > li,
 .no-js .fs-form .fs-fields > li {
-	margin: 1em 0 2em;
-	padding: 0 0 2em 0;
+	margin: 1em 0 1em;
+    padding: 0 0 1em 0;
 	border-bottom: 2px solid rgba(0,0,0,0.1);
 }
 
@@ -558,7 +559,7 @@ button.fs-continue,
 	right: 0;
 	overflow: hidden;
 	color: rgba(0,0,0,0.4);
-	margin: 40px;
+	margin: 40px 40px 0px 0px;
 	width: 2em;
 	font-weight: 700;
 	font-size: 2em;
@@ -704,18 +705,18 @@ button.fs-continue:hover {
 
 /* Error message */
 .fs-message-error {
-	position: absolute;
-	bottom: 75%;
-	left: 50%;
-	z-index: 800;
-	max-width: 960px;
-	width: 70%;
-	color: #eb7e7f;
-	font-weight: 700;
-	font-size: 1em;
-	opacity: 0;
-	-webkit-transform: translate3d(-50%,-5px,0);
-	transform: translate3d(-50%,-5px,0);
+	    position: absolute;
+    bottom: 85%;
+    left: 44%;
+    z-index: 800;
+    max-width: 800px;
+    width: 70%;
+    color: #ff3032;
+    font-weight: 700;
+    font-size: 1em;
+    opacity: 0;
+    -webkit-transform: translate3d(-50%,-5px,0);
+    transform: translate3d(-50%,-5px,0);
 }
 
 .fs-message-error.fs-show {
