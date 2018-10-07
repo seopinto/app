@@ -1,6 +1,6 @@
 {
-  "short_name": "Mundo unico",
-  "name": "Mundo unico",
+  "short_name": "Mundo Único",
+  "name": "Mundo Único",
   "icons": [
     {
       "src": "/images/icon-192x192.png",
@@ -8,14 +8,14 @@
       "sizes": "192x192"
     },
     {
-      "src": "/images/icons-512.png",
+      "src": "/images/icon-512x512.png",
       "type": "image/png",
       "sizes": "512x512"
     }
   ],
   "start_url": "indexl.html",
-  "background_color": "#000",
+  "background_color": "#000000",
   "display": "standalone",
-  "scope": "/maps/",
-  "theme_color": "#000"
+  "scope": "",
+  "theme_color": "#000000"
 }
