@@ -329,15 +329,25 @@ function finduserpqrs(){
 	                method : 'post', //en este caso
 	                data1 : JSON.stringify(cliente),
 	                success : function(data1){
-	                	console.log(data1);
-
 	                     if (data1.id == -1) {
-		                	//myApp.alert(data.error);
-
-		                	myApp.alert('El Usuario no se encuentra registrado' + '<a href="registro.html" data-view=".view-main">Registrar usuario</a>', function () {
-					                myApp.closeModal('.modal');
-					             });
-
+		                	myApp.modal({
+							  title: 'Notificación Mundo Único',
+		            		  text: 'Señor(a) usuario usted no se encuentra registrado, por favor registrese',
+		            		  buttons: [
+						      {
+						        text: 'Cancelar',
+						        onClick: function() {
+						         myApp.closeModal();
+						        }
+						      }, 
+						      {
+						        text: 'Registrarme',
+						        onClick: function() {
+						         window.location="index.html#!/registro.html";
+						        }
+						      }
+						    ]
+		                	});   
 					    }
 	                },
 	                error: function(xhr, status, error){
@@ -368,7 +378,18 @@ myApp.onPageInit('registro', function(page){
                 method : 'post', //en este caso
                 data : JSON.stringify(cliente),
                 success : function(response){
-                      alert (" " + response );
+                      myApp.modal({
+					  title: 'Notificación Mundo Único',
+            		  text: 'Usuario registrado correctamente',
+            		  buttons: [
+				      {
+				        text: 'OK',
+				        onClick: function() {
+				         myApp.closeModal();
+				        }
+				      }
+				    ]
+                	});   
                 },
                 error: function(xhr, status, error){
                     console.log(xhr.responseText);
@@ -417,8 +438,18 @@ $$('#EnviarPQRS').click(function(){
                 method : 'POST', //en este caso
                 data : JSON.stringify(pqrsregister),
                 success : function(response){
-                	myApp.alert("Señor(a) su "+pqrsregister.pqrs+" ha sido registrada correctamente");
-                      
+                	myApp.modal({
+					  title: 'Notificación Mundo Único',
+            		  text: 'Señor(a) su '+pqrsregister.pqrs+' ha sido registrada correctamente',
+            		  buttons: [
+				      {
+				        text: 'OK',
+				        onClick: function() {
+				         myApp.closeModal();
+				        }
+				      }
+				    ]
+                	});                      
                 },
                 error: function(xhr, status, error){
                     console.log(xhr.responseText);
@@ -442,7 +473,18 @@ myApp.onPageInit('success', function(page){
                 method : 'POST', //en este caso
                 data : JSON.stringify(felregister),
                 success : function(response){
-                	myApp.alert("Su felicitación ha sido registrada correctamente");                      
+                	myApp.modal({
+					  title: 'Notificación Mundo Único',
+            		  text: 'Señor(a) su felicitación ha sido registrada correctamente',
+            		  buttons: [
+				      {
+				        text: 'OK',
+				        onClick: function() {
+				         myApp.closeModal();
+				        }
+				      }
+				    ]
+                	}); 
                 },
                 error: function(xhr, status, error){
                     console.log(xhr.responseText);
