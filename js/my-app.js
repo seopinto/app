@@ -39,6 +39,84 @@ $(document).ready(function() {
 		
 });
 
+function LoginUser(){
+
+	var loginaccess = { 
+         		empleado : $("#username").val(),
+         		contrasena : $('#password').val()
+         		};
+			        $.ajax({
+			            url : 'https://6614d187.ngrok.io/empleado/autenticacion',
+			            processData: false,
+			            dataType : 'json',
+			            contentType: 'application/json',
+			            method : 'post', //en este caso
+			            data : JSON.stringify(loginaccess),
+			            success : function(data){
+			                if (data.id == 1) {
+			                	myApp.alert(data.error);
+						    }else if (data.id == -1 ) {
+						        myApp.alert(data.error);
+						    }else if (data.id == -2) {
+						        myApp.alert(data.error);
+						    }else{
+						    	
+						    	var yetVisited = localStorage[loginaccess.empleado];
+						    	if (!yetVisited) {
+							        localStorage[loginaccess.empleado] = loginaccess.empleado;							        
+							    }
+
+							   	myApp.closeModal('.login-screen');
+					             
+								var html = "<div class='swiper-wrapper'>";								
+					          	for(var i = 0;i<data.length;i++){
+					          		localStorage.setItem("imgData"+i+"", getURLimagenesIntereses+data[i].url);
+					          		localStorage.setItem("TiendaLocal", data[i].idTiendas);
+					          		
+					          		html+="<div class='swiper-slide' style='background-image:url("+getURLimagenesIntereses+data[i].url+");'><div class='slider_trans'></div></div>";
+							  		itemsSlider++;
+							 	}
+        							
+        						$("#SliderHome").html(html + "</div><div class='swiper-pagination'></div>");					          	
+					          	var mySwiper = new Swiper ('.swiper-container', {
+					          		autoplay:3000,
+					          		speed: 1200,
+					          		autoplayDisableOnInteraction: false,
+
+					          		watchSlidesProgress: true,
+					                watchVisibility: true,
+
+					                // Loop
+					                loop: true,
+					                loopAdditionalSlides: 2,
+					                loopedSlides: 2,
+
+					                // Position
+					                //slidesPerView: 1, //If "auto" or slidesPerView > 1, enable watchSlidesVisibility for lazy load
+					            
+					                preloadImages: true,
+								    // Enable lazy loading
+								    lazy: true,
+					        
+
+					                // Lazy Loading 
+					                watchSlidesVisibility: true,
+					                lazyLoading: true,
+
+							    pagination: {
+							      el: '.swiper-pagination',
+										clickable: true,
+							    },
+							  })
+
+						      } 
+			                },
+			            error: function(xhr, status, error){
+			                console.log(xhr.responseText);
+			            }
+			        }); 
+}
+
      
          $$('.login-screen .list-button').on('click', function () {
 
