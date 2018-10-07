@@ -446,6 +446,8 @@ $$('#EnviarPQRS').click(function(){
 				        text: 'OK',
 				        onClick: function() {
 				         myApp.closeModal();
+				         document.getElementById("identification").value = "";
+				         document.getElementById("message").value = "";
 				        }
 				      }
 				    ]
