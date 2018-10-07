@@ -419,21 +419,21 @@ myApp.onPageInit('pqrs', function(page){
            
             var results = JSON.stringify(data);
             var obj = JSON.parse(results);
-            var html;
+            var html = "";
 
             for(var i = 0;i<obj.length;i++){
             	if (obj[i].imagen != null) {
             		html+="<div class='accordion-item'><div class='accordion-item-toggle'><i class='icon icon-plus'>+</i><i class='icon icon-minus'>-</i><span> "+obj[i].titulo+"</span></div><div class='accordion-item-content'><img src="+obj[i].imagen+"></div></div>";
             	}else{
             		html+="<div class='accordion-item'><div class='accordion-item-toggle'><i class='icon icon-plus'>+</i><i class='icon icon-minus'>-</i><span> "+obj[i].titulo+"</span></div><div class='accordion-item-content'><p>"+obj[i].informacion+"</p></div></div>";
-            	}			
+            	}	
 			}
 			$(".custom-accordion").html(html);
    }
 });
 
 
-$$('#EnviarPQRS').click(function(){
+$$('#SendPQRS').click(function(){
 	    var dataTienda = localStorage.getItem('TiendaLocal');
         var pqrsregister = { 
          pqrs : $('input[name=myradio]:checked', '.list-block').val(), 
