@@ -8,7 +8,7 @@ var myApp = new Framework7({
 	swipePanelOnlyClose: true,
 	pushState: true,
     template7Pages: true,
-    fastclick: false,
+    fastclick: true,
     smartSelectOpenIn:'popup',
 });
 
