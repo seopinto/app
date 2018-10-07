@@ -6,6 +6,7 @@
 
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
+ <meta name="theme-color" content="#000000">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <link rel="icon" sizes="192x192" href="images/icon-192x192.png">
 <link rel="icon" sizes="192x192" href="images/icon-512x512.png">
@@ -16,11 +17,15 @@
 
 <title>Mundo Único</title>
 <link rel="manifest" href="/manifest.json">
+<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+
 <link rel="stylesheet" href="css/framework7.css">
 <link rel="stylesheet" href="style.css">
 <link type="text/css" rel="stylesheet" href="css/swipebox.css" />
 <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700,900' rel='stylesheet' type='text/css'>
   <link rel='stylesheet' href='https://afeld.github.io/emoji-css/emoji.css'>
+  
+		<script src="js/modernizr.custom.js"></script>
 
 
 </head>
@@ -43,6 +48,7 @@
 			
 			<li><a href="pqrs.html"  class="close-panel" data-view=".view-main"><img src="images/icons/black/lock.png" alt="" title="" /><span>PQRS</span></a></li>
 			<li><a href="success.html" class="close-panel" data-view=".view-main"><img src="images/icons/black/users.png" alt="" title="" /><span>Felicitaciones</span></a></li>
+                        <li><a href="registro-2.html"     class="close-panel" data-view=".view-main"><img src="images/icons/black/users.png" alt="" title="" /><span>Felicitaciones</span></a></li>
 							
 			
 		
@@ -88,35 +94,6 @@
                   </div>
 
 
-                  <!-- <div class="swiper-container slidertoolbar swiper-init" data-effect="slide" data-parallax="true" data-pagination=".swiper-pagination" data-paginationClickable="true">
-                    <div class="swiper-wrapper">
-                    
-                      <div class="swiper-slide" style="background-image:url(images/slide.jpg);">
-		     <div class="slider_trans">
-			 <div class="slider-caption">
-				  
-			 </div>
-		      </div> 
-                       </div>
-                      <div class="swiper-slide" style="background-image:url(images/slide1.jpg);">
-			<div class="slider_trans">		  
-				<div class="slider-caption">
-				
-				</div>	
-			</div>	
-                      </div>
-                      <div class="swiper-slide" style="background-image:url(images/slide3.jpg);">
-			<div class="slider_trans">		  
-				<div class="slider-caption">
-				
-				</div>
-                       </div>
-		   </div> 		   
-                    </div>
-                    <div class="swiper-pagination"></div>
-
-                  </div> -->
-			  
 		  <div class="swiper-container-toolbar swiper-toolbar swiper-init" data-effect="slide" data-slides-per-view="5" data-slides-per-group="5" data-space-between="0" >
 			<div class="swiper-pagination-toolbar"></div>
 			<div class="swiper-wrapper">
@@ -209,11 +186,10 @@
 <script type="text/javascript" src="js/jquery.fitvids.js"></script>
 <script type="text/javascript" src="js/circlemenu.js"></script>
 <script type="text/javascript" src="js/my-app.js"></script>
- 
-<script type="text/javascript">
-
-	
-</script>
+<script src="js/classie.js"></script>
+		<script src="js/selectFx.js"></script>
+		<script src="js/fullscreenForm.js"></script>
+ 		
 
   </body>
 </html>
