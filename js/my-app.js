@@ -55,11 +55,11 @@ function LoginUser(){
 			            data : JSON.stringify(loginaccess),
 			            success : function(data){
 			                if (data.id == 1) {
-			                	myApp.alert(data.error);
+			                	myApp.alert(data.error);   
 						    }else if (data.id == -1 ) {
 						        myApp.alert(data.error);
 						    }else if (data.id == -2) {
-						        myApp.alert(data.error);
+						       myApp.alert(data.error);
 						    }else{
 						    	
 						    	var yetVisited = localStorage[loginaccess.empleado];
@@ -67,6 +67,10 @@ function LoginUser(){
 							        localStorage[loginaccess.empleado] = loginaccess.empleado;							        
 							    }
 
+							   	myApp.showPreloader('Cargando')
+							    setTimeout(function () {
+							        myApp.hidePreloader();
+							    }, 180);
 							   	myApp.closeModal('.login-screen');
 					             
 								var html = "<div class='swiper-wrapper'>";								
@@ -149,7 +153,7 @@ function LoginUser(){
 							    myApp.showPreloader('Cargando')
 							    setTimeout(function () {
 							        myApp.hidePreloader();
-							    }, 2000);
+							    }, 180);
 							   	myApp.closeModal('.login-screen');
 					             
 								var html = "<div class='swiper-wrapper'>";								

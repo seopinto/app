@@ -101,7 +101,7 @@
             modalButtonCancel: 'Cancel',
             modalUsernamePlaceholder: 'Username',
             modalPasswordPlaceholder: 'Password',
-            modalTitle: 'Framework7',
+            modalTitle: 'Notificación Mundo Único',
             modalCloseByOutside: false,
             actionsCloseByOutside: true,
             popupCloseByOutside: true,
