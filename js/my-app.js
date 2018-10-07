@@ -146,6 +146,10 @@ function LoginUser(){
 							        localStorage[loginaccess.empleado] = loginaccess.empleado;							        
 							    }
 
+							    myApp.showPreloader('Cargando')
+							    setTimeout(function () {
+							        myApp.hidePreloader();
+							    }, 2000);
 							   	myApp.closeModal('.login-screen');
 					             
 								var html = "<div class='swiper-wrapper'>";								
@@ -343,7 +347,7 @@ function finduserpqrs(){
 						      {
 						        text: 'Registrarme',
 						        onClick: function() {
-						         window.location="index.html#!/registro.html";
+						         mainView.router.loadPage('registro.html');
 						        }
 						      }
 						    ]
