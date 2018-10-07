@@ -61,14 +61,14 @@ $(document).ready(function() {
 						    }else if (data.id == -2) {
 						        myApp.alert(data.error);
 						    }else{
-						    	console.log(data.idTiendas);
+						    	
 						    	var yetVisited = localStorage[loginaccess.empleado];
 						    	if (!yetVisited) {
 							        localStorage[loginaccess.empleado] = loginaccess.empleado;							        
-							    }							    
-					          	 myApp.alert('Usuario: ' + loginaccess.empleado + ', Contrasena: ' + loginaccess.contrasena, function () {
-					                myApp.closeModal('.login-screen');
-					             });		
+							    }
+
+							   	myApp.closeModal('.login-screen');
+					             
 								var html = "<div class='swiper-wrapper'>";								
 					          	for(var i = 0;i<data.length;i++){
 					          		localStorage.setItem("imgData"+i+"", getURLimagenesIntereses+data[i].url);
