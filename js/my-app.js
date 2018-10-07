@@ -10,13 +10,14 @@ var myApp = new Framework7({
     template7Pages: true,
     fastclick: true,
     smartSelectOpenIn:'popup',
+    touch: { tapHold: true},
 });
 
 // Export selectors engine
 var $$ = Dom7;
 
 var itemsSlider = 0;
-var getURLimagenesIntereses = "https://6614d187.ngrok.io/multimedia/verImagenes/";
+var getURLimagenesIntereses = "https://35.231.135.74:80/multimedia/verImagenes/";
 
 // Add main View
 var mainView = myApp.addView('.view-main', {
@@ -46,7 +47,7 @@ function LoginUser(){
          		contrasena : $('#password').val()
          		};
 			        $.ajax({
-			            url : 'https://6614d187.ngrok.io/empleado/autenticacion',
+			            url : 'https://35.231.135.74:80/empleado/autenticacion',
 			            processData: false,
 			            dataType : 'json',
 			            contentType: 'application/json',
@@ -125,7 +126,7 @@ function LoginUser(){
          		contrasena : $('#password').val()
          		};
 			        $.ajax({
-			            url : 'https://6614d187.ngrok.io/empleado/autenticacion',
+			            url : 'https://35.231.135.74:80/empleado/autenticacion',
 			            processData: false,
 			            dataType : 'json',
 			            contentType: 'application/json',
@@ -290,7 +291,7 @@ function finduser(){
 
 	var cliente = {numeroDocumento : $("#numeroDocumento").val() }
 	$.ajax({
-	            url : 'https://6614d187.ngrok.io/clientes/'+$("#numeroDocumento").val()+'',
+	            url : 'https://35.231.135.74:80/clientes/'+$("#numeroDocumento").val()+'',
 	            processData: false,
 	             dataType : 'json',
 	            contentType: 'application/json',
@@ -321,7 +322,7 @@ function finduserpqrs(){
 	var cliente = {numeroDocumento : $("#identification").val() }
 	$.ajax({
 
-	            url : 'https://6614d187.ngrok.io/clientes/'+$("#identification").val()+'',
+	            url : 'https://35.231.135.74:80/clientes/'+$("#identification").val()+'',
 	            processData: false,
 	             dataType : 'json',
 	            contentType: 'application/json',
@@ -360,7 +361,7 @@ myApp.onPageInit('registro', function(page){
          sexo : $('#sexo').val(), 
          telefono : $('#telefono').val()};
         $.ajax({
-                url : 'https://6614d187.ngrok.io/clientes',
+                url : 'https://35.231.135.74:80/clientes',
             processData: false,
              dataType : 'json',
             contentType: 'application/json',
@@ -382,7 +383,7 @@ myApp.onPageInit('pqrs', function(page){
     
  $$.ajax({ 
     type: 'GET', 
-    url: 'https://6614d187.ngrok.io/preguntasTienda',
+    url: 'https://35.231.135.74:80/preguntasTienda',
     data: { get_param: 'value' }, 
     dataType: 'json',
     success: function (data) { 
@@ -409,7 +410,7 @@ $$('#EnviarPQRS').click(function(){
          pqrs : $('input[name=myradio]:checked', '.list-block').val(), 
          nota : $('#message').val()};
         $.ajax({
-                url : 'https://6614d187.ngrok.io/pqrs/tienda/'+dataTienda+'/cliente/'+$("#identification").val(),
+                url : 'https://35.231.135.74:80/pqrs/tienda/'+dataTienda+'/cliente/'+$("#identification").val(),
             processData: false,
              dataType : 'json',
             contentType: 'application/json',
@@ -434,7 +435,7 @@ myApp.onPageInit('success', function(page){
         var felregister = { 
          puntaje : $('input[name=rating]:checked', '.ratingItemList').val()};
         $.ajax({
-                url : 'https://6614d187.ngrok.io/felicitaciones/tienda/'+dataTienda+'/cliente/'+$("#identification").val(),
+                url : 'https://35.231.135.74:80/felicitaciones/tienda/'+dataTienda+'/cliente/'+$("#identification").val(),
             processData: false,
              dataType : 'json',
             contentType: 'application/json',
