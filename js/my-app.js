@@ -62,7 +62,7 @@ function LoginUser(){
 			                	myApp.alert(data.error);   
 						    }else if (data.id == -1 ) {
 						        myApp.alert(data.error);
-						    }else if (data.id == -1 ) {
+						    }else if (data.id == -2 ) {
 						        myApp.alert(data.error);
 						    }else{
 						    	
