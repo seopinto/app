@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>React Emoticon Satisfaction Rating</title>
+  
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.js"></script>
+	<script src="https://unpkg.com/react@15/dist/react-with-addons.js"></script>
+  	<script src="https://fb.me/react-0.14.3.js"></script>
+	<script src="https://fb.me/react-dom-0.14.3.js"></script>
+  
+	<link rel='stylesheet' href='https://cdn.materialdesignicons.com/2.7.94/css/materialdesignicons.min.css'>
+	<link rel="stylesheet" href="css/styleE.css">
+
+</head>
+
+<body>
+
+ <div id="root"></div>
+ <script type="text/babel">
+	const Emoticons = props => {
+  const { hover_rating, selected_rating } = props;
+
+  let mouth = "";
+  switch (selected_rating) {
+    case 1:
+      mouth = "shock";
+      break;
+    case 2:
+      mouth = "sad";
+      break;
+    case 3:
+      mouth = "flat";
+      break;
+    case 4:
+      mouth = "smile";
+      break;
+    case 5:
+      mouth = "happy";
+      break;
+    default:
+      mouth = "smile";
+  }
+  
+
+  return (
+	<div className="face">
+      <div className="eye" />
+      <div className="mouth">
+        <div className={mouth} />
+      </div>
+      <div className="eye" />
+    </div>
+  );
+	};
+
+/* Star-Rating Component */
+
+const Stars = props => {
+  const {
+    selected_rating,
+    hover_rating,
+    clicky,
+    onMouseOver,
+    onMouseOut
+  } = props;
+
+  let stars = [];
+  let counter = 0;
+  let i = 1;
+  while (counter < props.max) {
+    if (selected_rating >= i || hover_rating >= i) {
+      stars.push("mdi mdi-star");
+    } else {
+      stars.push("mdi mdi-star-outline");
+    }
+
+    counter++;
+    i++;
+  }
+
+  return (
+    <div className="rating-holder">
+      <div className="rating-bar">
+        {stars.map((star, index) => {
+          return (
+            <span
+              key={index + 1}
+              className={star}
+              onClick={() => clicky(index + 1)}
+              onMouseOver={() => onMouseOver(index + 1)}
+              onMouseOut={onMouseOut}
+            />
+          );
+        })}
+      </div>
+    </div>
+  );
+};
+
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      hover_rating: 4,
+      selected_rating: 4
+    };
+  }
+
+  onClick = i => {
+    console.log(i);
+    this.setState({
+      selected_rating: i
+    });
+  };
+
+  onMouseOver = i => {
+    this.setState({
+      hover_rating: i
+    });
+  };
+
+  onMouseOut = () => {
+    this.setState({
+      hover_rating: 0
+    });
+  };
+
+  render() {
+    let background = "";
+    switch (this.state.selected_rating) {
+      case 1:
+        background = "shock-face";
+        break;
+      case 2:
+        background = "sad-face";
+        break;
+      case 3:
+        background = "flat-face";
+        break;
+      case 4:
+        background = "smile-face";
+        break;
+      case 5:
+        background = "happy-face";
+        break;
+      default:
+        background = "flat-face";
+    }
+
+    return (
+      <div className={"App ".concat(background)}>
+        <Emoticons
+          hover_rating={this.state.hover_rating}
+          selected_rating={this.state.selected_rating}
+        />
+
+        <p className="text">Calificanos tu experiencia</p>
+        <Stars
+          max={5}
+          hover_rating={this.state.hover_rating}
+          selected_rating={this.state.selected_rating}
+          clicky={this.onClick}
+          onMouseOver={this.onMouseOver}
+          onMouseOut={this.onMouseOut}
+        />
+
+        <p className="footer">Inspired by <a href="https://dribbble.com/shots/3828382-Feedback/">Adip Nayak</a></p>
+      </div>
+    );
+  }
+}
+  ReactDOM.render(<App />, document.getElementById("root"));
+   </script>
+
+</body>
+</html>
