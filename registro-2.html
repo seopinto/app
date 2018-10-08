@@ -1,5 +1,5 @@
 <div class="pages">
-  <div data-page="registro2" class="page no-toolbar no-navbar">
+  <div data-page="registro" class="page no-toolbar no-navbar">
     <div class="page-content">
     
 	<div class="navbarpages graybg">
@@ -12,78 +12,231 @@
 				
 	</div>
 	
-     <div class="body" >
+     <div id="pages_maincontent">
      
               <h2 class="page_title"> REGISTRO USUARIO</h2> 
      
-     <div class="page_single ">
+     <div class="page_single layout_fullwidth_padding">
 
-            
-		<div class="container">
-
-			<div class="fs-form-wrap" id="fs-form-wrap">
-			
-				<form id="myform" class="fs-form fs-form-full" autocomplete="off">
-					<ol class="fs-fields">
-						<li>
-							<label class="fs-field-label fs-anim-upper" for="q1">What's your name?</label>
-							<input class="fs-anim-lower" id="q1" name="q1" type="text" placeholder="Dean Moriarty" required/>
-						</li>
-						<li>
-							<label class="fs-field-label fs-anim-upper" for="q2" data-info="We won't send you spam, we promise...">What's your email address?</label>
-							<input class="fs-anim-lower" id="q2" name="q2" type="email" placeholder="dean@road.us" required/>
-						</li>
-						<li data-input-trigger>
-							<label class="fs-field-label fs-anim-upper" for="q3" data-info="This will help us know what kind of service you need">What's your priority for your new website?</label>
-							<div class="fs-radio-group fs-radio-custom clearfix fs-anim-lower">
-								<span><input id="q3b" name="q3" type="radio" value="conversion"/><label for="q3b" class="radio-conversion">Sell things</label></span>
-								<span><input id="q3c" name="q3" type="radio" value="social"/><label for="q3c" class="radio-social">Become famous</label></span>
-								<span><input id="q3a" name="q3" type="radio" value="mobile"/><label for="q3a" class="radio-mobile">Mobile market</label></span>
-							</div>
-						</li>
-						<li data-input-trigger>
-							<label class="fs-field-label fs-anim-upper" data-info="We'll make sure to use it all over">Choose a color for your website.</label>
-							<select class="cs-select cs-skin-boxes fs-anim-lower">
-								<option value="" disabled selected>Pick a color</option>
-								<option value="#588c75" data-class="color-588c75">#588c75</option>
-								<option value="#b0c47f" data-class="color-b0c47f">#b0c47f</option>
-								<option value="#f3e395" data-class="color-f3e395">#f3e395</option>
-								<option value="#f3ae73" data-class="color-f3ae73">#f3ae73</option>
-								<option value="#da645a" data-class="color-da645a">#da645a</option>
-								<option value="#79a38f" data-class="color-79a38f">#79a38f</option>
-								<option value="#c1d099" data-class="color-c1d099">#c1d099</option>
-								<option value="#f5eaaa" data-class="color-f5eaaa">#f5eaaa</option>
-								<option value="#f5be8f" data-class="color-f5be8f">#f5be8f</option>
-								<option value="#e1837b" data-class="color-e1837b">#e1837b</option>
-								<option value="#9bbaab" data-class="color-9bbaab">#9bbaab</option>
-								<option value="#d1dcb2" data-class="color-d1dcb2">#d1dcb2</option>
-								<option value="#f9eec0" data-class="color-f9eec0">#f9eec0</option>
-								<option value="#f7cda9" data-class="color-f7cda9">#f7cda9</option>
-								<option value="#e8a19b" data-class="color-e8a19b">#e8a19b</option>
-								<option value="#bdd1c8" data-class="color-bdd1c8">#bdd1c8</option>
-								<option value="#e1e7cd" data-class="color-e1e7cd">#e1e7cd</option>
-								<option value="#faf4d4" data-class="color-faf4d4">#faf4d4</option>
-								<option value="#fbdfc9" data-class="color-fbdfc9">#fbdfc9</option>
-								<option value="#f1c1bd" data-class="color-f1c1bd">#f1c1bd</option>
-							</select>
-						</li>
-						<li>
-							<label class="fs-field-label fs-anim-upper" for="q4">Describe how you imagine your new website</label>
-							<textarea class="fs-anim-lower" id="q4" name="q4" placeholder="Describe here"></textarea>
-						</li>
-						<li>
-							<label class="fs-field-label fs-anim-upper" for="q5">What's your budget?</label>
-							<input class="fs-mark fs-anim-lower" id="q5" name="q5" type="number" placeholder="1000" step="100" min="100"/>
-						</li>
-					</ol><!-- /fs-fields -->
-					<button class="fs-submit" type="submit">Send answers</button>
-				</form><!-- /fs-form -->
-			</div><!-- /fs-form-wrap -->
-
-
-		</div><!-- /container -->
-        </div>
+            <!--    <div class="contactform">
+                <form>
+                <div class="form_row">
+                <label>Primer nombre:</label>
+                <input id="primerNombre" type="text" name="name" value="" class="form_input" placeholder="" />
+                <label>Segundo nombre:</label>
+                <input id="segundoNombre" type="text" name="name" value="" class="form_input" />
+                </div>
+                <div class="form_row">
+                <label>Primer apellido:</label>
+                <input id="primerApellido" type="text" name="name" value="" class="form_input" placeholder="" />
+                <label>Segundo apellido:</label>
+                <input id="segundoApellido" type="text" name="name" value="" class="form_input" />
+                </div>
+                
+                <div class="form_row">
+                <label>Correo Electronico:</label>
+                <input type="text" name="email" value="" class="form_input" required validate/>
+                </div>
+                  <div class="form_row">
+                <label>Telefono:</label>
+                <input type="tel" name="telephone" required validate pattern="[0-9]*" data-error-message="Solo numeros" value="" class="form_input" />
+               
+                </div>
+      
+                <div class="form_row">
+                
+                        <label>Sexo:</label>
+                        <div class="form_row_right">
+                          <label class="label-checkbox item-content">
+                           
+                            <input type="checkbox" name="my-checkbox" value="Books" checked="checked">
+                            <div class="item-media">
+                              <i class="icon icon-form-checkbox"></i>
+                            </div>
+                            <div class="item-inner">
+                              <div class="item-title">M</div>
+                            </div>
+                          </label>
+        
+                          <label class="label-checkbox item-content">
+                            <input type="checkbox" name="my-checkbox" value="Movies">
+                            <div class="item-media">
+                              <i class="icon icon-form-checkbox"></i>
+                            </div>
+                            <div class="item-inner">
+                              <div class="item-title">F</div>
+                            </div>
+                          </label>
+                       </div>
           
+                </div>
+           
+                   <div class="form_row">  
+                 	 <label>Acepta Terminos y condiciones?</label>
+                     <div class="form_row_right">        
+                      <div class="item-content">
+                        <div class="item-inner">
+                          <div class="item-title">Sí/No</div>
+                          <div class="item-input">
+                            <label class="label-switch">
+                              <input type="checkbox">
+                              <div class="checkbox"></div>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                      </div>
+                 </div>
+                 
+                <input type="submit" name="submit" class="form_submit" id="submit" value="Registrar" />
+                </form>
+                </div>-->
+                
+                 <div class="list-block">
+                <ul>
+                     <li>
+                    <div class="item-content">
+                      <div class="item-media"><i class="icon icon-form-tel"></i></div>
+                      <div class="item-inner"> 
+                        <div class="item-title label">Número de documento</div>
+                        <div class="item-input">
+                          <input onblur="finduser()" id="numeroDocumento" type="number" placeholder="Ingrese su número de documento">
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="item-content">
+                      <div class="item-media"><i class="icon icon-form-name"></i></div>
+                      <div class="item-inner"> 
+                        <div class="item-title label"> Primer Nombre</div>
+                        <div class="item-input">
+                          <input  id="primerNombre" type="text" placeholder="Ingrese su primer nombre">
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                        <li>
+                    <div class="item-content">
+                      <div class="item-media"><i class="icon icon-form-name"></i></div>
+                      <div class="item-inner"> 
+                        <div class="item-title label"> Segundo Nombre</div>
+                        <div class="item-input">
+                          <input  id="segundoNombre" type="text" placeholder="Ingrese su segundo nombre">
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                          <li>
+                    <div class="item-content">
+                      <div class="item-media"><i class="icon icon-form-name"></i></div>
+                      <div class="item-inner"> 
+                        <div class="item-title label"> Primer apellido</div>
+                        <div class="item-input">
+                          <input  id="primerApellido" type="text" placeholder="Ingrese su primer apellido">
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                        <li>
+                    <div class="item-content">
+                      <div class="item-media"><i class="icon icon-form-name"></i></div>
+                      <div class="item-inner"> 
+                        <div class="item-title label"> Segundo Apellido</div>
+                        <div class="item-input">
+                          <input  id="segundoApellido" type="text" placeholder="Ingrese su segundo apellido">
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="item-content">
+                      <div class="item-media"><i class="icon icon-form-email"></i></div>
+                      <div class="item-inner"> 
+                        <div class="item-title label">Correo Electronico</div>
+                        <div class="item-input">
+                          <input id="correo" type="email" placeholder="Ingrese su correo electrónico">
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+         
+                  
+                  <li>
+                    <div class="item-content">
+                      <div class="item-media"><i class="icon icon-form-tel"></i></div>
+                      <div class="item-inner"> 
+                        <div class="item-title label">Teléfono</div>
+                        <div class="item-input">
+                          <input  id="telefono" type="tel" placeholder="Ingrese su número teléfonico">
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+
+
+
+                    <div class="item-content">
+                      <div class="item-media"><i class="icon icon-form-gender"></i></div>
+                      <div class="item-inner"> 
+                        <a href="#" class="item-link smart-select">
+                          <select name="fruits">
+                            <option value="apple" selected data-option-image="http://lorempixel.com/29/29/">Masculino</option>
+                            <option value="pineapple" data-option-image="http://lorempixel.com/29/29/?2">Femenino</option>
+                            ...
+                          </select>
+                          <div class="item-content">
+                            <div class="item-inner">
+                              <div class="item-title">Género</div>
+                            </div>
+                          </div>
+                        </a>   
+
+      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="item-content">
+                      <div class="item-media"><i class="icon icon-form-calendar"></i></div>
+                      <div class="item-inner"> 
+                        <div class="item-title label">Fecha de cumpleaños</div>
+                        <div class="item-input">
+                          <input type="date" placeholder="Cumpleaños">
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="item-content">
+                      <div class="item-media"><i class="icon icon-form-toggle"></i></div>
+                      <div class="item-inner"> 
+                        <div class="item-title label">Acepta terminos y condiciones ?</div>
+                        <div class="item-input">
+                          <label class="label-switch">
+                            <input type="checkbox">
+                            <div class="checkbox"></div>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                          
+
+                </ul>
+         <div class="content-block">
+                <div class="row">
+                  <div class="col-50"><a href="#" class="button button-big button-fill color-red">Cancel</a></div>
+                  <div class="col-50">
+                    <input type="submit"  id="registrar" value="registrar" class="button button-big button-fill color-green">
+                  </div>
+                </div>
+              </div>
+              </div>
+
+              
+              
+              </div>
       
       </div>
       

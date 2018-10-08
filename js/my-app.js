@@ -35,10 +35,6 @@ $(document).ready(function() {
 		$(".close-popup").click(function() {					  
 			$("label.error").hide();
 		});
-
-
-
-
 		
 });
 
@@ -213,12 +209,9 @@ function LoginUser(){
          });
 
 
-myApp.onPageInit('index', function (page) {
-	
-		
+myApp.onPageInit('index', function (page) {		
 
 		var html1 = "<div class='swiper-wrapper'>";
-
 
 		for(var i = 0;i<itemsSlider;i++){
 			var dataImage = localStorage.getItem('imgData'+i+'');
@@ -303,9 +296,9 @@ myApp.onPageInit('blog', function (page) {
 
 function finduser(){
 
-	var cliente = {numeroDocumento : $("#numeroDocumento").val() }
+	var cliente = {numeroDocumento : $("#q1").val() }
 	$.ajax({
-	            url : 'http://35.231.135.74:80/clientes/'+$("#numeroDocumento").val()+'',
+	            url : 'http://35.231.135.74:80/clientes/'+$("#q1").val()+'',
 	            processData: false,
 	             dataType : 'json',
 	            contentType: 'application/json',
@@ -315,13 +308,12 @@ function finduser(){
 	                     if (data.id == -1) {
 		                	myApp.alert(data.error);
 					    }else{
-					    	$("#primerNombre").val(data.primerNombre);	
-					    	$("#segundoNombre").val(data.segundoNombre);	
-					    	$("#primerApellido").val(data.primerApellido);	
-					    	$("#segundoApellido").val(data.segundoApellido);	
-					    	$("#correo").val(data.correo);	
-					    	$("#sexo").val(data.sexo);	
-					    	$("#telefono").val(data.telefono);	
+					    	$("#q2").val(data.primerNombre);	
+					    	$("#q3").val(data.segundoNombre);	
+					    	$("#q4").val(data.primerApellido);	
+					    	$("#q5").val(data.segundoApellido);	
+					    	$("#q6").val(data.correo);	
+					    	$("#q7").val(data.telefono);	
 					    }
 	                },
 	                error: function(xhr, status, error){
@@ -333,10 +325,10 @@ function finduser(){
 
 function finduserpqrs(){
 
-	var cliente = {numeroDocumento : $("#identification").val() }
+	var cliente = {numeroDocumento : $("#q1").val() }
 	$.ajax({
 
-	            url : 'http://35.231.135.74:80/clientes/'+$("#identification").val()+'',
+	            url : 'http://35.231.135.74:80/clientes/'+$("#q1").val()+'',
 	            processData: false,
 	             dataType : 'json',
 	            contentType: 'application/json',
@@ -352,6 +344,8 @@ function finduserpqrs(){
 						        text: 'Cancelar',
 						        onClick: function() {
 						         myApp.closeModal();
+						         $('.fs-continue').attr("disabled", true);
+						         document.getElementById("q3").readOnly = true; 
 						        }
 						      }, 
 						      {
@@ -372,49 +366,68 @@ function finduserpqrs(){
 }
 
 
-myApp.onPageInit('registro', function(page){
+// myApp.onPageInit('registro', function(page){
     
-  $$('#registrar').click(function(){
-        var cliente = { 
-         numeroDocumento : $("#numeroDocumento").val(),
-         primerNombre : $('#primerNombre').val(), 
-         segundoNombre : $('#segundoNombre').val(), 
-         primerApellido : $('#primerApellido').val(),
-         segundoApellido : $('#segundoApellido').val(), 
-         correo : $('#correo').val(), 
-         sexo : $('#sexo').val(), 
-         telefono : $('#telefono').val()};
-        $.ajax({
-                url : 'http://35.231.135.74:80/clientes',
-            processData: false,
-             dataType : 'json',
-            contentType: 'application/json',
-                method : 'post', //en este caso
-                data : JSON.stringify(cliente),
-                success : function(response){
-                      myApp.modal({
-					  title: 'Notificación Mundo Único',
-            		  text: 'Usuario registrado correctamente',
-            		  buttons: [
-				      {
-				        text: 'OK',
-				        onClick: function() {
-				         myApp.closeModal();
-				        }
-				      }
-				    ]
-                	});   
-                },
-                error: function(xhr, status, error){
-                    console.log(xhr.responseText);
-                }
-        });
-});  
+//   $$('#registrar').click(function(){
+//         var cliente = { 
+//          numeroDocumento : $("#q1").val(),
+//          primerNombre : $('#q2').val(), 
+//          segundoNombre : $('#q3').val(), 
+//          primerApellido : $('#q4').val(),
+//          segundoApellido : $('#q5').val(), 
+//          correo : $('#q6').val(), 
+//          telefono : $('#q7').val(),
+//          sexo : $('input[name=q8]:checked', '.fs-form-wrap').val()};
+//         $.ajax({
+//                 url : 'http://35.231.135.74:80/clientes',
+//             processData: false,
+//              dataType : 'json',
+//             contentType: 'application/json',
+//                 method : 'post', //en este caso
+//                 data : JSON.stringify(cliente),
+//                 success : function(response){
+//                       myApp.modal({
+// 					  title: 'Notificación Mundo Único',
+//             		  text: 'Usuario registrado correctamente',
+//             		  buttons: [
+// 				      {
+// 				        text: 'OK',
+// 				        onClick: function() {
+// 				         myApp.closeModal();
+// 				        }
+// 				      }
+// 				    ]
+//                 	});   
+//                 },
+//                 error: function(xhr, status, error){
+//                     console.log(xhr.responseText);
+//                 }
+//         });
+// });  
     
-})
+// })
 
 
 myApp.onPageInit('pqrs', function(page){
+
+	(function() {
+				var formWrap = document.getElementById( 'fs-form-wrap' );
+
+				[].slice.call( document.querySelectorAll( 'select.cs-select' ) ).forEach( function(el) {	
+					new SelectFx( el, {
+						stickyPlaceholder: false,
+						onChange: function(val){
+							document.querySelector('span.cs-placeholder').style.backgroundColor = val;
+						}
+					});
+				} );
+
+				new FForm( formWrap, {
+					onReview : function() {
+						classie.add( document.body, 'overview' ); // for demo purposes only
+					}
+				} );
+			})();
     
  $$.ajax({ 
     type: 'GET', 
@@ -442,10 +455,10 @@ myApp.onPageInit('pqrs', function(page){
 $$('#SendPQRS').click(function(){
 	    var dataTienda = localStorage.getItem('TiendaLocal');
         var pqrsregister = { 
-         pqrs : $('input[name=myradio]:checked', '.list-block').val(), 
-         nota : $('#message').val()};
+         pqrs : $('input[name=q2]:checked', '.fs-form-wrap').val(),
+         nota : $('#q3').val()};
         $.ajax({
-                url : 'http://35.231.135.74:80/pqrs/tienda/'+dataTienda+'/cliente/'+$("#identification").val(),
+                url : 'http://35.231.135.74:80/pqrs/tienda/'+dataTienda+'/cliente/'+$("#q1").val(),
             processData: false,
              dataType : 'json',
             contentType: 'application/json',
@@ -460,8 +473,7 @@ $$('#SendPQRS').click(function(){
 				        text: 'OK',
 				        onClick: function() {
 				         myApp.closeModal();
-				         document.getElementById("identification").value = "";
-				         document.getElementById("message").value = "";
+				         mainView.router.loadPage('index.html');
 				        }
 				      }
 				    ]
@@ -576,6 +588,46 @@ myApp.onPageInit('registro2', function (page){
 					}
 				} );
 			})();
+
+
+ $$('#registrar').click(function(){
+        var cliente = { 
+         numeroDocumento : $("#q1").val(),
+         primerNombre : $('#q2').val(), 
+         segundoNombre : $('#q3').val(), 
+         primerApellido : $('#q4').val(),
+         segundoApellido : $('#q5').val(), 
+         correo : $('#q6').val(), 
+         sexo : $('input[name=q8]:checked', '.fs-form-wrap').val(),
+         telefono : $('#q7').val()
+     };
+
+       $.ajax({
+            url : 'http://35.231.135.74:80/clientes',
+            processData: false,
+            dataType : 'json',
+            contentType: 'application/json',
+            method : 'post', //en este caso
+            data : JSON.stringify(cliente),
+                success : function(response){
+                      myApp.modal({
+					  title: 'Notificación Mundo Único',
+            		  text: 'Usuario registrado correctamente',
+            		  buttons: [
+				      {
+				        text: 'OK',
+				        onClick: function() {
+				        mainView.router.loadPage('index.html');
+				        }
+				      }
+				    ]
+                	});   
+                },
+                error: function(xhr, status, error){
+                    console.log(xhr.responseText);
+                }
+        });
+}); 
     
 })
 

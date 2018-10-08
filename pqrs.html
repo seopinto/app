@@ -16,99 +16,56 @@
 		</a>
 				
 	</div>
+    
+    <div class="body1" >
+     
+                  
      <div id="pages_maincontent">
+
+      <div class="page_single layout_fullwidth_padding">
+
+        <h2 class="page_title">Peticiones, Quejas, Reclamos y Sugerencias</h2>
+<div class="custom-accordion">            
+              </div>
+      </div>
+     
+
+  <div class="container">
+     <div class="fs-form-wrap" id="fs-form-wrap" style="background: #c5c5c5; margin: 60px 0 0 0;">
       
-          <h2 class="page_title">PQRS</h2>
-          
-	<div class="page_single layout_fullwidth_padding">
+        <form id="myform" class="fs-form fs-form-full" autocomplete="off">
+          <ol class="fs-fields">
+            <li>
+              <label class="fs-field-label fs-anim-upper" for="q1">Cual es tu Número de documento ?</label>
+              <input class="fs-anim-lower" id="q1" name="q1" type="number" placeholder="Ingrese su numéro de documento" onblur="finduserpqrs()" required/>
+            </li>
+            <li data-input-trigger>
+              <label class="fs-field-label fs-anim-upper" for="q2" data-info="This will help us know what kind of service you need">Cual es tu asunto de Interés?</label>
+              <div class="fs-radio-group fs-radio-custom clearfix fs-anim-lower">
+                <span><input id="q2b" name="q2" type="radio" value="Peticion"/><label for="q2b" class="radio-conversion">Petición</label></span>
+                <span><input id="q2a" name="q2" type="radio" value="Queja"/><label for="q2a" class="radio-mobile">Queja</label></span>
+                <span><input id="q2c" name="q2" type="radio" value="Reclamo"/><label for="q2c" class="radio-mobile">Reclamo</label></span>
+                <span><input id="q2d" name="q2" type="radio" value="Sugerencia"/><label for="q2d" class="radio-mobile">Sugerencia</label></span>
+              </div>
+            </li>
+            <li>
+              <label class="fs-field-label fs-anim-upper" for="q3">Escribe tu mensaje</label>
+              <textarea class="fs-anim-lower" id="q3" name="q3" placeholder="Describre tu mensaje aquí"></textarea>
+            </li>
+          </ol><!-- /fs-fields -->
+          <button  id="SendPQRS" class="fs-submit" type="button">Guardar registro</button>
+          <!-- <input type="submit"  id="registrar" value="registrar" class="button button-big button-fill color-green"> -->
+        </form><!-- /fs-form -->
+      </div><!-- /fs-form-wrap -->
 
-                        <div class="custom-accordion">
-                        
-                          
-                        
-                          
-                          
-                          
 
-                        </div> 
-                                <div class="contactform">
-                                 <form>
-              
-                 <div class="form_row">
-                <label>Documento:</label>
-                <input id="identification" type="number" name="documento" required validate  data-error-message="Solo numeros" class="form_input" onblur="finduserpqrs()" />
-               
-                </div>
-                <div class="list-block">
-                  <ul>
-                    <!-- Single radio input -->
-                    <li>
-                      <label class="label-radio item-content">
-                        <!-- Checked by default -->
-                        <input type="radio" name="myradio" value="Peticion" checked="checked">
-                        <div class="item-media">
-                          <i class="icon icon-form-radio"></i>
-                        </div>
-                        <div class="item-inner">
-                          <div class="item-title">Petición</div>
-                        </div>
-                      </label>
-                    </li>
-                  <li>
-                      <label class="label-radio item-content">
-                        <!-- Checked by default -->
-                        <input type="radio" name="myradio" value="Reclamo" checked="checked">
-                        <div class="item-media">
-                          <i class="icon icon-form-radio"></i>
-                        </div>
-                       <div class="item-inner">
-                          <div class="item-title">Reclamo</div>
-                        </div>
-                      </label>
-                    </li>
-                    <!-- Another radio input -->
-                    <li>
-                      <label class="label-radio item-content">
-                        <input type="radio" name="myradio" value="Queja">
-                        <div class="item-media">
-                          <i class="icon icon-form-radio"></i>
-                        </div>
-                             <div class="item-inner">
-                          <div class="item-title">Queja</div>
-                        </div>   
-                        
-                      </label>
-                    </li>
-                     <li>
-                      <label class="label-radio item-content">
-                        <input type="radio" name="myradio" value="Sugerencia">
-                        <div class="item-media">
-                          <i class="icon icon-form-radio"></i>
-                        </div>
-                          
-                          <div class="item-inner">
-                          <div class="item-title">Sugerencia</div>
-                        </div>   
-                        
-                      </label>
-                    </li>
-                    
-                  </ul>
-                </div>    
-                 
-                <div class="form_row"> 
-               <label>Message:</label>
-                <textarea id="message" name="message" class="form_textarea" rows="" cols="">Mensaje</textarea>
-                </div>
-                
-                
-                <input name="submit" class="form_submit" id="SendPQRS" value="Enviar" />
-                </form> 
+    </div><!-- /container -->
+
+   
+ 
 
         </div>
-              </div> <!--end of page single-->
-              
-      
+          
       
       </div>
       
