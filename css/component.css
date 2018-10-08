@@ -7,7 +7,10 @@ html, .body, .body1 ,.container {
 }
 
 .body {
-	background: #222222;
+	background: #000000;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to top, #434343, #000000);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to top, #434343, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
         position: relative;
 	color: #fff;
 	font-weight: 400;
@@ -32,7 +35,7 @@ html, .body, .body1 ,.container {
 
 
 a {
-	color: rgba(0,0,0,0.3);
+	
 	text-decoration: none;
 	outline: none;
 }
@@ -93,7 +96,7 @@ a {
 	padding: 1em 6% 3.2em;
     width: 100%;
     height: 100%;
-    background: #fffed8;
+    background: #fffff8;
     color: #3b3f45;
     font-size: 1.2em;
 }
@@ -281,17 +284,18 @@ button.fs-continue,
 .fs-fields input {
 	display: block;
 	margin: 0;
-	padding: 0 0 0.15em;
+	padding: 0 0.5em 0.15em;
 	width: 100%;
 	border: none;
 	border-bottom: 2px solid rgba(255, 255, 255, 0.38);
 	background-color: transparent;
-	color: #fffed8;
+	color: #fff;
 	text-overflow: ellipsis;
 	font-weight: bold;
-	font-size: 1em;
+	font-size: 0.8em;
 	border-radius: 0;
 }
+
 
 .fs-fields input:invalid {
 	box-shadow: none; /* removes red shadow in FF*/
@@ -310,11 +314,21 @@ button.fs-continue,
 }
 
 .fs-fields input:focus {
-	background-color: #3b3f45; /* Fixes chrome bug with placeholder */
+	background-color: white;
+    border-bottom: 2px solid #3b3f45;
+    color: #000;
+    border-radius: 9px; /* Fixes chrome bug with placeholder */
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
 }
 
+input[type=number] { -moz-appearance:textfield; }
+
 .fs-form-overview .fs-fields input:focus {
-	background-color: #fffed8; /* Fixes chrome bug with placeholder */
+	background-color: #fff; /* Fixes chrome bug with placeholder */
 }
 
 .fs-form-overview .fs-fields input {
@@ -416,7 +430,7 @@ button.fs-continue,
 	height: 200px;
 	border: 2px solid rgba(0,0,0,0.2);
 	background-color: transparent;
-	color: #fffed8;
+	color: #fff;
 	font-weight: 700;
 	font-size: 0.85em;
 	resize: none;
@@ -437,7 +451,7 @@ button.fs-continue,
 }
 
 .fs-form-overview .fs-fields textarea:focus {
-	background: #fffed8;
+	background: #fff;
 }
 
 .fs-form div.cs-select.cs-skin-boxes {
@@ -474,27 +488,31 @@ button.fs-continue,
 /* placeholder */
 .fs-fields input::-webkit-input-placeholder,
 .fs-fields textarea::-webkit-input-placeholder {
-	color: rgba(0,0,0,0.1);
+	color: #c8c7cc;
 }
 
 .fs-fields input:-moz-placeholder,
 .fs-fields textarea:-moz-placeholder {
-	color: rgba(0,0,0,0.1);
+	color:#c8c7cc;
 }
 
 .fs-fields input::-moz-placeholder,
 .fs-fields textarea::-moz-placeholder {
-	color: rgba(0,0,0,0.1);
+	color: #c8c7cc;
 }
 
 .fs-fields input:-ms-input-placeholder,
 .fs-fields textarea:-ms-input-placeholder {
-	color: rgba(0,0,0,0.1);
+	color: #c8c7cc;
 }
 
 /* Hide placeholder when focused in Webkit browsers */
 .fs-fields input:focus::-webkit-input-placeholder {
-	color: transparent;
+	color: #222222;
+}
+
+.fs-fields input:active::-webkit-input-placeholder {
+	color: #222222;
 }
 
 /* Dot navigation */
@@ -557,7 +575,7 @@ button.fs-continue,
 	top: 0;
 	width: 0%;
 	height: 0.5em;
-	background: #fffed8;
+	background: #fff;
 	-webkit-transition: width 0.3s ease-in-out;
 	transition: width 0.3s ease-in-out;
 }
@@ -568,7 +586,7 @@ button.fs-continue,
 	top: 0;
 	right: 0;
 	overflow: hidden;
-	color: rgba(0,0,0,0.4);
+	color:#9e9e9e;
 	margin: 40px 40px 0px 0px;
 	width: 2em;
 	font-weight: 700;
@@ -666,12 +684,12 @@ button.fs-continue,
 /* Continue button and submit button */
 button.fs-submit,
 button.fs-continue {
-	padding: 0.6em 1.5em;
-        background: white;
-	border: 3px solid #232529;
-	border-radius: 40px;
-	font-weight: 700;
-	color: rgba(0,0,0,0.4);
+	    padding: 0.6em 1.5em;
+    background: white;
+    border: 3px solid #76767642;
+    border-radius: 40px;
+    font-weight: 700;
+    color: rgb(34, 34, 34);
 }
 
 .fs-form-overview .fs-submit,
@@ -696,8 +714,8 @@ button.fs-continue {
 button.fs-submit:hover,
 button.fs-submit:focus,
 button.fs-continue:hover {
-	background: #232529;
-	color: #fff;
+	background: #0d0d0d;
+    color: #fff;
 }
 
 .fs-continue::after {
@@ -708,8 +726,8 @@ button.fs-continue:hover {
 	line-height: 3;
 	text-align: center;
 	background: transparent;
-	color: rgba(0,0,0,0.3);
-	content: 'or press ENTER';
+	color: #fff;
+	content: 'o presione ENTER';
 	font-size: 0.65em;
 	pointer-events: none;
 }

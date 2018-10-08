@@ -338,7 +338,7 @@ function finduserpqrs(){
 	                     if (data1.id == -1) {
 		                	myApp.modal({
 							  title: 'Notificación Mundo Único',
-		            		  text: 'Señor(a) usuario usted no se encuentra registrado, por favor registrese',
+		            		  text: 'Señor(a) usuario usted no se encuentra registrado, por favor regístrese',
 		            		  buttons: [
 						      {
 						        text: 'Cancelar',
@@ -351,7 +351,7 @@ function finduserpqrs(){
 						      {
 						        text: 'Registrarme',
 						        onClick: function() {
-						         mainView.router.loadPage('registro.html');
+						         mainView.router.reloadPage('registro.html');
 						        }
 						      }
 						    ]
