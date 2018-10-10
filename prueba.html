@@ -129,24 +129,31 @@ class App extends React.Component {
 
   render() {
     let background = "";
+    let question = "";
     switch (this.state.selected_rating) {
       case 1:
         background = "shock-face";
+        question = "¿Pregunta 1?";
         break;
       case 2:
         background = "sad-face";
+        question = "¿Pregunta 2?";
         break;
       case 3:
         background = "flat-face";
+        question = "¿Pregunta 3?";
         break;
       case 4:
         background = "smile-face";
+        question = "¿Pregunta 4?";
         break;
       case 5:
         background = "happy-face";
+        question = "¿Pregunta 5?";
         break;
       default:
         background = "flat-face";
+        question = "¿Pregunta 6?";
     }
 
     return (
@@ -166,7 +173,21 @@ class App extends React.Component {
           onMouseOut={this.onMouseOut}
         />
 
-        <p className="footer">Inspired by <a href="https://dribbble.com/shots/3828382-Feedback/">Adip Nayak</a></p>
+        <input type="submit" value="Submit" />
+
+        <textarea style={{ 
+          width: 404, 
+          height: 90, 
+          border: '2px solid transparent',     
+          borderRadius: 13,
+          margin: '0 0 8em 0',
+          background: '#8080801a',
+          padding: '9px 0 0 13px' }}
+          value={"".concat(question)}/>
+
+
+
+       
       </div>
     );
   }
