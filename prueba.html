@@ -173,16 +173,34 @@ class App extends React.Component {
           onMouseOut={this.onMouseOut}
         />
         
+      
 
-        <textarea style={{ 
+        <input type="text"  placeholder="Ingrese su número de documento" name="title" value={this.state.title} 
+        style={{ 
           width: 404, 
-          height: 90, 
+          height: 20, 
           border: '2px solid transparent',     
           borderRadius: 13,
-          margin: '0 0 8em 0',
           background: '#8080801a',
-          padding: '9px 0 0 13px' }}
-          value={"".concat(question)}/>
+          padding: '5px 0 0 13px',
+          position: 'absolute' }} />
+
+
+            <textarea placeholder={"".concat(question)}
+            style={{ 
+              width: 404, 
+              height: 90, 
+              border: '2px solid transparent',     
+              borderRadius: 13,
+              background: '#8080801a',
+              padding: '9px 0 0 13px',
+              margin: '48px 0 23px 0'
+              }}
+
+
+            />
+
+              
 
 
 
