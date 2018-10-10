@@ -158,3 +158,24 @@ body {
 .footer a {
   color: #fff;
 }
+
+.inputDoc{
+
+   width: 404px; 
+    height: 20px; 
+    border: 2px solid transparent;    
+    border-radius: 13px;
+    background: #8080801a;
+    padding: 5px 0 0 13px;
+    position: absolute;
+}
+
+.textareaQ{
+  width: 404px;
+  height: 90px;
+  border: 2px solid transparent;    
+  border-radius: 13px;
+  background: #8080801a;
+  padding: 9px 0 0 13px;
+  margin: 48px 0 23px 0;
+}
