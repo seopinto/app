@@ -440,12 +440,24 @@ myApp.onPageInit('pqrs', function(page){
             var obj = JSON.parse(results);
             var html = "";
 
+
+
             for(var i = 0;i<obj.length;i++){
+
+            	var informacion = obj[i].informacion;
+            	var resul = informacion.replace(". ",". <br><br>");
+
+            	
             	if (obj[i].imagen != null) {
             		html+="<div class='accordion-item'><div class='accordion-item-toggle'><i class='icon icon-plus'>+</i><i class='icon icon-minus'>-</i><span> "+obj[i].titulo+"</span></div><div class='accordion-item-content'><img src="+obj[i].imagen+"></div></div>";
             	}else{
-            		html+="<div class='accordion-item'><div class='accordion-item-toggle'><i class='icon icon-plus'>+</i><i class='icon icon-minus'>-</i><span> "+obj[i].titulo+"</span></div><div class='accordion-item-content'><p>"+obj[i].informacion+"</p></div></div>";
+            		html+="<div class='accordion-item'><div class='accordion-item-toggle'><i class='icon icon-plus'>+</i><i class='icon icon-minus'>-</i><span> "+obj[i].titulo+"</span></div><div class='accordion-item-content'><p id='con"+obj[i].id+"'>"+resul+"</p></div></div>";
+            		
             	}	
+
+     //        	var txt = document.getElementById("con"+obj[i].id+"");
+					// txt.innerHTML.replace (".",". \n\n");
+            	
 			}
 			$(".custom-accordion").html(html);
    }
@@ -487,6 +499,41 @@ $$('#SendPQRS').click(function(){
 
 })
 
+
+function felicitaciones(){
+
+		$$('#SendCongratulations').click(function(){
+	    var dataTienda = localStorage.getItem('TiendaLocal');
+        var felregister = { 
+         puntaje : $('input[name=rating]:checked', '.ratingItemList').val()};
+        $.ajax({
+                url : 'http://35.231.135.74:80/felicitaciones/tienda/'+dataTienda+'/cliente/'+$("#identification").val(),
+            processData: false,
+             dataType : 'json',
+            contentType: 'application/json',
+                method : 'POST', //en este caso
+                data : JSON.stringify(felregister),
+                success : function(response){
+                	myApp.modal({
+					  title: 'Notificación Mundo Único',
+            		  text: 'Señor(a) su felicitación ha sido registrada correctamente',
+            		  buttons: [
+				      {
+				        text: 'OK',
+				        onClick: function() {
+				         myApp.closeModal();
+				        }
+				      }
+				    ]
+                	}); 
+                },
+                error: function(xhr, status, error){
+                    console.log(xhr.responseText);
+                }
+        });
+});
+
+}
 myApp.onPageInit('success', function(page){
 
 	$$('#SendCongratulations').click(function(){

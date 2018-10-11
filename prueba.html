@@ -18,6 +18,10 @@
 <body>
 
  <div id="root"></div>
+ <script type="text/javascript">
+   var button = '<input type="submit" value="Numero parrafos" id="num_parrafos" name="Numero Parrafos"/>';
+
+ </script>
  <script type="text/babel">
 	const Emoticons = props => {
   const { hover_rating, selected_rating } = props;
@@ -127,6 +131,8 @@ class App extends React.Component {
     });
   };
 
+  handleClick(event) {};
+
   render() {
     let background = "";
     let question = "";
@@ -172,29 +178,29 @@ class App extends React.Component {
           onMouseOver={this.onMouseOver}
           onMouseOut={this.onMouseOut}
         />
+
         
-      
-
-        <input type="text"  className="inputDoc"  placeholder="Ingrese su número de documento" name="title" value={this.state.title} 
-       />
+        <input type="text"  className="inputDoc"  placeholder="Ingrese su número de documento" name="title" value={this.state.title} />
 
 
-            <textarea  className="textareaQ" placeholder={"".concat(question)}
-          
+        <textarea  className="textareaQ" placeholder={"".concat(question)}    />
 
+        <button className="buttonE" onClick={this.handleClick.bind(this)} onChange={this.handleClick.bind(this)}>
+          Enviar experiencia
+        </button>
 
-            />
-
-              
-
-
-
-       
+             
       </div>
     );
   }
 }
   ReactDOM.render(<App />, document.getElementById("root"));
+   </script>
+
+   <script type="text/javascript">
+     
+
+
    </script>
 
 </body>

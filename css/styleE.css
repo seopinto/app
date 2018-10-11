@@ -177,5 +177,17 @@ body {
   border-radius: 13px;
   background: #8080801a;
   padding: 9px 0 0 13px;
-  margin: 48px 0 23px 0;
+  margin: 48px 0 0 0;
+}
+
+.buttonE{
+  margin: 12em 0 0 -21em;
+  position: absolute;
+  border: 2px solid transparent;
+  border-radius: 13px;
+  background: #8080801a;  
+  color: white;
+  font-weight: bolder;
+  padding: 8px 14px 8px 9px;
+  cursor: pointer;
 }
