@@ -13,6 +13,7 @@ var myApp = new Framework7({
     touch: { tapHold: true},
     stackPages: false,	
     removeElements: true,
+    reload: false,
 });
 
 // Export selectors engine
