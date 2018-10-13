@@ -17,7 +17,7 @@ var myApp = new Framework7({
 var $$ = Dom7;
 
 var itemsSlider = 0;
-var getURLimagenesIntereses = "http://35.231.135.74:80/multimedia/verImagenes/";
+var getURLimagenesIntereses = "https://70ccf21a.ngrok.io/multimedia/verImagenes/";
 
 // Add main View
 var mainView = myApp.addView('.view-main', {
@@ -45,7 +45,7 @@ function LoginUser(){
          		contrasena : $('#password').val()
          		};
 			        $.ajax({
-			            url : 'http://35.231.135.74:80/empleado/autenticacion',
+			            url : 'https://70ccf21a.ngrok.io/empleado/autenticacion',
 			            processData: false,
 			            dataType : 'json',
 			            contentType: 'application/json',
@@ -130,7 +130,7 @@ function LoginUser(){
          		contrasena : $('#password').val()
          		};
 			        $.ajax({
-			            url : 'http://35.231.135.74:80/empleado/autenticacion',
+			            url : 'https://70ccf21a.ngrok.io/empleado/autenticacion',
 			            processData: false,
 			            dataType : 'json',
 			            contentType: 'application/json',
@@ -298,7 +298,7 @@ function finduser(){
 
 	var cliente = {numeroDocumento : $("#q1").val() }
 	$.ajax({
-	            url : 'http://35.231.135.74:80/clientes/'+$("#q1").val()+'',
+	            url : 'https://70ccf21a.ngrok.io/clientes/'+$("#q1").val()+'',
 	            processData: false,
 	             dataType : 'json',
 	            contentType: 'application/json',
@@ -328,7 +328,7 @@ function finduserpqrs(){
 	var cliente = {numeroDocumento : $("#q1").val() }
 	$.ajax({
 
-	            url : 'http://35.231.135.74:80/clientes/'+$("#q1").val()+'',
+	            url : 'https://70ccf21a.ngrok.io/clientes/'+$("#q1").val()+'',
 	            processData: false,
 	             dataType : 'json',
 	            contentType: 'application/json',
@@ -379,7 +379,7 @@ function finduserpqrs(){
 //          telefono : $('#q7').val(),
 //          sexo : $('input[name=q8]:checked', '.fs-form-wrap').val()};
 //         $.ajax({
-//                 url : 'http://35.231.135.74:80/clientes',
+//                 url : 'https://70ccf21a.ngrok.io/clientes',
 //             processData: false,
 //              dataType : 'json',
 //             contentType: 'application/json',
@@ -431,7 +431,7 @@ myApp.onPageInit('pqrs', function(page){
     
  $$.ajax({ 
     type: 'GET', 
-    url: 'http://35.231.135.74:80/preguntasTienda',
+    url: 'https://70ccf21a.ngrok.io/preguntasTienda',
     data: { get_param: 'value' }, 
     dataType: 'json',
     success: function (data) { 
@@ -470,7 +470,7 @@ $$('#SendPQRS').click(function(){
          pqrs : $('input[name=q2]:checked', '.fs-form-wrap').val(),
          nota : $('#q3').val()};
         $.ajax({
-                url : 'http://35.231.135.74:80/pqrs/tienda/'+dataTienda+'/cliente/'+$("#q1").val(),
+                url : 'https://70ccf21a.ngrok.io/pqrs/tienda/'+dataTienda+'/cliente/'+$("#q1").val(),
             processData: false,
              dataType : 'json',
             contentType: 'application/json',
@@ -507,7 +507,7 @@ function felicitaciones(){
         var felregister = { 
          puntaje : $('input[name=rating]:checked', '.ratingItemList').val()};
         $.ajax({
-                url : 'http://35.231.135.74:80/felicitaciones/tienda/'+dataTienda+'/cliente/'+$("#identification").val(),
+                url : 'https://70ccf21a.ngrok.io/felicitaciones/tienda/'+dataTienda+'/cliente/'+$("#identification").val(),
             processData: false,
              dataType : 'json',
             contentType: 'application/json',
@@ -541,7 +541,7 @@ myApp.onPageInit('success', function(page){
         var felregister = { 
          puntaje : $('input[name=rating]:checked', '.ratingItemList').val()};
         $.ajax({
-                url : 'http://35.231.135.74:80/felicitaciones/tienda/'+dataTienda+'/cliente/'+$("#identification").val(),
+                url : 'https://70ccf21a.ngrok.io/felicitaciones/tienda/'+dataTienda+'/cliente/'+$("#identification").val(),
             processData: false,
              dataType : 'json',
             contentType: 'application/json',
@@ -650,7 +650,7 @@ myApp.onPageInit('registro2', function (page){
      };
 
        $.ajax({
-            url : 'http://35.231.135.74:80/clientes',
+            url : 'https://70ccf21a.ngrok.io/clientes',
             processData: false,
             dataType : 'json',
             contentType: 'application/json',
