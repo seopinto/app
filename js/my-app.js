@@ -15,6 +15,7 @@ var myApp = new Framework7({
     removeElements: true,
     reload: false,
     reloadPage: false,
+    refreshPage: false,
 });
 
 // Export selectors engine
