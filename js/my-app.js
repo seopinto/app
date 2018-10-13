@@ -11,6 +11,8 @@ var myApp = new Framework7({
     fastclick: true,
     smartSelectOpenIn:'popup',
     touch: { tapHold: true},
+    stackPages: false,	
+    removeElements: true,
 });
 
 // Export selectors engine
