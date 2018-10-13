@@ -6,7 +6,7 @@ var myApp = new Framework7({
     // Enabled pages rendering using Template7
 	swipeBackPage: true,
 	swipePanelOnlyClose: true,
-	pushState: true,
+	pushState: false,
     template7Pages: true,
     fastclick: true,
     smartSelectOpenIn:'popup',
@@ -24,6 +24,8 @@ var mainView = myApp.addView('.view-main', {
     // Enable dynamic Navbar
     dynamicNavbar: true,
 });
+
+
 var subnaview = myApp.addView('.view-subnav');
 
 
@@ -293,6 +295,11 @@ myApp.onPageInit('blog', function (page) {
 		});
 
 })
+
+
+function IndexLog() {
+ mainView.router.reloadPage('registro.html');
+}
 
 function finduser(){
 
