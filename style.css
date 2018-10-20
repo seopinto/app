@@ -100,14 +100,18 @@ h6{
 }
 h2.page_title{
 width:90%;
-font-size:20px;
+font-size: 29px;
 line-height:25px;
-font-weight:500;
+font-weight: 700;
 padding:20px 0 15px 0;
-margin:0px 5% 15px 5%;
+margin: 26px 5% 15px 5%;
 border-bottom:1px #f0f0f0 solid;
 display:inline-block;
 letter-spacing:-0.5px;
+text-align: center;
+}
+h2.page_title_secondary{
+  text-align: center;
 }
 h2.page_title span{
 font-size:12px;
@@ -146,8 +150,8 @@ letter-spacing:-0.5px;
 position: fixed;
 top:0px;
 width:100%;
-height:70px;
 z-index:999999;
+/*background: black;*/
 }
 /* HEADER LEFT */	
 .navbar_left{
@@ -208,7 +212,7 @@ padding:20px 0 0 0;
 background-color:#ffffff;	
 }
 .graybg{
-background-color:#e2e2e2;	
+background-color:black;	
 }
 /*===============================================*/
 /* 5. CUSTOM BUTTONS */
@@ -428,7 +432,7 @@ text-align:center;
 .main-nav.icons_inline ul li{
 width: 100%;
     list-style: none;
-    padding: 10px 0 10px 0;
+    padding: 20px 0 15px 0;
     margin: 5px 2%;
     display: block;
     float: left;
@@ -464,7 +468,7 @@ padding:5px 0 0 20px;
 }
 
 .main-nav ul li a{
-font-size:13px;
+font-size:16px;
 font-weight:500;
 color:#4e4e4e;
 }
@@ -627,16 +631,14 @@ z-index: 1;
 }
 .swiper-container-toolbar {
 width:100%;
-padding:0 3%;
-height: auto;
 margin:0;
 position: fixed;
 bottom:0px;
 left:0px;
 overflow: hidden;
 z-index: 999999;
-height:70px;
-background-color:#f9f9f9;
+height: 80px;
+background-color: #f9f9f9b3;
 }
 .swiper-slide {
 width:100%;
@@ -654,7 +656,7 @@ background-position:center center;
     transition: all 0.3s cubic-bezier(.25,.8,.25,1)
 }
 .swiper-wrapper{
- background:white;   
+ background:#f9f9f91a;   
 }
 .toolbar-icon a{
 display:block;
@@ -666,7 +668,7 @@ font-weight: 500;
 .toolbar-icon a img{
 display:block;
 max-height:70%;
-margin:10px auto 0 auto;
+margin:20px auto 0 auto;
 text-align:center;
 }
 .slider_trans{
@@ -1649,7 +1651,7 @@ ul {
 
 button {
   color: #ecedef;
-  background-color: #9a9da8;
+  background-color: black !important;
   border-radius: 3px;
   font-family: 'Source Sans Pro', Arial, sans-serif;
   border: 0;
@@ -1799,11 +1801,26 @@ margin:0;
 .list-block .item-content {
 padding-left:0px;
 padding-top:10px;
-    background: white;
-    border-radius: 50px;
+
         margin: 3px 0 3px 0;
 
 }
+.input-login{
+  color: white !important;
+font-size: 22px !important;
+font-weight: 1;
+border-bottom: 1px solid white !important;
+text-align: center;
+}
+.input-form{
+  color: black !important;
+font-size: 22px !important;
+font-weight: 1;
+border-bottom: 2px solid black !important;
+text-align: center;
+margin: 9px 0 0 0 !important;
+}
+
 .list-block .item-inner:after{
     display: none;
 }
@@ -2094,13 +2111,17 @@ background: linear-gradient(to top, #434343, #000000); /* W3C, IE 10+/ Edge, Fir
 
 
 .login-screen-content .list-block .item-link.list-button {
-    padding: 0 15px;
-    text-align: center;
-    color: #fff;
-    display: block;
-    background: #007aff;
-    line-height: 43px;
-    border-radius: 50px;
+   padding: 5px 15px;
+text-align: center;
+color: black;
+display: block;
+background: white;
+line-height: 43px;
+border-radius: 50px;
+font-size: 22px;
+font-weight: 400;
+margin: 37px 0 0 46px;
+width: 72%;
 }
 
 

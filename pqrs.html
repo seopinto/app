@@ -1,71 +1,100 @@
+
 <div class="pages">
-  <div data-page="pqrs" class="page no-toolbar no-navbar">
+  <div data-page="blog" class="page no-toolbar no-navbar">
     <div class="page-content">
     
-	<div class="navbarpages graybg">
-		<div class="navbar_left">
-			<div class="logo_image">
-			<a href="index.html">
-			<img src="images/logo_image_dark.png" alt="" title=""/>
-                </a>
-			</div>
-		</div>			
-		<a href="#" data-panel="left" class="open-panel">
-			<div class="navbar_right">
-			<img src="images/icons/black/menu.png" alt="" title="" /></div>
-		</a>
-				
-	</div>
-    
-    <div class="body" >
-     
-                  
+  <div class="navbarpages graybg">
+    <div class="navbar_left">
+            <div class="logo_image"><a href="index.html"><img src="images/logo_image.png" alt="" title=""/></a></div>
+    </div>      
+    <a href="#" data-panel="left" class="open-panel">
+      <div class="navbar_right"><img src="images/icons/black/menu.png" alt="" title="" /></div>
+    </a>
+
+  </div>
+  
      <div id="pages_maincontent">
-
-      <div class="page_single layout_fullwidth_padding">
-
-        <h2 class="page_title" style="color: white;">Peticiones, Quejas, Reclamos y Sugerencias</h2>
-<div class="custom-accordion">            
-              </div>
-      </div>
-     
-
-  <div class="container">
-     <div class="fs-form-wrap" id="fs-form-wrap">
       
-        <form id="myform" class="fs-form fs-form-full" autocomplete="off">
-          <ol class="fs-fields">
-            <li>
-              <label class="fs-field-label fs-anim-upper" for="q1">Cual es tu Número de documento ?</label>
-              <input class="fs-anim-lower" id="q1" name="q1" type="number" placeholder="Ingrese su numéro de documento" onblur="finduserpqrs()" required/>
-            </li>
-            <li data-input-trigger>
-              <label class="fs-field-label fs-anim-upper" for="q2" data-info="This will help us know what kind of service you need">Cual es tu asunto de Interés?</label>
-              <div class="fs-radio-group fs-radio-custom clearfix fs-anim-lower">
-                <span><input id="q2b" name="q2" type="radio" value="Peticion"/><label for="q2b" class="radio-conversion">Petición</label></span>
-                <span><input id="q2a" name="q2" type="radio" value="Queja"/><label for="q2a" class="radio-mobile">Queja</label></span>
-                <span><input id="q2c" name="q2" type="radio" value="Reclamo"/><label for="q2c" class="radio-mobile">Reclamo</label></span>
-                <span><input id="q2d" name="q2" type="radio" value="Sugerencia"/><label for="q2d" class="radio-mobile">Sugerencia</label></span>
-              </div>
-            </li>
-            <li>
-              <label class="fs-field-label fs-anim-upper" for="q3">Escribe tu mensaje</label>
-              <textarea class="fs-anim-lower" id="q3" name="q3" placeholder="Describre tu mensaje aquí"></textarea>
-            </li>
-          </ol><!-- /fs-fields -->
-          <button  id="SendPQRS" class="fs-submit" type="button">Guardar registro</button>
-          <!-- <input type="submit"  id="registrar" value="registrar" class="button button-big button-fill color-green"> -->
-        </form><!-- /fs-form -->
-      </div><!-- /fs-form-wrap -->
+      <h2 class="page_title">Gracias por ayudarnos a mejorar</h2>
+      <h2 class="page_title_secondary">Por favor completa el siguiente formulario</h2>
+      <div class="page_single layout_fullwidth_padding">  
+    
+
+    <form>
+                     <div class = "list-block">
+                        <ul>
+                           <li class = "item-content">
+                              <div class = "item-inner">
+                                
+                                 <div class = "item-input">
+                                    <input id="username" type="text" name="username" class="input-form" required placeholder="Nombre completo">
+                                 </div>
+                              </div>
+                           </li>
+                           
+                           <div class="row">
+                             <div class="col-50">
+                                <li class = "item-content">
+                              <div class = "item-inner">
+                                 
+                                 <div class = "item-input">
+                                    <input id="password" type="text" class="input-form" required name="password" placeholder="Número de documento" >
+                                 </div>
+                              </div>
+                           </li>
+
+                           <li class = "item-content">
+                              <div class = "item-inner">
+                                 
+                                 <div class = "item-input">
+                                    <input id="password" type="text" class="input-form" required name="password" placeholder="Teléfono" >
+                                 </div>
+                              </div>
+                           </li>
+
+                             </div>
+                             <div class="col-50">
+                                <li class = "item-content">
+                              <div class = "item-inner">
+                                 
+                                 <div class = "item-input">
+                                    <input id="password" type="text" class="input-form" required name="password" placeholder="Correo electrónico" >
+                                 </div>
+                              </div>
+                           </li>
+
+                             </div>
+
+                             <div class="col-100">
+                              <li class = "item-content">
+                              <div class = "item-inner">
+                                
+                                 <div class = "item-input">
+                                    <input id="username" type="text" name="username" class="input-form" required placeholder="Mensaje">
+                                 </div>
+                              </div>
+                           </li>
+                             </div>
+                           </div>
 
 
-    </div><!-- /container -->
 
-   
- 
-
-        </div>
+                            
+                          
+                        </ul>
+                     </div>
+                     
+                     <div class = "list-block">
+                        <ul>
+                           <li><a class="item-link list-button">ENVIAR MENSAJE</a></li>
+                        </ul>
+                       
+                     </div>
+                
+                  </form>
           
+      
+       </div>   
       
       </div>
       
