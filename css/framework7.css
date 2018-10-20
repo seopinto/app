@@ -2328,7 +2328,8 @@ line-height: 43px;
 background: black;
 width: 20%;
 border-radius: 70px;
-margin: 3em 0 0 31em;
+margin: 3em 0 0 22em;
+font-weight: 400;
 }
 .list-block .item-link.list-button:after {
   content: '';

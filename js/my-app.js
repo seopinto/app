@@ -306,9 +306,9 @@ function IndexLog() {
 
 function finduser(){
 
-	var cliente = {numeroDocumento : $("#q1").val() }
+	var cliente = {numeroDocumento : $("#document").val() }
 	$.ajax({
-	            url : 'http://35.231.135.74:80/clientes/'+$("#q1").val()+'',
+	            url : 'http://35.231.135.74:80/clientes/'+$("#document").val()+'',
 	            processData: false,
 	             dataType : 'json',
 	            contentType: 'application/json',
@@ -316,14 +316,12 @@ function finduser(){
 	                data : JSON.stringify(cliente),
 	                success : function(data){
 	                     if (data.id == -1) {
-		                	myApp.alert(data.error);
+		                	
 					    }else{
-					    	$("#q2").val(data.primerNombre);	
-					    	$("#q3").val(data.segundoNombre);	
-					    	$("#q4").val(data.primerApellido);	
-					    	$("#q5").val(data.segundoApellido);	
-					    	$("#q6").val(data.correo);	
-					    	$("#q7").val(data.telefono);	
+					    	$("#name").val(data.primerNombre);	
+					    	$("#lastname").val(data.primerApellido);	
+					    	$("#mail").val(data.correo);	
+					    	$("#phone").val(data.telefono);	
 					    }
 	                },
 	                error: function(xhr, status, error){
@@ -335,10 +333,10 @@ function finduser(){
 
 function finduserpqrs(){
 
-	var cliente = {numeroDocumento : $("#q1").val() }
+	var cliente = {numeroDocumento : $("#document").val() }
 	$.ajax({
 
-	            url : 'http://35.231.135.74:80/clientes/'+$("#q1").val()+'',
+	            url : 'http://35.231.135.74:80/clientes/'+$("#document").val()+'',
 	            processData: false,
 	             dataType : 'json',
 	            contentType: 'application/json',
@@ -346,7 +344,8 @@ function finduserpqrs(){
 	                data1 : JSON.stringify(cliente),
 	                success : function(data1){
 	                     if (data1.id == -1) {
-		                	myApp.modal({
+
+	                     	myApp.modal({
 							  title: 'Notificación Mundo Único',
 		            		  text: 'Señor(a) usuario usted no se encuentra registrado, por favor regístrese',
 		            		  buttons: [
@@ -355,17 +354,22 @@ function finduserpqrs(){
 						        onClick: function() {
 						         myApp.closeModal();
 						         $('.fs-continue').attr("disabled", true);
-						         document.getElementById("q3").readOnly = true; 
+						         document.getElementById("document").readOnly = true; 
 						        }
 						      }, 
 						      {
 						        text: 'Registrarme',
 						        onClick: function() {
-						         mainView.router.reloadPage('registro.html');
+						         mainView.router.reloadPage('registry.html');
 						        }
 						      }
 						    ]
-		                	});   
+		                	});  
+		                	 
+					    }else{
+					    	$("#name").val(data1.primerNombre + " " + data1.segundoApellido);	
+					    	$("#mail").val(data1.correo);	
+					    	$("#phone").val(data1.telefono);	
 					    }
 	                },
 	                error: function(xhr, status, error){
@@ -374,48 +378,6 @@ function finduserpqrs(){
 	        });
 
 }
-
-
-// myApp.onPageInit('registro', function(page){
-    
-//   $$('#registrar').click(function(){
-//         var cliente = { 
-//          numeroDocumento : $("#q1").val(),
-//          primerNombre : $('#q2').val(), 
-//          segundoNombre : $('#q3').val(), 
-//          primerApellido : $('#q4').val(),
-//          segundoApellido : $('#q5').val(), 
-//          correo : $('#q6').val(), 
-//          telefono : $('#q7').val(),
-//          sexo : $('input[name=q8]:checked', '.fs-form-wrap').val()};
-//         $.ajax({
-//                 url : 'http://35.231.135.74:80/clientes',
-//             processData: false,
-//              dataType : 'json',
-//             contentType: 'application/json',
-//                 method : 'post', //en este caso
-//                 data : JSON.stringify(cliente),
-//                 success : function(response){
-//                       myApp.modal({
-// 					  title: 'Notificación Mundo Único',
-//             		  text: 'Usuario registrado correctamente',
-//             		  buttons: [
-// 				      {
-// 				        text: 'OK',
-// 				        onClick: function() {
-// 				         myApp.closeModal();
-// 				        }
-// 				      }
-// 				    ]
-//                 	});   
-//                 },
-//                 error: function(xhr, status, error){
-//                     console.log(xhr.responseText);
-//                 }
-//         });
-// });  
-    
-// })
 
 
 myApp.onPageInit('pqrs', function(page){
@@ -474,40 +436,60 @@ myApp.onPageInit('pqrs', function(page){
 });
 
 
-$$('#SendPQRS').click(function(){
+  
+
+})
+
+function pqrs(){
+
 	    var dataTienda = localStorage.getItem('TiendaLocal');
         var pqrsregister = { 
-         pqrs : $('input[name=q2]:checked', '.fs-form-wrap').val(),
-         nota : $('#q3').val()};
+         pqrs : $('input[name=drone1]:checked', '.label-content1').val(),
+         nota : $('#message').val()};
         $.ajax({
-                url : 'http://35.231.135.74:80/pqrs/tienda/'+dataTienda+'/cliente/'+$("#q1").val(),
+                url : 'http://35.231.135.74:80/pqrs/tienda/'+dataTienda+'/cliente/'+$("#document").val(),
             processData: false,
              dataType : 'json',
             contentType: 'application/json',
                 method : 'POST', //en este caso
                 data : JSON.stringify(pqrsregister),
                 success : function(response){
-                	myApp.modal({
-					  title: 'Notificación Mundo Único',
-            		  text: 'Señor(a) su '+pqrsregister.pqrs+' ha sido registrada correctamente',
-            		  buttons: [
-				      {
-				        text: 'OK',
-				        onClick: function() {
-				         myApp.closeModal();
-				         mainView.router.loadPage('index.html');
-				        }
-				      }
-				    ]
-                	});                      
+                	 mainView.router.loadPage('notification2.html');                       
                 },
                 error: function(xhr, status, error){
                     console.log(xhr.responseText);
                 }
         });
-});  
+}
 
-})
+function registry(){
+
+        var cliente = { 
+         numeroDocumento : $("#document").val(),
+         primerNombre : $('#name').val(), 	
+         segundoNombre : $('#name').val(), 	
+         primerApellido : $('#lastname').val(),
+         segundoApellido : $('#name').val(), 	
+         correo : $('#mail').val(), 
+         sexo : $('input[name=drone]:checked', '.label-content').val(),
+         telefono : $('#phone').val()
+     };
+
+       $.ajax({
+            url : 'http://35.231.135.74:80/clientes',
+            processData: false,
+            dataType : 'json',
+            contentType: 'application/json',
+            method : 'post', //en este caso
+            data : JSON.stringify(cliente),
+                success : function(response){
+                       mainView.router.loadPage('notification.html');  
+                },
+                error: function(xhr, status, error){
+                    console.log(xhr.responseText);
+                }
+        });
+}; 
 
 
 function felicitaciones(){
@@ -625,7 +607,7 @@ function feedback_validate(val) {
 
 });
 
-myApp.onPageInit('registro2', function (page){
+myApp.onPageInit('registro', function (page){
     
     		(function() {
 				var formWrap = document.getElementById( 'fs-form-wrap' );
@@ -647,44 +629,7 @@ myApp.onPageInit('registro2', function (page){
 			})();
 
 
- $$('#registrar').click(function(){
-        var cliente = { 
-         numeroDocumento : $("#q1").val(),
-         primerNombre : $('#q2').val(), 
-         segundoNombre : $('#q3').val(), 
-         primerApellido : $('#q4').val(),
-         segundoApellido : $('#q5').val(), 
-         correo : $('#q6').val(), 
-         sexo : $('input[name=q8]:checked', '.fs-form-wrap').val(),
-         telefono : $('#q7').val()
-     };
-
-       $.ajax({
-            url : 'http://35.231.135.74:80/clientes',
-            processData: false,
-            dataType : 'json',
-            contentType: 'application/json',
-            method : 'post', //en este caso
-            data : JSON.stringify(cliente),
-                success : function(response){
-                      myApp.modal({
-					  title: 'Notificación Mundo Único',
-            		  text: 'Usuario registrado correctamente',
-            		  buttons: [
-				      {
-				        text: 'OK',
-				        onClick: function() {
-				        mainView.router.loadPage('index.html');
-				        }
-				      }
-				    ]
-                	});   
-                },
-                error: function(xhr, status, error){
-                    console.log(xhr.responseText);
-                }
-        });
-}); 
+ 
     
 })
 
