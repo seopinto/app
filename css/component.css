@@ -129,6 +129,7 @@ background: linear-gradient(to top, #434343, #000000); /* W3C, IE 10+/ Edge, Fir
   transition: -webkit-filter 0.5s cubic-bezier(0.43, 0.41, 0.22, 0.91);
   transition: filter 0.5s cubic-bezier(0.43, 0.41, 0.22, 0.91);
   transition: filter 0.5s cubic-bezier(0.43, 0.41, 0.22, 0.91), -webkit-filter 0.5s cubic-bezier(0.43, 0.41, 0.22, 0.91);
+  height: 180px;
 }
 
 @media (min-width: 40rem) {
@@ -152,6 +153,7 @@ background: linear-gradient(to top, #434343, #000000); /* W3C, IE 10+/ Edge, Fir
   font-weight: 300;
   letter-spacing: 2px;
   text-transform: uppercase;
+  text-align: center;
 }
 .card__text {
   flex: 1 1 auto;
