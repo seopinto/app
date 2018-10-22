@@ -1923,6 +1923,12 @@ i.icon.icon-plus {
   color: #6d6d72;
   box-sizing: border-box;
 }
+.content-block1 {
+  margin: 35px 0;
+  padding: 0 15px;
+  color: #6d6d72;
+  box-sizing: border-box;
+}
 .content-block-title {
   position: relative;
   overflow: hidden;
@@ -2328,7 +2334,7 @@ line-height: 43px;
 background: black;
 width: 20%;
 border-radius: 70px;
-margin: 3em 0 0 25em;
+margin: 3em 0 0 23em;
 font-weight: 400;
 }
 .list-block .item-link.list-button:after {
@@ -6316,7 +6322,7 @@ html.ios-gt-8 .notifications .item-title {
 .login-screen-title {
   text-align: center;
   font-size: 30px;
-  margin: 5em 0 0 19em !important;
+  margin: 5em 0 0 17em !important;
 }
 /* === Disabled elements === */
 .disabled,

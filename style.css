@@ -179,6 +179,24 @@ background: #f9f9f9b3;
 .label-content1 input{
   margin: 0 10px 0 10px;
 }
+.label-content2{
+  font-size: 24px;
+  display: inline-flex;
+  margin: 23px 0 0 0;
+}
+
+.label-content2 label{
+  margin: 0 0 0 0;
+}
+
+.button-modal2{
+  left: -219px;
+    width: 115%;
+}
+
+.label-content2 input{
+  margin: 0 10px 0 10px;
+}
 /* HEADER LEFT */	
 .navbar_left{
 float: left;
@@ -601,7 +619,7 @@ width:100%;
 padding:0 0 30px 0;
 margin:0px;
 position: absolute; 
-top: 133px;
+top: 108px;
 left: 0; 
 right: 0; 
 bottom: 0px;
@@ -1036,10 +1054,24 @@ padding:20px 0 10px 0;
 margin:0px;
 }
 .popup p{
-text-align:center;
-padding:0px 0 20px 0;
-margin:0px;
-font-size:14px;
+text-align: center;
+padding: 0px 0 20px 0;
+margin: 0px;
+font-size: 19px;
+text-transform: uppercase;
+font-weight: 500;
+}
+.close-popup-2{
+position: relative;
+float: left;
+margin: 0 0 0 313px;
+top: -41px;
+background: black;
+padding: 9.7px;
+border-radius: 19px;
+color: white;
+width: 21%;
+font-size: 15px;
 }
 .content-block {
 padding:75px 10% 0 10%;
@@ -1854,6 +1886,10 @@ margin: 9px 0 0 0 !important;
 .form{
   width: 70%;
 margin: 0 0 0 14em;
+}
+.form-modal{
+width: 88%;
+margin: 8px 0 0 3em;
 }
 .list-block .item-inner:after{
     display: none;

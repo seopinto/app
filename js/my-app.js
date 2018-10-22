@@ -19,7 +19,7 @@ var myApp = new Framework7({
 // Export selectors engine
 var $$ = Dom7;
 
-
+var DetalleInteres = $("#PostDetalle").val();
 
 var itemsSlider = 0;
 var getURLimagenesIntereses = "http://35.231.135.74:80/multimedia/verImagenes/";
@@ -317,21 +317,56 @@ myApp.onPageInit('blog', function (page) {
             var obj = JSON.parse(results);
             var html = "";
 
+            var secondobj = obj.length;
+      
             for(var i = 0;i<obj.length;i++){
-            	if (obj[i].id = 1) {
-            		document.getElementById("title-new").innerHTML = "Noticias de Entretenimiento";
-            	}else if (obj[i].id = 2){
-            		document.getElementById("title-new").innerHTML = "Noticias de Deportes";
-            	}else if (obj[i].id = 3){
-            		document.getElementById("title-new").innerHTML = "Noticias de Gadgets";
-            	}else if(obj[i].id = 4){
-            		document.getElementById("title-new").innerHTML = "Noticias de Viajes";
-            	}else if(obj[i].id = 5){
-            		document.getElementById("title-new").innerHTML = "Noticias de Un mundo de comodidad";
-            	}
-            	html+="<li class='cards__item'><div class='card'><div class='card__image'><img src='http://35.231.135.74/intereses/verImagenes/"+obj[i].identificadorMultimedia+"'></div><div class='card__content'><div class='card__title'>"+obj[i].titulo+"</div><p class='card__text'>"+obj[i].descripcion+"</p><a type='button' href='blog_internal.html' class='btn btn-block card__btn'>Ver articulo</a><a type='button' href='blog_internal.html' class='btn btn-block1 card__btn'>Suscribirme</a></div></div></li>"
+            	html+="<li class='cards__item'><div class='card'><div class='card__image'><img src='http://35.231.135.74/intereses/verImagenes/"+obj[i].identificadorMultimedia+"'></div><div class='card__content'><div class='card__title'>"+obj[i].titulo+"</div><p class='card__text'>"+obj[i].descripcion+"</p><a type='button' href='blog-single.html' class='btn btn-block card__btn'>Ver articulo<input style='display:none' id='PostDetalle' value='"+obj[i].id+"'></a><a type='button' href='blog_internal.html' class='btn btn-block1 card__btn'>Suscribirme</a></div></div></li>"
+
+            	// if (obj[i].id == 1) {
+            	// 	document.getElementById("title-new").innerHTML = "Noticias de Entretenimiento";
+            	// }else if (obj[i].id == 2){
+            	// 	document.getElementById("title-new").innerHTML = "Noticias de Deportes";
+            	// }else if (obj[i].id == 3){
+            	// 	document.getElementById("title-new").innerHTML = "Noticias de Gadgets";
+            	// }else if(obj[i].id == 4){
+            	// 	document.getElementById("title-new").innerHTML = "Noticias de Viajes";
+            	// }else if(obj[i].id == 5){
+            	// 	document.getElementById("title-new").innerHTML = "Noticias de Un mundo de comodidad";
+            	// }
+
+            	
+
+            	// for (var j=0; j < obj[i].; j++) {
+            		
+            	// }
+            	
 			}
 			$("#cards1").html(html);
+   }
+});
+})
+
+myApp.onPageInit('blog2', function (page) {
+
+
+console.log(DetalleInteres);
+	 $$.ajax({ 
+    type: 'GET', 
+    url: 'http://35.231.135.74/intereses/'+DetalleInteres+'',
+    data: { get_param: 'value' }, 
+    dataType: 'json',
+    success: function (data1) { 
+           
+            var results = JSON.stringify(data1);
+            var obj = JSON.parse(results);
+            var html2 = "";
+
+            for(var j = 0;j<obj.length;j++){
+            	
+            	html2+="dfsdfsdfdsf";
+            	// html2+=" <h2 class='blog_title'>"+obj[i].titulo+"</h2><div class='swiper-container-pages swiper-init' data-effect='slide' data-pagination='.swiper-pagination'><div class='swiper-wrapper'><div class='swiper-slide'><img src='http://35.231.135.74/intereses/verImagenes/"+obj[i].identificadorMultimedia+"' alt='' title='' /></div></div></div><div class='page_single layout_fullwidth_padding'><div class='post_single'><p>"+obj[i].descripcion+"</p></div></div>";
+			}
+			$("#internalDetalle").html(html2);
    }
 });
 
@@ -398,7 +433,13 @@ function finduserpqrs(){
 						      {
 						        text: 'Registrarme',
 						        onClick: function() {
-						         mainView.router.reloadPage('registry.html');
+						         //mainView.router.reloadPage('registry.html');
+						        // myApp.popup(popupHTML, removeOnClose); 
+						        var popupHTML = '<div class="popup"><div class="content-block1"><h2 class="page_title">Gracias por querer formar parte de la familia Mundo Único</h2><h2 class="page_title_secondary">Por favor completa el siguiente formulario</h2><form class="form-modal"><div class = "list-block"><ul><div class="row"><div class="col-50"><li class="item-content"><div class="item-inner"><div class="item-input"><input id="document"  onblur="finduser()" type="text" class="input-form" required name="password" placeholder="Número de documento" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="name" type="text" class="input-form" required name="password" placeholder="Nombre" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="phone" type="text" class="input-form" required name="password" placeholder="Teléfono" ></div></div></li></div><div class="col-50"><li class="item-content"><div class="item-inner"><div class="item-input"><input id="mail" type="text" class="input-form" required name="password" placeholder="Correo electrónico" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="lastname" type="text" class="input-form" required name="password" placeholder="Apellidos" ></div></div></li><div class="label-content2"><label>Género</label><input type="radio" id="Hombre" name="drone" value="M" checked /><label for="huey">Hombre</label><input type="radio" id="Mujer" name="drone" value="F" /><label for="dewey">Mujer</label></div></div></div></ul></div><div class = "list-block"><ul class="button-modal2"><button onclick="registry2();" class="item-link list-button" type="button">REGISTRARME</button></ul></div></form>'+
+													'<p><a href="#" class="close-popup-2">Cancelar</a></p>'+
+								                    '</div>'+
+								                  '</div>'
+								  myApp.popup(popupHTML);
 						        }
 						      }
 						    ]
@@ -522,6 +563,47 @@ function registry(){
             data : JSON.stringify(cliente),
                 success : function(response){
                        mainView.router.loadPage('notification.html');  
+                },
+                error: function(xhr, status, error){
+                    console.log(xhr.responseText);
+                }
+        });
+}; 
+
+function registry2(){
+
+        var cliente = { 
+         numeroDocumento : $("#document").val(),
+         primerNombre : $('#name').val(), 	
+         segundoNombre : $('#name').val(), 	
+         primerApellido : $('#lastname').val(),
+         segundoApellido : $('#name').val(), 	
+         correo : $('#mail').val(), 
+         sexo : $('input[name=drone]:checked', '.label-content').val(),
+         telefono : $('#phone').val()
+     };
+
+       $.ajax({
+            url : 'http://35.231.135.74:80/clientes',
+            processData: false,
+            dataType : 'json',
+            contentType: 'application/json',
+            method : 'post', //en este caso
+            data : JSON.stringify(cliente),
+                success : function(response){
+                       myApp.modal({
+					  title: '¡Bievenido!',
+            		  text: 'Ya eres parte de la familia de Mundo Único',
+            		  buttons: [
+				      {
+				        text: 'VOLVER',
+				        onClick: function() {
+				         myApp.closeModal();
+
+				        }
+				      }
+				    ]
+                	});
                 },
                 error: function(xhr, status, error){
                     console.log(xhr.responseText);
