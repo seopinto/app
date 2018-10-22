@@ -19,6 +19,8 @@ var myApp = new Framework7({
 // Export selectors engine
 var $$ = Dom7;
 
+
+
 var itemsSlider = 0;
 var getURLimagenesIntereses = "http://35.231.135.74:80/multimedia/verImagenes/";
 
@@ -282,20 +284,56 @@ myApp.onPageInit('contact', function (page) {
 		}
 		});	
 })
+
+// myApp.onPageInit('blog', function (page) {
+ 
+// 		$(".posts li").hide();	
+// 		size_li = $(".posts li").size();
+// 		x=4;
+// 		$('.posts li:lt('+x+')').show();
+// 		$('#loadMore').click(function () {
+// 			x= (x+1 <= size_li) ? x+1 : size_li;
+// 			$('.posts li:lt('+x+')').show();
+// 			if(x == size_li){
+// 				$('#loadMore').hide();
+// 				$('#showLess').show();
+// 			}
+// 		});
+
+// })
+
+
+
 myApp.onPageInit('blog', function (page) {
  
-		$(".posts li").hide();	
-		size_li = $(".posts li").size();
-		x=4;
-		$('.posts li:lt('+x+')').show();
-		$('#loadMore').click(function () {
-			x= (x+1 <= size_li) ? x+1 : size_li;
-			$('.posts li:lt('+x+')').show();
-			if(x == size_li){
-				$('#loadMore').hide();
-				$('#showLess').show();
+	 $$.ajax({ 
+    type: 'GET', 
+    url: 'http://35.231.135.74/intereses/detalleIntereses/'+$("#Post").val()+'',
+    data: { get_param: 'value' }, 
+    dataType: 'json',
+    success: function (data) { 
+           
+            var results = JSON.stringify(data);
+            var obj = JSON.parse(results);
+            var html = "";
+
+            for(var i = 0;i<obj.length;i++){
+            	if (obj[i].id = 1) {
+            		document.getElementById("title-new").innerHTML = "Noticias de Entretenimiento";
+            	}else if (obj[i].id = 2){
+            		document.getElementById("title-new").innerHTML = "Noticias de Deportes";
+            	}else if (obj[i].id = 3){
+            		document.getElementById("title-new").innerHTML = "Noticias de Gadgets";
+            	}else if(obj[i].id = 4){
+            		document.getElementById("title-new").innerHTML = "Noticias de Viajes";
+            	}else if(obj[i].id = 5){
+            		document.getElementById("title-new").innerHTML = "Noticias de Un mundo de comodidad";
+            	}
+            	html+="<li class='cards__item'><div class='card'><div class='card__image'><img src='http://35.231.135.74/intereses/verImagenes/"+obj[i].identificadorMultimedia+"'></div><div class='card__content'><div class='card__title'>"+obj[i].titulo+"</div><p class='card__text'>"+obj[i].descripcion+"</p><a type='button' href='blog_internal.html' class='btn btn-block card__btn'>Ver articulo</a><a type='button' href='blog_internal.html' class='btn btn-block1 card__btn'>Suscribirme</a></div></div></li>"
 			}
-		});
+			$("#cards1").html(html);
+   }
+});
 
 })
 
