@@ -19,7 +19,6 @@ var myApp = new Framework7({
 // Export selectors engine
 var $$ = Dom7;
 
-var DetalleInteres = $("#PostDetalle").val();
 
 var itemsSlider = 0;
 var getURLimagenesIntereses = "http://35.231.135.74:80/multimedia/verImagenes/";
@@ -306,7 +305,11 @@ myApp.onPageInit('contact', function (page) {
 
 myApp.onPageInit('blog', function (page) {
  
-	 $$.ajax({ 
+	
+
+
+new Promise(function(resolve, reject) {
+ $.ajax({ 
     type: 'GET', 
     url: 'http://35.231.135.74/intereses/detalleIntereses/'+$("#Post").val()+'',
     data: { get_param: 'value' }, 
@@ -343,23 +346,22 @@ myApp.onPageInit('blog', function (page) {
 			}
 			$("#cards1").html(html);
    }
-});
 })
 
-myApp.onPageInit('blog2', function (page) {
+ .then(function() {
 
-
-console.log(DetalleInteres);
-	 $$.ajax({ 
+$.ajax({ 
     type: 'GET', 
-    url: 'http://35.231.135.74/intereses/'+DetalleInteres+'',
+    url: 'http://35.231.135.74/intereses/'+$("#PostDetalle").val()+'',
     data: { get_param: 'value' }, 
     dataType: 'json',
     success: function (data1) { 
-           
-            var results = JSON.stringify(data1);
+           	
+           	var results = JSON.stringify(data1);
             var obj = JSON.parse(results);
             var html2 = "";
+
+            console.log(JSON.parse(results).length);
 
             for(var j = 0;j<obj.length;j++){
             	
@@ -369,6 +371,17 @@ console.log(DetalleInteres);
 			$("#internalDetalle").html(html2);
    }
 });
+ });
+
+});
+
+})
+
+myApp.onPageInit('blog2', function (page) {
+
+
+
+	  
 
 })
 
