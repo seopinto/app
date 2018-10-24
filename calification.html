@@ -24,8 +24,107 @@
    
          <form class="rating-wrapper">
   <label class="rating-label">
-    <h2 class="page_title_secondary">¿Cómo te parecio tu experiencia en Mundo Único?</h2>
-    <div class="ratingItemList">
+    <h2 class="page_title">¿Cómo te parecio tu experiencia en Mundo Único?</h2>
+
+
+<div class="emoji  emoji--angry" id="angry">
+  <div class="emoji__face">
+    <div class="emoji__eyebrows"></div>
+    <div class="emoji__eyes"></div>
+    <div class="emoji__mouth"></div>
+  </div>
+</div>
+
+<div class="emoji  emoji--sad" id="sad">
+  <div class="emoji__face">
+    <div class="emoji__eyebrows"></div>
+    <div class="emoji__eyes"></div>
+    <div class="emoji__mouth"></div>
+  </div>
+</div>
+
+<div class="emoji  emoji--wow" id="wow">
+  <div class="emoji__face">
+    <div class="emoji__eyebrows"></div>
+    <div class="emoji__eyes"></div>
+    <div class="emoji__mouth"></div>
+  </div>
+</div>
+
+<div class="emoji  emoji--yay" id="yay">
+  <div class="emoji__face">
+    <div class="emoji__eyebrows"></div>
+    <div class="emoji__mouth"></div>
+  </div>
+</div>
+
+<div class="emoji  emoji--haha" id="haha">
+  <div class="emoji__face">
+    <div class="emoji__eyes"></div>
+    <div class="emoji__mouth">
+      <div class="emoji__tongue"></div>
+    </div>
+  </div>
+</div>
+
+
+<input type="text" id="calification" name="" value="0" style="display: none">
+
+<div class="form">
+                     <div class = "list-block">
+                        <ul>
+                           <div class="row">
+                             <div class="col-50" style="margin: 0 0 0 13em;">
+
+                              <li class = "item-content">
+                              <div class = "item-inner">
+                                 
+                                 <div class = "item-input">
+                                    <input id="document"  onchange="findusercalification()" type="text" class="input-form display-not-input" required name="password" placeholder="Número de documento" >
+                                 </div>
+                              </div>
+                           </li>
+
+                          
+
+
+
+                             </div>
+
+                             <div class="col-100">
+                                <li class = "item-content">
+                              <div class = "item-inner">
+                                 
+                                 <div class = "item-input">
+                                    <input id="why" type="text" class="input-form display-not-input" required name="password" placeholder="¿Por qué?" >
+                                 </div>
+                              </div>
+                           </li>
+
+                             </div>
+                            
+                              
+                           </div>
+
+
+
+                            
+                          
+                        </ul>
+                     </div>
+                     
+                     <div class = "list-block">
+                        <ul>
+                          
+                          <button id="SendCongratulations"  class="item-link list-button display-not-input" type="button">ENVIAR RESPUESTA</button>
+                        </ul>
+                       
+                     </div>
+                
+                  </div>
+    
+
+<!--     <div class="ratingItemList">
       <input class="rating rating-1" id="rating-1-2" type="radio" value="1" name="rating"/>
       <label class="rating rating-1" for="rating-1-2"><i class="em em-angry"></i></label>
       <input class="rating rating-2" id="rating-2-2" type="radio" value="2" name="rating"/>
@@ -37,12 +136,12 @@
       <input class="rating rating-5" id="rating-5-2" type="radio" value="5" name="rating"/>
       <label class="rating rating-5" for="rating-5-2"><i class="em em-heart_eyes"></i></label>
     
-    </div>
+    </div> -->
   </label>
   <div class="feedback">
     <input id="identification" type="text" placeholder="Identificación" onblur="finduserpqrs()"/>
     <textarea id="comments" placeholder="¿Que podemos hacer para mejorar?"></textarea>    
-    <button id="SendCongratulations" type="button" class="submit">Envíe sus comentarios</button>
+    <button type="button" class="submit">Envíe sus comentarios</button>
   </div>
 </form>
 

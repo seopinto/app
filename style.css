@@ -104,7 +104,7 @@ font-size: 29px;
 line-height:25px;
 font-weight: 700;
 padding:20px 0 15px 0;
-margin: 26px 5% 15px 5%;
+margin: 0px 5% 15px 5%;
 border-bottom:1px #f0f0f0 solid;
 display:inline-block;
 letter-spacing:-0.5px;
@@ -630,9 +630,16 @@ overflow: scroll;
   top: 198px !important;
 }
 #pages_maincontent p{
-padding:0 0 15px 0;
-margin:0px;
-clear:both;
+padding: 0 0 15px 0;
+clear: both;
+width: 97%;
+line-height: 1.5;
+-webkit-line-clamp: 3 !important;
+-webkit-box-orient: vertical;
+text-overflow: ellipsis;
+margin: 0px auto;
+overflow: hidden;
+height: 60px;
 }
 #pages_maincontent img{
 display:block;
@@ -1630,17 +1637,18 @@ ul {
 }
 
 .rating-wrapper {
-  max-width: 400px;
-  margin: 80px auto;
+  
+  margin: 35px auto;
   background: #fff;
   padding: 1em;
   border-radius: 3px;
-  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+  
 }
 .rating-wrapper .rating-label {
   text-align: center;
   font-weight: 700;
   display: block;
+
 }
 .rating-wrapper .ratingItemList {
   max-width: 300px;
@@ -1878,11 +1886,13 @@ text-align: center;
   color: black !important;
 font-size: 22px !important;
 font-weight: 1;
-border-bottom: 2px solid black !important;
+border-bottom: 1.5px solid black !important;
 text-align: center;
 margin: 9px 0 0 0 !important;
 }
-
+.display-not-input{
+  display: none !important;
+}
 .form{
   width: 70%;
 margin: 0 0 0 14em;
@@ -2607,6 +2617,7 @@ padding:0px 3px;
   display: inline-block;
   border-radius: 50%;
   position: relative;
+  filter: grayscale(100%);
 }
 
 .emoji:after {
@@ -2743,7 +2754,7 @@ padding:0px 3px;
 }
 
 .emoji--haha:after {
-  content: 'Haha';
+  content: '';
 }
 
 .emoji--haha .emoji__face {
@@ -2794,7 +2805,7 @@ padding:0px 3px;
 }
 
 .emoji--yay:after {
-  content: 'Yay';
+  content: '';
   animation: yay-reverse 1s linear infinite;
 }
 
@@ -2865,7 +2876,7 @@ padding:0px 3px;
 }
 
 .emoji--wow:after {
-  content: 'Wow';
+  content: '';
 }
 
 .emoji--wow .emoji__face {
@@ -2915,17 +2926,25 @@ padding:0px 3px;
 }
 
 .emoji--wow .emoji__mouth {
-  width: 30px;
-  height: 45px;
-  left: calc(50% - 15px);
-  top: 50%;
-  border-radius: 50%;
-  background: #000000;
-  animation: wow-mouth 3s linear infinite;
+  width: 59px;
+height: 22px;
+left: calc(50% - 30px);
+top: 80px;
+box-sizing: border-box;
+border: 6px solid #000000;
+    border-right-color: rgb(0, 0, 0);
+    border-bottom-color: rgb(0, 0, 0);
+    border-left-color: rgb(0, 0, 0);
+border-radius: 50%;
+border-bottom-color: transparent;
+border-left-color: transparent;
+border-right-color: transparent;
+background: transparent;
+animation: sad-mouth 2s ease-in infinite;
 }
 
 .emoji--sad:after {
-  content: 'Sad';
+  content: '';
 }
 
 .emoji--sad .emoji__face {
@@ -3018,7 +3037,7 @@ padding:0px 3px;
 }
 
 .emoji--angry:after {
-  content: 'Angry';
+  content: '';
 }
 
 .emoji--angry .emoji__face {
@@ -3340,3 +3359,5 @@ padding:0px 3px;
     bottom: 25px;
   }
 }
+
+
