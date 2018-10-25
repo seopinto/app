@@ -344,20 +344,13 @@ mainView.router.loadPage('blog_internal.html');
       
             for(var i = 0;i<obj.length;i++){
 
+            	$('.modal-overlay-visible').attr("style", "visibility: hidden !important;");
             	
-            	html+="<input id='PostDetalle' value='"+obj[i].id+"' style='display:none'> <li class='cards__item'><div class='card'><div class='card__image'><img src='http://35.231.135.74/intereses/verImagenes/"+obj[i].identificadorMultimedia+"'></div><div class='card__content'><div class='card__title'>"+obj[i].titulo+"</div><p class='card__text'>"+obj[i].descripcion+"</p><a href='javascript:PopNoticia();'  class='btn btn-block card__btn'>Ver articulo</a><a type='button' href='blog_internal.html' class='btn btn-block1 card__btn'>Suscribirme</a></div></div></li>"
+            	html+="<input id='PostDetalle' value='"+obj[i].id+"' style='display:none'> <li class='cards__item'><div class='card'><div class='card__image'><img src='http://35.231.135.74/intereses/verImagenes/"+obj[i].identificadorMultimedia+"'></div><div class='card__content'><div class='card__title'>"+obj[i].titulo+"</div><p class='card__text'>"+obj[i].descripcion+"</p><a href='#' data-popover='.popover-about' class='open-popover btn btn-block card__btn'>Ver articulo</a><a type='button' href='blog_internal.html' class='btn btn-block1 card__btn'>Suscribirme</a></div></div></li> <div class='popover popover-about'><div class='popover-angle'></div><div class='popover-inner'><div class='content-block'><p>About</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac diam ac quam euismod porta vel a nunc. Quisque sodales scelerisque est, at porta justo cursus ac.</p></div></div></div>"
             	
 
             	html2+="asdadsasdas";
-            	function PopNoticia(){
-
-            		var popupHTML = '<div class="popup"><div class="content-block1"><h2 class="page_title">Gracias por querer formar parte de la familia Mundo Único</h2><h2 class="page_title_secondary">Por favor completa el siguiente formulario</h2><form class="form-modal"><div class = "list-block"><ul><div class="row"><div class="col-50"><li class="item-content"><div class="item-inner"><div class="item-input"><input id="document1" type="text" class="input-form" required name="password" placeholder="Número de documento" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="name1" type="text" class="input-form" required name="password" placeholder="Nombre" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="phone1" type="text" class="input-form" required name="password" placeholder="Teléfono" ></div></div></li></div><div class="col-50"><li class="item-content"><div class="item-inner"><div class="item-input"><input id="mail1" type="text" class="input-form" required name="password" placeholder="Correo electrónico" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="lastname1" type="text" class="input-form" required name="password" placeholder="Apellidos" ></div></div></li><div class="label-content2"><label>Género</label><input type="radio" id="Hombre" name="drone2" value="M" checked /><label for="huey">Hombre</label><input type="radio" id="Mujer" name="drone2" value="F" /><label for="dewey">Mujer</label></div></div></div></ul></div><div class = "list-block"><ul class="button-modal2"><button onclick="registry3();" class="item-link list-button" type="button">REGISTRARME</button></ul></div></form>'+
-													'<p><a href="#" id="closemodal" class="close-popup-2">Cancelar</a></p>'+
-								                    '</div>'+
-								                  '</div>'
-								  
-            	}
-
+            	
             	
 
             	// if (obj[i].id == 1) {
@@ -942,6 +935,7 @@ myApp.onPageInit('registro', function (page){
 					}
 				} );
 			})();
+
 
 
  
