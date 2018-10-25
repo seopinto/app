@@ -41,11 +41,6 @@ $(document).ready(function() {
 		$(".close-popup").click(function() {					  
 			$("label.error").hide();
 		});
-
-
-		 // $("#closemodal").click(function() {
-		 		
-		 // });
 		
 		
 });
@@ -311,10 +306,28 @@ myApp.onPageInit('contact', function (page) {
 
 myApp.onPageInit('blog', function (page) {
  
-	
+if($("#Post1").click(function() {
+document.getElementById("Post").value = "1";
+mainView.router.loadPage('blog_internal.html'); 
+}));
+if($("#Post2").click(function() {
+document.getElementById("Post").value = "2";
+mainView.router.loadPage('blog_internal.html'); 
+}));
+if($("#Post3").click(function() {
+document.getElementById("Post").value = "3";
+mainView.router.loadPage('blog_internal.html'); 
+}));
+if($("#Post4").click(function() {
+document.getElementById("Post").value = "4";
+mainView.router.loadPage('blog_internal.html'); 
+}));
+if($("#Post5").click(function() {
+document.getElementById("Post").value = "5";
+mainView.router.loadPage('blog_internal.html'); 
+}));
 
 
-new Promise(function(resolve, reject) {
  $.ajax({ 
     type: 'GET', 
     url: 'http://35.231.135.74/intereses/detalleIntereses/'+$("#Post").val()+'',
@@ -325,11 +338,27 @@ new Promise(function(resolve, reject) {
             var results = JSON.stringify(data);
             var obj = JSON.parse(results);
             var html = "";
+            var html2 = "";
 
             var secondobj = obj.length;
       
             for(var i = 0;i<obj.length;i++){
-            	html+="<li class='cards__item'><div class='card'><div class='card__image'><img src='http://35.231.135.74/intereses/verImagenes/"+obj[i].identificadorMultimedia+"'></div><div class='card__content'><div class='card__title'>"+obj[i].titulo+"</div><p class='card__text'>"+obj[i].descripcion+"</p><a type='button' href='blog-single.html' class='btn btn-block card__btn'>Ver articulo<input style='display:none' id='PostDetalle' value='"+obj[i].id+"'></a><a type='button' href='blog_internal.html' class='btn btn-block1 card__btn'>Suscribirme</a></div></div></li>"
+
+            	
+            	html+="<input id='PostDetalle' value='"+obj[i].id+"' style='display:none'> <li class='cards__item'><div class='card'><div class='card__image'><img src='http://35.231.135.74/intereses/verImagenes/"+obj[i].identificadorMultimedia+"'></div><div class='card__content'><div class='card__title'>"+obj[i].titulo+"</div><p class='card__text'>"+obj[i].descripcion+"</p><a href='javascript:PopNoticia();'  class='btn btn-block card__btn'>Ver articulo</a><a type='button' href='blog_internal.html' class='btn btn-block1 card__btn'>Suscribirme</a></div></div></li>"
+            	
+
+            	html2+="asdadsasdas";
+            	function PopNoticia(){
+
+            		var popupHTML = '<div class="popup"><div class="content-block1"><h2 class="page_title">Gracias por querer formar parte de la familia Mundo Único</h2><h2 class="page_title_secondary">Por favor completa el siguiente formulario</h2><form class="form-modal"><div class = "list-block"><ul><div class="row"><div class="col-50"><li class="item-content"><div class="item-inner"><div class="item-input"><input id="document1" type="text" class="input-form" required name="password" placeholder="Número de documento" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="name1" type="text" class="input-form" required name="password" placeholder="Nombre" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="phone1" type="text" class="input-form" required name="password" placeholder="Teléfono" ></div></div></li></div><div class="col-50"><li class="item-content"><div class="item-inner"><div class="item-input"><input id="mail1" type="text" class="input-form" required name="password" placeholder="Correo electrónico" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="lastname1" type="text" class="input-form" required name="password" placeholder="Apellidos" ></div></div></li><div class="label-content2"><label>Género</label><input type="radio" id="Hombre" name="drone2" value="M" checked /><label for="huey">Hombre</label><input type="radio" id="Mujer" name="drone2" value="F" /><label for="dewey">Mujer</label></div></div></div></ul></div><div class = "list-block"><ul class="button-modal2"><button onclick="registry3();" class="item-link list-button" type="button">REGISTRARME</button></ul></div></form>'+
+													'<p><a href="#" id="closemodal" class="close-popup-2">Cancelar</a></p>'+
+								                    '</div>'+
+								                  '</div>'
+								  
+            	}
+
+            	
 
             	// if (obj[i].id == 1) {
             	// 	document.getElementById("title-new").innerHTML = "Noticias de Entretenimiento";
@@ -343,53 +372,29 @@ new Promise(function(resolve, reject) {
             	// 	document.getElementById("title-new").innerHTML = "Noticias de Un mundo de comodidad";
             	// }
 
-            	
 
-            	// for (var j=0; j < obj[i].; j++) {
-            		
-            	// }
             	
 			}
 			$("#cards1").html(html);
-   }
-})
-
- .then(function() {
-
-$.ajax({ 
-    type: 'GET', 
-    url: 'http://35.231.135.74/intereses/'+$("#PostDetalle").val()+'',
-    data: { get_param: 'value' }, 
-    dataType: 'json',
-    success: function (data1) { 
-           	
-           	var results = JSON.stringify(data1);
-            var obj = JSON.parse(results);
-            var html2 = "";
-
-            console.log(JSON.parse(results).length);
-
-            for(var j = 0;j<obj.length;j++){
-            	
-            	html2+="dfsdfsdfdsf";
-            	// html2+=" <h2 class='blog_title'>"+obj[i].titulo+"</h2><div class='swiper-container-pages swiper-init' data-effect='slide' data-pagination='.swiper-pagination'><div class='swiper-wrapper'><div class='swiper-slide'><img src='http://35.231.135.74/intereses/verImagenes/"+obj[i].identificadorMultimedia+"' alt='' title='' /></div></div></div><div class='page_single layout_fullwidth_padding'><div class='post_single'><p>"+obj[i].descripcion+"</p></div></div>";
-			}
 			$("#internalDetalle").html(html2);
+
+
+// 			if($("#buttonDetalle1").click(function() {
+			
+// 			mainView.router.loadPage('blog-single.html'); 
+
+// 			console.log($("#PostDetalle").val());
+// }));
+
    }
-});
- });
+})
 
-});
+
+
+
 
 })
 
-myApp.onPageInit('blog2', function (page) {
-
-
-
-	  
-
-})
 
 
 function IndexLog() {
