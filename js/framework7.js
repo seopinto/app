@@ -7381,6 +7381,13 @@
                     else popup = '.popup.modal-in';
                     app.closeModal(popup);
                 }
+                 if (clicked.hasClass('close-popup-2')) {
+                    if (clickedData.popup) {
+                        popup = clickedData.popup;
+                    }
+                    else popup = '.popup.modal-in';
+                    app.closeModal(popup);
+                }
                 // Login Screen
                 var loginScreen;
                 if (clicked.hasClass('open-login-screen')) {

@@ -41,6 +41,12 @@ $(document).ready(function() {
 		$(".close-popup").click(function() {					  
 			$("label.error").hide();
 		});
+
+
+		 // $("#closemodal").click(function() {
+		 		
+		 // });
+		
 		
 });
 
@@ -439,11 +445,16 @@ function finduserpqrs(){
 						        text: 'Cancelar',
 						        onClick: function() {
 						         myApp.closeModal();
+						         document.getElementById("name").value = " ";
+								 document.getElementById("phone").value = " ";
+								 document.getElementById("mail").value = " ";
+								 document.getElementById("message").value = " ";
 						         $('#name').attr("disabled", true);
 						         $('#phone').attr("disabled", true);
 						         $('#mail').attr("disabled", true);
 						         $('.label-content').attr("disabled", true);
 						         $('#message').attr("disabled", true);
+
 						         
 						         document.getElementById("name").reset();
 						        }
@@ -454,10 +465,17 @@ function finduserpqrs(){
 						         //mainView.router.reloadPage('registry.html');
 						        // myApp.popup(popupHTML, removeOnClose); 
 						        var popupHTML = '<div class="popup"><div class="content-block1"><h2 class="page_title">Gracias por querer formar parte de la familia Mundo Único</h2><h2 class="page_title_secondary">Por favor completa el siguiente formulario</h2><form class="form-modal"><div class = "list-block"><ul><div class="row"><div class="col-50"><li class="item-content"><div class="item-inner"><div class="item-input"><input id="document1" type="text" class="input-form" required name="password" placeholder="Número de documento" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="name1" type="text" class="input-form" required name="password" placeholder="Nombre" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="phone1" type="text" class="input-form" required name="password" placeholder="Teléfono" ></div></div></li></div><div class="col-50"><li class="item-content"><div class="item-inner"><div class="item-input"><input id="mail1" type="text" class="input-form" required name="password" placeholder="Correo electrónico" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="lastname1" type="text" class="input-form" required name="password" placeholder="Apellidos" ></div></div></li><div class="label-content2"><label>Género</label><input type="radio" id="Hombre" name="drone2" value="M" checked /><label for="huey">Hombre</label><input type="radio" id="Mujer" name="drone2" value="F" /><label for="dewey">Mujer</label></div></div></div></ul></div><div class = "list-block"><ul class="button-modal2"><button onclick="registry2();" class="item-link list-button" type="button">REGISTRARME</button></ul></div></form>'+
-													'<p><a href="#" class="close-popup-2">Cancelar</a></p>'+
+													'<p><a href="#" class="close-popup-2" id="closemodal">Cancelar</a></p>'+
 								                    '</div>'+
 								                  '</div>'
 								  myApp.popup(popupHTML);
+
+								  $("#closemodal").click(function() {
+										document.getElementById("name").value = " ";
+										document.getElementById("phone").value = " ";
+										document.getElementById("mail").value = " ";
+										document.getElementById("message").value = " ";
+								   });
 						        }
 						      }
 						    ]
@@ -513,16 +531,21 @@ function findusercalification(){
 						         //mainView.router.reloadPage('registry.html');
 						        // myApp.popup(popupHTML, removeOnClose); 
 						        var popupHTML = '<div class="popup"><div class="content-block1"><h2 class="page_title">Gracias por querer formar parte de la familia Mundo Único</h2><h2 class="page_title_secondary">Por favor completa el siguiente formulario</h2><form class="form-modal"><div class = "list-block"><ul><div class="row"><div class="col-50"><li class="item-content"><div class="item-inner"><div class="item-input"><input id="document1" type="text" class="input-form" required name="password" placeholder="Número de documento" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="name1" type="text" class="input-form" required name="password" placeholder="Nombre" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="phone1" type="text" class="input-form" required name="password" placeholder="Teléfono" ></div></div></li></div><div class="col-50"><li class="item-content"><div class="item-inner"><div class="item-input"><input id="mail1" type="text" class="input-form" required name="password" placeholder="Correo electrónico" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="lastname1" type="text" class="input-form" required name="password" placeholder="Apellidos" ></div></div></li><div class="label-content2"><label>Género</label><input type="radio" id="Hombre" name="drone2" value="M" checked /><label for="huey">Hombre</label><input type="radio" id="Mujer" name="drone2" value="F" /><label for="dewey">Mujer</label></div></div></div></ul></div><div class = "list-block"><ul class="button-modal2"><button onclick="registry3();" class="item-link list-button" type="button">REGISTRARME</button></ul></div></form>'+
-													'<p><a href="#" class="close-popup-2">Cancelar</a></p>'+
+													'<p><a href="#" id="closemodal" class="close-popup-2">Cancelar</a></p>'+
 								                    '</div>'+
 								                  '</div>'
 								  myApp.popup(popupHTML);
+								   
+								   $("#closemodal").click(function() {
+										$('#why').attr("disabled", true);						         
+								   });
 						        }
 						      }
 						    ]
 		                	});  
 		                	 
 					    }else{
+					    	$('#why').attr("disabled", false);						         
 					    	$("#name").val(data1.primerNombre + " " + data1.segundoApellido);	
 					    	$("#mail").val(data1.correo);	
 					    	$("#phone").val(data1.telefono);
