@@ -249,6 +249,13 @@ float:right;
 text-align:center;
 margin: -76px 0 0 0;
 }
+.navbar_right2{
+width: 3%;
+
+position: absolute;
+}
+
+
 .navbar_right img{
 display:inline-block;
 max-width: 86%;

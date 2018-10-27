@@ -41,6 +41,10 @@ $(document).ready(function() {
 		$(".close-popup").click(function() {					  
 			$("label.error").hide();
 		});
+
+		$("#closePop").click(function() {
+			$(".popover-about1").attr('style','display:none');
+		});	
 		
 		
 });
@@ -346,27 +350,9 @@ mainView.router.loadPage('blog_internal.html');
 
             	$('.modal-overlay-visible').attr("style", "visibility: hidden !important;");
             	
-            	html+="<input id='PostDetalle' value='"+obj[i].id+"' style='display:none'> <li class='cards__item'><div class='card'><div class='card__image'><img src='http://35.231.135.74/intereses/verImagenes/"+obj[i].identificadorMultimedia+"'></div><div class='card__content'><div class='card__title'>"+obj[i].titulo+"</div><p class='card__text'>"+obj[i].descripcion+"</p><a href='#' data-popover='.popover-about' class='open-popover btn btn-block card__btn'>Ver articulo</a><a type='button' href='blog_internal.html' class='btn btn-block1 card__btn'>Suscribirme</a></div></div></li> <div class='popover popover-about'><div class='popover-angle'></div><div class='popover-inner'><div class='content-block'><p>About</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac diam ac quam euismod porta vel a nunc. Quisque sodales scelerisque est, at porta justo cursus ac.</p></div></div></div>"
-            	
-
-            	html2+="asdadsasdas";
-            	
-            	
-
-            	// if (obj[i].id == 1) {
-            	// 	document.getElementById("title-new").innerHTML = "Noticias de Entretenimiento";
-            	// }else if (obj[i].id == 2){
-            	// 	document.getElementById("title-new").innerHTML = "Noticias de Deportes";
-            	// }else if (obj[i].id == 3){
-            	// 	document.getElementById("title-new").innerHTML = "Noticias de Gadgets";
-            	// }else if(obj[i].id == 4){
-            	// 	document.getElementById("title-new").innerHTML = "Noticias de Viajes";
-            	// }else if(obj[i].id == 5){
-            	// 	document.getElementById("title-new").innerHTML = "Noticias de Un mundo de comodidad";
-            	// }
-
-
-            	
+            	html+="<input id='PostDetalle' value='"+obj[i].id+"' style='display:none'> <li class='cards__item'><div class='card'><div class='card__image'><img src='http://35.231.135.74/intereses/verImagenes/"+obj[i].identificadorMultimedia+"'></div><div class='card__content'><div class='card__title'>"+obj[i].titulo+"</div><p class='card__text'>"+obj[i].descripcion+"</p><a href='#' data-popover='.popover-about"+obj[i].id+"' class='open-popover btn btn-block card__btn'>Ver articulo</a><a type='button' href='blog_internal.html' class='btn btn-block1 card__btn'>Suscribirme</a></div></div> <div class='popover popover-about"+obj[i].id+"'><div class='popover-angle'></div><div class='popover-inner'><div class='content-block-popup'><a href='#' class='close-popover'><div class='navbar_right2'><img  src='images/icons/black/back.png' alt='' title='' /></div></a><h2 class='page_title'>"+obj[i].titulo+"</h2><div class='card__image_2'><img class='content-block-image' src='http://35.231.135.74/intereses/verImagenes/"+obj[i].identificadorMultimedia+"'></div><p style='margin: 20px 0 0 0;'>"+obj[i].descripcion+"</p></div></div></div></li>"
+            	          	
+           	
 			}
 			$("#cards1").html(html);
 			$("#internalDetalle").html(html2);
@@ -941,6 +927,33 @@ myApp.onPageInit('registro', function (page){
  
     
 })
+
+
+myApp.onPageInit('shopping', function(page){
+
+
+$(window).ready(function(){
+	var left, width, cont = "#q-cont";
+	$('span').click(function(){
+		$(this).css("background","#5a6");
+		$('.re').css("background","#d90");
+		next();
+	});
+	$('.re').click(function(){
+		$(".op").css("background","#d90");
+		$('.re').css("background","#5a6");
+		$(cont).css("left", "0px");
+	});
+	function next() {
+		width = $(cont).width()/4;
+		left = $(cont).css("left").slice(0,-2)*1;
+		left -= width;
+		$(cont).css("left", left+"px");
+	}
+});
+
+
+});
 
 
 

@@ -1923,6 +1923,19 @@ i.icon.icon-plus {
   color: #6d6d72;
   box-sizing: border-box;
 }
+
+.content-block-popup{
+  margin: 35px 0;
+padding: 0 56px;
+color: #6d6d72;
+box-sizing: border-box;
+}
+
+.content-block-image{
+height: 250px;
+width: 45%;
+margin: 0 0 0 25em;
+}
 .content-block1 {
   margin: 35px 0;
   padding: 0 15px;
@@ -3478,6 +3491,7 @@ html.pixel-ratio-3 .card-footer:before {
 .popup-overlay.modal-overlay-visible {
   visibility: visible;
   opacity: 1;
+  z-index: 333;
 }
 .popup-overlay {
   z-index: 10500;
@@ -3876,11 +3890,11 @@ input.modal-text-input + input.modal-text-input {
   margin-top: 0;
 }
 .popover {
-  width: 320px;
+  width: 100%;
   background: rgba(255, 255, 255, 0.95);
   z-index: 13500;
   margin: 0;
-  top: 0;
+  top: -3px !important;
   opacity: 0;
   left: 0;
   border-radius: 13px;
@@ -3893,6 +3907,9 @@ input.modal-text-input + input.modal-text-input {
   -ms-transition-property: opacity;
   -o-transition-property: opacity;
   transition-property: opacity;
+  height: 100%;
+
+box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
 }
 .popover.modal-in {
   -webkit-transition-duration: 300ms;
