@@ -6328,7 +6328,7 @@ html.ios-gt-8 .notifications .item-title {
 .login-screen-content .content-block,
 .login-screen-content .list-block-label {
   max-width: 360px;
-  margin: 25px auto;
+  margin: 60px auto;
 }
 .login-screen-content .list-block ul {
   background: none;
@@ -6345,7 +6345,6 @@ html.ios-gt-8 .notifications .item-title {
 .login-screen-title {
   text-align: center;
   font-size: 30px;
-  margin: 5em 0 0 17em !important;
 }
 /* === Disabled elements === */
 .disabled,

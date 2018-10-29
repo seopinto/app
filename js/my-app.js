@@ -625,6 +625,9 @@ myApp.onPageInit('pqrs', function(page){
             for(var i = 0;i<obj.length;i++){
 
             	var informacion = obj[i].informacion;
+            	var resu = informacion.indexOf("&");
+
+            	console.log(resu);
             	var resul = informacion.replace("&","<br><br>");
 
             	
