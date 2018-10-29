@@ -2521,7 +2521,7 @@ height: 100%;
 }
 /* 5.1 TOP NAVIGATION AND HEADER */
 .navbarpages{
-height:50px;
+    height: auto;
 }
 .logo_text{ 
 font-size:22px;
