@@ -625,9 +625,7 @@ myApp.onPageInit('pqrs', function(page){
             for(var i = 0;i<obj.length;i++){
 
             	var informacion = obj[i].informacion;
-
-            	
-            	var resul = informacion.replace("&","<br><br>");
+            	var resul = informacion.split("&");
 
             	
             	if (obj[i].imagen != null) {

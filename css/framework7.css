@@ -6345,7 +6345,7 @@ html.ios-gt-8 .notifications .item-title {
 .login-screen-title {
   text-align: center;
   font-size: 30px;
-  margin: 5em auto !important;
+  margin: 5em auto 0 !important;
 }
 /* === Disabled elements === */
 .disabled,
