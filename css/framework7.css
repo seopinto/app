@@ -2347,7 +2347,7 @@ line-height: 43px;
 background: black;
 width: 20%;
 border-radius: 70px;
-margin: 3em 0 0 23em;
+margin: 3em 0 0 17em;
 font-weight: 400;
 }
 .list-block .item-link.list-button:after {
@@ -6328,7 +6328,7 @@ html.ios-gt-8 .notifications .item-title {
 .login-screen-content .content-block,
 .login-screen-content .list-block-label {
   max-width: 360px;
-  margin: 5em auto;
+  margin: 25px auto;
 }
 .login-screen-content .list-block ul {
   background: none;
@@ -6345,6 +6345,7 @@ html.ios-gt-8 .notifications .item-title {
 .login-screen-title {
   text-align: center;
   font-size: 30px;
+  margin: 5em auto !important;
 }
 /* === Disabled elements === */
 .disabled,
