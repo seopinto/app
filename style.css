@@ -517,6 +517,7 @@ display:block;
 float:left;
 text-align:left;
 padding:5px 0 0 20px;
+background: transparent !important;
 }
 
 .main-nav ul li a{
@@ -647,6 +648,18 @@ text-overflow: ellipsis;
 margin: 0px auto;
 overflow: hidden;
 height: 60px;
+}
+.p-item-content{
+padding: 0 0 15px 0;
+clear: both;
+width: 97%;
+line-height: 1.5;
+-webkit-line-clamp: 3 !important;
+-webkit-box-orient: vertical;
+text-overflow: ellipsis;
+margin: 0px auto;
+overflow: hidden;
+height: auto !important;
 }
 #pages_maincontent img{
 display:block;
