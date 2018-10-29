@@ -2463,10 +2463,10 @@ max-width:60%;
 /* -------------TABLET PORTRAIT--------- */
 @media screen and (max-width: 780px) {
 .navbarpages{
-height:60px;
+height:85px;
 }
 #pages_maincontent{
-top: 60px; 
+top: 93px; 
 }
 .navbar_right{
 width:60px;
