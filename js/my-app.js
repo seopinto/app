@@ -429,10 +429,10 @@ function finduserpqrs(){
 						        text: 'Cancelar',
 						        onClick: function() {
 						         myApp.closeModal();
-						         document.getElementById("name").value = " ";
-								 document.getElementById("phone").value = " ";
-								 document.getElementById("mail").value = " ";
-								 document.getElementById("message").value = " ";
+						         document.getElementById("name").value = "";
+								 document.getElementById("phone").value = "";
+								 document.getElementById("mail").value = "";
+								 document.getElementById("message").value = "";
 						         $('#name').attr("disabled", true);
 						         $('#phone').attr("disabled", true);
 						         $('#mail').attr("disabled", true);
@@ -455,10 +455,10 @@ function finduserpqrs(){
 								  myApp.popup(popupHTML);
 
 								  $("#closemodal").click(function() {
-										document.getElementById("name").value = " ";
-										document.getElementById("phone").value = " ";
-										document.getElementById("mail").value = " ";
-										document.getElementById("message").value = " ";
+										document.getElementById("name").value = "";
+										document.getElementById("phone").value = "";
+										document.getElementById("mail").value = "";
+										document.getElementById("message").value = "";
 								   });
 						        }
 						      }
