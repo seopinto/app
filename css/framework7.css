@@ -3907,9 +3907,15 @@ input.modal-text-input + input.modal-text-input {
   -ms-transition-property: opacity;
   -o-transition-property: opacity;
   transition-property: opacity;
-  height: 100%;
+  height: auto;
 
 box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
+}
+
+.title-new{
+  font-weight: 700;
+
+text-align: center;
 }
 .popover.modal-in {
   -webkit-transition-duration: 300ms;
