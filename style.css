@@ -172,6 +172,16 @@ background: #f9f9f9b3;
   margin: 0 auto;
 }
 
+#popover-style {
+position: absolute;
+top: 20% !important;
+bottom: 104px;
+left: 0;
+right: 50% !important;
+width: 70%;
+height: auto;
+margin: 0 auto;
+}
 .label-content1 label{
   margin: 0 33px 0 0;
 }

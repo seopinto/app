@@ -1934,7 +1934,7 @@ box-sizing: border-box;
 .content-block-image{
 height: 250px;
 width: 45%;
-margin: 0 0 0 25em;
+margin: 0 auto;
 }
 .content-block1 {
   margin: 35px 0;
