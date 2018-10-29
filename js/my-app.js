@@ -558,9 +558,9 @@ function findusersus(){
 	             dataType : 'json',
 	            contentType: 'application/json',
 	                method : 'post', //en este caso
-	                data2 : JSON.stringify(cliente),
-	                success : function(data2){
-	                     if (data2.id == -1) {
+	                data3 : JSON.stringify(cliente),
+	                success : function(data3){
+	                     if (data3.id == -1) {
 
 	                     	myApp.modal({
 							  title: 'Notificación Mundo Único',
@@ -832,7 +832,7 @@ function registry4(){
 				        onClick: function() {
 				         myApp.closeModal();
 				         document.getElementById("document").value = " ";
-				          mainView.router.loadPage('blog.html');  
+				          mainView.router.loadPage('blog-single.html');  
 				        }
 				      }
 				    ]
