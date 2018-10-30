@@ -23,7 +23,62 @@
       <div class="page_single layout_fullwidth_padding">  
     
 
-    <form class="form">
+<form class="form">
+
+
+    <div class="input-area">
+      <div class="points-system">
+        <div class="wrapper">
+          <div class="newCircle spinner"></div>
+          <div class="newCircle filler"></div>
+          <div class="mask"></div>
+          <div class="progress-counter">1</div>
+          <div class="floating-progress-counter">1</div>
+        </div>
+
+      </div>
+      <div class="survey">
+        <div class="survey-wrap">
+          <div class="questions-wrap">
+          </div>
+          <div>
+            <button type="button" name="submit" id="submit" class="submit button-yes">
+              <i class="fa fa-thumbs-up fa-2x"></i>
+              <span class="span-yes">Trabajo/diario</span>
+            </button>
+            <button type="button" name="no" id="no" class="button-no">
+              <i class="fa fa-thumbs-up fa-2x"></i>
+              <span class="span-no">Viajar por negocios</span>
+            </button>
+            <button type="button" name="no" id="no" class="button-no">
+              <i class="fa fa-thumbs-up fa-2x"></i>
+              <span class="span-no">Ocasiones especiales</span>
+            </button>
+            <button type="button" name="no" id="no" class="button-no">
+              <i class="fa fa-thumbs-up fa-2x"></i>
+              <span class="span-no">Hacer deporte</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  <div class="opt-out mobile">
+    <a href="#">Skip My Points</a>
+  </div>
+  <!-- <script src="https://cdn.jsdelivr.net/mojs/latest/mo.min.js"></script> -->
+  <input type="submit" id="ss_submit_button">
+</form>
+
+<template class="question-template">
+  <div class="question">
+    <input type="hidden" class="coreg-field" name="">
+    <input type="hidden" class="question-value" value="" />
+    <span class="question-text"></span>
+  </div>
+</template>
+  
+
+   <!--  <form class="form">
                      
            <div id="q-cont">
   <div class="slide" id="slide1">
@@ -62,7 +117,7 @@
 </div>          
                     
                 
-    </form>
+    </form> -->
           
       
        </div>   
