@@ -84,7 +84,7 @@ h1{
 	
 }
 h2{
-	font-size:26px;
+	font-size:24px;
 }
 h3{
 	font-size:22px;
@@ -100,7 +100,7 @@ h6{
 }
 h2.page_title{
 width:90%;
-font-size: 29px;
+font-size: 27px;
 line-height:25px;
 font-weight: 700;
 padding:20px 0 15px 0;
@@ -154,7 +154,7 @@ z-index:999999;
 background: #f9f9f9b3;
 }
 .label-content{
-  font-size: 24px;
+  font-size: 20px;
   display: inline-flex;
   margin: 23px 0 0 0;
 }
@@ -167,7 +167,7 @@ background: #f9f9f9b3;
   margin: 0 10px 0 10px;
 }
 .label-content1{
-  font-size: 24px;
+  font-size: 20px;
   display: inline-flex;
   margin: 0 auto;
 }
@@ -1918,7 +1918,7 @@ text-align: center;
 }
 .input-form{
   color: black !important;
-font-size: 22px !important;
+font-size: 20px !important;
 font-weight: 1;
 border-bottom: 1.5px solid black !important;
 text-align: center;
