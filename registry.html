@@ -1,139 +1,98 @@
 
 <div class="pages">
   <div data-page="registro2" class="page no-toolbar no-navbar">
-    <div class="page-content">
-    
- <div class="navbarpages graybg">
-     <a href="#" data-panel="left" class="open-panel">
-      <div class="navbar_left"><img src="images/icons/white/menu.png" alt="" title="" /></div>
-    </a>
-    <div class="navbar_center">
-            <div class="logo_image"><a href="index.html"><img src="images/logo_image.png" alt="" title=""/></a></div>
-    </div>      
-   
-    <a href="#" class="back">
-      <div class="navbar_right"><img src="images/icons/white/menu_close.png" alt="" title="" /></div>
-    </a>
-  </div>
-  
-     <div id="pages_maincontent">
-      
-      <h2 class="page_title">Gracias por querer formar parte de la familia Mundo Único</h2>
-      <h2 class="page_title_secondary">Por favor completa el siguiente formulario</h2>
-      <div class="page_single layout_fullwidth_padding">  
-    
-
-    <form class="form">
+    <div class="page-content">    
+        <div class="navbarpages graybg">
+           <a href="#" data-panel="left" class="open-panel">
+            <div class="navbar_left"><img src="images/icons/white/menu.png" alt="" title="" /></div>
+          </a>
+          <div class="navbar_center">
+             <div class="logo_image"><a href="index.html"><img src="images/logo_image.png" alt="" title=""/></a></div>
+          </div> 
+          <a href="#" class="back">
+            <div class="navbar_right"><img src="images/icons/white/menu_close.png" alt="" title="" /></div>
+          </a>
+        </div>  
+     <div id="pages_maincontent">      
+        <h2 class="page_title">Gracias por querer formar parte de la familia Mundo Único</h2>
+        <h2 class="page_title_secondary">Por favor completa el siguiente formulario</h2>
+        <div class="page_single layout_fullwidth_padding">         
+         <form class="form" action="16-html5-email-input.php" method="POST">
                      <div class = "list-block">
                         <ul>
                            <div class="row">
                              <div class="col-50">
-
                               <li class = "item-content">
-                              <div class = "item-inner">
-                                 
-                                 <div class = "item-input">
-                                    <input id="document"  onblur="finduser()" type="text" class="input-form" required name="document" placeholder="Número de documento" >
-                                 </div>
-                              </div>
-                           </li>
-
-                          <li class = "item-content">
-                              <div class = "item-inner">
-                                 
-                                 <div class = "item-input">
-                                    <input id="name" type="text" class="input-form" required name="name" placeholder="Nombre" >
-                                 </div>
-                              </div>
-                           </li>                     
-
-
-                           <li class = "item-content">
-                              <div class = "item-inner">
-                                 
-                                 <div class = "item-input">
-                                    <input id="phone" type="text" class="input-form" required name="phone" placeholder="Teléfono" >
-                                 </div>
-                              </div>
-                           </li>
-
-                           <li class = "item-content">
-                              <div class = "item-inner">
-                                 
-                                 <div class = "item-input">
-                                    <input id="city" type="text" class="input-form" required name="city" placeholder="Ciudad" >
-                                 </div>
-                              </div>
-                           </li>
-
+                                  <div class = "item-inner">                                     
+                                     <div class = "item-input">
+                                        <input id="document"  type="text" class="input-form" required name="document" placeholder="Número de documento" >
+                                     </div>
+                                  </div>
+                               </li>
+                              <li class = "item-content">
+                                  <div class = "item-inner">                                     
+                                     <div class = "item-input">
+                                        <input id="name" type="text" class="input-form" required name="name" placeholder="Nombre" >
+                                     </div>
+                                  </div>
+                               </li>                
+                               <li class = "item-content">
+                                  <div class = "item-inner">
+                                     
+                                     <div class = "item-input">
+                                        <input id="phone" type="text" class="input-form" required name="phone" placeholder="Teléfono" >
+                                     </div>
+                                  </div>
+                               </li>
+                               <li class = "item-content">
+                                  <div class = "item-inner">                                     
+                                     <div class = "item-input">
+                                        <input id="city" type="text" class="input-form" name="city" placeholder="Ciudad" >
+                                     </div>
+                                  </div>
+                               </li>
                              </div>
                              <div class="col-50">
                                <li class = "item-content">
-                              <div class = "item-inner">
-                                 
-                                 <div class = "item-input">
-                                    <input id="mail" type="text" class="input-form" required name="mail" placeholder="Correo electrónico" >
-                                 </div>
-                              </div>
-                           </li>
-
+                                  <div class = "item-inner">                                     
+                                     <div class = "item-input">
+                                        <input id="mail" type="text" class="input-form" required name="mail" placeholder="Correo electrónico" >
+                                     </div>
+                                  </div>
+                               </li>
                                 <li class = "item-content">
-                              <div class = "item-inner">
-                                 
-                                 <div class = "item-input">
-                                    <input id="lastname" type="text" class="input-form" required name="lastname" placeholder="Apellidos" >
-                                 </div>
-                              </div>
-                           </li>                          
-
-                           <div class="label-content">
-                             <label>Género</label>
-                           
-                                <input type="radio" id="Hombre" name="drone" value="M" checked />
-                                <label for="huey">Hombre</label>                          
-
-                            
-                                <input type="radio" id="Mujer" name="drone" value="F" />
-                                <label for="dewey">Mujer</label>
-                           </div>
-
-                            <li class = "item-content">
-                              <div class = "item-inner">
-                                 
-                                 <div class = "item-input">
-                                    <input id="birthday" type="text" class="input-form" required name="birthday" placeholder="Fecha de cumpleaños" >
-                                 </div>
-                              </div>
-                           </li>
-                            
-                             </div>
-
-                              
-                           </div>
-
-
-
-                            
-                          
+                                  <div class = "item-inner">                                     
+                                     <div class = "item-input">
+                                        <input id="lastname" type="email" class="input-form" required name="lastname" placeholder="Apellidos" >
+                                     </div>
+                                  </div>
+                               </li>                        
+                               <div class="label-content">
+                                 <label>Género</label>                               
+                                    <input type="radio" id="Hombre" name="drone" value="M" checked />
+                                    <label for="huey">Hombre</label>                        
+                                    <input type="radio" id="Mujer" name="drone" value="F" />
+                                    <label for="dewey">Mujer</label>
+                               </div>
+                                <li class = "item-content">                                 
+                                  <div class = "item-inner">                                     
+                                     <div class = "item-input">
+                                        <input id="birthday" type="date" class="input-form" name="birthday" placeholder="Fecha de cumpleaños" >
+                                     </div>
+                                  </div>
+                               </li>                           
+                             </div>                              
+                           </div>                          
                         </ul>
-                     </div>
-                     
-                     <div class = "list-block">
-                        <ul>
-                          
-                          <button onclick="registry();" class="item-link list-button" type="button">REGISTRARME</button>
-                        </ul>
-                       
-                     </div>
-                
-                  </form>
-          
-      
-       </div>   
-      
-      </div>
-      
-      
+                     </div>                     
+                     <div class="list-block">
+                        <ul>                          
+                          <button id="registry" class="item-link list-button" type="button">REGISTRARME</button>
+                        </ul>                       
+                     </div>                
+          </form>       
+       </div>         
+      </div>    
     </div>
   </div>
 </div>

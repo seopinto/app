@@ -25,6 +25,9 @@ width: 100%;
 overflow: hidden;
 font-weight:300;
 }
+.col-auto{
+  margin: 0 auto;
+}
 .clear{ 
 clear:both; 
 display:block;
@@ -169,7 +172,7 @@ background: #f9f9f9b3;
 .label-content1{
   font-size: 20px;
   display: inline-flex;
-  margin: 0 auto;
+  margin: auto 5em;
 }
 
 #popover-style {
@@ -634,7 +637,7 @@ background-color:#000;
 }
 #pages_maincontent{
 width:100%;
-padding:0 0 30px 0;
+padding:0px;
 margin:0px;
 position: absolute; 
 top: 108px;
@@ -1073,6 +1076,7 @@ line-height:30px;
 /*===============================================*/	
 .popup{
 background-color:#FFFFFF;
+box-shadow: 3px 2px 9px;
 }
 .popup h4{
 color:#222222;
@@ -1666,17 +1670,14 @@ ul {
   padding: 0;
 }
 
-.rating-wrapper {
-  
-  margin: 35px auto;
+.rating-wrapper {  
+  margin: 13px auto;
   background: #fff;
-  padding: 1em;
   border-radius: 3px;
   
 }
 .rating-wrapper .rating-label {
   text-align: center;
-  font-weight: 700;
   display: block;
 
 }
@@ -3164,9 +3165,9 @@ padding:0px 3px;
 
 /*--------------------felicitaciones------------*/
 .emoji {
-  width: 120px;
-  height: 120px;
-  margin: 15px 15px 40px;
+  width: 117px;
+  height: 117px;
+  margin: 10px 15px 0;
   background: #FFDA6A;
   display: inline-block;
   border-radius: 50%;
@@ -3175,12 +3176,18 @@ padding:0px 3px;
 }
 
 .emoji:after {
-  position: absolute;
-  bottom: -40px;
-  font-size: 18px;
-  width: 60px;
-  left: calc(50% - 30px);
-  color: #8A8A8A;
+ position: absolute;
+ bottom: -33px;
+ font-size: 18px;
+ left: calc(43% - 23px);
+ color: #8A8A8A;
+ height: 25px;
+ z-index: 999;
+}
+
+.wrapper-form{
+  margin: 4em auto;
+  width: 75%;
 }
 
 .emoji__face,
@@ -3308,7 +3315,7 @@ padding:0px 3px;
 }
 
 .emoji--haha:after {
-  content: '';
+  content: 'Muy Buena';
 }
 
 .emoji--haha .emoji__face {
@@ -3359,7 +3366,7 @@ padding:0px 3px;
 }
 
 .emoji--yay:after {
-  content: '';
+  content: 'Buena';
   animation: yay-reverse 1s linear infinite;
 }
 
@@ -3430,7 +3437,7 @@ padding:0px 3px;
 }
 
 .emoji--wow:after {
-  content: '';
+  content: 'Regular';
 }
 
 .emoji--wow .emoji__face {
@@ -3498,7 +3505,7 @@ animation: sad-mouth 2s ease-in infinite;
 }
 
 .emoji--sad:after {
-  content: '';
+  content: 'Mala';
 }
 
 .emoji--sad .emoji__face {
@@ -3591,7 +3598,7 @@ animation: sad-mouth 2s ease-in infinite;
 }
 
 .emoji--angry:after {
-  content: '';
+  content: 'Muy Mala';
 }
 
 .emoji--angry .emoji__face {

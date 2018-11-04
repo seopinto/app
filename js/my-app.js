@@ -19,6 +19,7 @@ var myApp = new Framework7({
 // Export selectors engine
 var $$ = Dom7;
 
+var emailscomplete = ('gmail.com hotmail.com hotmail.es yahoo.es Melon Orange Peach Pear Pineapple').split(' ');
 
 var itemsSlider = 0;
 var getURLimagenesIntereses = "http://35.231.135.74:80/multimedia/verImagenes/";
@@ -374,173 +375,6 @@ function IndexLog() {
  mainView.router.reloadPage('registro.html');
 }
 
-function finduser(){
-
-	var cliente = {numeroDocumento : $("#document").val() }
-	$.ajax({
-	            url : 'http://35.231.135.74:80/clientes/'+$("#document").val()+'',
-	            processData: false,
-	             dataType : 'json',
-	            contentType: 'application/json',
-	                method : 'post', //en este caso
-	                data : JSON.stringify(cliente),
-	                success : function(data){
-	                     if (data.id == -1) {
-		                	
-					    }else{
-					    	$("#name").val(data.primerNombre);	
-					    	$("#lastname").val(data.primerApellido);	
-					    	$("#mail").val(data.correo);	
-					    	$("#phone").val(data.telefono);	
-					    }
-	                },
-	                error: function(xhr, status, error){
-	                    console.log(xhr.responseText);
-	                }
-	        });
-
-}
-
-function finduserpqrs(){
-
-	var cliente = {numeroDocumento : $("#document").val() }
-	$.ajax({
-
-	            url : 'http://35.231.135.74:80/clientes/'+$("#document").val()+'',
-	            processData: false,
-	             dataType : 'json',
-	            contentType: 'application/json',
-	                method : 'post', //en este caso
-	                data1 : JSON.stringify(cliente),
-	                success : function(data1){
-	                     if (data1.id == -1) {
-
-	                     	myApp.modal({
-							  title: 'Notificación Mundo Único',
-		            		  text: 'Señor(a) usuario usted no se encuentra registrado, por favor regístrese',
-		            		  buttons: [
-						      {
-						        text: 'Cancelar',
-						        onClick: function() {
-						         myApp.closeModal();
-						         document.getElementById("name").value = "";
-								 document.getElementById("phone").value = "";
-								 document.getElementById("mail").value = "";
-								 document.getElementById("message").value = "";
-						         $('#name').attr("disabled", true);
-						         $('#phone').attr("disabled", true);
-						         $('#mail').attr("disabled", true);
-						         $('.label-content').attr("disabled", true);
-						         $('#message').attr("disabled", true);
-
-						         
-						         document.getElementById("name").reset();
-						        }
-						      }, 
-						      {
-						        text: 'Registrarme',
-						        onClick: function() {
-						         //mainView.router.reloadPage('registry.html');
-						        // myApp.popup(popupHTML, removeOnClose); 
-						        var popupHTML = '<div class="popup"><div class="content-block1"><h2 class="page_title">Gracias por querer formar parte de la familia Mundo Único</h2><h2 class="page_title_secondary">Por favor completa el siguiente formulario</h2><form class="form-modal"><div class = "list-block"><ul><div class="row"><div class="col-50"><li class="item-content"><div class="item-inner"><div class="item-input"><input id="document1" type="text" class="input-form" required name="password" placeholder="Número de documento" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="name1" type="text" class="input-form" required name="password" placeholder="Nombre" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="phone1" type="text" class="input-form" required name="password" placeholder="Teléfono" ></div></div></li></div><div class="col-50"><li class="item-content"><div class="item-inner"><div class="item-input"><input id="mail1" type="text" class="input-form" required name="password" placeholder="Correo electrónico" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="lastname1" type="text" class="input-form" required name="password" placeholder="Apellidos" ></div></div></li><div class="label-content2"><label>Género</label><input type="radio" id="Hombre" name="drone2" value="M" checked /><label for="huey">Hombre</label><input type="radio" id="Mujer" name="drone2" value="F" /><label for="dewey">Mujer</label></div></div></div></ul></div><div class = "list-block"><ul class="button-modal2"><button onclick="registry2();" class="item-link list-button" type="button">REGISTRARME</button></ul></div></form>'+
-													'<p><a href="#" class="close-popup-2" id="closemodal">Cancelar</a></p>'+
-								                    '</div>'+
-								                  '</div>'
-								  myApp.popup(popupHTML);
-
-								  $("#closemodal").click(function() {
-										document.getElementById("name").value = "";
-										document.getElementById("phone").value = "";
-										document.getElementById("mail").value = "";
-										document.getElementById("message").value = "";
-								   });
-						        }
-						      }
-						    ]
-		                	});  
-		                	 
-					    }else{
-					    	$("#name").val(data1.primerNombre + " " + data1.segundoApellido);	
-					    	$("#mail").val(data1.correo);	
-					    	$("#phone").val(data1.telefono);
-					        $('#name').attr("disabled", false);
-					        $('#phone').attr("disabled", false);
-					        $('#mail').attr("disabled", false);
-					        $('.label-content').attr("disabled", false);
-					        $('#message').attr("disabled", false);	
-					    }
-	                },
-	                error: function(xhr, status, error){
-	                    console.log(xhr.responseText);
-	                }
-	        });
-
-}
-
-function findusercalification(){
-
-	var cliente = {numeroDocumento : $("#document").val() }
-	$.ajax({
-
-	            url : 'http://35.231.135.74:80/clientes/'+$("#document").val()+'',
-	            processData: false,
-	             dataType : 'json',
-	            contentType: 'application/json',
-	                method : 'post', //en este caso
-	                data1 : JSON.stringify(cliente),
-	                success : function(data1){
-	                     if (data1.id == -1) {
-
-	                     	myApp.modal({
-							  title: 'Notificación Mundo Único',
-		            		  text: 'Señor(a) usuario usted no se encuentra registrado, por favor regístrese',
-		            		  buttons: [
-						      {
-						        text: 'Cancelar',
-						        onClick: function() {
-						         myApp.closeModal();
-						         $('#why').attr("disabled", true);						         
-						         document.getElementById("document").reset();
-						        }
-						      }, 
-						      {
-						        text: 'Registrarme',
-						        onClick: function() {
-						         //mainView.router.reloadPage('registry.html');
-						        // myApp.popup(popupHTML, removeOnClose); 
-						        var popupHTML = '<div class="popup"><div class="content-block1"><h2 class="page_title">Gracias por querer formar parte de la familia Mundo Único</h2><h2 class="page_title_secondary">Por favor completa el siguiente formulario</h2><form class="form-modal"><div class = "list-block"><ul><div class="row"><div class="col-50"><li class="item-content"><div class="item-inner"><div class="item-input"><input id="document1" type="text" class="input-form" required name="password" placeholder="Número de documento" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="name1" type="text" class="input-form" required name="password" placeholder="Nombre" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="phone1" type="text" class="input-form" required name="password" placeholder="Teléfono" ></div></div></li></div><div class="col-50"><li class="item-content"><div class="item-inner"><div class="item-input"><input id="mail1" type="text" class="input-form" required name="password" placeholder="Correo electrónico" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="lastname1" type="text" class="input-form" required name="password" placeholder="Apellidos" ></div></div></li><div class="label-content2"><label>Género</label><input type="radio" id="Hombre" name="drone2" value="M" checked /><label for="huey">Hombre</label><input type="radio" id="Mujer" name="drone2" value="F" /><label for="dewey">Mujer</label></div></div></div></ul></div><div class = "list-block"><ul class="button-modal2"><button onclick="registry3();" class="item-link list-button" type="button">REGISTRARME</button></ul></div></form>'+
-													'<p><a href="#" id="closemodal" class="close-popup-2">Cancelar</a></p>'+
-								                    '</div>'+
-								                  '</div>'
-								  myApp.popup(popupHTML);
-								   
-								   $("#closemodal").click(function() {
-										$('#why').attr("disabled", true);						         
-								   });
-						        }
-						      }
-						    ]
-		                	});  
-		                	 
-					    }else{
-					    	$('#why').attr("disabled", false);						         
-					    	$("#name").val(data1.primerNombre + " " + data1.segundoApellido);	
-					    	$("#mail").val(data1.correo);	
-					    	$("#phone").val(data1.telefono);
-					        $('#name').attr("disabled", false);
-					        $('#phone').attr("disabled", false);
-					        $('#mail').attr("disabled", false);
-					        $('.label-content').attr("disabled", false);
-					        $('#message').attr("disabled", false);	
-					    }
-	                },
-	                error: function(xhr, status, error){
-	                    console.log(xhr.responseText);
-	                }
-	        });
-
-}
-
 
 function findusersus(){
 
@@ -601,69 +435,7 @@ function findusersus(){
 
 }
 
-myApp.onPageInit('pqrs', function(page){
-    
- $$.ajax({ 
-    type: 'GET', 
-    url: 'http://35.231.135.74:80/preguntasTienda',
-    data: { get_param: 'value' }, 
-    dataType: 'json',
-    success: function (data) { 
-           
-            var results = JSON.stringify(data);
-            var obj = JSON.parse(results);
-            var html = "";
 
-
-
-            for(var i = 0;i<obj.length;i++){
-
-            	var informacion = obj[i].informacion;
-            	
-            	var resul = informacion.replace(/&/g, "<br><br>");
-
-            	
-            	if (obj[i].imagen != null) {
-            		html+="<div class='accordion-item'><div class='accordion-item-toggle'><i class='icon icon-plus'>+</i><i class='icon icon-minus'>-</i><span> "+obj[i].titulo+"</span></div><div class='accordion-item-content'><img src="+obj[i].imagen+"></div></div>";
-            	}else{
-            		html+="<div class='accordion-item'><div class='accordion-item-toggle'><i class='icon icon-plus'>+</i><i class='icon icon-minus'>-</i><span> "+obj[i].titulo+"</span></div><div class='accordion-item-content'><p class='p-item-content' id='con"+obj[i].id+"'>"+resul+"</p></div></div>";
-            		
-            	}	
-
-     //        	var txt = document.getElementById("con"+obj[i].id+"");
-					// txt.innerHTML.replace (".",". \n\n");
-            	
-			}
-			$(".custom-accordion").html(html);
-   }
-});
-
-
-  
-
-})
-
-function pqrs(){
-
-	    var dataTienda = localStorage.getItem('TiendaLocal');
-        var pqrsregister = { 
-         pqrs : $('input[name=drone1]:checked', '.label-content1').val(),
-         nota : $('#message').val()};
-        $.ajax({
-                url : 'http://35.231.135.74:80/pqrs/tienda/'+dataTienda+'/cliente/'+$("#document").val(),
-            processData: false,
-             dataType : 'json',
-            contentType: 'application/json',
-                method : 'POST', //en este caso
-                data : JSON.stringify(pqrsregister),
-                success : function(response){
-                	 mainView.router.loadPage('notification2.html');                       
-                },
-                error: function(xhr, status, error){
-                    console.log(xhr.responseText);
-                }
-        });
-}
 
 function subscribe(){
 
@@ -685,34 +457,6 @@ function subscribe(){
         });
 }
 
-function registry(){
-
-        var cliente = { 
-         numeroDocumento : $("#document").val(),
-         primerNombre : $('#name').val(), 	
-         segundoNombre : $('#name').val(), 	
-         primerApellido : $('#lastname').val(),
-         segundoApellido : $('#name').val(), 	
-         correo : $('#mail').val(), 
-         sexo : $('input[name=drone]:checked', '.label-content').val(),
-         telefono : $('#phone').val()
-     };
-
-       $.ajax({
-            url : 'http://35.231.135.74:80/clientes',
-            processData: false,
-            dataType : 'json',
-            contentType: 'application/json',
-            method : 'post', //en este caso
-            data : JSON.stringify(cliente),
-                success : function(response){
-                       mainView.router.loadPage('notification.html');  
-                },
-                error: function(xhr, status, error){
-                    console.log(xhr.responseText);
-                }
-        });
-}; 
 
 function registry2(){
 
@@ -755,47 +499,6 @@ function registry2(){
         });
 }; 
 
-function registry3(){
-
-        var cliente = { 
-         numeroDocumento : $("#document1").val(),
-         primerNombre : $('#name1').val(), 	
-         segundoNombre : $('#name1').val(), 	
-         primerApellido : $('#lastname1').val(),
-         segundoApellido : $('#lastname1').val(), 	
-         correo : $('#mail1').val(), 
-         sexo : $('input[name=drone2]:checked', '.label-content2').val(),
-         telefono : $('#phone1').val()
-     };
-
-       $.ajax({
-            url : 'http://35.231.135.74:80/clientes',
-            processData: false,
-            dataType : 'json',
-            contentType: 'application/json',
-            method : 'post', //en este caso
-            data : JSON.stringify(cliente),
-                success : function(response){
-                       myApp.modal({
-					  title: '¡Bievenido!',
-            		  text: 'Ya eres parte de la familia de Mundo Único',
-            		  buttons: [
-				      {
-				        text: 'VOLVER',
-				        onClick: function() {
-				         myApp.closeModal();
-				         document.getElementById("document").value = " ";
-				          mainView.router.loadPage('calification.html');  
-				        }
-				      }
-				    ]
-                	});
-                },
-                error: function(xhr, status, error){
-                    console.log(xhr.responseText);
-                }
-        });
-}; 
 
 function registry4(){
 
@@ -839,42 +542,8 @@ function registry4(){
         });
 }; 
 
-function felicitaciones(){
 
-		$$('#SendCongratulations').click(function(){
-	    var dataTienda = localStorage.getItem('TiendaLocal');
-        var felregister = { 
-         puntaje : $('input[name=rating]:checked', '.ratingItemList').val()};
-        $.ajax({
-                url : 'http://35.231.135.74:80/felicitaciones/tienda/'+dataTienda+'/cliente/'+$("#identification").val(),
-            processData: false,
-             dataType : 'json',
-            contentType: 'application/json',
-                method : 'POST', //en este caso
-                data : JSON.stringify(felregister),
-                success : function(response){
-                	myApp.modal({
-					  title: 'Notificación Mundo Único',
-            		  text: 'Señor(a) su felicitación ha sido registrada correctamente',
-            		  buttons: [
-				      {
-				        text: 'OK',
-				        onClick: function() {
-				         myApp.closeModal();
-				        }
-				      }
-				    ]
-                	}); 
-                },
-                error: function(xhr, status, error){
-                    console.log(xhr.responseText);
-                }
-        });
-});
-
-}
-myApp.onPageInit('success', function(page){
-
+myApp.onPageInit('calification', function(page){
 
 $(document).ready(function(){
       $( "#haha" ).click(function() {
@@ -932,13 +601,18 @@ $(document).ready(function(){
 	$$('#SendCongratulations').click(function(){
 	    var dataTienda = localStorage.getItem('TiendaLocal');
         var felregister = { 
-         puntaje : $('#calification').val()};
+        puntaje : $('#calification').val()};
+        if ($("#document").val() == "") {
+        	routepqrs = 'http://35.231.135.74:80/felicitaciones/tienda/'+dataTienda+''
+        }else{
+			routepqrs = 'http://35.231.135.74:80/felicitaciones/tienda/'+dataTienda+'/cliente/'+$("#document").val();
+        }
         $.ajax({
-                url : 'http://35.231.135.74:80/felicitaciones/tienda/'+dataTienda+'/cliente/'+$("#document").val(),
-            processData: false,
-             dataType : 'json',
-            contentType: 'application/json',
-                method : 'POST', //en este caso
+                url : routepqrs,
+                processData: false,
+             	dataType : 'json',
+            	contentType: 'application/json',
+                method : 'POST', 
                 data : JSON.stringify(felregister),
                 success : function(response){
                 	mainView.router.loadPage('notification2.html');  
@@ -947,83 +621,269 @@ $(document).ready(function(){
                     console.log(xhr.responseText);
                 }
         });
-}); 
+	}); 
+
+	$$('#registry2').click(function(){ 
+        var clienteres = { 
+         numeroDocumento : $("#document1").val(),
+         primerNombre : $('#name1').val(), 	
+         segundoNombre : $('#name1').val(), 	
+         primerApellido : $('#lastname1').val(),
+         segundoApellido : $('#lastname1').val(), 	
+         correo : $('#mail1').val(), 
+         sexo : $('input[name=drone2]:checked', '.label-content2').val(),
+         telefono : $('#phone1').val(),
+         municipio : $('#city1').val(),
+         fecha : $('#birthday1').val()
+     };
+
+       $.ajax({
+            url : 'http://35.231.135.74:80/clientes',
+            processData: false,
+            dataType : 'json',
+            contentType: 'application/json',
+            method : 'post', 
+            data : JSON.stringify(clienteres),
+                success : function(response){
+                       myApp.modal({
+					  title: '¡Bievenido!',
+            		  text: 'Ya eres parte de la familia de Mundo Único',
+            		  buttons: [
+				      {
+				        text: 'VOLVER',
+				        onClick: function() {
+				         myApp.closeModal();
+				         document.getElementById("document").value = "";
+				          mainView.router.loadPage('calification.html');  
+				        }
+				      }
+				    ]
+                	});
+                },
+                error: function(xhr, status, error){
+                    console.log(xhr.responseText);
+                }
+        });
+ 	});
     
-   $('button.submit').disabled = true;	// disable button on load
-
-   // Enable button 
-function enable_submit() {
-  $('button.submit').disabled = false;
-  $('button.submit').addClass('not-disabled');
-}
-
-// Disable button
-function disable_submit() {
-  $('button.submit').disabled = true;
-  $('button.submit').removeClass('not-disabled');
-}
-
-// Display feedback after rating 
-$('.rating').on('click', function() {
-  var rating = this['value'];
-  
-  $('.feedback').css('display', "block");
-  
-  feedback_validate(rating);
-  
+	$$('#document').change(function(){  
+	var cliente = {numeroDocumento : $("#document").val() }
+	$.ajax({
+	        url : 'http://35.231.135.74:80/clientes/'+$("#document").val()+'',
+	        processData: false,
+	        dataType : 'json',
+	        contentType: 'application/json',
+	        method : 'post', //en este caso
+	        data1 : JSON.stringify(cliente),
+            success : function(data1){
+                 if (data1.id == -1) {
+                 	myApp.modal({
+					  title: 'Notificación Mundo Único',
+            		  text: 'Señor(a) usuario usted no se encuentra registrado, por favor regístrese',
+            		  buttons: [
+				      {
+				        text: 'Cancelar',
+				        onClick: function() {
+				         myApp.closeModal();
+				        }
+				      }, 
+				      {
+				        text: 'Registrarme',
+				        onClick: function() {
+				        var popupHTML = '<div class="popup"><div class="content-block1"><h2 class="page_title">Gracias por querer formar parte de la familia Mundo Único</h2><h2 class="page_title_secondary">Por favor completa el siguiente formulario</h2><form class="form-modal"><div class = "list-block"><ul><div class="row"><div class="col-50"><li class="item-content"><div class="item-inner"><div class="item-input"><input id="document1" type="text" class="input-form" required name="password" placeholder="Número de documento" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="name1" type="text" class="input-form" required name="password" placeholder="Nombre" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="phone1" type="text" class="input-form" required name="password" placeholder="Teléfono" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="city1" type="text" class="input-form" name="city" placeholder="Ciudad" ></div></div></li></div><div class="col-50"><li class="item-content"><div class="item-inner"><div class="item-input"><input id="mail1" type="text" class="input-form" required name="password" placeholder="Correo electrónico" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="lastname1" type="text" class="input-form" required name="password" placeholder="Apellidos" ></div></div></li><div class="label-content2"><label>Género</label><input type="radio" id="Hombre" name="drone2" value="M" checked /><label for="huey">Hombre</label><input type="radio" id="Mujer" name="drone2" value="F" /><label for="dewey">Mujer</label></div><li class="item-content"><div class="item-inner"><div class="item-input"><input id="birthday1" type="date" class="input-form" name="birthday" placeholder="Fecha de cumpleaños" ></div></div></li></div></div></ul></div><div class = "list-block"><ul class="button-modal2"><button id="registry2" class="item-link list-button" type="button">REGISTRARME</button><button id="closemodal" class="close-popup-2"type="button">CANCELAR</button></ul></div></form>'+
+						                    '</div>'+
+						                  '</div>'
+						myApp.popup(popupHTML);						   
+					  	
+				        }
+				      }
+				    ]
+                	}); 
+			    }else{
+			    	$('#why').attr("disabled", false);						         
+			    	$("#name").val(data1.primerNombre + " " + data1.segundoApellido);	
+			    	$("#mail").val(data1.correo);	
+			    	$("#phone").val(data1.telefono);
+			        $('#name').attr("disabled", false);
+			        $('#phone').attr("disabled", false);
+			        $('#mail').attr("disabled", false);
+			        $('.label-content').attr("disabled", false);
+			        $('#message').attr("disabled", false);	
+			    }
+            },
+            error: function(xhr, status, error){
+                console.log(xhr.responseText);
+            }
+	        });
+	});
 });
 
-
-// Run enable button function based on input
-$('.feedback textarea').keyup(function() {
-  if ($('.feedback textarea').val().length > 3)   {
-    enable_submit();
-  }
-});
-
-// Enable or disable button by validation
-function feedback_validate(val) {
-  if (val <= 3) {
-    disable_submit();
+myApp.onPageInit('registro2', function (page){
     
-  } 
-  else if (val > 3) {
-    enable_submit();
-  }
-  
-}
+//    var autocompleteDropdownSimple = myApp.autocomplete({
+//     input: '#mail',
+//     openIn: 'dropdown',
+//     source: function (autocomplete, query, render) {
+//         var results = [];
+//         if (query.length === 0) {
+//             render(results);
+//             return;
+//         }
+//         // Find matched items
+//         for (var i = 0; i < emailscomplete.length; i++) {
+//             if (emailscomplete[i].toLowerCase().indexOf(query.toLowerCase()) >= 0) results.push(emailscomplete[i]);
+//         }
+//         // Render items by passing array with result items
+//         render(results);
+//     }
+// });
 
+    $$('#registry').click(function(){	   
+	     var cliente = { 
+         numeroDocumento : $("#document").val(),
+         primerNombre : $('#name').val(), 	
+         segundoNombre : $('#name').val(), 	
+         primerApellido : $('#lastname').val(),
+         segundoApellido : $('#name').val(), 	
+         correo : $('#mail').val(), 
+         sexo : $('input[name=drone]:checked', '.label-content').val(),
+         telefono : $('#phone').val(),
+         fecha : $('#birthday').val(),
+         municipio : $('#city').val()
+     };
+       $.ajax({
+            url : 'http://35.231.135.74:80/clientes',
+            processData: false,
+            dataType : 'json',
+            contentType: 'application/json',
+            method : 'post', //en este caso
+            data : JSON.stringify(cliente),
+                success : function(response){
+                       mainView.router.loadPage('notification.html');  
+                },
+                error: function(xhr, status, error){
+                    console.log(xhr.responseText);
+                }
+        });
+	}); 
 
-
-});
-
-myApp.onPageInit('registro', function (page){
-    
-    		(function() {
-				var formWrap = document.getElementById( 'fs-form-wrap' );
-
-				[].slice.call( document.querySelectorAll( 'select.cs-select' ) ).forEach( function(el) {	
-					new SelectFx( el, {
-						stickyPlaceholder: false,
-						onChange: function(val){
-							document.querySelector('span.cs-placeholder').style.backgroundColor = val;
-						}
-					});
-				} );
-
-				new FForm( formWrap, {
-					onReview : function() {
-						classie.add( document.body, 'overview' ); // for demo purposes only
-					}
-				} );
-			})();
-
-
-
- 
-    
+	$$('#document').change(function(){   
+	var cliente = {numeroDocumento : $("#document").val() }
+	$.ajax({
+	            url : 'http://35.231.135.74:80/clientes/'+$("#document").val()+'',
+	            processData: false,
+	             dataType : 'json',
+	            contentType: 'application/json',
+	                method : 'post', //en este caso
+	                data : JSON.stringify(cliente),
+	                success : function(data){
+	                     if (data.id == -1) {		                	
+					    }else{
+					    	$("#name").val(data.primerNombre);	
+					    	$("#lastname").val(data.primerApellido);	
+					    	$("#mail").val(data.correo);	
+					    	$("#phone").val(data.telefono);	
+					    	$("#city").val(data.telefono);	
+					    	$("#birthday").val(data.telefono);	
+					    }
+	                },
+	                error: function(xhr, status, error){
+	                    console.log(xhr.responseText);
+	                }
+	        });
+	});    		
 })
 
+myApp.onPageInit('pqrs', function (page){
+
+    $$('#pqrsSend').click(function(){  
+	    var dataTienda = localStorage.getItem('TiendaLocal');
+        var pqrsregister = { 
+         pqrs : $('input[name=drone1]:checked', '.label-content1').val(),
+         nota : $('#message').val()};
+        $.ajax({
+                url : 'http://35.231.135.74:80/pqrs/tienda/'+dataTienda+'/cliente/'+$("#document").val(),
+            processData: false,
+             dataType : 'json',
+            contentType: 'application/json',
+                method : 'POST', 
+                data : JSON.stringify(pqrsregister),
+                success : function(response){
+                	 mainView.router.loadPage('notification2.html');                       
+                },
+                error: function(xhr, status, error){
+                    console.log(xhr.responseText);
+                }
+        });
+	});   
+
+	$$('#document').change(function(){  
+	var cliente = {numeroDocumento : $("#document").val() }
+	$.ajax({
+	        url : 'http://35.231.135.74:80/clientes/'+$("#document").val()+'',
+	        processData: false,
+	        dataType : 'json',
+	        contentType: 'application/json',
+            method : 'post', //en este caso
+            data1 : JSON.stringify(cliente),
+            success : function(data1){
+                 if (data1.id == -1) {
+                 	myApp.modal({
+					  title: 'Notificación Mundo Único',
+            		  text: 'Señor(a) usuario usted no se encuentra registrado, por favor regístrese',
+            		  buttons: [
+				      {
+				        text: 'Cancelar',
+				        onClick: function() {
+				         myApp.closeModal();
+				         document.getElementById("name").value = "";
+						 document.getElementById("phone").value = "";
+						 document.getElementById("mail").value = "";
+						 document.getElementById("message").value = "";
+				         $('#name').attr("disabled", true);
+				         $('#phone').attr("disabled", true);
+				         $('#mail').attr("disabled", true);
+				         $('.label-content').attr("disabled", true);
+				         $('#message').attr("disabled", true);				         
+				        }
+				      }, 
+				      {
+				        text: 'Registrarme',
+				        onClick: function() {
+				        var popupHTML = '<div class="popup"><div class="content-block1"><h2 class="page_title">Gracias por querer formar parte de la familia Mundo Único</h2><h2 class="page_title_secondary">Por favor completa el siguiente formulario</h2><form class="form-modal"><div class = "list-block"><ul><div class="row"><div class="col-50"><li class="item-content"><div class="item-inner"><div class="item-input"><input id="document1" type="text" class="input-form" required name="password" placeholder="Número de documento" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="name1" type="text" class="input-form" required name="password" placeholder="Nombre" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="phone1" type="text" class="input-form" required name="password" placeholder="Teléfono" ></div></div></li></div><div class="col-50"><li class="item-content"><div class="item-inner"><div class="item-input"><input id="mail1" type="text" class="input-form" required name="password" placeholder="Correo electrónico" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="lastname1" type="text" class="input-form" required name="password" placeholder="Apellidos" ></div></div></li><div class="label-content2"><label>Género</label><input type="radio" id="Hombre" name="drone2" value="M" checked /><label for="huey">Hombre</label><input type="radio" id="Mujer" name="drone2" value="F" /><label for="dewey">Mujer</label></div></div></div></ul></div><div class = "list-block"><ul class="button-modal2"><button onclick="registry2();" class="item-link list-button" type="button">REGISTRARME</button></ul></div></form>'+
+											'<p><a href="#" class="close-popup-2" id="closemodal">Cancelar</a></p>'+
+						                    '</div>'+
+						                  '</div>'
+						  myApp.popup(popupHTML);
+						  $("#closemodal").click(function() {
+								document.getElementById("name").value = "";
+								document.getElementById("phone").value = "";
+								document.getElementById("mail").value = "";
+								document.getElementById("message").value = "";
+						   });
+				        }
+				      }
+				    ]
+                	}); 		                	 
+			    }else{
+			    	$("#name").val(data1.primerNombre + " " + data1.segundoApellido);	
+			    	$("#mail").val(data1.correo);	
+			    	$("#phone").val(data1.telefono);
+			        $('#name').attr("disabled", false);
+			        $('#phone').attr("disabled", false);
+			        $('#mail').attr("disabled", false);
+			        $('.label-content').attr("disabled", false);
+			        $('#message').attr("disabled", false);	
+			    }
+            },
+            error: function(xhr, status, error){
+                console.log(xhr.responseText);
+            }
+	    });
+	}); 
+
+	  	   
+})
 
 myApp.onPageInit('shopping', function(page){
 

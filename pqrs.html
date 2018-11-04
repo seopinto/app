@@ -1,138 +1,96 @@
 
 <div class="pages">
-  <div data-page="blog" class="page no-toolbar no-navbar">
-    <div class="page-content">
-    
-  <div class="navbarpages graybg">
-     <a href="#" data-panel="left" class="open-panel">
-      <div class="navbar_left"><img src="images/icons/white/menu.png" alt="" title="" /></div>
-    </a>
-    <div class="navbar_center">
-            <div class="logo_image"><a href="index.html"><img src="images/logo_image.png" alt="" title=""/></a></div>
-    </div>      
-   <a href="#" class="back">
-      <div class="navbar_right"><img src="images/icons/white/menu_close.png" alt="" title="" /></div>
-    </a>
-
-  </div>
-  
-     <div id="pages_maincontent">
-      
+  <div data-page="pqrs" class="page no-toolbar no-navbar">
+    <div class="page-content">    
+    <div class="navbarpages graybg">
+       <a href="#" data-panel="left" class="open-panel">
+        <div class="navbar_left"><img src="images/icons/white/menu.png" alt="" title="" /></div>
+      </a>
+      <div class="navbar_center">
+          <div class="logo_image"><a href="index.html"><img src="images/logo_image.png" alt="" title=""/></a></div>
+      </div>      
+      <a href="#" class="back">
+          <div class="navbar_right"><img src="images/icons/white/menu_close.png" alt="" title="" /></div>
+      </a>
+    </div>  
+    <div id="pages_maincontent">      
       <h2 class="page_title">Gracias por ayudarnos a mejorar</h2>
       <h2 class="page_title_secondary">Por favor completa el siguiente formulario</h2>
-      <div class="page_single layout_fullwidth_padding">  
-    
-
-    <form class="form">
-                     <div class = "list-block">
-                        <ul>
-
-                          <div class="label-content1">
-                             <label>Interés</label>
-                           
-                                <input type="radio" id="Hombre" name="drone1" value="Peticion" checked />
-                                <label for="huey">Petición</label>                         
-                            
-                                <input type="radio" id="Mujer" name="drone1" value="Queja" />
-                                <label for="dewey">Queja</label>
-                         
-                                <input type="radio" id="Mujer" name="drone1" value="Reclamo" />
-                                <label for="dewey">Reclamo</label>
-
-                                <input type="radio" id="Mujer" name="drone1" value="Sugerencia" />
-                                <label for="dewey">Sugerencia</label>
-                         
-
+      <div class="page_single layout_fullwidth_padding">    
+      <form class="form">
+           <div class = "list-block">
+              <ul>
+                <div class="label-content1">
+                   <label>Interés</label>                 
+                      <input type="radio" id="Hombre" name="drone1" value="Peticion" checked />
+                      <label for="huey">Petición</label>                        
+                      <input type="radio" id="Mujer" name="drone1" value="Queja" />
+                      <label for="dewey">Queja</label>
+                      <input type="radio" id="Mujer" name="drone1" value="Reclamo" />
+                      <label for="dewey">Reclamo</label>
+                      <input type="radio" id="Mujer" name="drone1" value="Sugerencia" />
+                      <label for="dewey">Sugerencia</label>             
+                 </div>
+                 <li class="item-content">
+                    <div class="item-inner">                       
+                       <div class="item-input">
+                          <input id="document" type="text" class="input-form" required name="password" placeholder="Número de documento">
+                       </div>
+                    </div>
+                 </li>                 
+                 <div class="row">
+                     <div class="col-50">
+                      <li class = "item-content">
+                        <div class = "item-inner">                      
+                           <div class = "item-input">
+                              <input id="name" type="text" name="username" class="input-form" required placeholder="Nombre completo">
                            </div>
-
-                           <li class = "item-content">
-                              <div class = "item-inner">
-                                 
-                                 <div class = "item-input">
-                                    <input id="document" type="text" class="input-form" required name="password" placeholder="Número de documento" onchange="finduserpqrs()">
-                                 </div>
-                              </div>
-                           </li>
-
-                           
-                           <div class="row">
-                             <div class="col-50">
-
-                              <li class = "item-content">
-                              <div class = "item-inner">
-                                
-                                 <div class = "item-input">
-                                    <input id="name" type="text" name="username" class="input-form" required placeholder="Nombre completo">
-                                 </div>
-                              </div>
-                           </li>
-                                
-                           <li class = "item-content">
-                              <div class = "item-inner">
-                                 
-                                 <div class = "item-input">
-                                    <input id="phone" type="text" class="input-form" required name="password" placeholder="Teléfono" >
-                                 </div>
-                              </div>
-                           </li>
-
-                             </div>
-                             <div class="col-50">
-                                <li class = "item-content">
-                              <div class = "item-inner">
-                                 
-                                 <div class = "item-input">
-                                    <input id="mail" type="text" class="input-form" required name="password" placeholder="Correo electrónico" >
-                                 </div>
-                              </div>
-                           </li>
-                           <div class="label-content">
-                             <label>Género</label>
-                           
-                                <input type="radio" id="Hombre" name="drone" value="M" checked />
-                                <label for="huey">Hombre</label>                          
-
-                            
-                                <input type="radio" id="Mujer" name="drone" value="F" />
-                                <label for="dewey">Mujer</label>
-                         
-
+                        </div>
+                     </li>                      
+                     <li class = "item-content">
+                        <div class = "item-inner">                       
+                           <div class = "item-input">
+                              <input id="phone" type="text" class="input-form" required name="password" placeholder="Teléfono" >
                            </div>
-
-                             </div>
-
-                             <div class="col-100">
-                              <li class = "item-content">
-                              <div class = "item-inner">
-                                
-                                 <div class = "item-input">
-                                    <input id="message" type="text" name="username" class="input-form" required placeholder="Mensaje">
-                                 </div>
-                              </div>
-                           </li>
-                             </div>
+                        </div>
+                     </li>
+                  </div>                  
+                  <div class="col-50">
+                      <li class = "item-content">
+                        <div class = "item-inner">                           
+                           <div class = "item-input">
+                              <input id="mail" type="text" class="input-form" required name="password" placeholder="Correo electrónico" >
                            </div>
-                          
-                          
-                        </ul>
-                     </div>
-                     
-                     <div class = "list-block">
-                        <ul>
-                          <button onclick="pqrs();" class="item-link list-button" type="button">ENVIAR MENSAJE</button>
-                           
-                        </ul>
-                       
-                     </div>
-                
-                  </form>
-          
-      
-       </div>   
-      
-      </div>
-      
-      
+                        </div>
+                     </li>
+                     <div class="label-content">
+                       <label>Género</label>                     
+                          <input type="radio" id="Hombre" name="drone" value="M" checked />
+                          <label for="huey">Hombre</label>                        
+                          <input type="radio" id="Mujer" name="drone" value="F" />
+                          <label for="dewey">Mujer</label>
+                      </div>
+                  </div>
+                  <div class="col-100">
+                      <li class = "item-content">
+                        <div class = "item-inner">                      
+                           <div class = "item-input">
+                              <input id="message" type="text" name="username" class="input-form" required placeholder="Mensaje">
+                           </div>
+                        </div>
+                       </li>
+                   </div>
+                 </div>             
+              </ul>             
+           </div>
+            <div class = "list-block">
+                <ul>
+                  <button id="pqrsSend" class="item-link list-button" type="button">ENVIAR MENSAJE</button>                   
+                </ul>               
+             </div>
+    </form>
+    </div>   
+    </div>  
     </div>
   </div>
 </div>

@@ -2757,7 +2757,7 @@ html.ios-gt-8 .contacts-block .list-group-title {
 }
 .list-block input[type="date"],
 .list-block input[type="datetime-local"] {
-  line-height: 44px;
+  line-height: normal;
 }
 .list-block select {
   -webkit-appearance: none;
@@ -3517,6 +3517,7 @@ html.pixel-ratio-3 .card-footer:before {
   transition-property: transform, opacity;
   color: #000;
   display: none;
+  box-shadow: 0 0 8px black;
 }
 .modal.modal-in {
   opacity: 1;
