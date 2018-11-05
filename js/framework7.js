@@ -7381,7 +7381,7 @@
                     else popup = '.popup.modal-in';
                     app.closeModal(popup);
                 }
-                 if (clicked.hasClass('close-popup-2')) {
+                 if (clicked.hasClass('position-popup-button')) {
                     if (clickedData.popup) {
                         popup = clickedData.popup;
                     }

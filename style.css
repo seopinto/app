@@ -177,13 +177,12 @@ background: #f9f9f9b3;
 
 #popover-style {
 position: absolute;
-top: 20% !important;
-bottom: 104px;
-left: 0;
-right: 50% !important;
+top: 2% !important;
+left: 220px !important;
 width: 70%;
 height: auto;
 margin: 0 auto;
+box-shadow: 0 0 6.5px #0009;
 }
 .label-content1 label{
   margin: 0 33px 0 0;
@@ -193,19 +192,15 @@ margin: 0 auto;
   margin: 0 10px 0 10px;
 }
 .label-content2{
-  font-size: 24px;
-  display: inline-flex;
-  margin: 23px 0 0 0;
+ font-size: 20px;
+display: inline-flex;
+margin: 26px 0 0 0;
 }
 
 .label-content2 label{
   margin: 0 0 0 0;
 }
 
-.button-modal2{
-  left: -219px;
-    width: 115%;
-}
 
 .label-content2 input{
   margin: 0 10px 0 10px;
@@ -263,8 +258,7 @@ text-align:center;
 margin: -76px 0 0 0;
 }
 .navbar_right2{
-width: 3%;
-
+width: 4%;
 position: absolute;
 }
 
@@ -660,7 +654,7 @@ line-height: 1.5;
 text-overflow: ellipsis;
 margin: 0px auto;
 overflow: hidden;
-height: 60px;
+height: 40px;
 }
 .p-item-content{
 padding: 0 0 15px 0;
@@ -1102,17 +1096,9 @@ font-size: 19px;
 text-transform: uppercase;
 font-weight: 500;
 }
-.close-popup-2{
-position: relative;
+.position-popup-button{
 float: left;
-margin: 0 0 0 313px;
-top: -41px;
-background: black;
-padding: 9.7px;
-border-radius: 19px;
-color: white;
-width: 21%;
-font-size: 15px;
+margin: 4em 2em auto !important;
 }
 .content-block {
 padding:75px 10% 0 10%;
@@ -3186,7 +3172,7 @@ padding:0px 3px;
 }
 
 .wrapper-form{
-  margin: 4em auto;
+  margin: 3.5em auto;
   width: 75%;
 }
 

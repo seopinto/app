@@ -51,13 +51,12 @@ background: linear-gradient(to top, #434343, #000000); /* W3C, IE 10+/ Edge, Fir
   border-radius: 3px;
   font-family: 'Source Sans Pro', Arial, sans-serif;
   border: 0;
-  padding: 9px 15px;
   font-size: 15px;
   text-align: center;
-  margin: 10px 0 0 36px;
+  margin: 15px auto;
 }
 
-.btn-block1 {
+.btn-block-new {
   display: block;
   width: 80%;
   text-transform: inherit;
@@ -66,11 +65,34 @@ background: linear-gradient(to top, #434343, #000000); /* W3C, IE 10+/ Edge, Fir
   border-radius: 3px;
   font-family: 'Source Sans Pro', Arial, sans-serif;
   border: 0;
-  padding: 9px 15px;
   font-size: 15px;
   text-align: center;
-  margin: 10px 0 0 36px;
+  margin: 0 auto 5px;
+}
+
+.btn-block1 {
+  display: block;
+width: 15%;
+text-transform: inherit;
+color: white;
+background-color: green !important;
+border-radius: 3px;
+font-family: 'Source Sans Pro', Arial, sans-serif;
+border: 0;
+font-size: 15px;
+text-align: center;
+right: 5em;
+position: absolute;
+top: 14px;
 } 
+
+.cards__item1 .card{
+	height: 370px !important;
+}
+
+.btn-block1 img{
+	float: right;
+}
 
 .btn--block {
   display: block;
@@ -81,12 +103,11 @@ background: linear-gradient(to top, #434343, #000000); /* W3C, IE 10+/ Edge, Fir
   display: flex;
   flex-wrap: wrap;
   list-style: none;
-  margin: 0;
+  margin: 3em auto;
   padding: 0;
 }
 .cards__item {
   display: flex;
-  padding: 1rem;
 }
 @media (min-width: 40rem) {
   .cards__item {
@@ -95,13 +116,16 @@ background: linear-gradient(to top, #434343, #000000); /* W3C, IE 10+/ Edge, Fir
 }
 @media (min-width: 56rem) {
   .cards__item {
-    width: 33.3333%;
+    width: 20%;
+  }
+  .cards__item1 {
+    width: 25%;
   }
 }
 .card {
   background-color: white;
   border-radius: 0.25rem;
-  box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
+  box-shadow: 2px 3px 6px rgba(0, 0, 0, 0.25);
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -114,7 +138,7 @@ background: linear-gradient(to top, #434343, #000000); /* W3C, IE 10+/ Edge, Fir
   display: flex;
   flex: 1 1 auto;
   flex-direction: column;
-  padding: 1rem;
+  padding: 0.2rem;
 }
 .card__image {
   background-position: center center;
@@ -129,7 +153,11 @@ background: linear-gradient(to top, #434343, #000000); /* W3C, IE 10+/ Edge, Fir
   transition: -webkit-filter 0.5s cubic-bezier(0.43, 0.41, 0.22, 0.91);
   transition: filter 0.5s cubic-bezier(0.43, 0.41, 0.22, 0.91);
   transition: filter 0.5s cubic-bezier(0.43, 0.41, 0.22, 0.91), -webkit-filter 0.5s cubic-bezier(0.43, 0.41, 0.22, 0.91);
-  height: 180px;
+}
+
+.card__image img{
+height: 155px;
+width: 100%;
 }
 
 .card__image_2 {
@@ -145,7 +173,6 @@ background: linear-gradient(to top, #434343, #000000); /* W3C, IE 10+/ Edge, Fir
   transition: -webkit-filter 0.5s cubic-bezier(0.43, 0.41, 0.22, 0.91);
   transition: filter 0.5s cubic-bezier(0.43, 0.41, 0.22, 0.91);
   transition: filter 0.5s cubic-bezier(0.43, 0.41, 0.22, 0.91), -webkit-filter 0.5s cubic-bezier(0.43, 0.41, 0.22, 0.91);
-  height: 300px;
 }
 
 @media (min-width: 40rem) {
@@ -165,11 +192,11 @@ background: linear-gradient(to top, #434343, #000000); /* W3C, IE 10+/ Edge, Fir
 }
 .card__title {
   color: #696969;
-  font-size: 1.25rem;
-  font-weight: 300;
-  letter-spacing: 2px;
+  font-size: 1.1rem;
+  font-weight: 400;
   text-transform: uppercase;
   text-align: center;
+  margin: 15px 1em auto;
 }
 .card__text {
   flex: 1 1 auto;
