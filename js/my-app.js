@@ -19,7 +19,7 @@ var myApp = new Framework7({
 // Export selectors engine
 var $$ = Dom7;
 
-var emailscomplete = ('gmail.com hotmail.com hotmail.es yahoo.es Melonesprueba1prueba9087 Orange Peach Pear Pineapple').split(' ');
+var emailscomplete = ('gmail.com hotmail.com hotmail.es yahoo.es Melon Orange Peach Pear Pineapple').split(' ');
 
 var itemsSlider = 0;
 var getURLimagenesIntereses = "http://35.231.135.74:80/multimedia/verImagenes/";
@@ -33,7 +33,6 @@ var mainView = myApp.addView('.view-main', {
 
 var subnaview = myApp.addView('.view-subnav');
 
-
 $(document).ready(function() {
         circlemenu();
 		$("#RegisterForm").validate();
@@ -42,16 +41,12 @@ $(document).ready(function() {
 		$(".close-popup").click(function() {					  
 			$("label.error").hide();
 		});
-
 		$("#closePop").click(function() {
 			$(".popover-about1").attr('style','display:none');
-		});	
-		
-		
+		});
 });
 
 function LoginUser(){
-
 	var loginaccess = { 
          		empleado : $("#username").val(),
          		contrasena : $('#password').val()
@@ -72,68 +67,51 @@ function LoginUser(){
 						        myApp.alert(data.error);
 						    }else if (data.id == -2 ) {
 						        myApp.alert(data.error);
-						    }else{
-						    	
+						    }else{						    	
 						    	var yetVisited = localStorage[loginaccess.empleado];
 						    	if (!yetVisited) {
 							        localStorage[loginaccess.empleado] = loginaccess.empleado;							        
-							    }
-
-							   
-							   	myApp.closeModal('.login-screen');
-					             
+							    }							   
+							   	myApp.closeModal('.login-screen');					             
 								var html = "<div class='swiper-wrapper'>";								
 					          	for(var i = 0;i<data.length;i++){
 					          		localStorage.setItem("imgData"+i+"", getURLimagenesIntereses+data[i].url);
-					          		localStorage.setItem("TiendaLocal", data[i].idTiendas);
-					          		
+					          		localStorage.setItem("TiendaLocal", data[i].idTiendas);					          		
 					          		html+="<div class='swiper-slide' style='background-image:url("+getURLimagenesIntereses+data[i].url+");'><div class='slider_trans'></div></div>";
 							  		itemsSlider++;
-							 	}
-        							
+							 	}        							
         						$("#SliderHome").html(html + "</div><div class='swiper-pagination'></div>");					          	
 					          	var mySwiper = new Swiper ('.swiper-container', {
 					          		autoplay:3000,
 					          		speed: 1200,
 					          		autoplayDisableOnInteraction: false,
-
 					          		watchSlidesProgress: true,
 					                watchVisibility: true,
-
 					                // Loop
 					                loop: true,
 					                loopAdditionalSlides: 2,
 					                loopedSlides: 2,
-
 					                // Position
-					                //slidesPerView: 1, //If "auto" or slidesPerView > 1, enable watchSlidesVisibility for lazy load
-					            
 					                preloadImages: true,
 								    // Enable lazy loading
 								    lazy: true,
-					        
-
 					                // Lazy Loading 
 					                watchSlidesVisibility: true,
 					                lazyLoading: true,
-
 							    pagination: {
 							      el: '.swiper-pagination',
 										clickable: true,
 							    },
 							  })
-
 						      } 
 			                },
 			            error: function(xhr, status, error){
 			                console.log(xhr.responseText);
 			            }
 			        }); 
-}
-
-     
-         $$('.login-screen .list-button').on('click', function () {
-
+		}     
+        
+        $$('.login-screen .list-button').on('click', function () {
          	var loginaccess = { 
          		empleado : $("#username").val(),
          		contrasena : $('#password').val()
@@ -154,57 +132,42 @@ function LoginUser(){
 						        myApp.alert(data.error);
 						    }else if (data.id == -2) {
 						        myApp.alert(data.error);
-						    }else{
-						    	
+						    }else{						    	
 						    	var yetVisited = localStorage[loginaccess.empleado];
 						    	if (!yetVisited) {
 							        localStorage[loginaccess.empleado] = loginaccess.empleado;							        
-							    }
-
-							    
-							   	myApp.closeModal('.login-screen');
-					             
+							    }							    
+							   	myApp.closeModal('.login-screen');					             
 								var html = "<div class='swiper-wrapper'>";								
 					          	for(var i = 0;i<data.length;i++){
 					          		localStorage.setItem("imgData"+i+"", getURLimagenesIntereses+data[i].url);
-					          		localStorage.setItem("TiendaLocal", data[i].idTiendas);
-					          		
+					          		localStorage.setItem("TiendaLocal", data[i].idTiendas);					          		
 					          		html+="<div class='swiper-slide' style='background-image:url("+getURLimagenesIntereses+data[i].url+");'><div class='slider_trans'></div></div>";
 							  		itemsSlider++;
-							 	}
-        							
+							 	}        							
         						$("#SliderHome").html(html + "</div><div class='swiper-pagination'></div>");					          	
 					          	var mySwiper = new Swiper ('.swiper-container', {
 					          		autoplay:3000,
 					          		speed: 1200,
 					          		autoplayDisableOnInteraction: false,
-
 					          		watchSlidesProgress: true,
 					                watchVisibility: true,
-
 					                // Loop
 					                loop: true,
 					                loopAdditionalSlides: 2,
 					                loopedSlides: 2,
-
 					                // Position
-					                //slidesPerView: 1, //If "auto" or slidesPerView > 1, enable watchSlidesVisibility for lazy load
-					            
 					                preloadImages: true,
 								    // Enable lazy loading
-								    lazy: true,
-					        
-
+								    lazy: true,     
 					                // Lazy Loading 
 					                watchSlidesVisibility: true,
 					                lazyLoading: true,
-
 							    pagination: {
 							      el: '.swiper-pagination',
 										clickable: true,
 							    },
 							  })
-
 						      } 
 			                },
 			            error: function(xhr, status, error){
@@ -215,44 +178,31 @@ function LoginUser(){
          });
 
 
-myApp.onPageInit('index', function (page) {		
+myApp.onPageInit('index', function (page) {	
 
 		var html1 = "<div class='swiper-wrapper'>";
-
 		for(var i = 0;i<itemsSlider;i++){
-			var dataImage = localStorage.getItem('imgData'+i+'');
-			
+			var dataImage = localStorage.getItem('imgData'+i+'');			
       		html1+="<div class='swiper-slide' style='background-image:url("+dataImage+");'><div class='slider_trans'></div></div>";
-      						
 		}
-
-		$("#SliderHome").html(html1 + "</div><div class='swiper-pagination'></div>");
-		
+		$("#SliderHome").html(html1 + "</div><div class='swiper-pagination'></div>");		
 		var mySwiper = new Swiper ('.swiper-container', {
 					          		autoplay:3000,
 					          		speed: 1200,
 					          		autoplayDisableOnInteraction: false,
-
 					          		watchSlidesProgress: true,
 					                watchVisibility: true,
-
 					                // Loop
 					                loop: true,
 					                loopAdditionalSlides: 2,
 					                loopedSlides: 2,
-
-					                // Position
-					                //slidesPerView: 1, //If "auto" or slidesPerView > 1, enable watchSlidesVisibility for lazy load
-					            
+					                // Position					            
 					                preloadImages: true,
 								    // Enable lazy loading
-								    lazy: true,
-					        
-
+								    lazy: true,   
 					                // Lazy Loading 
 					                watchSlidesVisibility: true,
 					                lazyLoading: true,
-
 							    pagination: {
 							      el: '.swiper-pagination',
 										clickable: true,
@@ -260,21 +210,20 @@ myApp.onPageInit('index', function (page) {
 							  })
 
 		});
-
 		$(".close-popup").click(function() {					  
 			$("label.error").hide();
 		});
 
-	
-$$(document).on('pageInit', function (e) {
-		$("#RegisterForm").validate();
-		$("#LoginForm").validate();
-		$("#ForgotForm").validate();
-})
+		$$(document).on('pageInit', function (e) {
+				$("#RegisterForm").validate();
+				$("#LoginForm").validate();
+				$("#ForgotForm").validate();
+		})
 
 myApp.onPageInit('videos', function (page) {
 		  $(".videocontainer").fitVids();
 })
+
 myApp.onPageInit('contact', function (page) {
 		$("#ContactForm").validate({
 		submitHandler: function(form) {
@@ -283,25 +232,6 @@ myApp.onPageInit('contact', function (page) {
 		}
 		});	
 })
-
-// myApp.onPageInit('blog', function (page) {
- 
-// 		$(".posts li").hide();	
-// 		size_li = $(".posts li").size();
-// 		x=4;
-// 		$('.posts li:lt('+x+')').show();
-// 		$('#loadMore').click(function () {
-// 			x= (x+1 <= size_li) ? x+1 : size_li;
-// 			$('.posts li:lt('+x+')').show();
-// 			if(x == size_li){
-// 				$('#loadMore').hide();
-// 				$('#showLess').show();
-// 			}
-// 		});
-
-// })
-
-
 
 myApp.onPageInit('blog', function (page) {
  
@@ -354,7 +284,7 @@ $$('#documentsearch').change(function(){
 				      {
 				        text: 'Registrarme',
 				        onClick: function() {
-				        var popupHTML = '<div class="popup"><div class="content-block1"><h2 class="page_title">Gracias por querer formar parte de la familia Mundo Único</h2><h2 class="page_title_secondary">Por favor completa el siguiente formulario</h2><form class="form-modal"><div class = "list-block"><ul><div class="row"><div class="col-50"><li class="item-content"><div class="item-inner"><div class="item-input"><input id="document1" type="text" class="input-form" required name="password" placeholder="Número de documento" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="name1" type="text" class="input-form" required name="password" placeholder="Nombre" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="phone1" type="text" class="input-form" required name="password" placeholder="Teléfono" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="city1" type="text" class="input-form" name="city" placeholder="Ciudad" ></div></div></li></div><div class="col-50"><li class="item-content"><div class="item-inner"><div class="item-input"><input id="mail1" type="text" class="input-form" required name="password" placeholder="Correo electrónico" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="lastname1" type="text" class="input-form" required name="password" placeholder="Apellidos" ></div></div></li><div class="label-content2"><label>Género</label><input type="radio" id="Hombre" name="drone2" value="M" checked /><label for="huey">Hombre</label><input type="radio" id="Mujer" name="drone2" value="F" /><label for="dewey">Mujer</label></div><li class="item-content"><div class="item-inner"><div class="item-input"><input id="birthday1" type="date" class="input-form" name="birthday" placeholder="Fecha de cumpleaños" ></div></div></li></div></div></ul></div><div class = "list-block"><ul><button id="registry2" class="item-link list-button position-popup-button" type="button">REGISTRARME</button><a href="#" id="closemodal" class="item-link list-button position-popup-button" type="button">CANCELAR</a></ul></div></form>'+
+				        var popupHTML = '<div class="popup"><div class="content-block1"><h2 class="page_title">Gracias por querer formar parte de la familia Mundo Único</h2><h2 class="page_title_secondary">Por favor completa el siguiente formulario</h2><form class="form-modal"><div class = "list-block"><ul><div class="row"><div class="col-50"><li class="item-content"><div class="item-inner"><div class="item-input"><input id="document1" type="text" class="input-form" required name="password" placeholder="Número de documento" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="name1" type="text" class="input-form" required name="password" placeholder="Nombre" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="phone1" type="text" class="input-form" required name="password" placeholder="Teléfono" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="city1" type="text" class="input-form" name="city" placeholder="Ciudad" ></div></div></li></div><div class="col-50"><li class="item-content"><div class="item-inner"><div class="item-input"><input id="mail1" type="text" class="input-form" required name="password" placeholder="Correo electrónico" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="lastname1" type="text" class="input-form" required name="password" placeholder="Apellidos" ></div></div></li><div class="label-content2"><label>Género</label><input type="radio" id="Hombre" name="drone2" value="M" checked /><label for="huey">Hombre</label><input type="radio" id="Mujer" name="drone2" value="F" /><label for="dewey">Mujer</label></div><li class="item-content"><div class="item-inner"><div class="item-input"><input id="birthday1" type="date" class="input-form" name="birthday" placeholder="Fecha de cumpleaños" ></div></div></li></div></div></ul></div><div class = "list-block"><ul><button onClick="RegistryUserBlog();" class="item-link list-button position-popup-button" type="button">REGISTRARME</button><a href="#" id="closemodal" class="item-link list-button position-popup-button" type="button">CANCELAR</a></ul></div></form>'+
 						                    '</div>'+
 						                  '</div>'
 						myApp.popup(popupHTML);						   
@@ -387,7 +317,22 @@ $$.ajax({
             var html2 = "";
             var secondobj = obj.length;      
             for(var i = 0;i<obj.length;i++){
-            	$('.modal-overlay-visible').attr("style", "visibility: hidden !important;");            	
+            	$('.modal-overlay-visible').attr("style", "visibility: hidden !important;");  
+            	if (document.getElementById("Post").value == "1") {
+            		document.getElementById("title-new").innerHTML = "Entretenimiento";  	
+            	}
+            	if (document.getElementById("Post").value == "2") {
+            		document.getElementById("title-new").innerHTML = "Deportes";  	
+            	}
+            	if (document.getElementById("Post").value == "3") {
+            		document.getElementById("title-new").innerHTML = "Gadgets";  	
+            	}
+            	if (document.getElementById("Post").value == "4") {
+            		document.getElementById("title-new").innerHTML = "Viajes";  	
+            	}
+            	if (document.getElementById("Post").value == "5") {
+            		document.getElementById("title-new").innerHTML = "Un mundo de comodidad";  	
+            	}            	        	
             	html+="<input id='PostDetalle' value='"+obj[i].id+"' style='display:none'> <li class='cards__item1'><div class='card'><div class='card__image'><img src='http://35.231.135.74/intereses/verImagenes/"+obj[i].identificadorMultimedia+"'></div><div class='card__content'><div class='card__title'>"+obj[i].titulo+"</div><p class='card__text'>"+obj[i].descripcion+"</p><a href='#' data-popover='.popover-about"+obj[i].id+"' class='open-popover btn btn-block card__btn'>Ver articulo</a><a href='#' class='btn btn-block-new'>Recibir Noticia</a></div></div> <div  class='popover popover-about"+obj[i].id+"'><div class='popover-angle'></div><div class='popover-inner'><div class='content-block-popup'><a href='#' class='close-popover'><div class='navbar_right2'><img  src='images/icons/black/back.png' alt='' title='' /></div></a><h2 class='page_title'>"+obj[i].titulo+"</h2><div class='card__image_2'><img class='content-block-image' src='http://35.231.135.74/intereses/verImagenes/"+obj[i].identificadorMultimedia+"'></div><div class='p-item-content' style='margin: 20px 0 0 0;'>"+obj[i].descripcion+"</div><div class='title-new'>Si estas interesado en recibir noticias de este tipo te invitamos a suscribirte. <br> Ven y haz parte de la Familia Mundo Único </div><a href='#' data-popover='.popover-about-sus' class='open-popover btn btn-block card__btn''>Suscribirme</a></div></div></div></li>"           	
 			}
 			$("#cards1").html(html);
@@ -415,9 +360,6 @@ $$('#suscribe').click(function(){
     });
 });
 
-
-
-
 })
 
 
@@ -426,7 +368,7 @@ function IndexLog() {
  mainView.router.reloadPage('registro.html');
 }
 
-function registry3(){
+function registryCalification(){
         var clienteres = { 
          numeroDocumento : $("#document1").val(),
          primerNombre : $('#name1').val(), 	
@@ -434,7 +376,7 @@ function registry3(){
          primerApellido : $('#lastname1').val(),
          segundoApellido : $('#lastname1').val(), 	
          correo : $('#mail1').val(), 
-         sexo : $('input[name=drone]:checked', '.label-content2').val(),
+         sexo : $('input[name=drone2]:checked', '.label-content2').val(),
          telefono : $('#phone1').val(),
          municipio : $('#city1').val(),
          fecha : $('#birthday1').val()
@@ -470,9 +412,8 @@ function registry3(){
  	};
 
 
-function registry2(){
-
-        var cliente = { 
+function RegistryUserBlog(){
+        var clienteRegisBlog = { 
          numeroDocumento : $("#document1").val(),
          primerNombre : $('#name1').val(), 	
          segundoNombre : $('#name1').val(), 	
@@ -480,7 +421,52 @@ function registry2(){
          segundoApellido : $('#lastname1').val(), 	
          correo : $('#mail1').val(), 
          sexo : $('input[name=drone2]:checked', '.label-content2').val(),
-         telefono : $('#phone1').val()
+         telefono : $('#phone1').val(),
+         fecha : $('#birthday1').val(),
+         municipio : $('#city1').val()
+     };
+
+       $.ajax({
+            url : 'http://35.231.135.74:80/clientes',
+            processData: false,
+            dataType : 'json',
+            contentType: 'application/json',
+            method : 'post', //en este caso
+            data : JSON.stringify(clienteRegisBlog),
+                success : function(response){
+                       myApp.modal({
+					  title: '¡Bievenido!',
+            		  text: 'Ya eres parte de la familia de Mundo Único',
+            		  buttons: [
+				      {
+				        text: 'VOLVER',
+				        onClick: function() {
+				         document.getElementById("documentsearch").value = "";
+				         myApp.closeModal();
+				         mainView.router.loadPage('blog_internal.html');  
+				        }
+				      }
+				    ]
+                	});
+                },
+                error: function(xhr, status, error){
+                    console.log(xhr.responseText);
+                }
+        });
+};
+
+function registryPQRS(){
+        var cliente = { 
+         numeroDocumento : $("#document_reg").val(),
+         primerNombre : $('#name_reg').val(), 	
+         segundoNombre : $('#name_reg').val(), 	
+         primerApellido : $('#lastname_reg').val(),
+         segundoApellido : $('#lastname_reg').val(), 	
+         correo : $('#mail_reg').val(), 
+         sexo : $('input[name=drone_reg]:checked', '.label-content2').val(),
+         telefono : $('#phone_reg').val(),
+         fecha : $('#birthday_reg').val(),
+         municipio : $('#city_reg').val()
      };
 
        $.ajax({
@@ -499,7 +485,8 @@ function registry2(){
 				        text: 'VOLVER',
 				        onClick: function() {
 				         myApp.closeModal();
-				          mainView.router.loadPage('pqrs.html');  
+				         document.getElementById("documentsearch").value = "";
+				         mainView.router.loadPage('pqrs.html');  
 				        }
 				      }
 				    ]
@@ -509,58 +496,12 @@ function registry2(){
                     console.log(xhr.responseText);
                 }
         });
-}; 
-
-
-function registry4(){
-
-        var cliente = { 
-         numeroDocumento : $("#document1").val(),
-         primerNombre : $('#name1').val(), 	
-         segundoNombre : $('#name1').val(), 	
-         primerApellido : $('#lastname1').val(),
-         segundoApellido : $('#lastname1').val(), 	
-         correo : $('#mail1').val(), 
-         sexo : $('input[name=drone2]:checked', '.label-content2').val(),
-         telefono : $('#phone1').val()
-     };
-
-       $.ajax({
-            url : 'http://35.231.135.74:80/clientes',
-            processData: false,
-            dataType : 'json',
-            contentType: 'application/json',
-            method : 'post', //en este caso
-            data : JSON.stringify(cliente),
-                success : function(response){
-                       myApp.modal({
-					  title: '¡Bievenido!',
-            		  text: 'Ya eres parte de la familia de Mundo Único',
-            		  buttons: [
-				      {
-				        text: 'VOLVER',
-				        onClick: function() {
-				         myApp.closeModal();
-				         document.getElementById("document").value = " ";
-				          mainView.router.loadPage('blog-single.html');  
-				        }
-				      }
-				    ]
-                	});
-                },
-                error: function(xhr, status, error){
-                    console.log(xhr.responseText);
-                }
-        });
-}; 
+};
 
 
 myApp.onPageInit('calification', function(page){
 
-
-
 $(document).ready(function(){
-	
       $( "#haha" ).click(function() {
         $('#haha').attr("style", "filter: none !important;width: 140px !important;height: 140px !important;");
         $('#yay').attr("style", "filter: grayscale(100%) !important;");
@@ -617,10 +558,10 @@ $(document).ready(function(){
 	    var dataTienda = localStorage.getItem('TiendaLocal');
         var felregister = { 
         puntaje : $('#calification').val()};
-        if ($("#document").val() == "") {
+        if ($("#documentcalification").val() == "") {
         	routepqrs = 'http://35.231.135.74:80/felicitaciones/tienda/'+dataTienda+''
         }else{
-			routepqrs = 'http://35.231.135.74:80/felicitaciones/tienda/'+dataTienda+'/cliente/'+$("#document").val();
+			routepqrs = 'http://35.231.135.74:80/felicitaciones/tienda/'+dataTienda+'/cliente/'+$("#documentcalification").val();
         }
         $.ajax({
                 url : routepqrs,
@@ -638,12 +579,11 @@ $(document).ready(function(){
         });
 	}); 
 
-	
     
-	$$('#document').change(function(){  
-	var cliente = {numeroDocumento : $("#document").val() }
+	$$('#documentcalification').change(function(){  
+	var cliente = {numeroDocumento : $("#documentcalification").val() }
 	$.ajax({
-	        url : 'http://35.231.135.74:80/clientes/'+$("#document").val()+'',
+	        url : 'http://35.231.135.74:80/clientes/'+$("#documentcalification").val()+'',
 	        processData: false,
 	        dataType : 'json',
 	        contentType: 'application/json',
@@ -664,7 +604,7 @@ $(document).ready(function(){
 				      {
 				        text: 'Registrarme',
 				        onClick: function() {
-				        var popupHTML = '<div class="popup"><div class="content-block1"><h2 class="page_title">Gracias por querer formar parte de la familia Mundo Único</h2><h2 class="page_title_secondary">Por favor completa el siguiente formulario</h2><form class="form-modal"><div class = "list-block"><ul><div class="row"><div class="col-50"><li class="item-content"><div class="item-inner"><div class="item-input"><input id="document1" type="text" class="input-form" required name="password" placeholder="Número de documento" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="name1" type="text" class="input-form" required name="password" placeholder="Nombre" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="phone1" type="text" class="input-form" required name="password" placeholder="Teléfono" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="city1" type="text" class="input-form" name="city" placeholder="Ciudad" ></div></div></li></div><div class="col-50"><li class="item-content"><div class="item-inner"><div class="item-input"><input id="mail1" type="text" class="input-form" required name="password" placeholder="Correo electrónico" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="lastname1" type="text" class="input-form" required name="password" placeholder="Apellidos" ></div></div></li><div class="label-content2"><label>Género</label><input type="radio" id="Hombre" name="drone2" value="M" checked /><label for="huey">Hombre</label><input type="radio" id="Mujer" name="drone2" value="F" /><label for="dewey">Mujer</label></div><li class="item-content"><div class="item-inner"><div class="item-input"><input id="birthday1" type="date" class="input-form" name="birthday" placeholder="Fecha de cumpleaños" ></div></div></li></div></div></ul></div><div class = "list-block"><ul><button id="registry2" class="item-link list-button position-popup-button" type="button">REGISTRARME</button><a href="#" id="closemodal" class="item-link list-button position-popup-button" type="button">CANCELAR</a></ul></div></form>'+
+				        var popupHTML = '<div class="popup"><div class="content-block1"><h2 class="page_title">Gracias por querer formar parte de la familia Mundo Único</h2><h2 class="page_title_secondary">Por favor completa el siguiente formulario</h2><form class="form-modal"><div class = "list-block"><ul><div class="row"><div class="col-50"><li class="item-content"><div class="item-inner"><div class="item-input"><input id="document1" type="text" class="input-form" required name="password" placeholder="Número de documento" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="name1" type="text" class="input-form" required name="password" placeholder="Nombre" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="phone1" type="text" class="input-form" required name="password" placeholder="Teléfono" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="city1" type="text" class="input-form" name="city" placeholder="Ciudad" ></div></div></li></div><div class="col-50"><li class="item-content"><div class="item-inner"><div class="item-input"><input id="mail1" type="text" class="input-form" required name="password" placeholder="Correo electrónico" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="lastname1" type="text" class="input-form" required name="password" placeholder="Apellidos" ></div></div></li><div class="label-content2"><label>Género</label><input type="radio" id="Hombre" name="drone2" value="M" checked /><label for="huey">Hombre</label><input type="radio" id="Mujer" name="drone2" value="F" /><label for="dewey">Mujer</label></div><li class="item-content"><div class="item-inner"><div class="item-input"><input id="birthday1" type="date" class="input-form" name="birthday" placeholder="Fecha de cumpleaños" ></div></div></li></div></div></ul></div><div class = "list-block"><ul><button onClick="registryCalification();" class="item-link list-button position-popup-button" type="button">REGISTRARME</button><a href="#" id="closemodal" class="item-link list-button position-popup-button" type="button">CANCELAR</a></ul></div></form>'+
 						                    '</div>'+
 						                  '</div>'
 						myApp.popup(popupHTML);						   
@@ -684,30 +624,38 @@ $(document).ready(function(){
 	});
 });
 
+myApp.onPageInit('questions', function(page){
+    
+ $$.ajax({ 
+    type: 'GET', 
+    url: 'http://35.231.135.74:80/preguntasTienda',
+    data: { get_param: 'value' }, 
+    dataType: 'json',
+    success: function (data) {            
+            var results = JSON.stringify(data);
+            var obj = JSON.parse(results);
+            var html = "";
+            for(var i = 0;i<obj.length;i++){
+            	var informacion = obj[i].informacion;            	
+            	var resul = informacion.replace(/&/g, "<br><br>");            	
+            	if (obj[i].imagen != null) {
+            		html+="<div class='accordion-item'><div class='accordion-item-toggle'><i class='icon icon-plus'>+</i><i class='icon icon-minus'>-</i><span> "+obj[i].titulo+"</span></div><div class='accordion-item-content'><img src="+obj[i].imagen+"></div></div>";
+            	}else{
+            		html+="<div class='accordion-item'><div class='accordion-item-toggle'><i class='icon icon-plus'>+</i><i class='icon icon-minus'>-</i><span> "+obj[i].titulo+"</span></div><div class='accordion-item-content'><p class='p-item-content' id='con"+obj[i].id+"'>"+resul+"</p></div></div>";
+            	}	            	
+			}
+			$(".custom-accordion").html(html);
+   }
+});
+
+})
+
 myApp.onPageInit('registro2', function (page){
 
-	var calendarDefault = myApp.calendar({
-	    input: '#birthday',
-	}); 
-	    
-//    var autocompleteDropdownSimple = myApp.autocomplete({
-//     input: '#mail',
-//     openIn: 'dropdown',
-//     source: function (autocomplete, query, render) {
-//         var results = [];
-//         if (query.length === 0) {
-//             render(results);
-//             return;
-//         }
-//         // Find matched items
-//         for (var i = 0; i < emailscomplete.length; i++) {
-//             if (emailscomplete[i].toLowerCase().indexOf(query.toLowerCase()) >= 0) results.push(emailscomplete[i]);
-//         }
-//         // Render items by passing array with result items
-//         render(results);
-//     }
-// });
-
+	// var calendarDefault = myApp.calendar({
+	//     input: '#birthday',
+	// }); 
+	   
     $$('#registry').click(function(){	   
 	     var cliente = { 
          numeroDocumento : $("#document").val(),
@@ -753,8 +701,8 @@ myApp.onPageInit('registro2', function (page){
 					    	$("#lastname").val(data.primerApellido);	
 					    	$("#mail").val(data.correo);	
 					    	$("#phone").val(data.telefono);	
-					    	$("#city").val(data.telefono);	
-					    	$("#birthday").val(data.telefono);	
+					    	$("#city").val(data.municipio);	
+					    	$("#birthday").val(data.fecha);	
 					    }
 	                },
 	                error: function(xhr, status, error){
@@ -770,9 +718,9 @@ myApp.onPageInit('pqrs', function (page){
 	    var dataTienda = localStorage.getItem('TiendaLocal');
         var pqrsregister = { 
          pqrs : $('input[name=drone1]:checked', '.label-content1').val(),
-         nota : $('#message').val()};
+         nota : $('#message_pqrs').val()};
         $.ajax({
-                url : 'http://35.231.135.74:80/pqrs/tienda/'+dataTienda+'/cliente/'+$("#document").val(),
+                url : 'http://35.231.135.74:80/pqrs/tienda/'+dataTienda+'/cliente/'+$("#documentpqrs").val(),
             processData: false,
              dataType : 'json',
             contentType: 'application/json',
@@ -787,10 +735,10 @@ myApp.onPageInit('pqrs', function (page){
         });
 	});   
 
-	$$('#document').change(function(){  
-	var cliente = {numeroDocumento : $("#document").val() }
+	$$('#documentpqrs').change(function(){  
+	var cliente = {numeroDocumento : $("#documentpqrs").val() }
 	$.ajax({
-	        url : 'http://35.231.135.74:80/clientes/'+$("#document").val()+'',
+	        url : 'http://35.231.135.74:80/clientes/'+$("#documentpqrs").val()+'',
 	        processData: false,
 	        dataType : 'json',
 	        contentType: 'application/json',
@@ -806,43 +754,43 @@ myApp.onPageInit('pqrs', function (page){
 				        text: 'Cancelar',
 				        onClick: function() {
 				         myApp.closeModal();
-				         document.getElementById("name").value = "";
-						 document.getElementById("phone").value = "";
-						 document.getElementById("mail").value = "";
-						 document.getElementById("message").value = "";
-				         $('#name').attr("disabled", true);
-				         $('#phone').attr("disabled", true);
-				         $('#mail').attr("disabled", true);
+				         document.getElementById("name_pqrs").value = "";
+						 document.getElementById("phone_pqrs").value = "";
+						 document.getElementById("mail_pqrs").value = "";
+						 document.getElementById("message_pqrs").value = "";
+				         $('#name_pqrs').attr("disabled", true);
+				         $('#phone_pqrs').attr("disabled", true);
+				         $('#mail_pqrs').attr("disabled", true);
 				         $('.label-content').attr("disabled", true);
-				         $('#message').attr("disabled", true);				         
+				         $('#message_pqrs').attr("disabled", true);				         
 				        }
 				      }, 
 				      {
 				        text: 'Registrarme',
 				        onClick: function() {
-				        var popupHTML = '<div class="popup"><div class="content-block1"><h2 class="page_title">Gracias por querer formar parte de la familia Mundo Único</h2><h2 class="page_title_secondary">Por favor completa el siguiente formulario</h2><form class="form-modal"><div class = "list-block"><ul><div class="row"><div class="col-50"><li class="item-content"><div class="item-inner"><div class="item-input"><input id="document1" type="text" class="input-form" required name="password" placeholder="Número de documento" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="name1" type="text" class="input-form" required name="password" placeholder="Nombre" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="phone1" type="text" class="input-form" required name="password" placeholder="Teléfono" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="city1" type="text" class="input-form" name="city" placeholder="Ciudad" ></div></div></li></div><div class="col-50"><li class="item-content"><div class="item-inner"><div class="item-input"><input id="mail1" type="text" class="input-form" required name="password" placeholder="Correo electrónico" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="lastname1" type="text" class="input-form" required name="password" placeholder="Apellidos" ></div></div></li><div class="label-content2"><label>Género</label><input type="radio" id="Hombre" name="drone2" value="M" checked /><label for="huey">Hombre</label><input type="radio" id="Mujer" name="drone2" value="F" /><label for="dewey">Mujer</label></div><li class="item-content"><div class="item-inner"><div class="item-input"><input id="birthday1" type="date" class="input-form" name="birthday" placeholder="Fecha de cumpleaños" ></div></div></li></div></div></ul></div><div class = "list-block"><ul><button id="registry2" class="item-link list-button position-popup-button" type="button">REGISTRARME</button><a href="#" id="closemodal" class="item-link list-button position-popup-button" type="button">CANCELAR</a></ul></div></form>'+
+				        var popupHTML = '<div class="popup"><div class="content-block1"><h2 class="page_title">Gracias por querer formar parte de la familia Mundo Único</h2><h2 class="page_title_secondary">Por favor completa el siguiente formulario</h2><form class="form-modal"><div class = "list-block"><ul><div class="row"><div class="col-50"><li class="item-content"><div class="item-inner"><div class="item-input"><input id="document_reg" type="text" class="input-form" required name="password" placeholder="Número de documento" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="name_reg" type="text" class="input-form" required name="password" placeholder="Nombre" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="phone_reg" type="text" class="input-form" required name="password" placeholder="Teléfono" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="city_reg" type="text" class="input-form" name="city" placeholder="Ciudad" ></div></div></li></div><div class="col-50"><li class="item-content"><div class="item-inner"><div class="item-input"><input id="mail_reg" type="text" class="input-form" required name="password" placeholder="Correo electrónico" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="lastname_reg" type="text" class="input-form" required name="password" placeholder="Apellidos" ></div></div></li><div class="label-content2"><label>Género</label><input type="radio" id="Hombre" name="drone_reg" value="M" checked /><label for="huey">Hombre</label><input type="radio" id="Mujer" name="drone_reg" value="F" /><label for="dewey">Mujer</label></div><li class="item-content"><div class="item-inner"><div class="item-input"><input id="birthday_reg" type="date" class="input-form" name="birthday" placeholder="Fecha de cumpleaños" ></div></div></li></div></div></ul></div><div class = "list-block"><ul><button onClick="registryPQRS();" class="item-link list-button position-popup-button" type="button">REGISTRARME</button><a href="#" id="closemodal" class="item-link list-button position-popup-button" type="button">CANCELAR</a></ul></div></form>'+
 						                    '</div>'+
 						                  '</div>'
 						  myApp.popup(popupHTML);
 						  $("#closemodal").click(function() {
-								document.getElementById("name").value = "";
-								document.getElementById("phone").value = "";
-								document.getElementById("mail").value = "";
-								document.getElementById("message").value = "";
+								document.getElementById("name_pqrs").value = "";
+								document.getElementById("phone_pqrs").value = "";
+								document.getElementById("mail_pqrs").value = "";
+								document.getElementById("message_pqrs").value = "";
 						   });
 				        }
 				      }
 				    ]
                 	}); 		                	 
 			    }else{
-			    	$("#name").val(data1.primerNombre + " " + data1.segundoApellido);	
-			    	$("#mail").val(data1.correo);	
-			    	$("#phone").val(data1.telefono);
-			        $('#name').attr("disabled", false);
-			        $('#phone').attr("disabled", false);
-			        $('#mail').attr("disabled", false);
+			    	$("#name_pqrs").val(data1.primerNombre + " " + data1.segundoApellido);	
+			    	$("#mail_pqrs").val(data1.correo);	
+			    	$("#phone_pqrs").val(data1.telefono);
+			        $('#name_pqrs').attr("disabled", false);
+			        $('#phone_pqrs').attr("disabled", false);
+			        $('#mail_pqrs').attr("disabled", false);
 			        $('.label-content').attr("disabled", false);
-			        $('#message').attr("disabled", false);	
+			        $('#message_pqrs').attr("disabled", false);	
 			    }
             },
             error: function(xhr, status, error){
@@ -856,9 +804,7 @@ myApp.onPageInit('pqrs', function (page){
 
 myApp.onPageInit('shopping', function(page){
 
-
 $(window).ready(function(){
-	
 
   var static_counter = document.querySelector('.progress-counter');
   var score_counter = document.querySelector('.score-counter');
