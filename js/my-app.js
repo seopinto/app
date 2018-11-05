@@ -362,8 +362,6 @@ $$('#suscribe').click(function(){
 
 })
 
-
-
 function IndexLog() {
  mainView.router.reloadPage('registro.html');
 }
