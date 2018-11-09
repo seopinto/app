@@ -271,17 +271,7 @@ mainView.router.loadPage('blog_internal.html');
 }));
 
 
-$$('#documentsearch').keypress(function(){  
-
-
-	 var code = (e.keyCode ? e.keyCode : e.which);
-        if(code==13){
-            obtenerDatos();
-        }
-    });
-
-function obtenerDatos(){
-
+$$('#documentsearch').change(function(){  
 	var cliente = {numeroDocumento : $("#documentsearch").val() }
 	$.ajax({
 	        url : 'http://35.231.135.74:80/clientes/'+$("#documentsearch").val()+'',
@@ -327,12 +317,9 @@ function obtenerDatos(){
                 console.log(xhr.responseText);
             }
 	        });
-	
-}
+	});
 
 
-	
-	
 
 $$.ajax({ 
     type: 'GET', 
@@ -393,6 +380,55 @@ $$('#suscribe').click(function(){
 
 function IndexLog() {
  mainView.router.reloadPage('registro.html');
+}
+
+function searchsuscribir(){
+	var cliente = {numeroDocumento : $("#documentsearch").val() }
+	$.ajax({
+	        url : 'http://35.231.135.74:80/clientes/'+$("#documentsearch").val()+'',
+	        processData: false,
+	        dataType : 'json',
+	        contentType: 'application/json',
+	        method : 'post', //en este caso
+	        data1 : JSON.stringify(cliente),
+            success : function(data1){
+                 if (data1.id == -1) {
+                 	myApp.modal({
+					  title: 'Notificación Mundo Único',
+            		  text: 'Señor(a) usuario usted no se encuentra registrado, por favor regístrese',
+            		  buttons: [
+				      {
+				        text: 'Cancelar',
+				        onClick: function() {
+				         
+				         document.getElementById("document").value = "";   
+				         $('#suscribe').attr("disabled", true);	
+				         myApp.closeModal();					         
+				        }
+				      }, 
+				      {
+				        text: 'Registrarme',
+				        onClick: function() {
+				        var popupHTML = '<div class="popup"><div class="content-block1"><h2 class="page_title">Gracias por querer formar parte de la familia Mundo Único</h2><h2 class="page_title_secondary">Por favor completa el siguiente formulario</h2><form class="form-modal"><div class = "list-block"><ul><div class="row"><div class="col-50"><li class="item-content"><div class="item-inner"><div class="item-input"><input id="document1" type="text" class="input-form" required name="password" placeholder="Número de documento" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="name1" type="text" class="input-form" required name="password" placeholder="Nombre" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="phone1" type="text" class="input-form" required name="password" placeholder="Teléfono" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="city1" type="text" class="input-form" name="city" placeholder="Ciudad" ></div></div></li></div><div class="col-50"><li class="item-content"><div class="item-inner"><div class="item-input"><input id="mail1" type="text" class="input-form" required name="password" placeholder="Correo electrónico" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="lastname1" type="text" class="input-form" required name="password" placeholder="Apellidos" ></div></div></li><div class="label-content2"><label>Género</label><input type="radio" id="Hombre" name="drone2" value="M" checked /><label for="huey">Hombre</label><input type="radio" id="Mujer" name="drone2" value="F" /><label for="dewey">Mujer</label></div><li class="item-content"><div class="item-inner"><div class="item-input"><input id="birthday1" type="date" class="input-form" name="birthday" placeholder="Fecha de cumpleaños" ></div></div></li></div></div></ul></div><div class = "list-block"><ul><button onClick="RegistryUserBlog();" class="item-link list-button position-popup-button" type="button">REGISTRARME</button><a href="#" id="closemodal" class="item-link list-button position-popup-button" type="button">CANCELAR</a></ul></div></form>'+
+						                    '</div>'+
+						                  '</div>'
+						myApp.popup(popupHTML);						   
+					  	$("#closemodal").click(function() {
+							$('#suscribe').attr("disabled", true);						         
+						});
+				        }
+				      }
+				    ]
+                	}); 
+			    }else{
+			    	$('#suscribe').attr("disabled", false);			
+			    }
+            },
+            error: function(xhr, status, error){
+                console.log(xhr.responseText);
+            }
+	        });
+
 }
 
 function registryCalification(){
@@ -530,7 +566,7 @@ myApp.onPageInit('calification', function(page){
 
 $(document).ready(function(){
       $( "#haha" ).click(function() {
-        $('#haha').attr("style", "filter: none !important;width: 135px !important;height: 135px !important;");
+        $('#haha').attr("style", "filter: none !important;width: 130px !important;height: 130px !important;");
         $('#yay').attr("style", "filter: grayscale(100%) !important;");
         $('#wow').attr("style", "filter: grayscale(100%) !important;");
         $('#sad').attr("style", "filter: grayscale(100%) !important;");
@@ -540,7 +576,7 @@ $(document).ready(function(){
       });
 
       $( "#yay" ).click(function() {
-        $('#yay').attr("style", "filter: none !important;width: 135px !important;height: 135px !important;");
+        $('#yay').attr("style", "filter: none !important;width: 130px !important;height: 130px !important;");
         $('#haha').attr("style", "filter: grayscale(100%) !important;");
         $('#wow').attr("style", "filter: grayscale(100%) !important;");
         $('#sad').attr("style", "filter: grayscale(100%) !important;");
@@ -550,7 +586,7 @@ $(document).ready(function(){
       });
 
       $( "#wow" ).click(function() {
-        $('#wow').attr("style", "filter: none !important;width: 135px !important;height: 135px !important;");
+        $('#wow').attr("style", "filter: none !important;width: 130px !important;height: 130px !important;");
         $('#haha').attr("style", "filter: grayscale(100%) !important;");
         $('#yay').attr("style", "filter: grayscale(100%) !important;");
         $('#sad').attr("style", "filter: grayscale(100%) !important;");
@@ -560,7 +596,7 @@ $(document).ready(function(){
       });
 
       $( "#sad" ).click(function() {
-        $('#sad').attr("style", "filter: none !important;width: 135px !important;height: 135px !important;");
+        $('#sad').attr("style", "filter: none !important;width: 130px !important;height: 130px !important;");
         $('#haha').attr("style", "filter: grayscale(100%) !important;");
         $('#yay').attr("style", "filter: grayscale(100%) !important;");
         $('#wow').attr("style", "filter: grayscale(100%) !important;");
@@ -570,7 +606,7 @@ $(document).ready(function(){
       });
 
       $( "#angry" ).click(function() {
-        $('#angry').attr("style", "filter: none !important;width: 135px !important;height: 135px !important;");
+        $('#angry').attr("style", "filter: none !important;width: 130px !important;height: 130px !important;");
         $('#haha').attr("style", "filter: grayscale(100%) !important;");
         $('#yay').attr("style", "filter: grayscale(100%) !important;");
         $('#wow').attr("style", "filter: grayscale(100%) !important;");
