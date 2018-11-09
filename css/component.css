@@ -72,18 +72,18 @@ background: linear-gradient(to top, #434343, #000000); /* W3C, IE 10+/ Edge, Fir
 
 .btn-block1 {
   display: block;
-width: 15%;
+width: 10%;
 text-transform: inherit;
 color: white;
 background-color: green !important;
 border-radius: 3px;
 font-family: 'Source Sans Pro', Arial, sans-serif;
 border: 0;
-font-size: 15px;
+font-size: 14px;
 text-align: center;
 right: 5em;
 position: absolute;
-top: 14px;
+top: 0;
 } 
 
 .cards__item1 .card{
@@ -103,7 +103,7 @@ top: 14px;
   display: flex;
   flex-wrap: wrap;
   list-style: none;
-  margin: 3em auto;
+  margin: 0.5em auto;
   padding: 0;
 }
 .cards__item {
@@ -156,7 +156,7 @@ top: 14px;
 }
 
 .card__image img{
-height: 155px;
+height: 140px;
 width: 100%;
 }
 
@@ -192,11 +192,11 @@ width: 100%;
 }
 .card__title {
   color: #696969;
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 400;
   text-transform: uppercase;
   text-align: center;
-  margin: 15px 1em auto;
+  margin: 10px auto;
 }
 .card__text {
   flex: 1 1 auto;

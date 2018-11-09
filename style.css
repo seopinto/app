@@ -106,7 +106,7 @@ width:90%;
 font-size: 27px;
 line-height:25px;
 font-weight: 700;
-margin: 0px 5% 15px 5%;
+margin: 5px 5% 15px 5%;
 border-bottom:1px #f0f0f0 solid;
 display:inline-block;
 letter-spacing:-0.5px;
@@ -177,7 +177,7 @@ background: #f9f9f9b3;
 #popover-style {
 position: absolute;
 top: 2% !important;
-left: 220px !important;
+left: 200px !important;
 width: 70%;
 height: auto;
 margin: 0 auto;

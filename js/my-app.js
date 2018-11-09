@@ -271,7 +271,17 @@ mainView.router.loadPage('blog_internal.html');
 }));
 
 
-$$('#documentsearch').change(function(){  
+$$('#documentsearch').keypress(function(){  
+
+
+	 var code = (e.keyCode ? e.keyCode : e.which);
+        if(code==13){
+            obtenerDatos();
+        }
+    });
+
+function obtenerDatos(){
+
 	var cliente = {numeroDocumento : $("#documentsearch").val() }
 	$.ajax({
 	        url : 'http://35.231.135.74:80/clientes/'+$("#documentsearch").val()+'',
@@ -317,7 +327,12 @@ $$('#documentsearch').change(function(){
                 console.log(xhr.responseText);
             }
 	        });
-	});
+	
+}
+
+
+	
+	
 
 $$.ajax({ 
     type: 'GET', 
@@ -515,7 +530,7 @@ myApp.onPageInit('calification', function(page){
 
 $(document).ready(function(){
       $( "#haha" ).click(function() {
-        $('#haha').attr("style", "filter: none !important;width: 140px !important;height: 140px !important;");
+        $('#haha').attr("style", "filter: none !important;width: 135px !important;height: 135px !important;");
         $('#yay').attr("style", "filter: grayscale(100%) !important;");
         $('#wow').attr("style", "filter: grayscale(100%) !important;");
         $('#sad').attr("style", "filter: grayscale(100%) !important;");
@@ -525,7 +540,7 @@ $(document).ready(function(){
       });
 
       $( "#yay" ).click(function() {
-        $('#yay').attr("style", "filter: none !important;width: 140px !important;height: 140px !important;");
+        $('#yay').attr("style", "filter: none !important;width: 135px !important;height: 135px !important;");
         $('#haha').attr("style", "filter: grayscale(100%) !important;");
         $('#wow').attr("style", "filter: grayscale(100%) !important;");
         $('#sad').attr("style", "filter: grayscale(100%) !important;");
@@ -535,7 +550,7 @@ $(document).ready(function(){
       });
 
       $( "#wow" ).click(function() {
-        $('#wow').attr("style", "filter: none !important;width: 140px !important;height: 140px !important;");
+        $('#wow').attr("style", "filter: none !important;width: 135px !important;height: 135px !important;");
         $('#haha').attr("style", "filter: grayscale(100%) !important;");
         $('#yay').attr("style", "filter: grayscale(100%) !important;");
         $('#sad').attr("style", "filter: grayscale(100%) !important;");
@@ -545,7 +560,7 @@ $(document).ready(function(){
       });
 
       $( "#sad" ).click(function() {
-        $('#sad').attr("style", "filter: none !important;width: 140px !important;height: 140px !important;");
+        $('#sad').attr("style", "filter: none !important;width: 135px !important;height: 135px !important;");
         $('#haha').attr("style", "filter: grayscale(100%) !important;");
         $('#yay').attr("style", "filter: grayscale(100%) !important;");
         $('#wow').attr("style", "filter: grayscale(100%) !important;");
@@ -555,7 +570,7 @@ $(document).ready(function(){
       });
 
       $( "#angry" ).click(function() {
-        $('#angry').attr("style", "filter: none !important;width: 140px !important;height: 140px !important;");
+        $('#angry').attr("style", "filter: none !important;width: 135px !important;height: 135px !important;");
         $('#haha').attr("style", "filter: grayscale(100%) !important;");
         $('#yay').attr("style", "filter: grayscale(100%) !important;");
         $('#wow').attr("style", "filter: grayscale(100%) !important;");
