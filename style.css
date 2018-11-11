@@ -175,8 +175,8 @@ background: #f9f9f9b3;
 }
 
 #popover-style {
-position: absolute;
-top: 2% !important;
+position: fixed;
+top: 30% !important;
 left: 175px !important;
 width: 70%;
 height: auto;
