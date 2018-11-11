@@ -35,19 +35,6 @@ var subnaview = myApp.addView('.view-subnav');
 
 $(document).ready(function() {
 
-		/*Script backbutton Android*/
-
-		document.addEventListener("deviceready", onDeviceReady, false);
-
-		function onDeviceReady()
-		{
-		   document.addEventListener("backbutton", onBackKeyDown, false);
-		}
-		function onBackKeyDown()
-		{
-		  mainView.router.back();
-		}
-
         circlemenu();
 		$("#RegisterForm").validate();
 		$("#LoginForm").validate();
@@ -319,7 +306,7 @@ $$('#suscribe').click(function(){
             data : JSON.stringify(susregister),
             success : function(response){
             	  if ( $('#documentsearch').val() == "") {
-            	  	myApp.alert("Por favor ingrese un doumento de documento");
+            	  	myApp.alert("Por favor ingrese un número de documento");
             	  }else{
             	  	mainView.router.loadPage('notification3.html');  
             	  }
@@ -359,7 +346,7 @@ $$('#documentsearch').change(function(){
 				      {
 				        text: 'Registrarme',
 				        onClick: function() {
-				        var popupHTML = '<div class="popup"><div class="content-block1"><h2 class="page_title">Gracias por querer formar parte de la familia Mundo Único</h2><h2 class="page_title_secondary">Por favor completa el siguiente formulario</h2><div class="form-modal"><div class = "list-block"><ul><div class="row"><div class="col-50"><li class="item-content"><div class="item-inner"><div class="item-input"><input id="document1" type="text" class="input-form" required name="password" placeholder="Número de documento" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="name1" type="text" class="input-form" required name="password" placeholder="Nombre" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="phone1" type="text" class="input-form" required name="password" placeholder="Teléfono" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="city1" type="text" class="input-form" name="city" placeholder="Ciudad" ></div></div></li></div><div class="col-50"><li class="item-content"><div class="item-inner"><div class="item-input"><input id="mail1" type="text" class="input-form" required name="password" placeholder="Correo electrónico" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="lastname1" type="text" class="input-form" required name="password" placeholder="Apellidos" ></div></div></li><div class="label-content2"><label>Género</label><input type="radio" id="Hombre" name="drone2" value="M" checked /><label for="huey">Hombre</label><input type="radio" id="Mujer" name="drone2" value="F" /><label for="dewey">Mujer</label></div><li class="item-content"><div class="item-inner"><div class="item-input"><input id="birthday1" type="date" class="input-form" name="birthday" placeholder="Fecha de cumpleaños" ></div></div></li></div></div></ul></div><div class = "list-block"><ul><button onClick="RegistryUserBlog();" class="item-link list-button position-popup-button" type="button">REGISTRARME</button><a href="#" id="closemodal" class="item-link list-button position-popup-button" type="button">CANCELAR</a></ul></div></div>'+
+				        var popupHTML = '<div class="popup"><div class="content-block1"><h2 class="page_title">Gracias por querer formar parte de la familia Mundo Único</h2><h2 class="page_title_secondary">Por favor completa el siguiente formulario</h2><div class="form-modal"><div class = "list-block"><ul><div class="row"><div class="col-50"><li class="item-content"><div class="item-inner"><div class="item-input"><input id="document1" type="number" class="input-form" required name="password" placeholder="Número de documento" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="name1" type="text" class="input-form" required name="password" placeholder="Nombre" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="phone1" type="number" class="input-form" required name="password" placeholder="Teléfono" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="city1" type="text" class="input-form" name="city" placeholder="Ciudad" ></div></div></li></div><div class="col-50"><li class="item-content"><div class="item-inner"><div class="item-input"><input id="mail1" type="text" class="input-form" required name="password" placeholder="Correo electrónico" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="lastname1" type="text" class="input-form" required name="password" placeholder="Apellidos" ></div></div></li><div class="label-content2"><label>Género</label><input type="radio" id="Hombre" name="drone2" value="M" checked /><label for="huey">Hombre</label><input type="radio" id="Mujer" name="drone2" value="F" /><label for="dewey">Mujer</label></div><li class="item-content"><div class="item-inner"><div class="item-input"><input id="birthday1" type="date" class="input-form" name="birthday" placeholder="Fecha de cumpleaños" ></div></div></li></div></div></ul></div><div class = "list-block"><ul><button onClick="RegistryUserBlog();" class="item-link list-button position-popup-button" type="button">REGISTRARME</button><a href="#" id="closemodal" class="item-link list-button position-popup-button" type="button">CANCELAR</a></ul></div></div>'+
 						                    '</div>'+
 						                  '</div>'
 						myApp.popup(popupHTML);						   
@@ -599,6 +586,30 @@ $(document).ready(function(){
         });
 	}); 
 
+	$$('#why').change(function(){
+	    var dataTienda = localStorage.getItem('TiendaLocal');
+        var felregister = { 
+        puntaje : $('#calification').val()};
+        if ($("#documentcalification").val() == "") {
+        	routepqrs = 'http://35.231.135.74:80/felicitaciones/tienda/'+dataTienda+''
+        }else{
+			routepqrs = 'http://35.231.135.74:80/felicitaciones/tienda/'+dataTienda+'/cliente/'+$("#documentcalification").val();
+        }
+        $.ajax({
+                url : routepqrs,
+                processData: false,
+             	dataType : 'json',
+            	contentType: 'application/json',
+                method : 'POST', 
+                data : JSON.stringify(felregister),
+                success : function(response){
+                	mainView.router.loadPage('notification2.html');  
+                },
+                error: function(xhr, status, error){
+                    console.log(xhr.responseText);
+                }
+        });
+	}); 
     
 	$$('#documentcalification').change(function(){  
 	var cliente = {numeroDocumento : $("#documentcalification").val() }
@@ -774,6 +785,27 @@ myApp.onPageInit('pqrs', function (page){
         });
 	});   
 
+    $$('#message_pqrs').change(function(){  
+	    var dataTienda = localStorage.getItem('TiendaLocal');
+        var pqrsregister = { 
+         pqrs : $('input[name=drone1]:checked', '.label-content1').val(),
+         nota : $('#message_pqrs').val()};
+        $.ajax({
+                url : 'http://35.231.135.74:80/pqrs/tienda/'+dataTienda+'/cliente/'+$("#documentpqrs").val(),
+            processData: false,
+             dataType : 'json',
+            contentType: 'application/json',
+                method : 'POST', 
+                data : JSON.stringify(pqrsregister),
+                success : function(response){
+                	 mainView.router.loadPage('notification2.html');                       
+                },
+                error: function(xhr, status, error){
+                    console.log(xhr.responseText);
+                }
+        });
+	});
+
 	$$('#documentpqrs').change(function(){  
 	var cliente = {numeroDocumento : $("#documentpqrs").val() }
 	$.ajax({
@@ -940,6 +972,7 @@ $(window).ready(function(){
 
     var current_question = document.querySelector('.question.visible');
     var next_question = current_question.nextElementSibling;
+    var cont = 0;
 
     if (clicked_yes) {
       current_question.querySelector('.coreg-field').value = 'yes';
@@ -947,10 +980,13 @@ $(window).ready(function(){
     if (next_question) {
       current_question.classList.remove('visible');
       next_question.classList.add('visible');
+      document.getElementById("opc1").innerHTML = "Viajes";  
+      cont++;	
     } else {
       document.getElementById('ss_submit_button').click();
       alert('5 questions submitted in bulk!');
     }
+
 
   }
 
