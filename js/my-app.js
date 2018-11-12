@@ -925,73 +925,51 @@ $(window).ready(function(){
     alert('Please, turn off private browsing mode.');
   }
 
+   $$.ajax({ 
+    type: 'GET', 
+    url: 'http://35.231.135.74/preguntasRespuestas/',
+    data: { get_param: 'value' }, 
+    dataType: 'json',
+    success: function (data) {            
+            var results = JSON.stringify(data);
+            var obj = JSON.parse(results);
+            var html = "";
+            for(var i = 0;i<obj.length;i++){
+            	
+            	 var question_config = [{
+				    'question_text': obj[i].pregunta,
+				    'question_value': obj[i].identificador
+				  }, {
+				    'question_text': obj[i].pregunta,
+				    'question_value':  obj[i].identificador
+				  }, {
+				    'question_text':obj[i].pregunta,
+				    'question_value':  obj[i].identificador
+				  }, {
+				    'question_text':obj[i].pregunta,
+				    'question_value':  obj[i].identificador
+				  }, {
+				    'question_text': 'Leaving so soon?',
+				    'question_value':  obj[i].identificador
+				  }];
+			}
 
-  //resizing handler
-  window.addEventListener('resize', function() {
-    if (window.innerWidth <= 640 || window.innerWidth == 640) {
-      if (points_system.nextElementSibling !== incentive) {
-        input_area.insertBefore(points_system, incentive);
-      }
-    } else {
-      if (incentive.nextElementSibling !== points_system) {
-        input_area.insertBefore(incentive, points_system);
-      }
-    }
-    if (window.innerWidth <= 360 || window.innerWidth == 360) {
-      for (var v = 0; v < thumbs_up.length; v++) {
-        thumbs_up[v].classList.remove('fa-2x');
-        thumbs_up[v].classList.add('fa-lg');
-      }
-    } else {
-      for (var x = 0; x < thumbs_up.length; x++) {
-        thumbs_up[x].classList.remove('fa-lg');
-        thumbs_up[x].classList.add('fa-2x');
-      }
-    }
-  });
-  window.dispatchEvent(new Event('resize'));
-
-  var question_config = [{
-    'question_text': '¿La prenda que estás buscando es para un momento en específico?',
-    'question_value': 2,
-    'coreg_field': 'f12345',
-    // 'options': [
-    //   {
-    //     'text': 'yes',
-    //     'value': 2
-    //   }, {
-    //     'text': 'No',
-    //     'value': 0
-    //   }
-    // ]
-  }, {
-    'question_text': '¿Tienes alguna preferencia en el material de tu ropa interior?',
-    'question_value': 4,
-    'coreg_field': 'f54321'
-  }, {
-    'question_text': 'De estos grupos de colores, ¿con cuál te identificas más?',
-    'question_value': 2,
-    'coreg_field': 'f78945'
-  }, {
-    'question_text': '¿Cómo es tu día a día?, un día normal en semana',
-    'question_value': 5,
-    'coreg_field': 'f98745'
-  }, {
-    'question_text': 'Leaving so soon?',
-    'question_value': 2,
-    'coreg_field': 'f65412'
-  }];
-
-  //question handler
+			 //question handler
   question_config.forEach(function(config_item) {
     var questionNode = question_template.content.querySelector('.question').cloneNode(true);
     questionNode.querySelector('.question-value').value = config_item.question_value;
     questionNode.querySelector('.question-text').innerHTML = config_item.question_text;
-    questionNode.querySelector('.coreg-field').name = config_item.coreg_field;
     questions_wrap.appendChild(questionNode);
   });
 
   var question = document.querySelector('.question').classList.add('visible');
+			
+   }
+});
+
+
+ 
+ 
 
   function switch_questions(clicked_yes) {
     clicked_yes = clicked_yes || false;
