@@ -33,7 +33,19 @@ var mainView = myApp.addView('.view-main', {
 
 var subnaview = myApp.addView('.view-subnav');
 
+document.addEventListener("deviceready", onDeviceReady, false);
+
+function onDeviceReady()
+{ 
+   document.addEventListener("backbutton", onBackKeyDown, false); 
+} 
+function onBackKeyDown() 
+{ 
+  mainView.router.back(); 
+}
+
 $(document).ready(function() {
+
 
         circlemenu();
 		$("#RegisterForm").validate();
