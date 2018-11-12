@@ -934,58 +934,52 @@ $(window).ready(function(){
             var results = JSON.stringify(data);
             var obj = JSON.parse(results);
             var html = "";
+
             for(var i = 0;i<obj.length;i++){
             	
             	 var question_config = [{
 				    'question_text': obj[i].pregunta,
 				    'question_value': obj[i].identificador
-				  }, {
-				    'question_text': obj[i].pregunta,
-				    'question_value':  obj[i].identificador
-				  }, {
-				    'question_text':obj[i].pregunta,
-				    'question_value':  obj[i].identificador
-				  }, {
-				    'question_text':obj[i].pregunta,
-				    'question_value':  obj[i].identificador
-				  }, {
-				    'question_text': 'Leaving so soon?',
-				    'question_value':  obj[i].identificador
-				  }];
+				  },];
+				 	
+				  //question handler
+				  question_config.forEach(function(config_item) {
+				  var questionNode = question_template.content.querySelector('.question').cloneNode(true);
+
+				  questionNode.querySelector('.question-value').value = config_item.question_value;
+				  questionNode.querySelector('.question-text').innerHTML = config_item.question_text;
+				  questions_wrap.appendChild(questionNode);
+
+				  });
+
+				  var question = document.querySelector('.question').classList.add('visible');
+				  var parseporcentajeImpuesto = obj[i].respuestas;
+
+						for(var x = 0;x < parseporcentajeImpuesto.length;x++){
+							console.log(parseporcentajeImpuesto[x]);
+						}
+
+								  
 			}
 
-			 //question handler
-  question_config.forEach(function(config_item) {
-    var questionNode = question_template.content.querySelector('.question').cloneNode(true);
-    questionNode.querySelector('.question-value').value = config_item.question_value;
-    questionNode.querySelector('.question-text').innerHTML = config_item.question_text;
-    questions_wrap.appendChild(questionNode);
-  });
 
-  var question = document.querySelector('.question').classList.add('visible');
+
 			
    }
 });
 
 
- 
- 
+ function switch_questions(clicked_yes) {
+    clicked_yes = clicked_yes || true;
 
-  function switch_questions(clicked_yes) {
-    clicked_yes = clicked_yes || false;
-
-    var current_question = document.querySelector('.question.visible');
+    var current_question = document.querySelector('.question.visible');   
     var next_question = current_question.nextElementSibling;
-    var cont = 0;
+    
 
-    if (clicked_yes) {
-      current_question.querySelector('.coreg-field').value = 'yes';
-    }
     if (next_question) {
       current_question.classList.remove('visible');
       next_question.classList.add('visible');
-      document.getElementById("opc1").innerHTML = "Viajes";  
-      cont++;	
+      
     } else {
       document.getElementById('ss_submit_button').click();
       alert('5 questions submitted in bulk!');
@@ -995,99 +989,104 @@ $(window).ready(function(){
   }
 
   //yes button handler
-  for (var i = 0; i < clicked.length; i++) {
-    clicked[i].addEventListener('click', function() {
+  // for (var i = 0; i < clicked.length; i++) {
+  //   clicked[i].addEventListener('click', function() {
 
-      var question_value = parseFloat(document.querySelector('.question.visible .question-value').value);
-      var floating_counter = document.querySelector('.floating-progress-counter');
-      var total_points = static_counter.innerHTML;
-      var number = parseFloat(total_points.match(/\d+/)[0]);
-      var total_value = (number + question_value);
-      var score_counter_value = parseFloat(score_counter.innerHTML);
-      var updated_points = total_value ;
-      var updated_score = (score_counter_value - question_value);
-      //progress spinner variables
-      var spinner = document.querySelector('.spinner');
-      var filler = document.querySelector('.filler');
-      var mask = document.querySelector('.mask');
-      var progress_spinner = [spinner, filler, mask];
-      var circle_is_active = document.getElementsByClassName('active');
+  //     var question_value = parseFloat(document.querySelector('.question.visible .question-value').value);
+  //     var floating_counter = document.querySelector('.floating-progress-counter');
+  //     var total_points = static_counter.innerHTML;
+  //     var number = parseFloat(total_points.match(/\d+/)[0]);
+  //     var total_value = (number + question_value);
+  //     var score_counter_value = parseFloat(score_counter.innerHTML);
+  //     var updated_points = total_value ;
+  //     var updated_score = (score_counter_value - question_value);
+  //     //progress spinner variables
+  //     var spinner = document.querySelector('.spinner');
+  //     var filler = document.querySelector('.filler');
+  //     var mask = document.querySelector('.mask');
+  //     var progress_spinner = [spinner, filler, mask];
+  //     var circle_is_active = document.getElementsByClassName('active');
       
-      span_yes.style.display = 'none';
-      thumbs_up[0].style.display = 'block';
-      thumbs_up[0].classList.add('pop');
+  //     span_yes.style.display = 'none';
+  //     thumbs_up[0].style.display = 'block';
+  //     thumbs_up[0].classList.add('pop');
 
-      //accrued points handler   
-      floating_counter.innerHTML = '+' + question_value;
-      floating_counter.classList.add('animate');
+  //     //accrued points handler   
+  //     floating_counter.innerHTML = '+' + question_value;
+  //     floating_counter.classList.add('animate');
 
-      //handler for session storage    
-      try {
-        sessionStorage.user_score = total_value;
-      }
-      catch(error){
-        alert('Please, turn off private browsing mode.');
-      }
+  //     //handler for session storage    
+  //     try {
+  //       sessionStorage.user_score = total_value;
+  //     }
+  //     catch(error){
+  //       alert('Please, turn off private browsing mode.');
+  //     }
       
-      //handler for score at the top  
-      static_counter.innerHTML = updated_points;
+  //     //handler for score at the top  
+  //     static_counter.innerHTML = updated_points;
 
-      if (updated_score > 0) {
-        score_counter.innerHTML = updated_score;
-      } else if (updated_score === 0) {
-        score_counter.innerHTML = 0;
-      }
+  //     if (updated_score > 0) {
+  //       score_counter.innerHTML = updated_score;
+  //     } else if (updated_score === 0) {
+  //       score_counter.innerHTML = 0;
+  //     }
 
-      //animate progress-spinner
-      for (var j = 0; j < progress_spinner.length; j++) {
-        progress_spinner[j].classList.add('active');
-      }
+  //     //animate progress-spinner
+  //     for (var j = 0; j < progress_spinner.length; j++) {
+  //       progress_spinner[j].classList.add('active');
+  //     }
 
-      setTimeout(function() {
-        thumbs_up[0].classList.remove('pop');
-        for (var k = 0; k < progress_spinner.length; k++) {
-          progress_spinner[k].classList.remove('active');
-        }
-      }, 800);
+  //     setTimeout(function() {
+  //       thumbs_up[0].classList.remove('pop');
+  //       for (var k = 0; k < progress_spinner.length; k++) {
+  //         progress_spinner[k].classList.remove('active');
+  //       }
+  //     }, 800);
 
-      setTimeout(function() {
-        floating_counter.classList.remove('animate');
-        span_yes.style.display = 'block';
-        thumbs_up[0].style.display = 'none';
-      }, 790);
+  //     setTimeout(function() {
+  //       floating_counter.classList.remove('animate');
+  //       span_yes.style.display = 'block';
+  //       thumbs_up[0].style.display = 'none';
+  //     }, 790);
 
-      // when reach end of survey, uncomment the click of submit button do this
-      if (score_counter.innerHTML <= 0) {
-        document.querySelector('#ss_submit_button').click();
-        alert('SURVEY COMPLETE!');
-      }
+  //     // when reach end of survey, uncomment the click of submit button do this
+  //     if (score_counter.innerHTML <= 0) {
+  //       document.querySelector('#ss_submit_button').click();
+  //       alert('SURVEY COMPLETE!');
+  //     }
 
-      setTimeout(function() {
-        switch_questions(true);
-      }, 500);
+  //     setTimeout(function() {
+  //       switch_questions(true);
+  //     }, 500);
 
-    });
-  }
+  //   });
+  // }
 
   //skip button handler
   for (var m = 0; m < skipped.length; m++) {
     skipped[m].addEventListener('click', function() {
-      span_no.style.display = 'none';
-      thumbs_up[1].style.display = 'block';
-      thumbs_up[1].classList.add('pop');
+    	
+    		 span_no.style.display = 'block';
+		     thumbs_up[1].style.display = 'block';
+		     
+		     
 
-      setTimeout(function() {
-        thumbs_up[0].classList.remove('pop');
-      }, 800);
+		    
 
-      setTimeout(function() {
-        span_no.style.display = 'block';
-        thumbs_up[1].style.display = 'none';
-      }, 790);
+		     setTimeout(function() {
+		       span_no.style.display = 'block';
+		       
+		    }, 790);
+
+    
+     
 
       switch_questions();
     });
+
   }
+
 
 // trying this out
 
