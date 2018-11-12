@@ -28,7 +28,7 @@ var getURLimagenesIntereses = "http://35.231.135.74:80/multimedia/verImagenes/";
 var mainView = myApp.addView('.view-main', {
     // Enable dynamic Navbar
     dynamicNavbar: true,
-    myApp.device.webView
+    
 
     window.addEventListener('load', function() {
   window.history.pushState({}, '')
@@ -951,12 +951,14 @@ $(window).ready(function(){
 
 						for(var x = 0;x < parseporcentajeImpuesto.length;x++){
 
-							html+=""
+							html+="<button type='button' name='no' id='no' class='button-no'><span id='opc1' class='span-no'>Trabajo/diario</span></button>"
 							console.log(parseporcentajeImpuesto[x]);
-						}
+						}	
 
 								  
 			}
+
+			$('.question-button').html(html);
 
 
 
