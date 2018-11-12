@@ -6,7 +6,7 @@ var myApp = new Framework7({
     // Enabled pages rendering using Template7
 	swipeBackPage: true,
 	swipePanelOnlyClose: true,
-	pushState: false,
+	pushState: true,
     template7Pages: true,
     fastclick: true,
     smartSelectOpenIn:'popup',
@@ -28,21 +28,15 @@ var getURLimagenesIntereses = "http://35.231.135.74:80/multimedia/verImagenes/";
 var mainView = myApp.addView('.view-main', {
     // Enable dynamic Navbar
     dynamicNavbar: true,
+    myApp.device.webView
+
+    window.addEventListener('load', function() {
+  window.history.pushState({}, '')
+})	
 });
 
 
 var subnaview = myApp.addView('.view-subnav');
-
-document.addEventListener("deviceready", onDeviceReady, false);
-
-function onDeviceReady()
-{ 
-   document.addEventListener("backbutton", onBackKeyDown, false); 
-} 
-function onBackKeyDown() 
-{ 
-  mainView.router.back(); 
-}
 
 $(document).ready(function() {
 
@@ -956,6 +950,8 @@ $(window).ready(function(){
 				  var parseporcentajeImpuesto = obj[i].respuestas;
 
 						for(var x = 0;x < parseporcentajeImpuesto.length;x++){
+
+							html+=""
 							console.log(parseporcentajeImpuesto[x]);
 						}
 
