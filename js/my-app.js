@@ -27,13 +27,15 @@ var getURLimagenesIntereses = "http://35.231.135.74:80/multimedia/verImagenes/";
 // Add main View
 var mainView = myApp.addView('.view-main', {
     // Enable dynamic Navbar
-    dynamicNavbar: true,
+    dynamicNavbar: true
     
 
-    window.addEventListener('load', function() {
-  window.history.pushState({}, '')
-})	
+  	
 });
+
+  window.addEventListener('load', function() {
+  window.history.pushState({}, '')
+})
 
 
 var subnaview = myApp.addView('.view-subnav');
