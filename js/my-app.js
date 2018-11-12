@@ -759,12 +759,26 @@ myApp.onPageInit('registro2', function (page){
 	                success : function(data){
 	                     if (data.id == -1) {		                	
 					    }else{
+					    	myApp.modal({
+							  title: '¡Bievenido!',
+		            		  text: 'Ya eres parte de la familia de Mundo Único',
+		            		  buttons: [
+						      {
+						        text: 'OK',
+						        onClick: function() {
+						         myApp.closeModal();
+						         mainView.router.loadPage('registry.html');  
+						        }
+						      }
+						    ]
+		                	});
 					    	$("#name").val(data.primerNombre);	
 					    	$("#lastname").val(data.primerApellido);	
 					    	$("#mail").val(data.correo);	
 					    	$("#phone").val(data.telefono);	
 					    	$("#city").val(data.municipio);	
 					    	$("#birthday").val(data.fecha);	
+					    	$('#registry').attr("disabled", true);			
 					    }
 	                },
 	                error: function(xhr, status, error){
