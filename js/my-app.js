@@ -958,9 +958,26 @@ $(window).ready(function(){
 
             for(var i = 0;i<obj.length;i++){
             	
+            	var parseporcentajeImpuesto = obj[i].respuestas;
+
+					for(var x = 0;x < parseporcentajeImpuesto.length;x++){
+
+						//html+="<button type='button' name='no' id='no' class='button-no'><i class='fa fa-thumbs-up fa-2x'></i><span id='opc"+parseporcentajeImpuesto[x].id+"' class='span-no'>"+parseporcentajeImpuesto[x].respuesta+"</span></button>"
+						console.log(parseporcentajeImpuesto[x]);
+					}	
+
             	 var question_config = [{
 				    'question_text': obj[i].pregunta,
-				    'question_value': obj[i].identificador
+				    'question_value': obj[i].identificador,
+				    'options': [
+				      {
+				        'text': 'yes',
+				        'value': 2
+				      }, {
+				        'text': 'No',
+				        'value': 0
+				      }
+				    ]
 				  },];
 				 
 				  console.log(obj);
@@ -975,20 +992,11 @@ $(window).ready(function(){
 				  });
 
 				  var question = document.querySelector('.question').classList.add('visible');
-				  var parseporcentajeImpuesto = obj[i].respuestas;
-
-						for(var x = 0;x < parseporcentajeImpuesto.length;x++){
-
-							html+="<button type='button' name='no' id='no' class='button-no'><span id='opc"+parseporcentajeImpuesto[x].id+"' class='span-no'>"+parseporcentajeImpuesto[x].respuesta+"</span></button>"
-							console.log(parseporcentajeImpuesto[x]);
-						}	
+				  
 								  
 			}
 
-			$('.question-button').html(html);
-
-
-
+			// 	
 			
    }
 });
