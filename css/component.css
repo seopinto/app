@@ -53,7 +53,7 @@ background: linear-gradient(to top, #434343, #000000); /* W3C, IE 10+/ Edge, Fir
   border: 0;
   font-size: 15px;
   text-align: center;
-  margin: 30px auto;
+  margin: 0 auto;
 }
 
 .btn-block-new {
@@ -139,7 +139,7 @@ height: 35px;
   display: flex;
   flex: 1 1 auto;
   flex-direction: column;
-  padding: 0.2rem;
+  padding: 0.8rem;
 }
 .card__image {
   background-position: center center;
@@ -193,11 +193,12 @@ width: 100%;
 }
 .card__title {
   color: #696969;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   font-weight: 400;
   text-transform: uppercase;
   text-align: center;
-  margin: 20px auto;
+  margin: 0 auto 20px auto;
+  height: 50%;
 }
 .card__text {
   flex: 1 1 auto;

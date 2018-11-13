@@ -948,39 +948,23 @@ $(window).ready(function(){
 
    $$.ajax({ 
     type: 'GET', 
-    url: 'http://35.231.135.74/preguntasRespuestas/',
+    url: 'http://35.231.135.74/preguntasRespuestas',
     data: { get_param: 'value' }, 
     dataType: 'json',
     success: function (data) {            
             var results = JSON.stringify(data);
             var obj = JSON.parse(results);
+
             var html = "";
 
             for(var i = 0;i<obj.length;i++){
-            	
-            	var parseporcentajeImpuesto = obj[i].respuestas;
-
-					for(var x = 0;x < parseporcentajeImpuesto.length;x++){
-
-						//html+="<button type='button' name='no' id='no' class='button-no'><i class='fa fa-thumbs-up fa-2x'></i><span id='opc"+parseporcentajeImpuesto[x].id+"' class='span-no'>"+parseporcentajeImpuesto[x].respuesta+"</span></button>"
-						console.log(parseporcentajeImpuesto[x]);
-					}	
 
             	 var question_config = [{
 				    'question_text': obj[i].pregunta,
-				    'question_value': obj[i].identificador,
-				    'options': [
-				      {
-				        'text': 'yes',
-				        'value': 2
-				      }, {
-				        'text': 'No',
-				        'value': 0
-				      }
-				    ]
+				    'question_value': obj[i].identificador
 				  },];
 				 
-				  console.log(obj);
+				  
 				  //question handler
 				  question_config.forEach(function(config_item) {
 				  var questionNode = question_template.content.querySelector('.question').cloneNode(true);
@@ -993,10 +977,22 @@ $(window).ready(function(){
 
 				  var question = document.querySelector('.question').classList.add('visible');
 				  
-								  
+					var parseporcentajeImpuesto = obj[i].respuestas;
+
+					if ( obj[i].identificador == 1) {
+
+						for(var x = 0;x < parseporcentajeImpuesto.length;x++){
+
+						html+="<button type='button' name='no' id='no' class='button-no'><i class='fa fa-thumbs-up fa-2x'></i><span id='opc1' class='span-no'>"+parseporcentajeImpuesto[x].respuesta+"</span></button>";
+						//html+="<button type='button' name='no' id='no' class='button-no'><i class='fa fa-thumbs-up fa-2x'></i><span id='opc"+parseporcentajeImpuesto[x].id+"' class='span-no'>"+parseporcentajeImpuesto[x].respuesta+"</span></button>"
+						console.log(parseporcentajeImpuesto[x]);
+					}	
+					}
+
+						  
 			}
 
-			// 	
+		$(".question-button").html(html);
 			
    }
 });
