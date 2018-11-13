@@ -6,7 +6,7 @@ var myApp = new Framework7({
     // Enabled pages rendering using Template7
 	swipeBackPage: true,
 	swipePanelOnlyClose: true,
-	pushState: true,
+	pushState: false,
     template7Pages: true,
     fastclick: true,
     smartSelectOpenIn:'popup',
