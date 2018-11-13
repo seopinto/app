@@ -737,8 +737,12 @@ myApp.onPageInit('registro2', function (page){
 //     });
 //   });
   
-	var calendarDefault = myApp.calendar({
+	var myCalendar  = myApp.calendar({
 	    input: '#birthday',
+	    closeOnSelect: true,
+	    toolbarCloseText: 'Done',
+	    dateFormat: 'dd/mm/yyyy',
+	    yearPicker: true
 	}); 
 	   
     $$('#registry').click(function(){	   
