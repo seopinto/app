@@ -198,7 +198,7 @@ width: 100%;
   text-transform: uppercase;
   text-align: center;
   margin: 0 auto 20px auto;
-  height: 50%;
+  height: 50px;
 }
 .card__text {
   flex: 1 1 auto;
