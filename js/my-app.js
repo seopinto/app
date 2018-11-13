@@ -979,10 +979,9 @@ $(window).ready(function(){
 
 						for(var x = 0;x < parseporcentajeImpuesto.length;x++){
 
-							html+="<button type='button' name='no' id='no' class='button-no'><span id='opc1' class='span-no'>Trabajo/diario</span></button>"
+							html+="<button type='button' name='no' id='no' class='button-no'><span id='opc"+parseporcentajeImpuesto[x].id+"' class='span-no'>"+parseporcentajeImpuesto[x].respuesta+"</span></button>"
 							console.log(parseporcentajeImpuesto[x]);
 						}	
-
 								  
 			}
 
