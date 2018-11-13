@@ -16,6 +16,8 @@ var myApp = new Framework7({
 
 });
 
+
+
 // Export selectors engine
 var $$ = Dom7;
 
@@ -33,10 +35,33 @@ var mainView = myApp.addView('.view-main', {
   	
 });
 
-  window.addEventListener('load', function() {
-  window.history.pushState({}, '')
-})
+function onDeviceReady() {
+    document.addEventListener('backbutton', onBackKeyDown, false);
+}
 
+function onBackKeyDown() {
+    var cpage = mainView.activePage;
+    var cpagename = cpage.name;
+    console.log(cpagename);
+    if (($$('#leftpanel').hasClass('active')) || ($$('#rightpanel').hasClass('active'))) { // #leftpanel and #rightpanel are id of both panels.
+        myApp.closePanel();
+        return false;
+    } else if ($$('.modal-in').length > 0) {
+        myApp.closeModal();
+        return false;
+    } else if (cpagename == 'index') {
+        myApp.confirm('Are you sure you want to exit?', function() {
+            // var deviceType = device.platform;
+            // if(deviceType == “Android” || deviceType == “android”){
+            navigator.app.exitApp();
+            // }
+        },
+        function() {
+        });
+    } else {
+        mainView.router.back();
+    }
+}
 
 var subnaview = myApp.addView('.view-subnav');
 
@@ -937,7 +962,8 @@ $(window).ready(function(){
 				    'question_text': obj[i].pregunta,
 				    'question_value': obj[i].identificador
 				  },];
-				 	
+				 
+				  console.log(obj);
 				  //question handler
 				  question_config.forEach(function(config_item) {
 				  var questionNode = question_template.content.querySelector('.question').cloneNode(true);
