@@ -717,6 +717,8 @@ myApp.onPageInit('questions', function(page){
 myApp.onPageInit('registro2', function (page){
 
 
+
+
 // document.addEventListener('DOMContentLoaded', function() {
 //     var elems = document.querySelectorAll('.autocomplete');
 //     var instances = M.Autocomplete.init(elems, options);
@@ -735,9 +737,9 @@ myApp.onPageInit('registro2', function (page){
 //     });
 //   });
   
-	// var calendarDefault = myApp.calendar({
-	//     input: '#birthday',
-	// }); 
+	var calendarDefault = myApp.calendar({
+	    input: '#birthday',
+	}); 
 	   
     $$('#registry').click(function(){	   
 	     var cliente = { 
