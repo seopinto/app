@@ -1,8 +1,8 @@
 {
   "name": "Mundo Único",
   "short_name": "Mundo Único",
-  "theme_color": "#000000",
-  "background_color": "#040404",
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
   "display": "fullscreen",
   "orientation": "landscape",
   "Scope": "/",
