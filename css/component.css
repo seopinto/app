@@ -98,10 +98,9 @@ font-family: 'Source Sans Pro', Arial, sans-serif;
 font-size: 14px;
 text-align: center;
 position: absolute;
-top: 23em;
+top: 24em;
 margin: 0 auto;
-right: 0;
-left: 0;
+right: 140px;
 } 
 
 .cards__item1 .card{

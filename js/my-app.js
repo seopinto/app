@@ -21,8 +21,6 @@ var myApp = new Framework7({
 // Export selectors engine
 var $$ = Dom7;
 
-var emailscomplete = ('gmail.com hotmail.com hotmail.es yahoo.es Melon Orange Peach Pear Pineapple').split(' ');
-
 var itemsSlider = 0;
 var getURLimagenesIntereses = "http://35.231.135.74:80/multimedia/verImagenes/";
 
@@ -66,6 +64,7 @@ function onBackKeyDown() {
 var subnaview = myApp.addView('.view-subnav');
 
 $(document).ready(function() {
+
 
 
         circlemenu();
@@ -267,8 +266,18 @@ myApp.onPageInit('contact', function (page) {
 		});	
 })
 
+
+
 myApp.onPageInit('blog', function (page) {
- 
+
+	var myCalendar   = myApp.calendar({
+	    input: '#birthday_blog',
+	    closeOnSelect: true,
+	    toolbarCloseText: 'Done',
+	    dateFormat: 'dd/mm/yyyy',
+	    yearPicker: true
+	}); 
+
 if($("#Post1").click(function() {
 document.getElementById("Post").value = "1";
 mainView.router.loadPage('blog_internal.html'); 
@@ -352,6 +361,7 @@ $$('#suscribe').click(function(){
 });
 
 
+
 $$('#documentsearch').change(function(){
 	var cliente = {numeroDocumento : $("#documentsearch").val() }
 	$.ajax({
@@ -379,9 +389,14 @@ $$('#documentsearch').change(function(){
 				      {
 				        text: 'Registrarme',
 				        onClick: function() {
-				        var popupHTML = '<div class="popup"><div class="content-block1"><h2 class="page_title">Gracias por querer formar parte de la familia Mundo Único</h2><h2 class="page_title_secondary">Por favor completa el siguiente formulario</h2><div class="form-modal"><div class = "list-block"><ul><div class="row"><div class="col-50"><li class="item-content"><div class="item-inner"><div class="item-input"><input id="document1" type="number" class="input-form" required name="password" placeholder="Número de documento" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="name1" type="text" class="input-form" required name="password" placeholder="Nombre" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="phone1" type="number" class="input-form" required name="password" placeholder="Teléfono" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="city1" type="text" class="input-form" name="city" placeholder="Ciudad" ></div></div></li></div><div class="col-50"><li class="item-content"><div class="item-inner"><div class="item-input"><input id="mail1" type="text" class="input-form" required name="password" placeholder="Correo electrónico" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="lastname1" type="text" class="input-form" required name="password" placeholder="Apellidos" ></div></div></li><div class="label-content2"><label>Género</label><input type="radio" id="Hombre" name="drone2" value="M" checked /><label for="huey">Hombre</label><input type="radio" id="Mujer" name="drone2" value="F" /><label for="dewey">Mujer</label></div><li class="item-content"><div class="item-inner"><div class="item-input"><input id="birthday1" type="date" class="input-form" name="birthday" placeholder="Fecha de cumpleaños" ></div></div></li></div></div></ul></div><div class = "list-block"><ul><button onClick="RegistryUserBlog();" class="item-link list-button position-popup-button" type="button">REGISTRARME</button><a href="#" id="closemodal" class="item-link list-button position-popup-button" type="button">CANCELAR</a></ul></div></div>'+
+
+				        
+
+				        var popupHTML = '<div class="popup"><div class="content-block1"><h2 class="page_title">Gracias por querer formar parte de la familia Mundo Único</h2><h2 class="page_title_secondary">Por favor completa el siguiente formulario</h2><div class="form-modal"><div class = "list-block"><ul><div class="row"><div class="col-50"><li class="item-content"><div class="item-inner"><div class="item-input"><input id="document_blog" type="number" class="input-form" required name="password" placeholder="Número de documento" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="name_blog" type="text" class="input-form" required name="password" placeholder="Nombre" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="phone_blog" type="number" class="input-form" required name="password" placeholder="Teléfono" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="city_blog" type="text" class="input-form" name="city" placeholder="Ciudad" ></div></div></li></div><div class="col-50"><li class="item-content"><div class="item-inner"><div class="item-input"><input id="mail_blog" type="text" class="input-form" required name="password" placeholder="Correo electrónico" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="lastname_blog" type="text" class="input-form" required name="password" placeholder="Apellidos" ></div></div></li><div class="label-content2"><label>Género</label><input type="radio" id="Hombre" name="drone2" value="M" checked /><label for="huey">Hombre</label><input type="radio" id="Mujer" name="drone2" value="F" /><label for="dewey">Mujer</label></div><li class="item-content"><div class="label-content"><label>Cumpleaños</label></div><div class="item-inner"><div class="item-input"><input id="birthday_blog" type="text" class="input-form" name="birthday" placeholder="dd/mm/aaaa"  ></div></div></li></div></div></ul></div><div class = "list-block"><ul><button onClick="RegistryUserBlog();" class="item-link list-button position-popup-button" type="button">REGISTRARME</button><a href="#" id="closemodal" class="item-link list-button position-popup-button" type="button">CANCELAR</a></ul></div></div>'+
 						                    '</div>'+
 						                  '</div>'
+
+						
 						myApp.popup(popupHTML);						   
 					  	$("#closemodal").click(function() {
 							$('#suscribe').attr("disabled", true);						         
@@ -454,16 +469,16 @@ function registryCalification(){
 
 function RegistryUserBlog(){
         var clienteRegisBlog = { 
-         numeroDocumento : $("#document1").val(),
-         primerNombre : $('#name1').val(), 	
-         segundoNombre : $('#name1').val(), 	
-         primerApellido : $('#lastname1').val(),
-         segundoApellido : $('#lastname1').val(), 	
-         correo : $('#mail1').val(), 
+         numeroDocumento : $("#document_blog").val(),
+         primerNombre : $('#name_blog').val(), 	
+         segundoNombre : $('#name_blog').val(), 	
+         primerApellido : $('#lastname_blog').val(),
+         segundoApellido : $('#lastname_blog').val(), 	
+         correo : $('#mail_blog').val(), 
          sexo : $('input[name=drone2]:checked', '.label-content2').val(),
-         telefono : $('#phone1').val(),
-         fecha : $('#birthday1').val(),
-         municipio : $('#city1').val()
+         telefono : $('#phone_blog').val(),
+         fecha : $('#birthday_blog').val(),
+         municipio : $('#city_blog').val()
      };
 
        $.ajax({
@@ -481,7 +496,7 @@ function RegistryUserBlog(){
 				      {
 				        text: 'VOLVER',
 				        onClick: function() {
-				         document.getElementById("document1").value = "";
+				         document.getElementById("document_blog").value = "";
 				         myApp.closeModal();
 				         mainView.router.loadPage('blog_internal.html');  
 				        }
@@ -668,7 +683,7 @@ $(document).ready(function(){
 				      {
 				        text: 'Registrarme',
 				        onClick: function() {
-				        var popupHTML = '<div class="popup"><div class="content-block1"><h2 class="page_title">Gracias por querer formar parte de la familia Mundo Único</h2><h2 class="page_title_secondary">Por favor completa el siguiente formulario</h2><form class="form-modal"><div class = "list-block"><ul><div class="row"><div class="col-50"><li class="item-content"><div class="item-inner"><div class="item-input"><input id="document1" type="number" class="input-form" required name="password" placeholder="Número de documento" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="name1" type="text" class="input-form" required name="password" placeholder="Nombre" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="phone1" type="number" class="input-form" required name="password" placeholder="Teléfono" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="city1" type="text" class="input-form" name="city" placeholder="Ciudad" ></div></div></li></div><div class="col-50"><li class="item-content"><div class="item-inner"><div class="item-input"><input id="mail1" type="text" class="input-form" required name="password" placeholder="Correo electrónico" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="lastname1" type="text" class="input-form" required name="password" placeholder="Apellidos" ></div></div></li><div class="label-content2"><label>Género</label><input type="radio" id="Hombre" name="drone2" value="M" checked /><label for="huey">Hombre</label><input type="radio" id="Mujer" name="drone2" value="F" /><label for="dewey">Mujer</label></div><li class="item-content"><div class="item-inner"><div class="item-input"><input id="birthday1" type="date" class="input-form" name="birthday" placeholder="Fecha de cumpleaños" ></div></div></li></div></div></ul></div><div class = "list-block"><ul><button onClick="registryCalification();" class="item-link list-button position-popup-button" type="button">REGISTRARME</button><a href="#" id="closemodal" class="item-link list-button position-popup-button" type="button">CANCELAR</a></ul></div></form>'+
+				        var popupHTML = '<div class="popup"><div class="content-block1"><h2 class="page_title">Gracias por querer formar parte de la familia Mundo Único</h2><h2 class="page_title_secondary">Por favor completa el siguiente formulario</h2><form class="form-modal"><div class = "list-block"><ul><div class="row"><div class="col-50"><li class="item-content"><div class="item-inner"><div class="item-input"><input id="document1" type="number" class="input-form" required name="password" placeholder="Número de documento" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="name1" type="text" class="input-form" required name="password" placeholder="Nombre" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="phone1" type="number" class="input-form" required name="password" placeholder="Teléfono" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="city1" type="text" class="input-form" name="city" placeholder="Ciudad" ></div></div></li></div><div class="col-50"><li class="item-content"><div class="item-inner"><div class="item-input"><input id="mail1" type="text" class="input-form" required name="password" placeholder="Correo electrónico" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="lastname1" type="text" class="input-form" required name="password" placeholder="Apellidos" ></div></div></li><div class="label-content2"><label>Género</label><input type="radio" id="Hombre" name="drone2" value="M" checked /><label for="huey">Hombre</label><input type="radio" id="Mujer" name="drone2" value="F" /><label for="dewey">Mujer</label></div><li class="item-content"><div class="label-content"><label>Cumpleaños</label> </div>   <div class="item-inner"><div class="item-input"><input id="birthday1" type="text" class="input-form" name="birthday" placeholder="dd/mm/aaaa"  ></div></div></li></div></div></ul></div><div class = "list-block"><ul><button onClick="registryCalification();" class="item-link list-button position-popup-button" type="button">REGISTRARME</button><a href="#" id="closemodal" class="item-link list-button position-popup-button" type="button">CANCELAR</a></ul></div></form>'+
 						                    '</div>'+
 						                  '</div>'
 						myApp.popup(popupHTML);						   
@@ -715,28 +730,7 @@ myApp.onPageInit('questions', function(page){
 })
 
 myApp.onPageInit('registro2', function (page){
-
-
-
-
-// document.addEventListener('DOMContentLoaded', function() {
-//     var elems = document.querySelectorAll('.autocomplete');
-//     var instances = M.Autocomplete.init(elems, options);
-//   });
-
-
-//   // Or with jQuery
-
-//   $(document).ready(function(){
-//     $('input.autocomplete').autocomplete({
-//       data: {
-//         "Apple": null,
-//         "Microsoft": null,
-//         "Google": 'https://placehold.it/250x250'
-//       },
-//     });
-//   });
-  
+ 
 	var myCalendar  = myApp.calendar({
 	    input: '#birthday',
 	    closeOnSelect: true,
@@ -817,6 +811,14 @@ myApp.onPageInit('registro2', function (page){
 
 myApp.onPageInit('pqrs', function (page){
 
+	var myCalendar  = myApp.calendar({
+	    input: '#birthday_reg',
+	    closeOnSelect: true,
+	    toolbarCloseText: 'Done',
+	    dateFormat: 'dd/mm/yyyy',
+	    yearPicker: true
+	});
+
     $$('#pqrsSend').click(function(){  
 	    var dataTienda = localStorage.getItem('TiendaLocal');
         var pqrsregister = { 
@@ -892,7 +894,7 @@ myApp.onPageInit('pqrs', function (page){
 				      {
 				        text: 'Registrarme',
 				        onClick: function() {
-				        var popupHTML = '<div class="popup"><div class="content-block1"><h2 class="page_title">Gracias por querer formar parte de la familia Mundo Único</h2><h2 class="page_title_secondary">Por favor completa el siguiente formulario</h2><form class="form-modal"><div class = "list-block"><ul><div class="row"><div class="col-50"><li class="item-content"><div class="item-inner"><div class="item-input"><input id="document_reg" type="number" class="input-form" required name="password" placeholder="Número de documento" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="name_reg" type="text" class="input-form" required name="password" placeholder="Nombre" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="phone_reg" type="number" class="input-form" required name="password" placeholder="Teléfono" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="city_reg" type="text" class="input-form" name="city" placeholder="Ciudad" ></div></div></li></div><div class="col-50"><li class="item-content"><div class="item-inner"><div class="item-input"><input id="mail_reg" type="text" class="input-form" required name="password" placeholder="Correo electrónico" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="lastname_reg" type="text" class="input-form" required name="password" placeholder="Apellidos" ></div></div></li><div class="label-content2"><label>Género</label><input type="radio" id="Hombre" name="drone_reg" value="M" checked /><label for="huey">Hombre</label><input type="radio" id="Mujer" name="drone_reg" value="F" /><label for="dewey">Mujer</label></div><li class="item-content"><div class="item-inner"><div class="item-input"><input id="birthday_reg" type="date" class="input-form" name="birthday" placeholder="Fecha de cumpleaños" ></div></div></li></div></div></ul></div><div class = "list-block"><ul><button onClick="registryPQRS();" class="item-link list-button position-popup-button" type="button">REGISTRARME</button><a href="#" id="closemodal" class="item-link list-button position-popup-button" type="button">CANCELAR</a></ul></div></form>'+
+				        var popupHTML = '<div class="popup"><div class="content-block1"><h2 class="page_title">Gracias por querer formar parte de la familia Mundo Único</h2><h2 class="page_title_secondary">Por favor completa el siguiente formulario</h2><form class="form-modal"><div class = "list-block"><ul><div class="row"><div class="col-50"><li class="item-content"><div class="item-inner"><div class="item-input"><input id="document_reg" type="number" class="input-form" required name="password" placeholder="Número de documento" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="name_reg" type="text" class="input-form" required name="password" placeholder="Nombre" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="phone_reg" type="number" class="input-form" required name="password" placeholder="Teléfono" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="city_reg" type="text" class="input-form" name="city" placeholder="Ciudad" ></div></div></li></div><div class="col-50"><li class="item-content"><div class="item-inner"><div class="item-input"><input id="mail_reg" type="text" class="input-form" required name="password" placeholder="Correo electrónico" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="lastname_reg" type="text" class="input-form" required name="password" placeholder="Apellidos" ></div></div></li><div class="label-content2"><label>Género</label><input type="radio" id="Hombre" name="drone_reg" value="M" checked /><label for="huey">Hombre</label><input type="radio" id="Mujer" name="drone_reg" value="F" /><label for="dewey">Mujer</label></div><li class="item-content"><div class="label-content"><label>Cumpleaños</label> </div> <div class="item-inner"><div class="item-input"><input id="birthday_reg" type="text" class="input-form" name="birthday" placeholder="dd/mm/aaaa"  ></div></div></li></div></div></ul></div><div class = "list-block"><ul><button onClick="registryPQRS();" class="item-link list-button position-popup-button" type="button">REGISTRARME</button><a href="#" id="closemodal" class="item-link list-button position-popup-button" type="button">CANCELAR</a></ul></div></form>'+
 						                    '</div>'+
 						                  '</div>'
 						  myApp.popup(popupHTML);
@@ -932,8 +934,8 @@ var preguntas = [];
 var RespuestasFinales = [];
 
 myApp.onPageInit('shopping', function(page){
-
-	$$.ajax({ 
+       
+$$.ajax({ 
 			type: 'GET', 
 			url: 'http://35.231.135.74/preguntasRespuestas',
 			data: { get_param: 'value' }, 
@@ -950,6 +952,7 @@ myApp.onPageInit('shopping', function(page){
 					    });	
 					}
 					countPreguntas = preguntas.length;
+					
 					var HTMLPregunta = "<div class=\"question\"><span class=\"question-text\">{Pregunta}</span></div>";
 					var Button = "<button type=\"button\" class=\"button-no optionButton\" data-QB=\"{ValorBoton}\" onClick=\"CambiarPregunta(this); return false;\"><i class=\"fa fa-thumbs-up fa-2x\"></i>{Respuesta}</button>"
 					var questions_wrap = $('.questions-wrap');
@@ -968,12 +971,94 @@ myApp.onPageInit('shopping', function(page){
 				}
 			}
 		});
+
+ 
+$$('#suscribeguia').click(function(){
+    var susregister = { 
+    cliente : $('#documentsearchguiaa').val()
+	};
+    $.ajax({
+            url : 'http://35.231.135.74:80/boxerCategoria/'+$("#Postguia").val()+'/cliente/'+$("#documentsearchguiaa").val(),
+       		processData: false,
+        	dataType : 'json',
+        	contentType: 'application/json',
+            method : 'POST', //en este caso
+            data : JSON.stringify(susregister),
+            success : function(response){
+            	  if ( $('#documentsearchguia').val() == "") {
+            	  	myApp.alert("Por favor ingrese un número de documento");
+            	  }else{
+            	  	mainView.router.loadPage('notification3.html');  
+            	  }
+            	                      
+            },
+            error: function(xhr, status, error){
+                console.log(xhr.responseText);
+            }
+    });
+});
+
+
+
 	
 
 });
 
 
+
+function documentsearchGuia(){
+
+var cliente = {numeroDocumento : $("#documentsearchguiaa").val() }
+	$.ajax({
+	        url : 'http://35.231.135.74:80/clientes/'+$("#documentsearchguiaa").val(),
+	        processData: false,
+	        dataType : 'json',
+	        contentType: 'application/json',
+	        method : 'post', //en este caso
+	        data1 : JSON.stringify(cliente),
+            success : function(data1){
+                 if (data1.id == -1) {
+                 	myApp.modal({
+					  title: 'Notificación Mundo Único',
+            		  text: 'Señor(a) usuario usted no se encuentra registrado, por favor regístrese',
+            		  buttons: [
+				      {
+				        text: 'Cancelar',
+				        onClick: function() {
+				         
+				        // document.getElementById("document").value = "";   
+				         $('#suscribeguia').attr("disabled", true);	
+				         myApp.closeModal();					         
+				        }
+				      }, 
+				      {
+				        text: 'Registrarme',
+				        onClick: function() {
+				        var popupHTML = '<div class="popup"><div class="content-block1"><h2 class="page_title">Gracias por querer formar parte de la familia Mundo Único</h2><h2 class="page_title_secondary">Por favor completa el siguiente formulario</h2><div class="form-modal"><div class = "list-block"><ul><div class="row"><div class="col-50"><li class="item-content"><div class="item-inner"><div class="item-input"><input id="document1" type="number" class="input-form" required name="password" placeholder="Número de documento" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="name1" type="text" class="input-form" required name="password" placeholder="Nombre" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="phone1" type="number" class="input-form" required name="password" placeholder="Teléfono" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="city1" type="text" class="input-form" name="city" placeholder="Ciudad" ></div></div></li></div><div class="col-50"><li class="item-content"><div class="item-inner"><div class="item-input"><input id="mail1" type="text" class="input-form" required name="password" placeholder="Correo electrónico" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="lastname1" type="text" class="input-form" required name="password" placeholder="Apellidos" ></div></div></li><div class="label-content2"><label>Género</label><input type="radio" id="Hombre" name="drone2" value="M" checked /><label for="huey">Hombre</label><input type="radio" id="Mujer" name="drone2" value="F" /><label for="dewey">Mujer</label></div><li class="item-content"><div class="label-content"><label>Cumpleaños</label> </div><div class="item-inner"><div class="item-input"><input id="birthday1" type="text" class="input-form" name="birthday" placeholder="dd/mm/aaaa" ></div></div></li></div></div></ul></div><div class = "list-block"><ul><button onClick="RegistryUserBlog();" class="item-link list-button position-popup-button" type="button">REGISTRARME</button><a href="#" id="closemodal" class="item-link list-button position-popup-button" type="button">CANCELAR</a></ul></div></div>'+
+						                    '</div>'+
+						                  '</div>'
+						myApp.popup(popupHTML);						   
+					  	$("#closemodal").click(function() {
+							$('#suscribeguia').attr("disabled", true);						         
+						});
+				        }
+				      }
+				    ]
+                	}); 
+			    }else{
+			    	$('#suscribeguia').attr("disabled", false);			
+			    }
+            },
+            error: function(xhr, status, error){
+                console.log(xhr.responseText);
+            }
+	        });
+
+}
+
+
 function CambiarPregunta(button){
+
 	RespuestasFinales.push($(button).attr("data-QB"));
 	var HTMLPregunta = "<div class=\"question\"><span class=\"question-text\">{Pregunta}</span></div>";
 	var Button = "<button type=\"button\" class=\"button-no optionButton\" data-QB=\"{ValorBoton}\" onClick=\"CambiarPregunta(this); return false;\"><i class=\"fa fa-thumbs-up fa-2x\"></i>{Respuesta}</button>"
@@ -984,7 +1069,7 @@ function CambiarPregunta(button){
 	console.log(RespuestasFinales.join(''));
 	var urlFinal = "http://35.231.135.74/boxerCategoria/consultarRespuestaGCB/{respuesta}/preguntaGC/{pregunta}";
 
-	console.log(urlFinal.replace("{respuesta}",respuestasJoin).replace("{pregunta}",preguntas[posicionActual].question_value));
+	document.getElementById("counter-questions").innerHTML = preguntas[posicionActual].question_value+1;
 
 	if(parseInt(RespuestasFinales.length) > 2){
 		try{
@@ -1002,54 +1087,26 @@ function CambiarPregunta(button){
 
 							var popupHTML = '<div class="popup">'+
 						                    '<div class="content-blockguia">'+
-						                    '<a href="index.html" class="close-popup"><div class="navbar_right2"><img class="Navbar-img" src="images/icons/black/back.png" alt="" title=""></div></a>'+						                     
+						                    '<a id="close" href="index.html" class="close-popup"><div class="navbar_right2"><img class="Navbar-img" src="images/icons/black/back.png" alt="" title=""></div></a>'+						                     
 						                      '<h2 class="page_title">'+resultscategory.categoria+'</h2>'+
 						                      '<h2 class="page_title_secondary">'+resultscategory.referencia+'</h2>'+
-						                      '<div><img class="imgguia" src="http://35.231.135.74/boxerCategoria/verImagenes/'+resultscategory.identificadorImagen+'"><a href="" data-popover=".popover-about-sus" class="open-popover btn btn-block2">Suscribirme a esta categoria             <img src="images/icons/white/plus.png" alt="" title=""></a></div>'+
+						                      '<div class="row"><div class="col-50"><img class="imgguia" src="http://35.231.135.74/boxerCategoria/verImagenes/'+resultscategory.identificadorImagen+'"></div><div class="col-50 section-sus"><h2 class="page_title2">Si deseas suscríbirte a esta Categoría</h2><h2 class="page_title_secondary2">Por favor ingrese su número de documento</h2><div class=""><div class="list-block"><ul><div class="row"><div class="col-80"><li class = "item-content"><div class = "item-inner"><div class = "item-input"><input id="documentsearchguiaa" onchange="documentsearchGuia();" type="number" style="font-size: 18px !important;" class="input-form" required name="document" placeholder="Número de documento"></div></div></li></div></div></ul></div><div class = "list-block"><ul><button id="suscribeguia" class="item-link list-button" style="font-size: 14px;" type="button">SUSCRIBIRME</button></ul></div></div></div></div>'+
 						                      ''+
 						                    '</div>'+
 						                  '</div>'
 						  myApp.popup(popupHTML);
+
+						  document.getElementById("Postguia").value = resultscategory.id;
 							
-						posicionActual = 0;
+						
+
+						$("#close").click(function() {
+							posicionActual = 0;
+							respuestasJoin.clear();
+							
+						});
 					
-						respuestasJoin = RespuestasFinales.join(0);
-						 
-
-  //  var modal = myApp.popup({
-  //   title: 'Awesome Photos?',
-  //   text: 'What do you think about my photos?',
-  //   afterText:  '<div class="swiper-container" style="width: auto; margin:5px -15px -15px">'+
-  //                 '<div class="swiper-pagination"></div>'+
-  //                 '<div class="swiper-wrapper">'+
-  //                   '<div class="swiper-slide"><img src="..." height="150" style="display:block"></div>' +
-  //                   '<div class="swiper-slide"><img src="..." height="150" style="display:block"></div>'+
-  //                 '</div>'+
-  //               '</div>',
-  //   buttons: [
-  //     {
-  //       text: 'Bad :('
-  //     },
-  //     {
-  //       text: 'Awesome!',
-  //       bold: true,
-  //       onClick: function () {
-  //         myApp.alert('Thanks! I know you like it!')
-  //       }
-  //     },
-  //   ]
-  // })
-  // myApp.swiper($$(modal).find('.swiper-container'), {pagination: '.swiper-pagination'});
-
-						 // html+="<div class='accordion-item'><div class='accordion-item-toggle'><i class='icon icon-plus'>+</i><i class='icon icon-minus'>-</i><span> "+obj[i].titulo+"</span></div><div class='accordion-item-content'><p class='p-item-content' id='con"+obj[i].id+"'>"+resul+"</p></div></div>";			            		            	
-
-			   //          for(var i = 0;i<obj.length;i++){
-			            	
-			              
-						// }
-						// $(".custom-accordion").html(html);
-
-						//console.log(data);
+						
 					}else if(Object.keys(obj).length > 3){
 						console.log(obj);
 						questions_wrap.empty();
@@ -1066,7 +1123,31 @@ function CambiarPregunta(button){
 						for(var b in botones1){
 							var item = botones1[b];
 							question_button.append(Button.replace('{ValorBoton}',item.valor).replace('{Respuesta}',item.respuesta));
+
+
 						}	
+
+							var resultscategory = obj.boxerCategoria;
+							
+
+							var popupHTML = '<div class="popup">'+
+						                    '<div class="content-blockguia">'+
+						                    '<a id="close" href="index.html" class="close-popup"><div class="navbar_right2"><img class="Navbar-img" src="images/icons/black/back.png" alt="" title=""></div></a>'+						                     
+						                      '<h2 class="page_title">'+resultscategory.categoria+'</h2>'+
+						                      '<h2 class="page_title_secondary">'+resultscategory.referencia+'</h2>'+
+						                      '<div class="row"><div class="col-50"><img class="imgguia" src="http://35.231.135.74/boxerCategoria/verImagenes/'+resultscategory.identificadorImagen+'"></div><div class="col-50 section-sus"><h2 class="page_title2">Si deseas suscríbirte a esta Categoría</h2><h2 class="page_title_secondary2">Por favor ingrese su número de documento</h2><div class="list-block"><ul><div class="row"><div class="col-80"><li class = "item-content"><div class = "item-inner"><div class = "item-input"><input id="documentsearchguia" type="number" style="font-size: 18px !important;" class="input-form" required name="document" placeholder="Número de documento"></div></div></li></div></div></ul></div><div class = "list-block"><ul><button id="suscribeguia" class="item-link list-button" style="font-size: 14px;" type="button">SUSCRIBIRME</button></ul></div></div></div>'+
+						                      ''+
+						                    '</div>'+
+						                  '</div>'
+						  myApp.popup(popupHTML);
+							
+						
+
+						$("#close").click(function() {
+							posicionActual = 0;
+							respuestasJoin.clear();
+							
+						});
 					}
 				}
 			});
