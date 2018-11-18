@@ -1110,6 +1110,24 @@ margin: 4em 2em auto !important;
 .content-block {
 padding:75px 10% 0 10%;
 }
+.imgguia{
+  width: 40%;
+align-content: center;
+text-align: center;
+margin: 0 auto;
+left: 0;
+right: 0;
+position: absolute;
+}
+.Navbar-img{
+  width: 100%;
+
+margin: 0 0 0 -45px;
+}
+.content-blockguia {
+padding: 0 10% 0 10%;
+margin: 35px 0;
+}
 ul.social_share{
 list-style:none;
 padding:10px 0 0 0;
@@ -2375,10 +2393,11 @@ font-style:italic;
   max-width: 228px;
   width: 50%;
   border-radius: 5px;
-  height: 46px;
+  height: 56px;
   background: white;
-  font-size: 19px;
-margin: 5px 0 0 17px;
+  font-size: 14px;
+  margin: 5px 0 0 17px;
+  padding: 0;
 }
 @media screen and (max-width: 808px) {
   .button-yes, .button-no {

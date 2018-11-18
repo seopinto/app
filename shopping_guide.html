@@ -37,33 +37,10 @@
         </div>
 
       </div>
-      <div class="survey">
+       <div class="survey">
         <div class="survey-wrap">
-          <div class="questions-wrap">
-          </div>
-          <div>
-
-          <div class="question-button">
-<!--             <button type="button" name="no" id="no" class="button-no">
-              <i class="fa fa-thumbs-up fa-2x"></i>
-              <span id="opc1" class="span-no">Trabajo/diario</span>
-            </button>
-            <button type="button" name="no" id="no" class="button-no">
-              <i class="fa fa-thumbs-up fa-2x"></i>
-              <span id="opc2" class="span-no">Viajar por negocios</span>
-            </button>
-            <button type="button" name="no" id="no" class="button-no">
-              <i class="fa fa-thumbs-up fa-2x"></i>
-              <span id="opc3" class="span-no">Ocasiones especiales</span>
-            </button>
-            <button type="button" name="no" id="no" class="button-no">
-              <i class="fa fa-thumbs-up fa-2x"></i>
-              <span id="opc4" class="span-no">Hacer deporte</span>
-            </button> -->
-          </div> 
-            
-          </div>
-        </div>
+          <div class="questions-wrap"></div>
+            <div class="question-button"></div>       
       </div>
     </div>
   <div class="opt-out mobile">
@@ -73,14 +50,39 @@
   <input type="submit" id="ss_submit_button">
 </div>
 
-<template class="question-template">
-  <div class="question">
-    <input type="hidden" class="coreg-field" name="">
-    <input type="hidden" class="question-value" value="" />
-    <span class="question-text"></span>
-  </div>
-</template>
-  
+
+<div id='popover-style' class='popover popover-about-sus'>
+              <div class='popover-inner'>
+                <div class='content-block-popup'>
+                  <a href='#' class='close-popover'>
+                    <div class='navbar_right2'><img  src='images/icons/black/menu_close.png' alt='' title='' /></div>
+                  </a>
+                  <h2 class='page_title'>Gracias por querer suscríbirte a esta Categoría</h2>
+                  <h2 class='page_title_secondary'>Por favor ingrese su número de documento</h2>
+                    <div class='list-block'>
+                      <ul>
+                        <div class='row'>
+                          <div class='col-80'>
+                            <li class = 'item-content'>
+                              <div class = 'item-inner'>
+                                <div class = 'item-input'>
+                                  <input id='documentsearch' type='number' class='input-form' required name='document' placeholder='Número de documento'>
+                                </div>
+                              </div>
+                            </li>
+                          </div>
+                        </div>
+                      </ul>
+                    </div>
+                    <div class = 'list-block'>
+                      <ul>
+                        <button id='suscribe' class='item-link list-button' type='button'>SUSCRIBIRME</button>
+                      </ul>
+                    </div>
+                </div>
+              </div>
+            </div>      
+
 
    <!--  <form class="form">
                      
@@ -133,7 +135,3 @@
   </div>
 </div>
 
-<script type="text/javascript">
-  
-
-</script>

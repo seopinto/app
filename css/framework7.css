@@ -4093,9 +4093,9 @@ html.pixel-ratio-3 .actions-popover-label:after {
 }
 @media all and (min-width: 630px) and (min-height: 630px) {
   .popup:not(.tablet-fullscreen) {
-    width: 630px;
-    height: 630px;
-    left: 50%;
+    width: 65%;
+    height: 50%;
+    left: 45%;
     top: 50%;
     margin-left: -315px;
     margin-top: -315px;

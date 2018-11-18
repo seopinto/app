@@ -924,218 +924,191 @@ myApp.onPageInit('pqrs', function (page){
 	}); 
 
 	  	   
-})
+});
+
+var posicionActual = 0;
+var countPreguntas = 0;
+var preguntas = [];
+var RespuestasFinales = [];
 
 myApp.onPageInit('shopping', function(page){
 
-$(window).ready(function(){
+	$$.ajax({ 
+			type: 'GET', 
+			url: 'http://35.231.135.74/preguntasRespuestas',
+			data: { get_param: 'value' }, 
+			dataType: 'json',
+			success: function (data) {
 
-  var static_counter = document.querySelector('.progress-counter');
-  var score_counter = document.querySelector('.score-counter');
-  var points_system = document.getElementsByClassName('points-system')[0];
-  var clicked = document.getElementsByClassName('button-yes');
-  var skipped = document.getElementsByClassName('button-no');
-  var thumbs_up = document.getElementsByClassName('fa');
-  var span_yes = document.querySelector('.span-yes');
-  var span_no = document.querySelector('.span-no');
-  var question_template = document.querySelector('.question-template');
-  var questions_wrap = document.querySelector('.questions-wrap');
-  var input_area = document.getElementsByClassName('input-area')[0];
-  var incentive = document.getElementsByClassName('incentive')[0];
-
-  try{
-    if (sessionStorage.user_score) {
-      static_counter.innerHTML = sessionStorage.user_score + 'pts';
-      score_counter.innerHTML = 5 - Number(sessionStorage.user_score);
-    }
-  } catch(error) {
-    alert('Please, turn off private browsing mode.');
-  }
-
-   $$.ajax({ 
-    type: 'GET', 
-    url: 'http://35.231.135.74/preguntasRespuestas',
-    data: { get_param: 'value' }, 
-    dataType: 'json',
-    success: function (data) {            
-            var results = JSON.stringify(data);
-            var obj = JSON.parse(results);
-
-            var html = "";
-
-            for(var i = 0;i<obj.length;i++){
-
-            	 var question_config = [{
-				    'question_text': obj[i].pregunta,
-				    'question_value': obj[i].identificador
-				  },];
-				 
-				  
-				  //question handler
-				  question_config.forEach(function(config_item) {
-				  var questionNode = question_template.content.querySelector('.question').cloneNode(true);
-
-				  questionNode.querySelector('.question-value').value = config_item.question_value;
-				  questionNode.querySelector('.question-text').innerHTML = config_item.question_text;
-				  questions_wrap.appendChild(questionNode);
-
-				  });
-
-				  var question = document.querySelector('.question').classList.add('visible');
-				  
-					var parseporcentajeImpuesto = obj[i].respuestas;
-
-					if ( obj[i].identificador == 1) {
-
-						for(var x = 0;x < parseporcentajeImpuesto.length;x++){
-
-						html+="<button type='button' name='no' id='no' class='button-no'><i class='fa fa-thumbs-up fa-2x'></i><span id='opc1' class='span-no'>"+parseporcentajeImpuesto[x].respuesta+"</span></button>";
-						//html+="<button type='button' name='no' id='no' class='button-no'><i class='fa fa-thumbs-up fa-2x'></i><span id='opc"+parseporcentajeImpuesto[x].id+"' class='span-no'>"+parseporcentajeImpuesto[x].respuesta+"</span></button>"
-						console.log(parseporcentajeImpuesto[x]);
-					}	
+				if(data.length > 0){
+					for(var i in data){
+						var item = data[i];
+					    preguntas.push({ 
+							'question_text': item.pregunta,
+							'question_value': item.identificador,
+							'buttons': item.respuestas
+					    });	
 					}
+					countPreguntas = preguntas.length;
+					var HTMLPregunta = "<div class=\"question\"><span class=\"question-text\">{Pregunta}</span></div>";
+					var Button = "<button type=\"button\" class=\"button-no optionButton\" data-QB=\"{ValorBoton}\" onClick=\"CambiarPregunta(this); return false;\"><i class=\"fa fa-thumbs-up fa-2x\"></i>{Respuesta}</button>"
+					var questions_wrap = $('.questions-wrap');
+					var question_button = $(".question-button");
 
-						  
+					var botones1 = preguntas[posicionActual].buttons;
+					var pregunta1 = preguntas[posicionActual].question_text;
+
+					questions_wrap.append(HTMLPregunta.replace('{Pregunta}',pregunta1));
+					$(".questions-wrap .question").first().addClass("visible");
+
+					for(var b in botones1){
+						var item = botones1[b];
+						question_button.append(Button.replace('{ValorBoton}',item.valor).replace('{Respuesta}',item.respuesta));
+					}
+				}
 			}
+		});
+	
 
-		$(".question-button").html(html);
-			
-   }
 });
 
 
- function switch_questions(clicked_yes) {
-    clicked_yes = clicked_yes || true;
+function CambiarPregunta(button){
+	RespuestasFinales.push($(button).attr("data-QB"));
+	var HTMLPregunta = "<div class=\"question\"><span class=\"question-text\">{Pregunta}</span></div>";
+	var Button = "<button type=\"button\" class=\"button-no optionButton\" data-QB=\"{ValorBoton}\" onClick=\"CambiarPregunta(this); return false;\"><i class=\"fa fa-thumbs-up fa-2x\"></i>{Respuesta}</button>"
+	var questions_wrap = $('.questions-wrap');
+	var question_button = $(".question-button");
 
-    var current_question = document.querySelector('.question.visible');   
-    var next_question = current_question.nextElementSibling;
-    
+	var respuestasJoin = RespuestasFinales.join('');
+	console.log(RespuestasFinales.join(''));
+	var urlFinal = "http://35.231.135.74/boxerCategoria/consultarRespuestaGCB/{respuesta}/preguntaGC/{pregunta}";
 
-    if (next_question) {
-      current_question.classList.remove('visible');
-      next_question.classList.add('visible');
-      
-    } else {
-      document.getElementById('ss_submit_button').click();
-      alert('5 questions submitted in bulk!');
-    }
+	console.log(urlFinal.replace("{respuesta}",respuestasJoin).replace("{pregunta}",preguntas[posicionActual].question_value));
 
+	if(parseInt(RespuestasFinales.length) > 2){
+		try{
+			$$.ajax({ 
+				type: 'GET', 
+				url: urlFinal.replace("{respuesta}",respuestasJoin).replace("{pregunta}",preguntas[posicionActual].question_value),
+				data: { get_param: 'value' }, 
+				dataType: 'json',
+				success: function (data) {
+					var results = JSON.stringify(data);
+			        var obj = JSON.parse(results);					
+					if(Object.keys(obj).length == 3){
+						var resultscategory = obj.boxerCategoria;
+							
 
-  }
+							var popupHTML = '<div class="popup">'+
+						                    '<div class="content-blockguia">'+
+						                    '<a href="index.html" class="close-popup"><div class="navbar_right2"><img class="Navbar-img" src="images/icons/black/back.png" alt="" title=""></div></a>'+						                     
+						                      '<h2 class="page_title">'+resultscategory.categoria+'</h2>'+
+						                      '<h2 class="page_title_secondary">'+resultscategory.referencia+'</h2>'+
+						                      '<div><img class="imgguia" src="http://35.231.135.74/boxerCategoria/verImagenes/'+resultscategory.identificadorImagen+'"><a href="" data-popover=".popover-about-sus" class="open-popover btn btn-block2">Suscribirme a esta categoria             <img src="images/icons/white/plus.png" alt="" title=""></a></div>'+
+						                      ''+
+						                    '</div>'+
+						                  '</div>'
+						  myApp.popup(popupHTML);
+							
+						posicionActual = 0;
+					
+						respuestasJoin = RespuestasFinales.join(0);
+						 
 
-  //yes button handler
-  // for (var i = 0; i < clicked.length; i++) {
-  //   clicked[i].addEventListener('click', function() {
-
-  //     var question_value = parseFloat(document.querySelector('.question.visible .question-value').value);
-  //     var floating_counter = document.querySelector('.floating-progress-counter');
-  //     var total_points = static_counter.innerHTML;
-  //     var number = parseFloat(total_points.match(/\d+/)[0]);
-  //     var total_value = (number + question_value);
-  //     var score_counter_value = parseFloat(score_counter.innerHTML);
-  //     var updated_points = total_value ;
-  //     var updated_score = (score_counter_value - question_value);
-  //     //progress spinner variables
-  //     var spinner = document.querySelector('.spinner');
-  //     var filler = document.querySelector('.filler');
-  //     var mask = document.querySelector('.mask');
-  //     var progress_spinner = [spinner, filler, mask];
-  //     var circle_is_active = document.getElementsByClassName('active');
-      
-  //     span_yes.style.display = 'none';
-  //     thumbs_up[0].style.display = 'block';
-  //     thumbs_up[0].classList.add('pop');
-
-  //     //accrued points handler   
-  //     floating_counter.innerHTML = '+' + question_value;
-  //     floating_counter.classList.add('animate');
-
-  //     //handler for session storage    
-  //     try {
-  //       sessionStorage.user_score = total_value;
-  //     }
-  //     catch(error){
-  //       alert('Please, turn off private browsing mode.');
-  //     }
-      
-  //     //handler for score at the top  
-  //     static_counter.innerHTML = updated_points;
-
-  //     if (updated_score > 0) {
-  //       score_counter.innerHTML = updated_score;
-  //     } else if (updated_score === 0) {
-  //       score_counter.innerHTML = 0;
-  //     }
-
-  //     //animate progress-spinner
-  //     for (var j = 0; j < progress_spinner.length; j++) {
-  //       progress_spinner[j].classList.add('active');
-  //     }
-
-  //     setTimeout(function() {
-  //       thumbs_up[0].classList.remove('pop');
-  //       for (var k = 0; k < progress_spinner.length; k++) {
-  //         progress_spinner[k].classList.remove('active');
+  //  var modal = myApp.popup({
+  //   title: 'Awesome Photos?',
+  //   text: 'What do you think about my photos?',
+  //   afterText:  '<div class="swiper-container" style="width: auto; margin:5px -15px -15px">'+
+  //                 '<div class="swiper-pagination"></div>'+
+  //                 '<div class="swiper-wrapper">'+
+  //                   '<div class="swiper-slide"><img src="..." height="150" style="display:block"></div>' +
+  //                   '<div class="swiper-slide"><img src="..." height="150" style="display:block"></div>'+
+  //                 '</div>'+
+  //               '</div>',
+  //   buttons: [
+  //     {
+  //       text: 'Bad :('
+  //     },
+  //     {
+  //       text: 'Awesome!',
+  //       bold: true,
+  //       onClick: function () {
+  //         myApp.alert('Thanks! I know you like it!')
   //       }
-  //     }, 800);
+  //     },
+  //   ]
+  // })
+  // myApp.swiper($$(modal).find('.swiper-container'), {pagination: '.swiper-pagination'});
 
-  //     setTimeout(function() {
-  //       floating_counter.classList.remove('animate');
-  //       span_yes.style.display = 'block';
-  //       thumbs_up[0].style.display = 'none';
-  //     }, 790);
+						 // html+="<div class='accordion-item'><div class='accordion-item-toggle'><i class='icon icon-plus'>+</i><i class='icon icon-minus'>-</i><span> "+obj[i].titulo+"</span></div><div class='accordion-item-content'><p class='p-item-content' id='con"+obj[i].id+"'>"+resul+"</p></div></div>";			            		            	
 
-  //     // when reach end of survey, uncomment the click of submit button do this
-  //     if (score_counter.innerHTML <= 0) {
-  //       document.querySelector('#ss_submit_button').click();
-  //       alert('SURVEY COMPLETE!');
-  //     }
+			   //          for(var i = 0;i<obj.length;i++){
+			            	
+			              
+						// }
+						// $(".custom-accordion").html(html);
 
-  //     setTimeout(function() {
-  //       switch_questions(true);
-  //     }, 500);
+						//console.log(data);
+					}else if(Object.keys(obj).length > 3){
+						console.log(obj);
+						questions_wrap.empty();
+						question_button.empty();
 
-  //   });
-  // }
+						var nuevaPosicion = posicionActual+1;
+						posicionActual++;
+						var botones1 = preguntas[nuevaPosicion].buttons;
+						var pregunta1 = preguntas[nuevaPosicion].question_text;
 
-  //skip button handler
-  for (var m = 0; m < skipped.length; m++) {
-    skipped[m].addEventListener('click', function() {
-    	
-    		 span_no.style.display = 'block';
-		     thumbs_up[1].style.display = 'block';
-		     
-		     
+						questions_wrap.append(HTMLPregunta.replace('{Pregunta}',pregunta1));
+						$(".questions-wrap .question").first().addClass("visible");
 
-		    
+						for(var b in botones1){
+							var item = botones1[b];
+							question_button.append(Button.replace('{ValorBoton}',item.valor).replace('{Respuesta}',item.respuesta));
+						}	
+					}
+				}
+			});
+		
+		}catch(ex){
+			console.log(ex);
+			questions_wrap.empty();
+			question_button.empty();
 
-		     setTimeout(function() {
-		       span_no.style.display = 'block';
-		       
-		    }, 790);
+			var nuevaPosicion = posicionActual+1;
+			posicionActual++;
+			var botones1 = preguntas[nuevaPosicion].buttons;
+			var pregunta1 = preguntas[nuevaPosicion].question_text;
 
-    
-     
+			questions_wrap.append(HTMLPregunta.replace('{Pregunta}',pregunta1));
+			$(".questions-wrap .question").first().addClass("visible");
 
-      switch_questions();
-    });
+			for(var b in botones1){
+				var item = botones1[b];
+				question_button.append(Button.replace('{ValorBoton}',item.valor).replace('{Respuesta}',item.respuesta));
+			}		
+		}
 
-  }
+	}else{
+		questions_wrap.empty();
+		question_button.empty();
 
+		var nuevaPosicion = posicionActual+1;
+		posicionActual++;
+		var botones1 = preguntas[nuevaPosicion].buttons;
+		var pregunta1 = preguntas[nuevaPosicion].question_text;
 
-// trying this out
+		questions_wrap.append(HTMLPregunta.replace('{Pregunta}',pregunta1));
+		$(".questions-wrap .question").first().addClass("visible");
+		
 
-
-
-});
-
-
-
-
-
-});
-
-
+		for(var b in botones1){
+			var item = botones1[b];
+			question_button.append(Button.replace('{ValorBoton}',item.valor).replace('{Respuesta}',item.respuesta));
+		}
+	}	
+}
 
 
 
