@@ -510,6 +510,50 @@ function RegistryUserBlog(){
         });
 };
 
+
+function RegistryUserGuia(){
+        var clienteRegisBlog = { 
+         numeroDocumento : $("#document_guia").val(),
+         primerNombre : $('#name_guia').val(), 	
+         segundoNombre : $('#name_guia').val(), 	
+         primerApellido : $('#lastname_guia').val(),
+         segundoApellido : $('#lastname_guia').val(), 	
+         correo : $('#mail_guia').val(), 
+         sexo : $('input[name=drone2]:checked', '.label-content2').val(),
+         telefono : $('#phone_guia').val(),
+         fecha : $('#birthday_guia').val(),
+         municipio : $('#city_guia').val()
+     };
+
+       $.ajax({
+            url : 'http://35.231.135.74:80/clientes',
+            processData: false,
+            dataType : 'json',
+            contentType: 'application/json',
+            method : 'post', //en este caso
+            data : JSON.stringify(clienteRegisBlog),
+                success : function(response){
+                       myApp.modal({
+					  title: '¡Bievenido!',
+            		  text: 'Ya eres parte de la familia de Mundo Único',
+            		  buttons: [
+				      {
+				        text: 'VOLVER',
+				        onClick: function() {
+				         document.getElementById("document_guia").value = "";
+				         myApp.closeModal(popup, animated);
+				         
+				        }
+				      }
+				    ]
+                	});
+                },
+                error: function(xhr, status, error){
+                    console.log(xhr.responseText);
+                }
+        });
+};
+
 function registryPQRS(){
         var cliente = { 
          numeroDocumento : $("#document_reg").val(),
@@ -973,8 +1017,12 @@ $$.ajax({
 		});
 
  
-$$('#suscribeguia').click(function(){
-    var susregister = { 
+	
+
+});
+
+function suscribirmeGuia(){
+	var susregister = { 
     cliente : $('#documentsearchguiaa').val()
 	};
     $.ajax({
@@ -985,9 +1033,10 @@ $$('#suscribeguia').click(function(){
             method : 'POST', //en este caso
             data : JSON.stringify(susregister),
             success : function(response){
-            	  if ( $('#documentsearchguia').val() == "") {
+            	  if ( $('#documentsearchguiaa').val() == "") {
             	  	myApp.alert("Por favor ingrese un número de documento");
             	  }else{
+            	  	myApp.closeModal();
             	  	mainView.router.loadPage('notification3.html');  
             	  }
             	                      
@@ -996,13 +1045,7 @@ $$('#suscribeguia').click(function(){
                 console.log(xhr.responseText);
             }
     });
-});
-
-
-
-	
-
-});
+}
 
 
 
@@ -1028,16 +1071,18 @@ var cliente = {numeroDocumento : $("#documentsearchguiaa").val() }
 				         
 				        // document.getElementById("document").value = "";   
 				         $('#suscribeguia').attr("disabled", true);	
-				         myApp.closeModal();					         
+				         myApp.closeModal();
+				         posicionActual = 0;					         
 				        }
 				      }, 
 				      {
 				        text: 'Registrarme',
 				        onClick: function() {
-				        var popupHTML = '<div class="popup"><div class="content-block1"><h2 class="page_title">Gracias por querer formar parte de la familia Mundo Único</h2><h2 class="page_title_secondary">Por favor completa el siguiente formulario</h2><div class="form-modal"><div class = "list-block"><ul><div class="row"><div class="col-50"><li class="item-content"><div class="item-inner"><div class="item-input"><input id="document1" type="number" class="input-form" required name="password" placeholder="Número de documento" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="name1" type="text" class="input-form" required name="password" placeholder="Nombre" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="phone1" type="number" class="input-form" required name="password" placeholder="Teléfono" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="city1" type="text" class="input-form" name="city" placeholder="Ciudad" ></div></div></li></div><div class="col-50"><li class="item-content"><div class="item-inner"><div class="item-input"><input id="mail1" type="text" class="input-form" required name="password" placeholder="Correo electrónico" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="lastname1" type="text" class="input-form" required name="password" placeholder="Apellidos" ></div></div></li><div class="label-content2"><label>Género</label><input type="radio" id="Hombre" name="drone2" value="M" checked /><label for="huey">Hombre</label><input type="radio" id="Mujer" name="drone2" value="F" /><label for="dewey">Mujer</label></div><li class="item-content"><div class="label-content"><label>Cumpleaños</label> </div><div class="item-inner"><div class="item-input"><input id="birthday1" type="text" class="input-form" name="birthday" placeholder="dd/mm/aaaa" ></div></div></li></div></div></ul></div><div class = "list-block"><ul><button onClick="RegistryUserBlog();" class="item-link list-button position-popup-button" type="button">REGISTRARME</button><a href="#" id="closemodal" class="item-link list-button position-popup-button" type="button">CANCELAR</a></ul></div></div>'+
+				        var popupHTML = '<div class="popup"><div class="content-block1"><h2 class="page_title">Gracias por querer formar parte de la familia Mundo Único</h2><h2 class="page_title_secondary">Por favor completa el siguiente formulario</h2><div class="form-modal"><div class = "list-block"><ul><div class="row"><div class="col-50"><li class="item-content"><div class="item-inner"><div class="item-input"><input id="document_guia" type="number" class="input-form" required name="password" placeholder="Número de documento" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="name_guia" type="text" class="input-form" required name="password" placeholder="Nombre" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="phone_guia" type="number" class="input-form" required name="password" placeholder="Teléfono" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="city_guia" type="text" class="input-form" name="city" placeholder="Ciudad" ></div></div></li></div><div class="col-50"><li class="item-content"><div class="item-inner"><div class="item-input"><input id="mail_guia" type="text" class="input-form" required name="password" placeholder="Correo electrónico" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="lastname_guia" type="text" class="input-form" required name="password" placeholder="Apellidos" ></div></div></li><div class="label-content2"><label>Género</label><input type="radio" id="Hombre" name="drone2" value="M" checked /><label for="huey">Hombre</label><input type="radio" id="Mujer" name="drone2" value="F" /><label for="dewey">Mujer</label></div><li class="item-content"><div class="label-content"><label>Cumpleaños</label> </div><div class="item-inner"><div class="item-input"><input id="birthday_guia" type="text" class="input-form" name="birthday" placeholder="dd/mm/aaaa" ></div></div></li></div></div></ul></div><div class = "list-block"><ul><button onClick="RegistryUserGuia();" class="item-link list-button position-popup-button" type="button">REGISTRARME</button><a href="#" id="closemodal" class="item-link list-button position-popup-button" type="button">CANCELAR</a></ul></div></div>'+
 						                    '</div>'+
 						                  '</div>'
 						myApp.popup(popupHTML);						   
+						posicionActual = 0;
 					  	$("#closemodal").click(function() {
 							$('#suscribeguia').attr("disabled", true);						         
 						});
@@ -1090,7 +1135,7 @@ function CambiarPregunta(button){
 						                    '<a id="close" href="index.html" class="close-popup"><div class="navbar_right2"><img class="Navbar-img" src="images/icons/black/back.png" alt="" title=""></div></a>'+						                     
 						                      '<h2 class="page_title">'+resultscategory.categoria+'</h2>'+
 						                      '<h2 class="page_title_secondary">'+resultscategory.referencia+'</h2>'+
-						                      '<div class="row"><div class="col-50"><img class="imgguia" src="http://35.231.135.74/boxerCategoria/verImagenes/'+resultscategory.identificadorImagen+'"></div><div class="col-50 section-sus"><h2 class="page_title2">Si deseas suscríbirte a esta Categoría</h2><h2 class="page_title_secondary2">Por favor ingrese su número de documento</h2><div class=""><div class="list-block"><ul><div class="row"><div class="col-80"><li class = "item-content"><div class = "item-inner"><div class = "item-input"><input id="documentsearchguiaa" onchange="documentsearchGuia();" type="number" style="font-size: 18px !important;" class="input-form" required name="document" placeholder="Número de documento"></div></div></li></div></div></ul></div><div class = "list-block"><ul><button id="suscribeguia" class="item-link list-button" style="font-size: 14px;" type="button">SUSCRIBIRME</button></ul></div></div></div></div>'+
+						                      '<div class="row"><div class="col-50"><img class="imgguia" src="http://35.231.135.74/boxerCategoria/verImagenes/'+resultscategory.identificadorImagen+'"></div><div class="col-50 section-sus"><h2 class="page_title2">Si deseas suscríbirte a esta Categoría</h2><h2 class="page_title_secondary2">Por favor ingrese su número de documento</h2><div class=""><div class="list-block"><ul><div class="row"><div class="col-80"><li class = "item-content"><div class = "item-inner"><div class = "item-input"><input id="documentsearchguiaa" onchange="documentsearchGuia();" type="number" style="font-size: 18px !important;" class="input-form" required name="document" placeholder="Número de documento"></div></div></li></div></div></ul></div><div class = "list-block"><ul><a href="" onclick="suscribirmeGuia();"  class="item-link list-button" style="font-size: 14px;" type="button">SUSCRIBIRME</a></ul></div></div></div></div>'+
 						                      ''+
 						                    '</div>'+
 						                  '</div>'
