@@ -2585,7 +2585,6 @@ font-style:italic;
           transform-origin: 100% 50%;
   position: absolute;
   background: #fff;
-  border: 5px solid #4d9030;
 }
 .wrapper .spinner {
   border-radius: 100% 0 0 100% / 50% 0 0 50%;
