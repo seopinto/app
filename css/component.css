@@ -67,7 +67,7 @@ background: linear-gradient(to top, #434343, #000000); /* W3C, IE 10+/ Edge, Fir
   border: 0;
   font-size: 15px;
   text-align: center;
-  margin: 0 auto 5px;
+  margin: 6px auto;
 }
 
 .btn-block1 {
