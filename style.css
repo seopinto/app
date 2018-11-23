@@ -295,7 +295,7 @@ position: absolute;
 
 .navbar_right img{
 display:inline-block;
-max-width: 86%;
+max-width: 50%;
 }
 .whitebg{
 background-color:#ffffff;	
@@ -684,7 +684,7 @@ line-height: 1.5;
 text-overflow: ellipsis;
 margin: 0px auto;
 overflow: hidden;
-height: 40px;
+height: 67px;
 }
 .p-item-content{
 padding: 0 0 15px 0;
