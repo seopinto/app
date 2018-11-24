@@ -1188,7 +1188,7 @@ function CambiarPregunta(button){
 							var popupHTML = '<div class="popup">'+
 						                    '<div class="content-blockguia">'+
 						                    '<a id="close" href="index.html" class="close-popup"><div class="navbar_right2"><img class="Navbar-img" src="images/icons/black/back.png" alt="" title=""></div></a>'+						                     
-						                      '<h2 class="page_title">'+resultscategory.categoria+'</h2>'+
+						                      '<h2 class="page_title">La categoría recomendada para ti es'+resultscategory.categoria+'</h2>'+
 						                      '<h2 class="page_title_secondary">'+resultscategory.referencia+'</h2>'+
 						                      '<div class="row"><div class="col-50"><img class="imgguia" src="http://35.231.135.74/boxerCategoria/verImagenes/'+resultscategory.identificadorImagen+'"></div><div class="col-50 section-sus"><h2 class="page_title2">Si deseas suscríbirte a esta Categoría</h2><h2 class="page_title_secondary2">Por favor ingrese su número de documento</h2><div class=""><div class="list-block"><ul><div class="row"><div class="col-80"><li class = "item-content"><div class = "item-inner"><div class = "item-input"><input id="documentsearchguiaa" onchange="documentsearchGuia();" type="number" style="font-size: 18px !important;" class="input-form" required name="document" placeholder="Número de documento"></div></div></li></div></div></ul></div><div class = "list-block"><ul><a href="" onclick="suscribirmeGuia();"  class="item-link list-button" style="font-size: 14px;" type="button">SUSCRIBIRME</a></ul></div></div></div></div>'+
 						                      ''+
