@@ -28,6 +28,13 @@ font-weight:300;
 .col-auto{
   margin: 0 auto;
 }
+.contenido-text{
+  left: 0;
+  right: 0;
+  margin: 1em 0 0 10em !important;
+  position: relative;
+}
+
 .clear{ 
 clear:both; 
 display:block;
@@ -689,7 +696,7 @@ height: 67px;
 .p-item-content{
 padding: 0 0 15px 0;
 clear: both;
-width: 97%;
+width: 80%;
 line-height: 1.5;
 -webkit-line-clamp: 3 !important;
 -webkit-box-orient: vertical;
@@ -697,6 +704,7 @@ text-overflow: ellipsis;
 margin: 0px auto;
 overflow: hidden;
 height: auto !important;
+text-align: justify;
 }
 #pages_maincontent img{
 display:block;
