@@ -2879,6 +2879,10 @@ height:44px;
 line-height:44px;
 font-size:17px;
 cursor:pointer;
+font-weight: bold;
+}
+.accordion-item-content p{
+  font-weight: bolder;
 }
 .custom-accordion .accordion-item-toggle:active{
 background:rgba(0,0,0,0.15);

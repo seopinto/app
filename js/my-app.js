@@ -793,7 +793,8 @@ myApp.onPageInit('questions', function(page){
             var html = "";
             for(var i = 0;i<obj.length;i++){
             	var informacion = obj[i].informacion;            	
-            	var resul = informacion.replace(/&/g, "<br><br>");            	
+            	var resul = informacion.replace(/&/g, "<br>");  
+            	         	
             	if (obj[i].imagen != null) {
             		html+="<div class='accordion-item'><div class='accordion-item-toggle'><i class='icon icon-plus'>+</i><i class='icon icon-minus'>-</i><span> "+obj[i].titulo+"</span></div><div class='accordion-item-content'><img src="+obj[i].imagen+"></div></div>";
             	}else{
