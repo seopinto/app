@@ -33,6 +33,8 @@ var mainView = myApp.addView('.view-main', {
   	
 });
 
+
+
 function onDeviceReady() {
     document.addEventListener('backbutton', onBackKeyDown, false);
 }
@@ -277,7 +279,7 @@ function calendarioblog(){
 	});
 }
 
-
+ 
 myApp.onPageInit('blog', function (page) { 
 
 if($("#Post1").click(function() {
@@ -328,13 +330,17 @@ $$.ajax({
             	}
             	if (document.getElementById("Post").value == "5") {
             		document.getElementById("title-new").innerHTML = "Un mundo de comodidad";  	
-            	}            	        	
-            	html+="<input id='PostDetalle' value='"+obj[i].id+"' style='display:none'> <li class='cards__item1'><div class='card'><div class='card__image'><img src='http://35.231.135.74/intereses/verImagenes/"+obj[i].identificadorMultimedia+"'></div><div class='card__content'><div class='card__title'>"+obj[i].titulo+"</div><p class='card__text'>"+obj[i].descripcion+"</p><a href='#' data-popover='.popover-about"+obj[i].id+"' class='open-popover btn btn-block card__btn'>Ver articulo</a><a href='#' class='btn btn-block-new'>Recibir Noticia</a></div></div> <div  class='popover popover-about"+obj[i].id+"'><div class='popover-angle'></div><div class='popover-inner'><div class='content-block-popup'><a href='#' class='close-popover'><div class='navbar_right2'><img  src='images/icons/black/back.png' alt='' title='' /></div></a><h2 class='page_title'>"+obj[i].titulo+"</h2><div class='card__image_2'><img class='content-block-image' src='http://35.231.135.74/intereses/verImagenes/"+obj[i].identificadorMultimedia+"'></div><div class='p-item-content contenido-text'>"+obj[i].descripcion+"</div><div class='title-new'>Si estas interesado en recibir noticias de este tipo te invitamos a suscribirte. <br> Ven y haz parte de la Familia Mundo Único </div><a href='#' data-popover='.popover-about-sus' class='open-popover btn btn-block card__btn''>Suscribirme</a></div></div></div></li>"           	
+            	}     
+            	     	        	
+            	html+="<input id='PostDetalle' value='"+obj[i].id+"' style='display:none'> <li class='cards__item1'><div class='card'><div class='card__image'><img src='http://35.231.135.74/intereses/verImagenes/"+obj[i].identificadorMultimedia+"'></div><div class='card__content'><div class='card__title'>"+obj[i].titulo+"</div><p class='card__text'>"+obj[i].descripcion+"</p><a href='#' data-popover='.popover-about"+obj[i].id+"' class='open-popover btn btn-block card__btn'>Ver articulo</a><a href='#' class='btn btn-block-new'>Recibir Noticia</a></div></div><div class='popover popover-about"+obj[i].id+"'><div class='popover-angle'></div><div class='popover-inner'><div class='content-block-popup'><a href='#' class='close-popover'><div class='navbar_right2'><img  src='images/icons/black/back.png' alt='' title='' /></div></a><h2 class='page_title'>"+obj[i].titulo+"</h2><div class='card__image_2'><img class='content-block-image' src='http://35.231.135.74/intereses/verImagenes/"+obj[i].identificadorMultimedia+"'></div><div class='p-item-content contenido-text'>"+obj[i].descripcion+"</div><div class='title-new'>Si estas interesado en recibir noticias de este tipo te invitamos a suscribirte. <br> Ven y haz parte de la Familia Mundo Único </div><a href='#' data-popover='.popover-about-sus' class='open-popover btn btn-block card__btn''>Suscribirme</a></div></div></div></li>"           	
+
 			}
 			$("#cards1").html(html);
 			$("#internalDetalle").html(html2);
-   }
+				   }
 })
+
+
 
 
 $$('#suscribe').click(function(){
@@ -1073,6 +1079,11 @@ $$.ajax({
 
 });
 
+function loadPagina(){
+	posicionActual = 0;
+    RespuestasFinales = [];
+}
+
 function suscribirmeGuia(){
 	var susregister = { 
     cliente : $('#documentsearchguiaa').val()
@@ -1102,7 +1113,6 @@ function suscribirmeGuia(){
 }
 
 
-var popupHTML1 = "";
 
 function documentsearchGuia(){
 

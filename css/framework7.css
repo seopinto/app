@@ -3894,7 +3894,7 @@ input.modal-text-input + input.modal-text-input {
   background: rgba(255, 255, 255);
   z-index: 13500;
   margin: 0;
-  top: -3px !important;
+  top: 0px !important;
   opacity: 0;
   left: 0;
   border-radius: 13px;

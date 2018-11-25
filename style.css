@@ -1976,7 +1976,7 @@ margin: 0 0 0 14em;
 }
 .form-modal{
 width: 88%;
-margin: 8px 0 0 3em;
+margin: 8px 0 0 5em;
 }
 .list-block .item-inner:after{
     display: none;
@@ -2305,7 +2305,7 @@ font-style:italic;
 }
 
 .points-system, .survey {
-  height: 206px;
+  height: 275px;
   position: relative;
 }
 
@@ -2375,6 +2375,7 @@ font-style:italic;
   width: 70%;
   vertical-align: middle;
   max-width: 570px;
+  height: 276px;
 }
 @media screen and (max-width: 640px) {
   .survey {
@@ -2562,7 +2563,7 @@ font-style:italic;
   border-radius: 50%;
   overflow: hidden;
   text-align: center;
-  margin: 8% auto;
+  margin: 22% auto;
 }
 @media screen and (max-width: 640px) {
   .wrapper {
