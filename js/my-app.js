@@ -332,7 +332,7 @@ $$.ajax({
             		document.getElementById("title-new").innerHTML = "Un mundo de comodidad";  	
             	}     
             	     	        	
-            	html+="<input id='PostDetalle' value='"+obj[i].id+"' style='display:none'> <li class='cards__item1'><div class='card'><div class='card__image'><img src='http://35.231.135.74/intereses/verImagenes/"+obj[i].identificadorMultimedia+"'></div><div class='card__content'><div class='card__title'>"+obj[i].titulo+"</div><p class='card__text'>"+obj[i].descripcion+"</p><a href='#' data-popover='.popover-about"+obj[i].id+"' class='open-popover btn btn-block card__btn'>Ver articulo</a><a href='#' class='btn btn-block-new'>Recibir Noticia</a></div></div><div class='popover popover-about"+obj[i].id+"'><div class='popover-angle'></div><div class='popover-inner'><div class='content-block-popup'><a href='#' class='close-popover'><div class='navbar_right2'><img  src='images/icons/black/back.png' alt='' title='' /></div></a><h2 class='page_title'>"+obj[i].titulo+"</h2><div class='card__image_2'><img class='content-block-image' src='http://35.231.135.74/intereses/verImagenes/"+obj[i].identificadorMultimedia+"'></div><div class='p-item-content contenido-text'>"+obj[i].descripcion+"</div><div class='title-new'>Si estas interesado en recibir noticias de este tipo te invitamos a suscribirte. <br> Ven y haz parte de la Familia Mundo Único </div><a href='#' data-popover='.popover-about-sus' class='open-popover btn btn-block card__btn''>Suscribirme</a></div></div></div></li>"           	
+            	html+="<input id='PostDetalle' value='"+obj[i].id+"' style='display:none'> <li class='cards__item1'><div class='card'><div class='card__image'><img id='src_image' src='http://35.231.135.74/intereses/verImagenes/"+obj[i].identificadorMultimedia+"'></div><div class='card__content'><div class='card__title' id='title_news'>"+obj[i].titulo+"</div><p class='card__text' id='desc_news'>"+obj[i].descripcion+"</p><a href='#' data-popover='.popover-about"+obj[i].id+"' class='open-popover btn btn-block card__btn'>Ver articulo</a><a href='#' data-popover='.popover-about-sus-2' class='btn btn-block-new open-popover'>Recibir Noticia</a></div></div><div class='popover popover-about"+obj[i].id+"'><div class='popover-angle'></div><div class='popover-inner'><div class='content-block-popup'><a href='#' class='close-popover'><div class='navbar_right2'><img  src='images/icons/black/back.png' alt='' title='' /></div></a><h2 class='page_title'>"+obj[i].titulo+"</h2><div class='card__image_2'><img class='content-block-image' src='http://35.231.135.74/intereses/verImagenes/"+obj[i].identificadorMultimedia+"'></div><div class='p-item-content contenido-text'>"+obj[i].descripcion+"</div><div class='title-new'>Si estas interesado en recibir noticias de este tipo te invitamos a suscribirte. <br> Ven y haz parte de la Familia Mundo Único </div><a href='#' data-popover='.popover-about-sus-2' class='open-popover btn btn-block card__btn''>Recibir Noticia</a></div></div></div></li>"           	
 
 			}
 			$("#cards1").html(html);
@@ -360,6 +360,36 @@ $$('#suscribe').click(function(){
             	  }else{
             	  	mainView.router.loadPage('notification3.html');  
             	  }
+            	                      
+            },
+            error: function(xhr, status, error){
+                console.log(xhr.responseText);
+            }
+    });
+});
+
+$$('#send_news').click(function(){
+    var sendnews = { 
+   	    titulo :  document.getElementById("title_news").innerHTML,
+        descripcion : document.getElementById("desc_news").innerHTML, 	
+        multimedia : document.getElementById("src_image").src
+	};
+    $.ajax({
+            url : 'http://35.231.135.74:80/intereses/correoIcommkt/'+$("#email_news").val(),
+       		processData: false,
+        	dataType : 'json',
+        	contentType: 'application/json',
+            method : 'POST', //en este caso
+            data : JSON.stringify(sendnews),
+            success : function(response){
+            	if ( $("#email_news").val() == "") {
+            	  	$('#suscribe').attr("disabled", true);	
+            	  }else{
+            	  	mainView.router.loadPage('notification4.html');  
+            	  }
+            	  
+            	  	
+            	  
             	                      
             },
             error: function(xhr, status, error){
