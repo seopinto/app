@@ -2379,7 +2379,7 @@ margin-right: -3px;
 }
 @media screen and (max-width: 640px) {
   .survey {
-    background: white;
+    background: none;
     width: 100%;
     height: auto;
   }
@@ -2434,6 +2434,7 @@ margin-right: -3px;
 @media screen and (max-width: 808px) {
   .button-yes, .button-no {
     width: 48%;
+      margin: 5px;
   }
 }
 @media screen and (max-width: 640px) {
@@ -2532,19 +2533,20 @@ left: 14em;
 }
 
 .progress-counter, .floating-progress-counter {
-  font-size: 33pt;
-  position: absolute;
-  z-index: 1000;
-  color: black;
-  font-weight: 900;
-  font-family: 'Lato', sans-serif;
-  top: 26%;
-  left: 0;
-  right: 0;
+    font-size: 6em;
+    position: relative;
+    z-index: 1000;
+    color: black;
+    font-weight: 900;
+    font-family: 'Lato', sans-serif;
+    /* top: 36%; */
+    /* left: 0; */
+    margin: 0 auto;
+    text-align: center;
 }
 @media screen and (max-width: 640px) {
   .progress-counter, .floating-progress-counter {
-    font-size: 20pt;
+       font-size: 5em;
   }
 }
 @media screen and (max-width: 460px) {
@@ -2998,7 +3000,7 @@ color:#222222;
 /* 14. MEDIA QUERIES */
 /*===============================================*/	
 /* -------------SMALL DESKTOP--------- */
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1280px) {
 .logo_image a img{ 
 max-width: 40%;
     padding: 10px 0 0 0;
@@ -3019,28 +3021,50 @@ max-width:60%;
     width: 90%;
     margin: 0 auto;
 }
+    
+    #miform {
+    background: #e3e8e8;
+}
 }
 /* -------------TABLET PORTRAIT--------- */
-@media screen and (max-width: 780px) {
+@media screen and (max-width: 800px) {
 .navbarpages{
 height:85px;
 }
 #pages_maincontent{
-top: 93px; 
+top: 100px;     
+width: 95%;
 }
+    
+    .btn-block1 {
+    display: block;
+        width: 20%;}
+    
 .navbar_right{
 width:60px;
 height:60px;
 }
 .form {
 
-    width: 90%;
+    width: 95%;
     margin: 0 auto;}
+    
+    #tiendatitle{
+      
+    }
+    
+    #optiontienda{
+          margin: 0 auto;
+    display: block;
+    width: 55%;
+    text-align: center;
+    }
 
 .slider-caption h2{
 font-size:55px;
 line-height:65px;
 } 
+    
 .slider-caption span.subtitle{
 font-size:18px;
 }
@@ -3087,6 +3111,21 @@ padding:0px;
 .gallery_switch a img{
 max-width:60%;
 }
+    
+  .swiper-container-toolbar {
+    height: 100px;  
+    }
+    .label-content1 {
+    font-size: 20px;
+    display: inline-flex;
+    margin: auto 0em;
+}
+    .emoji {
+        margin: 20px;}
+    .list-block .item-inner{
+        padding-right: 0px;
+    }
+    
 }
 /* -----------------MOBILE---------------- */
 @media screen and (max-width: 680px) {
@@ -3117,8 +3156,18 @@ height:50px;
 max-width:40%;
 padding:12px 0 0 0;
 }
+        
+    .btn-block1 {
+    display: block;
+        width: 20%;}
+    
+    .label-content1 {
+    font-size: 20px;
+    display: inline-flex;
+    margin: auto 0em;
+}
 #pages_maincontent{
-top: 50px; 
+top: 100px; 
 }
 .slider-caption{
 bottom:20%;
@@ -3172,10 +3221,13 @@ body.with-panel-right-cover .panel-right {
   transform: translate3d(-85%, 0, 0);
 }
 h2.page_title{
-font-size:16px;
-line-height:25px;
-font-weight:400;
-padding:5px 0;
+    /* font-size: 16px; */
+    /* line-height: 25px; */
+    /* font-weight: 400; */
+    padding: 5px 0;
+    /* margin: 0 auto; */
+    width: 90%;
+    text-align: center;
 }
 .content-block {
 padding:25px 5%;
@@ -3191,10 +3243,34 @@ padding:0px;
 max-width:60%;
 }
 .form {
-
-    width: 90%;
+width: 99%;
     margin: 0 auto;
 }
+    
+    
+    .list-block .item-link.list-button{
+        width: 60%;
+}
+    
+    
+    .card__image img {
+    height: 200px;
+    width: 100%;
+}
+    
+    .cards__item {
+    display: inline-flex;
+    width: 50%;
+}
+    #pages_maincontent {
+        width: 95%;}
+    .emoji {
+        margin: 20px;}
+    .list-block .item-inner{
+        padding-right: 0px;
+    }
+    
+    
 }
 /* -----------------SMALL MOBILE---------------- */
 @media screen and (max-width: 470px) {
@@ -3215,6 +3291,8 @@ max-width:100%;
     width: 90%;
     margin: 0 auto;
 }
+    .emoji {
+        margin: 20px;}
 }
 /* -----------------SMALLER MOBILE---------------- */
 @media screen and (max-width: 360px) {	
@@ -3234,7 +3312,7 @@ padding:0px 3px;
 .emoji {
   width: 117px;
   height: 117px;
-  margin: 10px 15px 0;
+  margin: 20px;
   background: #FFDA6A;
   display: inline-block;
   border-radius: 50%;
