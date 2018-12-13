@@ -2379,7 +2379,7 @@ margin-right: -3px;
 }
 @media screen and (max-width: 640px) {
   .survey {
-    background: white;
+    background: none;
     width: 100%;
     height: auto;
   }
@@ -2434,6 +2434,7 @@ margin-right: -3px;
 @media screen and (max-width: 808px) {
   .button-yes, .button-no {
     width: 48%;
+      margin: 5px;
   }
 }
 @media screen and (max-width: 640px) {
@@ -3039,8 +3040,19 @@ height:60px;
 }
 .form {
 
-    width: 90%;
+    width: 95%;
     margin: 0 auto;}
+    
+    #tiendatitle{
+      
+    }
+    
+    #optiontienda{
+          margin: 0 auto;
+    display: block;
+    width: 55%;
+    text-align: center;
+    }
 
 .slider-caption h2{
 font-size:55px;
