@@ -2312,11 +2312,11 @@ font-style:italic;
 .points-system {
   background: #e3e8e8;
   display: inline-block;
-  width: auto;
   vertical-align: middle;
-  margin-right: 1%;
-  text-align: center;
-  width: 28%;
+margin-left: 7%;
+text-align: center;
+width: 28%;
+margin-right: -3px;
 }
 @media screen and (max-width: 640px) {
   .points-system {
@@ -2511,14 +2511,24 @@ font-style:italic;
           animation: shrinkPop 800ms 1;
 }
 
+.title-select{
+  font-size: 20px;
+}
+
+.smart-select{
+  position: relative;
+
+right: 2.5em;
+}
+
 .progress-counter, .floating-progress-counter {
-  font-size: 22pt;
+  font-size: 33pt;
   position: absolute;
   z-index: 1000;
   color: black;
   font-weight: 900;
   font-family: 'Lato', sans-serif;
-  top: 36%;
+  top: 26%;
   left: 0;
   right: 0;
 }

@@ -35,7 +35,14 @@
                                         <input id="name" type="text" class="input-form" required name="name" placeholder="Nombre" >
                                      </div>
                                   </div>
-                               </li>                
+                               </li>   
+                               <li class = "item-content">
+                                  <div class = "item-inner">                                     
+                                     <div class = "item-input">
+                                        <input id="lastname" type="text" class="input-form" required name="lastname" placeholder="Apellidos" >
+                                     </div>
+                                  </div>
+                               </li>             
                                <li class = "item-content">
                                   <div class = "item-inner">
                                      
@@ -43,14 +50,13 @@
                                         <input id="phone" type="tel" class="input-form" required name="phone" placeholder="Teléfono" >
                                      </div>
                                   </div>
-                               </li>
-                               <li class = "item-content">
                                   <div class = "item-inner">                                     
                                      <div class = "item-input">
                                         <input id="city" type="text" class="input-form" name="city" placeholder="Ciudad" >
                                      </div>
                                   </div>
                                </li>
+                               
                              </div>
                              <div class="col-50">
                                <li class = "item-content">
@@ -60,13 +66,6 @@
                                      </div>
                                   </div>
                                </li>
-                                <li class = "item-content">
-                                  <div class = "item-inner">                                     
-                                     <div class = "item-input">
-                                        <input id="lastname" type="text" class="input-form" required name="lastname" placeholder="Apellidos" >
-                                     </div>
-                                  </div>
-                               </li>                        
                                <div class="label-content">
                                  <label>Género</label>                               
                                     <input type="radio" id="Hombre" name="drone" value="M" checked />
@@ -74,13 +73,50 @@
                                     <input type="radio" id="Mujer" name="drone" value="F" />
                                     <label for="dewey">Mujer</label>
                                </div>
-                                <li class = "item-content">  
-                                <div class="label-content"><label>Cumpleaños</label> </div>                                 
+                                <li class = "item-content">
+                                  <div class="label-content"><label>Cumpleaños</label> </div>                                 
                                   <div class = "item-inner">                                     
                                      <div class = "item-input">
                                         <input id="birthday" type="text" class="input-form" name="birthday" placeholder="aaaa-mm-dd" >
                                      </div>
                                   </div>
+                               </li>                        
+                               
+                                <li class = "item-content">  
+                                <div class="list-block">
+                                <ul>
+                                  <li>
+                                    <a href="#" class="item-link smart-select">
+                                      <select name="days">
+                                        <option value="monday" selected data-display-as="Mon">Monday</option>
+                                        <option value="tuesday" data-display-as="Tue">Tuesday</option>
+                                        <option value="wednesday" data-display-as="Wed">Wednesday</option>
+                                        <option value="thursday" data-display-as="Thu">Thursday</option>
+                                        <option value="friday" data-display-as="Fri">Friday</option>
+                                        <option value="saturday" data-display-as="Sat">Saturday</option>
+                                        <option value="sunday" data-display-as="Sun">Sunday</option>
+                                      </select>
+                                      
+                                        <div class="item-inner">
+                                          <div class="item-title title-select">Tienda Favorita</div>
+                                        </div>
+                                      
+                                    </a>
+                                  </li>
+                                </ul>
+                              </div>
+   
+       
+        
+          <!-- <div class="label-content"><label>Tiendaa</label> </div>                                 
+          <div class="item-input">
+            <select>
+              <option>Male</option>
+              <option>Female</option>
+            </select>
+          </div> -->
+        
+      
                                </li>                           
                              </div>                              
                            </div>                          

@@ -13,6 +13,8 @@ var myApp = new Framework7({
     touch: { tapHold: true},
     stackPages: false,	
     removeElements: true,
+    
+
 
 });
 
@@ -722,7 +724,8 @@ $(document).ready(function(){
 	$$('#SendCongratulations').click(function(){
 	    var dataTienda = localStorage.getItem('TiendaLocal');
         var felregister = { 
-        puntaje : $('#calification').val()};
+        puntaje : $('#calification').val(),
+    	mensaje : $('#why').val()};
         if ($("#documentcalification").val() == "") {
         	routepqrs = 'http://35.231.135.74:80/felicitaciones/tienda/'+dataTienda+''
         }else{
@@ -832,7 +835,7 @@ myApp.onPageInit('questions', function(page){
             	var resul = informacion.replace(/&/g, "<br>");  
             	         	
             	if (obj[i].imagen != null) {
-            		html+="<div class='accordion-item'><div class='accordion-item-toggle'><i class='icon icon-plus'>+</i><i class='icon icon-minus'>-</i><span> "+obj[i].titulo+"</span></div><div class='accordion-item-content'><img src="+obj[i].imagen+"></div></div>";
+            		html+="<div class='accordion-item'><div class='accordion-item-toggle'><i class='icon icon-plus'>+</i><i class='icon icon-minus'>-</i><span> "+obj[i].titulo+"</span></div><div class='accordion-item-content'><p class='p-item-content'>"+obj[i].informacion+"</p><img src="+obj[i].imagen+"></div></div>";
             	}else{
             		html+="<div class='accordion-item'><div class='accordion-item-toggle'><i class='icon icon-plus'>+</i><i class='icon icon-minus'>-</i><span> "+obj[i].titulo+"</span></div><div class='accordion-item-content'><p class='p-item-content' id='con"+obj[i].id+"'>"+resul+"</p></div></div>";
             	}	            	

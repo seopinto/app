@@ -2311,6 +2311,8 @@ html.pixel-ratio-3 .list-block .item-inner:after {
   text-overflow: ellipsis;
   position: relative;
   display: block;
+  margin: 0 0 0 1em;
+font-size: 20px;
 }
 .list-block .item-link {
   -webkit-transition-duration: 300ms;
