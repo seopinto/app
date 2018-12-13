@@ -2532,15 +2532,16 @@ left: 14em;
 }
 
 .progress-counter, .floating-progress-counter {
-  font-size: 33pt;
-  position: absolute;
-  z-index: 1000;
-  color: black;
-  font-weight: 900;
-  font-family: 'Lato', sans-serif;
-  top: 26%;
-  left: 0;
-  right: 0;
+    font-size: 6em;
+    position: relative;
+    z-index: 1000;
+    color: black;
+    font-weight: 900;
+    font-family: 'Lato', sans-serif;
+    /* top: 36%; */
+    /* left: 0; */
+    margin: 0 auto;
+    text-align: center;
 }
 @media screen and (max-width: 640px) {
   .progress-counter, .floating-progress-counter {
@@ -2998,7 +2999,7 @@ color:#222222;
 /* 14. MEDIA QUERIES */
 /*===============================================*/	
 /* -------------SMALL DESKTOP--------- */
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1280px) {
 .logo_image a img{ 
 max-width: 40%;
     padding: 10px 0 0 0;
@@ -3019,9 +3020,13 @@ max-width:60%;
     width: 90%;
     margin: 0 auto;
 }
+    
+    #miform {
+    background: #e3e8e8;
+}
 }
 /* -------------TABLET PORTRAIT--------- */
-@media screen and (max-width: 780px) {
+@media screen and (max-width: 800px) {
 .navbarpages{
 height:85px;
 }
@@ -3041,6 +3046,7 @@ height:60px;
 font-size:55px;
 line-height:65px;
 } 
+    
 .slider-caption span.subtitle{
 font-size:18px;
 }
@@ -3087,6 +3093,11 @@ padding:0px;
 .gallery_switch a img{
 max-width:60%;
 }
+    
+  .swiper-container-toolbar {
+    height: 100px;  
+    
+    
 }
 /* -----------------MOBILE---------------- */
 @media screen and (max-width: 680px) {
@@ -3172,10 +3183,13 @@ body.with-panel-right-cover .panel-right {
   transform: translate3d(-85%, 0, 0);
 }
 h2.page_title{
-font-size:16px;
-line-height:25px;
-font-weight:400;
-padding:5px 0;
+    /* font-size: 16px; */
+    /* line-height: 25px; */
+    /* font-weight: 400; */
+    padding: 5px 0;
+    /* margin: 0 auto; */
+    width: 90%;
+    text-align: center;
 }
 .content-block {
 padding:25px 5%;
@@ -3191,8 +3205,7 @@ padding:0px;
 max-width:60%;
 }
 .form {
-
-    width: 90%;
+width: 99%;
     margin: 0 auto;
 }
 }
