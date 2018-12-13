@@ -61,7 +61,7 @@ background: linear-gradient(to top, #434343, #000000); /* W3C, IE 10+/ Edge, Fir
   width: 80%;
   text-transform: inherit;
   color: white;
-  background-color: green !important;
+  background-color: black !important;
   border-radius: 3px;
   font-family: 'Source Sans Pro', Arial, sans-serif;
   border: 0;
@@ -75,7 +75,7 @@ background: linear-gradient(to top, #434343, #000000); /* W3C, IE 10+/ Edge, Fir
 width: 15%;
 text-transform: inherit;
 color: white;
-background-color: green !important;
+background-color: black !important;
 border-radius: 3px;
 font-family: 'Source Sans Pro', Arial, sans-serif;
 border: 0;
@@ -92,7 +92,7 @@ display: block;
 width: 25%;
 text-transform: inherit;
 color: white;
-background-color: green !important;
+background-color: black !important;
 border-radius: 3px;
 font-family: 'Source Sans Pro', Arial, sans-serif;
 font-size: 14px;

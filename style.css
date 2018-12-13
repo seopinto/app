@@ -2521,6 +2521,16 @@ margin-right: -3px;
 right: 2.5em;
 }
 
+.item-option{
+  width: 30%;
+
+left: 14em;
+}
+
+.smart-select-list-1544668806302{
+  padding: 0 13em;
+}
+
 .progress-counter, .floating-progress-counter {
   font-size: 33pt;
   position: absolute;
