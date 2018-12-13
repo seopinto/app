@@ -3032,8 +3032,14 @@ max-width:60%;
 height:85px;
 }
 #pages_maincontent{
-top: 93px; 
+top: 100px;     
+width: 95%;
 }
+    
+    .btn-block1 {
+    display: block;
+        width: 20%;}
+    
 .navbar_right{
 width:60px;
 height:60px;
@@ -3108,7 +3114,17 @@ max-width:60%;
     
   .swiper-container-toolbar {
     height: 100px;  
-    
+    }
+    .label-content1 {
+    font-size: 20px;
+    display: inline-flex;
+    margin: auto 0em;
+}
+    .emoji {
+        margin: 20px;}
+    .list-block .item-inner{
+        padding-right: 0px;
+    }
     
 }
 /* -----------------MOBILE---------------- */
@@ -3140,8 +3156,18 @@ height:50px;
 max-width:40%;
 padding:12px 0 0 0;
 }
+        
+    .btn-block1 {
+    display: block;
+        width: 20%;}
+    
+    .label-content1 {
+    font-size: 20px;
+    display: inline-flex;
+    margin: auto 0em;
+}
 #pages_maincontent{
-top: 50px; 
+top: 100px; 
 }
 .slider-caption{
 bottom:20%;
@@ -3236,6 +3262,15 @@ width: 99%;
     display: inline-flex;
     width: 50%;
 }
+    #pages_maincontent {
+        width: 95%;}
+    .emoji {
+        margin: 20px;}
+    .list-block .item-inner{
+        padding-right: 0px;
+    }
+    
+    
 }
 /* -----------------SMALL MOBILE---------------- */
 @media screen and (max-width: 470px) {
@@ -3256,6 +3291,8 @@ max-width:100%;
     width: 90%;
     margin: 0 auto;
 }
+    .emoji {
+        margin: 20px;}
 }
 /* -----------------SMALLER MOBILE---------------- */
 @media screen and (max-width: 360px) {	
@@ -3275,7 +3312,7 @@ padding:0px 3px;
 .emoji {
   width: 117px;
   height: 117px;
-  margin: 10px 15px 0;
+  margin: 20px;
   background: #FFDA6A;
   display: inline-block;
   border-radius: 50%;
