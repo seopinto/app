@@ -2546,7 +2546,7 @@ left: 14em;
 }
 @media screen and (max-width: 640px) {
   .progress-counter, .floating-progress-counter {
-    font-size: 20pt;
+       font-size: 5em;
   }
 }
 @media screen and (max-width: 460px) {
@@ -3219,6 +3219,22 @@ max-width:60%;
 .form {
 width: 99%;
     margin: 0 auto;
+}
+    
+    
+    .list-block .item-link.list-button{
+        width: 60%;
+}
+    
+    
+    .card__image img {
+    height: 200px;
+    width: 100%;
+}
+    
+    .cards__item {
+    display: inline-flex;
+    width: 50%;
 }
 }
 /* -----------------SMALL MOBILE---------------- */
