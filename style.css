@@ -35,6 +35,11 @@ font-weight:300;
   position: relative;
 }
 
+.radiotienda{
+  width: 50%; 
+  float: left;
+}
+
 .clear{ 
 clear:both; 
 display:block;
@@ -125,7 +130,6 @@ font-size: 17px;
 line-height:25px;
 font-weight: 700;
 margin: 5px 5% 0 5%;
-border-bottom:1px #f0f0f0 solid;
 display:inline-block;
 letter-spacing:-0.5px;
 text-align: center;
@@ -1148,7 +1152,7 @@ align-content: center;
 text-align: center;
 margin: 0 auto;
 position: absolute;
-height: 300px;
+height: 260px;
 }
 .Navbar-img{
   width: 100%;

@@ -47,7 +47,7 @@
                                   <div class = "item-inner">
                                      
                                      <div class = "item-input">
-                                        <input id="phone" type="tel" class="input-form" required name="phone" placeholder="Teléfono" >
+                                        <input id="phone" type="number" class="input-form" required name="phone" placeholder="Teléfono" >
                                      </div>
                                   </div>
                                   <div class = "item-inner">                                     
@@ -87,16 +87,28 @@
                                     <div class="item-title title-select">Tienda Favorita</div>
                                   </div>
                                   <div id="optiontienda" class="item-input ">
-                                    <select id="tiendaf">
-                                      <option value="Viva Envigado">Viva Envigado</option>
-                                      <option value="Tesoro">Tesoro</option>
-                                      <option value="Oviedo">Oviedo</option>
-                                      <option value="Chipichape">Chipichape</option>
-                                      <option value="Cartagena">Cartagena</option>
-                                      <option value="Gran Estación">Gran Estación</option>
-                                      <option value="El Retiro">El Retiro</option>
-                                    </select>
+                                    <div class="radiotienda">
+                                      <input type="radio" id="Opt1" name="tienda" value="Viva Envigado" checked />
+                                    <label class="optionlabel" for="huey">Viva Envigado</label> <br>                       
+                                    <input type="radio" id="Opt2" name="tienda" value="Tesoro" />
+                                    <label class="optionlabel" for="dewey">Tesoro</label><br>
+                                    <input type="radio" id="Opt3" name="tienda" value="Oviedo" />
+                                    <label class="optionlabel" for="dewey">Oviedo</label>
+                                    </div>
+                                    <div  class="radiotienda">
+                                    <input type="radio" id="Opt4" name="tienda" value="Chipichape" />
+                                    <label class="optionlabel" for="dewey">Chipichape</label><br>
+                                    <input type="radio" id="Opt5" name="tienda" value="Cartagena" />
+                                    <label class="optionlabel" for="dewey">Cartagena</label><br>
+                                    <input type="radio" id="Opt6" name="tienda" value="Gran Estación" />
+                                    <label class="optionlabel" for="dewey">Gran Estación</label><br>
+                                    <input type="radio" id="Opt7" name="tienda" value="El Retiro" />
+                                    <label class="optionlabel"for="dewey">El Retiro</label>
+                                    </div>
+                                    
+
                                   </div>      
+                                    
                                </li>                           
                              </div>                              
                            </div>                          
