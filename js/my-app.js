@@ -925,8 +925,6 @@ myApp.onPageInit('registro2', function (page){
 					    	$("#phone").val(data.telefono);	
 					    	$("#city").val(data.municipio);	
 					    	$("#birthday").val(data.fecha);	
-					    	$('input[name=tienda]:checked', '.item-input').checked(data.tiendaFavorita);	
-					    	$('input[name=drone]:checked', '.item-content').checked(data.sexo),  
 					    	$('#registry').attr("disabled", true);			
 					    }
 	                },
