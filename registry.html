@@ -17,7 +17,7 @@
         <h2 class="page_title">Gracias por querer formar parte de la familia Mundo Único</h2>
         <h2 class="page_title_secondary">Por favor completa el siguiente formulario</h2>
         <div class="page_single layout_fullwidth_padding">         
-         <form class="form" action="16-html5-email-input.php" method="POST">
+         <form class="form" action="registry.html" method="POST" onsubmit="return checkCheckBox(this)">
                      <div class = "list-block">
                         <ul>
                            <div class="row">
@@ -109,7 +109,13 @@
 
                                   </div>      
                                     
-                               </li>                           
+                               </li>
+                               <li  class = "item-content">
+                                 <div class="item-inner">
+                                  <Input Type="checkbox" class="checkTermino" id="termino" name="agree"><p>Acepto los <strong><a href="#" class="alert-text-title">Términos y Condiciones</a></strong> de Mundo Único</p>
+                                  </div>
+                               
+                               </li>
                              </div>                              
                            </div>                          
                         </ul>

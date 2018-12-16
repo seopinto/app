@@ -40,6 +40,12 @@ font-weight:300;
   float: left;
 }
 
+.checkTermino{
+  position: relative;
+  top: -19px;
+  margin: 0 14px;
+}
+
 .clear{ 
 clear:both; 
 display:block;
