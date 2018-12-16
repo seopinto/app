@@ -436,7 +436,7 @@ $$('#documentsearch').change(function(){
 
 				        
 
-				        var popupHTML = '<div class="popup"><div class="content-block1"><h2 class="page_title">Gracias por querer formar parte de la familia Mundo Único</h2><h2 class="page_title_secondary">Por favor completa el siguiente formulario</h2><div class="form-modal"><div class = "list-block"><ul><div class="row"><div class="col-50"><li class="item-content"><div class="item-inner"><div class="item-input"><input id="document_blog" type="number" class="input-form" required name="password" placeholder="Número de documento" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="name_blog" type="text" class="input-form" required name="password" placeholder="Nombre" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="lastname_blog" type="text" class="input-form" required name="password" placeholder="Apellidos" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="phone_blog" type="number" class="input-form" required name="password" placeholder="Teléfono" ></div></div><div class="item-inner"><div class="item-input"><input id="city_blog" type="text" class="input-form" name="city" placeholder="Ciudad" ></div></div></li></div><div class="col-50"><li class="item-content"><div class="item-inner"><div class="item-input"><input id="mail_blog" type="text" class="input-form" required name="password" placeholder="Correo electrónico" ></div></div></li><div class="label-content2"><label>Género</label><input type="radio" id="Hombre" name="drone2" value="M" checked /><label for="huey">Hombre</label><input type="radio" id="Mujer" name="drone2" value="F" /><label for="dewey">Mujer</label></div><li class="item-content"><div class="label-content"><label>Cumpleaños</label></div><div class="item-inner"><div class="item-input"><input id="birthday_blog" onfocus="calendarioblog();" type="text" class="input-form" name="birthday" placeholder="aaaa-mm-dd"  ></div></div></li><li class="item-content"><div id="tiendatitle" class="item-inner"><div class="item-title title-select">Tienda Favorita</div></div><div class="item-input "><div class="radiotienda"><input type="radio" id="Opt1" name="tiendaf_blog" value="Viva Envigado" checked /><label class="optionlabel" for="huey">Viva Envigado</label> <br><input type="radio" id="Opt2" name="tiendaf_blog" value="Tesoro" /><label class="optionlabel" for="dewey">Tesoro</label><br><input type="radio" id="Opt3" name="tiendaf_blog" value="Oviedo" /><label class="optionlabel" for="dewey">Oviedo</label></div><div  class="radiotiendaf_blog"><input type="radio" id="Opt4" name="tiendaf_blog" value="Chipichape" /><label class="optionlabel" for="dewey">Chipichape</label><br><input type="radio" id="Opt5" name="tiendaf_blog" value="Cartagena" /><label class="optionlabel" for="dewey">Cartagena</label><br><input type="radio" id="Opt6" name="tiendaf_blog" value="Gran Estación" /><label class="optionlabel" for="dewey">Gran Estación</label><br><input type="radio" id="Opt7" name="tiendaf_blog" value="El Retiro" /><label class="optionlabel"for="dewey">El Retiro</label></div></div></li></div></div></ul></div><div class = "list-block"><ul><button onClick="RegistryUserBlog();" class="item-link list-button position-popup-button" type="button">REGISTRARME</button><button id="closemodal" class="item-link list-button position-popup-button" type="button">CANCELAR</button></ul></div></div>'+
+				        var popupHTML = '<div class="popup"><div class="content-block1"><h2 class="page_title">Gracias por querer formar parte de la familia Mundo Único</h2><h2 class="page_title_secondary">Por favor completa el siguiente formulario</h2><div class="form-modal"><div class = "list-block"><ul><div class="row"><div class="col-50"><li class="item-content"><div class="item-inner"><div class="item-input"><input id="document_blog" type="number" class="input-form" required name="password" placeholder="Número de documento" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="name_blog" type="text" class="input-form" required name="password" placeholder="Nombre" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="lastname_blog" type="text" class="input-form" required name="password" placeholder="Apellidos" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="phone_blog" type="number" class="input-form" required name="password" placeholder="Teléfono" ></div></div><div class="item-inner"><div class="item-input"><input id="city_blog" type="text" class="input-form" name="city" placeholder="Ciudad" ></div></div></li></div><div class="col-50"><li class="item-content"><div class="item-inner"><div class="item-input"><input id="mail_blog" type="text" class="input-form" required name="password" placeholder="Correo electrónico" ></div></div></li><div class="label-content2"><label>Género</label><input type="radio" id="Hombre" name="drone2" value="M" checked /><label for="huey">Hombre</label><input type="radio" id="Mujer" name="drone2" value="F" /><label for="dewey">Mujer</label></div><li class="item-content"><div class="label-content"><label>Cumpleaños</label></div><div class="item-inner"><div class="item-input"><input id="birthday_blog" onfocus="calendarioblog();" type="text" class="input-form" name="birthday" placeholder="aaaa-mm-dd"  ></div></div></li><li class="item-content"><div id="tiendatitle" class="item-inner"><div class="item-title title-select">Tienda Favorita</div></div><div class="item-input "><div class="radiotienda"><input type="radio" id="Opt1" name="tiendaf_blog" value="Viva Envigado" checked /><label class="optionlabel" for="huey">Viva Envigado</label> <br><input type="radio" id="Opt2" name="tiendaf_blog" value="Tesoro" /><label class="optionlabel" for="dewey">Tesoro</label><br><input type="radio" id="Opt3" name="tiendaf_blog" value="Oviedo" /><label class="optionlabel" for="dewey">Oviedo</label></div><div  class="radiotiendaf_blog"><input type="radio" id="Opt4" name="tiendaf_blog" value="Chipichape" /><label class="optionlabel" for="dewey">Chipichape</label><br><input type="radio" id="Opt5" name="tiendaf_blog" value="Cartagena" /><label class="optionlabel" for="dewey">Cartagena</label><br><input type="radio" id="Opt6" name="tiendaf_blog" value="Gran Estación" /><label class="optionlabel" for="dewey">Gran Estación</label><br><input type="radio" id="Opt7" name="tiendaf_blog" value="El Retiro" /><label class="optionlabel"for="dewey">El Retiro</label></div></div></li><li  class = "item-content"><div class="item-inner"><Input Type="checkbox" class="checkTermino" id="termino" name="agree"><p><a href="#" onClick="alertatermino();"  class="alert-text-title">Acepto los <strong>Términos y Condiciones</strong> de Mundo Único</a></p></div></li></div></div></ul></div><div class = "list-block"><ul><button onClick="RegistryUserBlog();" class="item-link list-button position-popup-button" type="button">REGISTRARME</button><button id="closemodal" class="item-link list-button position-popup-button" type="button">CANCELAR</button></ul></div></div>'+
 						                    '</div>'+
 						                  '</div>'
 
@@ -469,7 +469,9 @@ function IndexLog() {
 
 
 function registryCalification(){
-        var clienteres = { 
+
+	if ($('#termino').is(':checked') ) {	
+		 var clienteres = { 
          numeroDocumento : $("#document1").val(),
          primerNombre : $('#name1').val(), 	
          segundoNombre : $('#name1').val(), 	
@@ -510,11 +512,31 @@ function registryCalification(){
                     console.log(xhr.responseText);
                 }
         });
+
+	}else{
+		myApp.modal({
+			  title: 'Advertencia',
+			  text: 'Para hacer parte de la Familia Mundo Único debes Aceptar los términos y Condiciones',
+			  buttons: [
+		      {
+		        text: 'Aceptar los Términos y Condiciones',
+		        onClick: function() {
+		         document.getElementById("termino").checked = true;
+		        }
+		      }
+		    ]
+			});
+
+	}	
+       
  	};
 
 
 function RegistryUserBlog(){
-        var clienteRegisBlog = { 
+
+	if ($('#termino').is(':checked') ) {	
+		
+		  var clienteRegisBlog = { 
          numeroDocumento : $("#document_blog").val(),
          primerNombre : $('#name_blog').val(), 	
          segundoNombre : $('#name_blog').val(), 	
@@ -555,11 +577,32 @@ function RegistryUserBlog(){
                     console.log(xhr.responseText);
                 }
         });
+
+	}else{
+
+
+	myApp.modal({
+		  title: 'Advertencia',
+		  text: 'Para hacer parte de la Familia Mundo Único debes Aceptar los términos y Condiciones',
+		  buttons: [
+	      {
+	        text: 'Aceptar los Términos y Condiciones',
+	        onClick: function() {
+	         document.getElementById("termino").checked = true;
+	        }
+	      }
+	    ]
+		});
+
+	}
+      
 };
 
 
 function RegistryUserGuia(){
-        var clienteRegisBlog = { 
+
+	if ($('#termino').is(':checked') ) {	
+		var clienteRegisBlog = { 
          numeroDocumento : $("#document_guia").val(),
          primerNombre : $('#name_guia').val(), 	
          segundoNombre : $('#name_guia').val(), 	
@@ -617,10 +660,31 @@ function RegistryUserGuia(){
                     console.log(xhr.responseText);
                 }
         });
+       
+
+	}else{
+		
+		myApp.modal({
+			  title: 'Advertencia',
+			  text: 'Para hacer parte de la Familia Mundo Único debes Aceptar los términos y Condiciones',
+			  buttons: [
+		      {
+		        text: 'Aceptar los Términos y Condiciones',
+		        onClick: function() {
+		         document.getElementById("termino").checked = true;
+		        }
+		      }
+		    ]
+			});
+
+	}
+        
 };
 
 function registryPQRS(){
-        var cliente = { 
+
+	if ($('#termino').is(':checked') ) {	
+		var cliente = { 
          numeroDocumento : $("#document_reg").val(),
          primerNombre : $('#name_reg').val(), 	
          segundoNombre : $('#name_reg').val(), 	
@@ -661,6 +725,22 @@ function registryPQRS(){
                     console.log(xhr.responseText);
                 }
         });
+
+	}else{
+		myApp.modal({
+			  title: 'Advertencia',
+			  text: 'Para hacer parte de la Familia Mundo Único debes Aceptar los términos y Condiciones',
+			  buttons: [
+		      {
+		        text: 'Aceptar los Términos y Condiciones',
+		        onClick: function() {
+		         document.getElementById("termino").checked = true;
+		        }
+		      }
+		    ]
+			});
+	}
+        
 };
 
 function calendariocalification(){
@@ -804,7 +884,7 @@ $(document).ready(function(){
 				      {
 				        text: 'Registrarme',
 				        onClick: function() {
-				        var popupHTML =   '<div class="popup"><div class="content-block1"><h2 class="page_title">Gracias por querer formar parte de la familia Mundo Único</h2><h2 class="page_title_secondary">Por favor completa el siguiente formulario</h2><div class="form-modal"><div class = "list-block"><ul><div class="row"><div class="col-50"><li class="item-content"><div class="item-inner"><div class="item-input"><input id="document1" type="number" class="input-form" required name="password" placeholder="Número de documento" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="name1" type="text" class="input-form" required name="password" placeholder="Nombre" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="lastname1" type="text" class="input-form" required name="password" placeholder="Apellidos" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="phone1" type="number" class="input-form" required name="password" placeholder="Teléfono" ></div></div><div class="item-inner"><div class="item-input"><input id="city1" type="text" class="input-form" name="city" placeholder="Ciudad" ></div></div></li></div><div class="col-50"><li class="item-content"><div class="item-inner"><div class="item-input"><input id="mail1" type="text" class="input-form" required name="password" placeholder="Correo electrónico" ></div></div></li><div class="label-content2"><label>Género</label><input type="radio" id="Hombre" name="drone2" value="M" checked /><label for="huey">Hombre</label><input type="radio" id="Mujer" name="drone2" value="F" /><label for="dewey">Mujer</label></div><li class="item-content"><div class="label-content"><label>Cumpleaños</label></div><div class="item-inner"><div class="item-input"><input id="birthday1" onfocus="calendariocalification();" type="text" class="input-form" name="birthday" placeholder="aaaa-mm-dd"  ></div></div></li><li class="item-content"><div class="item-inner" id="tiendatitle"><div class="item-title title-select">Tienda Favorita</div></div><div class="item-input "><div class="radiotienda"><input type="radio" id="Opt1" name="tiendaf1" value="Viva Envigado" checked /><label class="optionlabel" for="huey">Viva Envigado</label> <br><input type="radio" id="Opt2" name="tiendaf1" value="Tesoro" /><label class="optionlabel" for="dewey">Tesoro</label><br><input type="radio" id="Opt3" name="tiendaf1" value="Oviedo" /><label class="optionlabel" for="dewey">Oviedo</label></div><div  class="radiotiendaf1"><input type="radio" id="Opt4" name="tiendaf1" value="Chipichape" /><label class="optionlabel" for="dewey">Chipichape</label><br><input type="radio" id="Opt5" name="tiendaf1" value="Cartagena" /><label class="optionlabel" for="dewey">Cartagena</label><br><input type="radio" id="Opt6" name="tiendaf1" value="Gran Estación" /><label class="optionlabel" for="dewey">Gran Estación</label><br><input type="radio" id="Opt7" name="tiendaf1" value="El Retiro" /><label class="optionlabel"for="dewey">El Retiro</label></div></div></li></div></div></ul></div><div class = "list-block"><ul><button onClick="registryCalification();" class="item-link list-button position-popup-button" type="button">REGISTRARME</button><button id="closemodal" class="item-link list-button position-popup-button" type="button">CANCELAR</button></ul></div></div>'+
+				        var popupHTML =   '<div class="popup"><div class="content-block1"><h2 class="page_title">Gracias por querer formar parte de la familia Mundo Único</h2><h2 class="page_title_secondary">Por favor completa el siguiente formulario</h2><div class="form-modal"><div class = "list-block"><ul><div class="row"><div class="col-50"><li class="item-content"><div class="item-inner"><div class="item-input"><input id="document1" type="number" class="input-form" required name="password" placeholder="Número de documento" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="name1" type="text" class="input-form" required name="password" placeholder="Nombre" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="lastname1" type="text" class="input-form" required name="password" placeholder="Apellidos" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="phone1" type="number" class="input-form" required name="password" placeholder="Teléfono" ></div></div><div class="item-inner"><div class="item-input"><input id="city1" type="text" class="input-form" name="city" placeholder="Ciudad" ></div></div></li></div><div class="col-50"><li class="item-content"><div class="item-inner"><div class="item-input"><input id="mail1" type="text" class="input-form" required name="password" placeholder="Correo electrónico" ></div></div></li><div class="label-content2"><label>Género</label><input type="radio" id="Hombre" name="drone2" value="M" checked /><label for="huey">Hombre</label><input type="radio" id="Mujer" name="drone2" value="F" /><label for="dewey">Mujer</label></div><li class="item-content"><div class="label-content"><label>Cumpleaños</label></div><div class="item-inner"><div class="item-input"><input id="birthday1" onfocus="calendariocalification();" type="text" class="input-form" name="birthday" placeholder="aaaa-mm-dd"  ></div></div></li><li class="item-content"><div class="item-inner" id="tiendatitle"><div class="item-title title-select">Tienda Favorita</div></div><div class="item-input "><div class="radiotienda"><input type="radio" id="Opt1" name="tiendaf1" value="Viva Envigado" checked /><label class="optionlabel" for="huey">Viva Envigado</label> <br><input type="radio" id="Opt2" name="tiendaf1" value="Tesoro" /><label class="optionlabel" for="dewey">Tesoro</label><br><input type="radio" id="Opt3" name="tiendaf1" value="Oviedo" /><label class="optionlabel" for="dewey">Oviedo</label></div><div  class="radiotiendaf1"><input type="radio" id="Opt4" name="tiendaf1" value="Chipichape" /><label class="optionlabel" for="dewey">Chipichape</label><br><input type="radio" id="Opt5" name="tiendaf1" value="Cartagena" /><label class="optionlabel" for="dewey">Cartagena</label><br><input type="radio" id="Opt6" name="tiendaf1" value="Gran Estación" /><label class="optionlabel" for="dewey">Gran Estación</label><br><input type="radio" id="Opt7" name="tiendaf1" value="El Retiro" /><label class="optionlabel"for="dewey">El Retiro</label></div></div></li><li  class = "item-content"><div class="item-inner"><Input Type="checkbox" class="checkTermino" id="termino" name="agree"><p><a href="#" onClick="alertatermino();"  class="alert-text-title">Acepto los <strong>Términos y Condiciones</strong> de Mundo Único</a></p></div></li></div></div></ul></div><div class = "list-block"><ul><button onClick="registryCalification();" class="item-link list-button position-popup-button" type="button">REGISTRARME</button><button id="closemodal" class="item-link list-button position-popup-button" type="button">CANCELAR</button></ul></div></div>'+
 						                    '</div>'+
 						                  '</div>'
 						myApp.popup(popupHTML);		
@@ -887,19 +967,18 @@ function validar(){
 	
 
 	}else{
-
-myApp.modal({
-	  title: 'Advertencia',
-	  text: 'Para hacer parte de la Familia Mundo Único debes Aceptar los términos y Condiciones',
-	  buttons: [
-      {
-        text: 'Aceptar los Términos y Condiciones',
-        onClick: function() {
-         document.getElementById("termino").checked = true;
-        }
-      }
-    ]
-	});
+		myApp.modal({
+			  title: 'Advertencia',
+			  text: 'Para hacer parte de la Familia Mundo Único debes Aceptar los términos y Condiciones',
+			  buttons: [
+		      {
+		        text: 'Aceptar los Términos y Condiciones',
+		        onClick: function() {
+		         document.getElementById("termino").checked = true;
+		        }
+		      }
+		    ]
+			});
 	}
    
 }
@@ -921,8 +1000,7 @@ myApp.onPageInit('registro2', function (page){
     ]
 	});
 });
- 
- 
+  
 	var myCalendar  = myApp.calendar({
 	    input: '#birthday',
 	    closeOnSelect: true,
@@ -984,9 +1062,27 @@ function calendariopqrs(){
 	});
 }
 
+function alertatermino(){
+	myApp.modal({
+	  title: 'Términos y Condiciones',
+	  text: 'Para darle cumplimiento a la ley 1581 de 2012, 1266 de 2008 y el decreto 1377 del 2013, al dar clic aquí, estoy autorizando de manera voluntaria a UNICO INTERIOR SAS con NIT número 811.007.707-2 ubicado en la dirección Carrera 50ª #43-13  INT 115 (Itagüí – Antioquia) para el tratamiento de datos personales así como de las demás normas que los modifiquen o sustituyan con sujeción a las políticas de tratamiento de datos de Unico Interior SAS.',
+	  buttons: [
+      {
+        text: 'OK',
+        onClick: function() {
+         document.getElementById("termino").checked = true;
+         document.getElementById("termino").checked = true;
+        }
+      }
+    ]
+	});
+
+}
+
+
 myApp.onPageInit('pqrs', function (page){
 
-	
+		
 
     $$('#pqrsSend').click(function(){  
 	    var dataTienda = localStorage.getItem('TiendaLocal');
@@ -1063,7 +1159,7 @@ myApp.onPageInit('pqrs', function (page){
 				      {
 				        text: 'Registrarme',
 				        onClick: function() {
-				        var popupHTML = '<div class="popup"><div class="content-block1"><h2 class="page_title">Gracias por querer formar parte de la familia Mundo Único</h2><h2 class="page_title_secondary">Por favor completa el siguiente formulario</h2><div class="form-modal"><div class = "list-block"><ul><div class="row"><div class="col-50"><li class="item-content"><div class="item-inner"><div class="item-input"><input id="document_reg" type="number" class="input-form" required name="password" placeholder="Número de documento" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="name_reg" type="text" class="input-form" required name="password" placeholder="Nombre" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="lastname_reg" type="text" class="input-form" required name="password" placeholder="Apellidos" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="phone_reg" type="number" class="input-form" required name="password" placeholder="Teléfono" ></div></div><div class="item-inner"><div class="item-input"><input id="city_reg" type="text" class="input-form" name="city" placeholder="Ciudad" ></div></div></li></div><div class="col-50"><li class="item-content"><div class="item-inner"><div class="item-input"><input id="mail_reg" type="text" class="input-form" required name="password" placeholder="Correo electrónico" ></div></div></li><div class="label-content2"><label>Género</label><input type="radio" id="Hombre" name="drone_reg" value="M" checked /><label for="huey">Hombre</label><input type="radio" id="Mujer" name="drone2" value="F" /><label for="dewey">Mujer</label></div><li class="item-content"><div class="label-content"><label>Cumpleaños</label></div><div class="item-inner"><div class="item-input"><input id="birthday_reg" onfocus="calendariopqrs();" type="text" class="input-form" name="birthday" placeholder="aaaa-mm-dd"  ></div></div></li><li class="item-content"><div id="tiendatitle" class="item-inner"><div class="item-title title-select">Tienda Favorita</div></div><div class="item-input "><div class="radiotienda"><input type="radio" id="Opt1" name="tiendaf_reg" value="Viva Envigado" checked /><label class="optionlabel" for="huey">Viva Envigado</label> <br><input type="radio" id="Opt2" name="tiendaf_reg" value="Tesoro" /><label class="optionlabel" for="dewey">Tesoro</label><br><input type="radio" id="Opt3" name="tiendaf_reg" value="Oviedo" /><label class="optionlabel" for="dewey">Oviedo</label></div><div  class="radiotiendaf_reg"><input type="radio" id="Opt4" name="tiendaf_reg" value="Chipichape" /><label class="optionlabel" for="dewey">Chipichape</label><br><input type="radio" id="Opt5" name="tiendaf_reg" value="Cartagena" /><label class="optionlabel" for="dewey">Cartagena</label><br><input type="radio" id="Opt6" name="tiendaf_reg" value="Gran Estación" /><label class="optionlabel" for="dewey">Gran Estación</label><br><input type="radio" id="Opt7" name="tiendaf_reg" value="El Retiro" /><label class="optionlabel"for="dewey">El Retiro</label></div></div></li></div></div></ul></div><div class = "list-block"><ul><button onClick="registryPQRS();" class="item-link list-button position-popup-button" type="button">REGISTRARME</button><button id="closemodal" class="item-link list-button position-popup-button" type="button">CANCELAR</button></ul></div></div>'+
+				        var popupHTML = '<div class="popup"><div class="content-block1"><h2 class="page_title">Gracias por querer formar parte de la familia Mundo Único</h2><h2 class="page_title_secondary">Por favor completa el siguiente formulario</h2><div class="form-modal"><div class = "list-block"><ul><div class="row"><div class="col-50"><li class="item-content"><div class="item-inner"><div class="item-input"><input id="document_reg" type="number" class="input-form" required name="password" placeholder="Número de documento" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="name_reg" type="text" class="input-form" required name="password" placeholder="Nombre" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="lastname_reg" type="text" class="input-form" required name="password" placeholder="Apellidos" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="phone_reg" type="number" class="input-form" required name="password" placeholder="Teléfono" ></div></div><div class="item-inner"><div class="item-input"><input id="city_reg" type="text" class="input-form" name="city" placeholder="Ciudad" ></div></div></li></div><div class="col-50"><li class="item-content"><div class="item-inner"><div class="item-input"><input id="mail_reg" type="text" class="input-form" required name="password" placeholder="Correo electrónico" ></div></div></li><div class="label-content2"><label>Género</label><input type="radio" id="Hombre" name="drone_reg" value="M" checked /><label for="huey">Hombre</label><input type="radio" id="Mujer" name="drone2" value="F" /><label for="dewey">Mujer</label></div><li class="item-content"><div class="label-content"><label>Cumpleaños</label></div><div class="item-inner"><div class="item-input"><input id="birthday_reg" onfocus="calendariopqrs();" type="text" class="input-form" name="birthday" placeholder="aaaa-mm-dd"  ></div></div></li><li class="item-content"><div id="tiendatitle" class="item-inner"><div class="item-title title-select">Tienda Favorita</div></div><div class="item-input "><div class="radiotienda"><input type="radio" id="Opt1" name="tiendaf_reg" value="Viva Envigado" checked /><label class="optionlabel" for="huey">Viva Envigado</label> <br><input type="radio" id="Opt2" name="tiendaf_reg" value="Tesoro" /><label class="optionlabel" for="dewey">Tesoro</label><br><input type="radio" id="Opt3" name="tiendaf_reg" value="Oviedo" /><label class="optionlabel" for="dewey">Oviedo</label></div><div  class="radiotiendaf_reg"><input type="radio" id="Opt4" name="tiendaf_reg" value="Chipichape" /><label class="optionlabel" for="dewey">Chipichape</label><br><input type="radio" id="Opt5" name="tiendaf_reg" value="Cartagena" /><label class="optionlabel" for="dewey">Cartagena</label><br><input type="radio" id="Opt6" name="tiendaf_reg" value="Gran Estación" /><label class="optionlabel" for="dewey">Gran Estación</label><br><input type="radio" id="Opt7" name="tiendaf_reg" value="El Retiro" /><label class="optionlabel"for="dewey">El Retiro</label></div></div></li><li  class = "item-content"><div class="item-inner"><Input Type="checkbox" class="checkTermino" id="termino" name="agree"><p><a href="#" onClick="alertatermino();" class="alert-text-title2">Acepto los <strong>Términos y Condiciones</strong> de Mundo Único</a></p></div></li></div></div></ul></div><div class = "list-block"><ul><button onClick="registryPQRS();" class="item-link list-button position-popup-button" type="button">REGISTRARME</button><button id="closemodal" class="item-link list-button position-popup-button" type="button">CANCELAR</button></ul></div></div>'+
 						                    '</div>'+
 						                  '</div>'
 
@@ -1224,7 +1320,7 @@ var cliente = {numeroDocumento : $("#documentsearchguiaa").val() }
 				      {
 				        text: 'Registrarme',
 				        onClick: function() {
-				        popupHTML1 = '<div class="popup"><div class="content-block1"><h2 class="page_title">Gracias por querer formar parte de la familia Mundo Único</h2><h2 class="page_title_secondary">Por favor completa el siguiente formulario</h2><div class="form-modal"><div class = "list-block"><ul><div class="row"><div class="col-50"><li class="item-content"><div class="item-inner"><div class="item-input"><input id="document_guia" type="number" class="input-form" required name="password" placeholder="Número de documento" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="name_guia" type="text" class="input-form" required name="password" placeholder="Nombre" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="lastname_guia" type="text" class="input-form" required name="password" placeholder="Apellidos" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="phone_guia" type="number" class="input-form" required name="password" placeholder="Teléfono" ></div></div><div class="item-inner"><div class="item-input"><input id="city_guia" type="text" class="input-form" name="city" placeholder="Ciudad" ></div></div></li></div><div class="col-50"><li class="item-content"><div class="item-inner"><div class="item-input"><input id="mail_guia" type="text" class="input-form" required name="password" placeholder="Correo electrónico" ></div></div></li><div class="label-content2"><label>Género</label><input type="radio" id="Hombre" name="drone2" value="M" checked /><label for="huey">Hombre</label><input type="radio" id="Mujer" name="drone2" value="F" /><label for="dewey">Mujer</label></div><li class="item-content"><div class="label-content"><label>Cumpleaños</label></div><div class="item-inner"><div class="item-input"><input id="birthday_guia" onfocus="calendarioguia();" type="text" class="input-form" name="birthday" placeholder="aaaa-mm-dd"  ></div></div></li><li class="item-content"><div id="tiendatitle" class="item-inner"><div class="item-title title-select">Tienda Favorita</div></div><div class="item-input "><div class="radiotienda"><input type="radio" id="Opt1" name="tiendaf_guia" value="Viva Envigado" checked /><label class="optionlabel" for="huey">Viva Envigado</label> <br><input type="radio" id="Opt2" name="tiendaf_guia" value="Tesoro" /><label class="optionlabel" for="dewey">Tesoro</label><br><input type="radio" id="Opt3" name="tiendaf_guia" value="Oviedo" /><label class="optionlabel" for="dewey">Oviedo</label></div><div  class="radiotiendaf_guia"><input type="radio" id="Opt4" name="tiendaf_guia" value="Chipichape" /><label class="optionlabel" for="dewey">Chipichape</label><br><input type="radio" id="Opt5" name="tiendaf_guia" value="Cartagena" /><label class="optionlabel" for="dewey">Cartagena</label><br><input type="radio" id="Opt6" name="tiendaf_guia" value="Gran Estación" /><label class="optionlabel" for="dewey">Gran Estación</label><br><input type="radio" id="Opt7" name="tiendaf_guia" value="El Retiro" /><label class="optionlabel"for="dewey">El Retiro</label></div></div></li></div></div></ul></div><div class = "list-block"><ul><button onClick="RegistryUserGuia();" class="item-link list-button position-popup-button" type="button">REGISTRARME</button><button id="closemodal" class="item-link list-button position-popup-button" type="button">CANCELAR</button></ul></div></div>'+
+				        popupHTML1 = '<div class="popup"><div class="content-block1"><h2 class="page_title">Gracias por querer formar parte de la familia Mundo Único</h2><h2 class="page_title_secondary">Por favor completa el siguiente formulario</h2><div class="form-modal"><div class = "list-block"><ul><div class="row"><div class="col-50"><li class="item-content"><div class="item-inner"><div class="item-input"><input id="document_guia" type="number" class="input-form" required name="password" placeholder="Número de documento" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="name_guia" type="text" class="input-form" required name="password" placeholder="Nombre" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="lastname_guia" type="text" class="input-form" required name="password" placeholder="Apellidos" ></div></div></li><li class="item-content"><div class="item-inner"><div class="item-input"><input id="phone_guia" type="number" class="input-form" required name="password" placeholder="Teléfono" ></div></div><div class="item-inner"><div class="item-input"><input id="city_guia" type="text" class="input-form" name="city" placeholder="Ciudad" ></div></div></li></div><div class="col-50"><li class="item-content"><div class="item-inner"><div class="item-input"><input id="mail_guia" type="text" class="input-form" required name="password" placeholder="Correo electrónico" ></div></div></li><div class="label-content2"><label>Género</label><input type="radio" id="Hombre" name="drone2" value="M" checked /><label for="huey">Hombre</label><input type="radio" id="Mujer" name="drone2" value="F" /><label for="dewey">Mujer</label></div><li class="item-content"><div class="label-content"><label>Cumpleaños</label></div><div class="item-inner"><div class="item-input"><input id="birthday_guia" onfocus="calendarioguia();" type="text" class="input-form" name="birthday" placeholder="aaaa-mm-dd"  ></div></div></li><li class="item-content"><div id="tiendatitle" class="item-inner"><div class="item-title title-select">Tienda Favorita</div></div><div class="item-input "><div class="radiotienda"><input type="radio" id="Opt1" name="tiendaf_guia" value="Viva Envigado" checked /><label class="optionlabel" for="huey">Viva Envigado</label> <br><input type="radio" id="Opt2" name="tiendaf_guia" value="Tesoro" /><label class="optionlabel" for="dewey">Tesoro</label><br><input type="radio" id="Opt3" name="tiendaf_guia" value="Oviedo" /><label class="optionlabel" for="dewey">Oviedo</label></div><div  class="radiotiendaf_guia"><input type="radio" id="Opt4" name="tiendaf_guia" value="Chipichape" /><label class="optionlabel" for="dewey">Chipichape</label><br><input type="radio" id="Opt5" name="tiendaf_guia" value="Cartagena" /><label class="optionlabel" for="dewey">Cartagena</label><br><input type="radio" id="Opt6" name="tiendaf_guia" value="Gran Estación" /><label class="optionlabel" for="dewey">Gran Estación</label><br><input type="radio" id="Opt7" name="tiendaf_guia" value="El Retiro" /><label class="optionlabel"for="dewey">El Retiro</label></div></div></li><li  class = "item-content"><div class="item-inner"><Input Type="checkbox" class="checkTermino" id="termino" name="agree"><p><a href="#" onClick="alertatermino();"  class="alert-text-title">Acepto los <strong>Términos y Condiciones</strong> de Mundo Único</a></p></div></li></div></div></ul></div><div class = "list-block"><ul><button onClick="RegistryUserGuia();" class="item-link list-button position-popup-button" type="button">REGISTRARME</button><button id="closemodal" class="item-link list-button position-popup-button" type="button">CANCELAR</button></ul></div></div>'+
 						                    '</div>'+
 						                  '</div>'
 						myApp.popup(popupHTML1);						   
