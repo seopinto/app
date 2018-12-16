@@ -1160,6 +1160,18 @@ input[type=text]::-ms-clear {
     float: right;
     height: 35px;
 }
+
+.card__image img {
+    height: 200px;
+    width: 100%;
+    min-height: inherit;
+}
+ .card__title {
+    color: #696969;
+    height: 30px;
+}   
+    
+    
 }
 
 

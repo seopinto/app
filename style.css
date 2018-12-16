@@ -3293,6 +3293,15 @@ width: 99%;
     }
     
     
+    
+    .popover {
+    width: 100%;
+    top: 0px !important;
+    left: 0 !important;
+   
+}
+    
+    
 }
 /* -----------------SMALL MOBILE---------------- */
 @media screen and (max-width: 470px) {
