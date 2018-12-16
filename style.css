@@ -3147,7 +3147,7 @@ line-height:50px;
 }
 .logo_image a img{ 
 max-width: 40%;
-    padding: 5px 0 0 0;
+    padding: 15px 0 0 0;
 }
 .toolbar-icon a img{
 margin:20% auto 0 auto;
@@ -3156,7 +3156,7 @@ margin:20% auto 0 auto;
 .navbar_right{
 width:55px;
 height:50px;
-        float: right;
+    float: right;
     text-align: center;
     margin: -65px 0 0 0;
 }
@@ -3228,19 +3228,7 @@ body.with-panel-right-cover .panel-right {
   -webkit-transform: translate3d(-85%, 0, 0);
   transform: translate3d(-85%, 0, 0);
 }
-    .btn-block1 {
-    display: block;
-    width: 25%;
-    text-transform: inherit;
-    color: white;
-    background-color: black !important;
-    font-size: 14px;
-    text-align: center;
-    margin: 0 auto;
-    position: relative;
-    float: right;
-    height: 35px;
-}
+  
 h2.page_title{
     font-size: 2.2em;
     line-height: normal;
@@ -3267,7 +3255,11 @@ max-width:60%;
 width: 99%;
     margin: 0 auto;
 }
-    
+    .navbar_left {
+    float: left;
+    text-align: center;
+    margin: 15px 0 0 0;
+}
     
     .list-block .item-link.list-button{
         width: 60%;
