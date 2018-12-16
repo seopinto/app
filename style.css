@@ -3296,6 +3296,14 @@ width: 99%;
    
 }
     
+    #popover-style {
+    position: fixed;
+    top: 30% !important;
+    left: 99px !important;
+    width: 70%;
+    height: auto;
+    margin: 0 auto;
+    
     
 }
 /* -----------------SMALL MOBILE---------------- */
