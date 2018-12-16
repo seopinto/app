@@ -855,26 +855,8 @@ myApp.onPageInit('questions', function(page){
 })
 
 
-myApp.onPageInit('registro2', function (page){
-
-	$$('.alert-text-title').on('click', function () {
-    myApp.alert('Para darle cumplimiento a la ley 1581 de 2012, 1266 de 2008 y el decreto 1377 del 2013, al dar clic aquí, estoy autorizando de manera voluntaria a UNICO INTERIOR SAS con NIT número 811.007.707-2 ubicado en la dirección Carrera 50ª #43-13  INT 115 (Itagüí – Antioquia) para el tratamiento de datos personales así como de las demás normas que los modifiquen o sustituyan con sujeción a las políticas de tratamiento de datos de Unico Interior SAS.', 'Términos y Condiciones');
-});
-
-	$$('#termino').change(function(){  
-		$('#registry').attr("disabled", false);	
-	 });
- 
- 
-	var myCalendar  = myApp.calendar({
-	    input: '#birthday',
-	    closeOnSelect: true,
-	    toolbarCloseText: 'Done',
-	    dateFormat: 'yyyy-mm-dd',
-	    yearPicker: true
-	}); 
-	   
-    $$('#registry').click(function(){	   
+function validar(){
+	if ($('#termino').is(':checked') ) {		   
 	     var cliente = { 
          numeroDocumento : $("#document").val(),
          primerNombre : $('#name').val(), 	
@@ -895,21 +877,61 @@ myApp.onPageInit('registro2', function (page){
             contentType: 'application/json',
             method : 'post', //en este caso
             data : JSON.stringify(cliente),
-                success : function(response){
-                	if ($('#termino').is(':checked') ) {
-					    mainView.router.loadPage('notification.html'); 
-					}else{
-						$('#registry').attr("disabled", true);
-						myApp.alert('Para hacer parte de la Familia Mundo Único debes Aceptar los términos y Condiciones');
-					}
-
-                       
+            success : function(response){
+               	mainView.router.loadPage('notification.html');     
                 },
                 error: function(xhr, status, error){
                     console.log(xhr.responseText);
                 }
         });
+	
+
+	}else{
+
+myApp.modal({
+	  title: 'Advertencia',
+	  text: 'Para hacer parte de la Familia Mundo Único debes Aceptar los términos y Condiciones',
+	  buttons: [
+      {
+        text: 'Aceptar los Términos y Condiciones',
+        onClick: function() {
+         document.getElementById("termino").checked = true;
+        }
+      }
+    ]
+	});
+	}
+   
+}
+
+
+myApp.onPageInit('registro2', function (page){
+
+	$$('.alert-text-title').on('click', function () {
+		myApp.modal({
+	  title: 'Términos y Condiciones',
+	  text: 'Para darle cumplimiento a la ley 1581 de 2012, 1266 de 2008 y el decreto 1377 del 2013, al dar clic aquí, estoy autorizando de manera voluntaria a UNICO INTERIOR SAS con NIT número 811.007.707-2 ubicado en la dirección Carrera 50ª #43-13  INT 115 (Itagüí – Antioquia) para el tratamiento de datos personales así como de las demás normas que los modifiquen o sustituyan con sujeción a las políticas de tratamiento de datos de Unico Interior SAS.',
+	  buttons: [
+      {
+        text: 'OK',
+        onClick: function() {
+         document.getElementById("termino").checked = true;
+        }
+      }
+    ]
+	});
+});
+ 
+ 
+	var myCalendar  = myApp.calendar({
+	    input: '#birthday',
+	    closeOnSelect: true,
+	    toolbarCloseText: 'Done',
+	    dateFormat: 'yyyy-mm-dd',
+	    yearPicker: true
 	}); 
+	   
+    
 
 	$$('#document').change(function(){   
 	var cliente = {numeroDocumento : $("#document").val() }
