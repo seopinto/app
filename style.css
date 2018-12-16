@@ -294,9 +294,9 @@ color:#FFFFFF;
 }
 /* HEADER RIGHT */	
 .navbar_right{
-float:right;
-text-align:center;
-margin: -76px 0 0 0;
+    float: right;
+    text-align: center;
+    margin: -66px 0 0 0;
 }
 .navbar_right2{
 width: 4%;
@@ -305,8 +305,8 @@ position: absolute;
 
 
 .navbar_right img{
-display:inline-block;
-max-width: 50%;
+display: inline-block;
+    max-width: 40%;
 }
 .whitebg{
 background-color:#ffffff;	
@@ -3005,8 +3005,9 @@ color:#222222;
 /* -------------SMALL DESKTOP--------- */
 @media screen and (max-width: 1280px) {
 .logo_image a img{ 
-max-width: 40%;
-    padding: 10px 0 0 0;
+    max-width: 40%;
+    padding: 10px;
+    width: 20%;
 }
 .bottombarpages{
 height:70px;
