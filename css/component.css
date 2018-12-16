@@ -1145,3 +1145,21 @@ input[type=text]::-ms-clear {
 		transform: translate3d(0,0,0);
 	}
 }
+
+@media screen and (max-width: 680px) {
+      .btn-block1 {
+    display: block;
+    width: 25%;
+    text-transform: inherit;
+    color: white;
+    background-color: black !important;
+    font-size: 14px;
+    text-align: center;
+    margin: 0 auto;
+    position: relative;
+    float: right;
+    height: 35px;
+}
+}
+
+

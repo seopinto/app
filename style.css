@@ -3233,19 +3233,7 @@ body.with-panel-right-cover .panel-right {
   -webkit-transform: translate3d(-85%, 0, 0);
   transform: translate3d(-85%, 0, 0);
 }
-    .btn-block1 {
-    display: block;
-    width: 25%;
-    text-transform: inherit;
-    color: white;
-    background-color: black !important;
-    font-size: 14px;
-    text-align: center;
-    margin: 0 auto;
-    position: relative;
-    float: right;
-    height: 35px;
-}
+  
 h2.page_title{
     font-size: 2.2em;
     line-height: normal;
