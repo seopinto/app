@@ -718,8 +718,8 @@ max-width:100%;
 width:100%;
 }
 .layout_fullwidth_padding{
-width:90%;
-margin:0 5%;
+width: 95%;
+    margin: 0 auto;
 }
 .page_single ul.simple_list{
 padding:0px 0 20px 10px;
@@ -1930,6 +1930,7 @@ background-color:#c7ba99;
 /*===============================================*/	
 .list-block {
 margin:0px 0;
+font-size: 15px;
 }
 .list-block ul::before {
 content: '';
@@ -3022,7 +3023,7 @@ max-width:60%;
 
 .form {
 
-    width: 90%;
+    width: 99%;
     margin: 0 auto;
 }
     

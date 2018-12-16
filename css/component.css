@@ -195,13 +195,14 @@ width: 100%;
   background-image: url(https://unsplash.it/800/600?image=59);
 }
 .card__title {
-  color: #696969;
-  font-size: 1.1rem;
-  font-weight: 400;
-  text-transform: uppercase;
-  text-align: center;
-  margin: 0 auto;
-  height: 50px;
+      color: #696969;
+    font-size: 1rem;
+    font-weight: 400;
+    text-transform: capitalize;
+    text-align: center;
+    margin: 0 auto;
+    line-height: normal;
+    height: 50px;
 }
 .card__text {
   
