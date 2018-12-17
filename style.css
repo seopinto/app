@@ -386,6 +386,13 @@ color:#222222;
 background-color:#61bb7e;
 color:#fff;
 }
+
+.list-block .item-link.list-button a[type=button]{
+    border-radius: 50px;
+    
+}
+
+
 /*===============================================*/
 /* 6. LEFT AND RIGHT SLIDE PANELS */
 /*===============================================*/	
