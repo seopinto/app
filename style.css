@@ -3154,11 +3154,7 @@ max-width:60%;
 /* -----------------MOBILE---------------- */
 @media screen and (max-width: 680px) {
     
-        .row .col-50{
-        width: 100%;
-        margin: 0 auto;
-        
-    }
+ 
 .swiper-container {
 height: 100%;
 }
