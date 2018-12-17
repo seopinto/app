@@ -3327,6 +3327,16 @@ width: 99%;
     
     
 }
+    
+    .contenido-text {
+    left: 0;
+    right: 0;
+    margin: 1em 0 0 3em ;
+    position: relative;
+}
+    
+}
+
 /* -----------------SMALL MOBILE---------------- */
 @media screen and (max-width: 470px) {
 .logo_image a img{ 
