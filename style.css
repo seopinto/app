@@ -211,7 +211,7 @@ background: #f9f9f9b3;
 .label-content1{
   font-size: 20px;
   display: inline-flex;
-  margin: auto 5em;
+  margin: auto 8em;
 }
 
 .popover.popover-picker-calendar{
@@ -681,7 +681,7 @@ width:100%;
 padding:0px;
 margin:0px;
 position: absolute; 
-top: 108px;
+top: 100px;
 left: 0; 
 right: 0; 
 bottom: 0px;
@@ -1718,7 +1718,7 @@ ul {
 }
 
 .rating-wrapper {  
-  margin: 13px auto;
+  margin: 5px auto;
   background: #fff;
   border-radius: 3px;
   
