@@ -1171,6 +1171,23 @@ input[type=text]::-ms-clear {
     height: 30px;
 }   
     
+    #optiontienda {
+    right: 0em;
+    position: relative;
+    width: 50%;
+    float: left;
+    display: inline-block;
+}
+    .radiotienda {
+    width: 100%;
+    display: block;
+    float: left;
+    margin: 0 auto;
+    text-align: left;
+}
+
+
+    
     
 }
 

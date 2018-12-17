@@ -3020,6 +3020,15 @@ padding:0px;
 .gallery_switch a img{
 max-width:60%;
 }
+}
+.imgguia {
+    /* width: 99%; */
+    align-content: center;
+    text-align: center;
+    margin: 0 auto;
+    position: relative;
+    height: 300px;
+}
 
 .form {
 
@@ -3030,6 +3039,10 @@ max-width:60%;
     #miform {
     background: #e3e8e8;
 }
+    .content-img{
+        text-align: center;
+    margin: 0 auto;
+    }
 }
 /* -------------TABLET PORTRAIT--------- */
 @media screen and (max-width: 800px) {
@@ -3131,9 +3144,21 @@ max-width:60%;
         padding-right: 0px;
     }
     
+    .row .col-50{
+        width: 100%;
+        margin: 0 auto;
+        
+    }
+    
 }
 /* -----------------MOBILE---------------- */
 @media screen and (max-width: 680px) {
+    
+        .row .col-50{
+        width: 100%;
+        margin: 0 auto;
+        
+    }
 .swiper-container {
 height: 100%;
 }
