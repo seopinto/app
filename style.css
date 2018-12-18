@@ -3296,12 +3296,17 @@ width: 99%;
     bottom: auto;
     padding: 10px;
         line-height: normal;}
+    
     button#SendCongratulations {
     left: auto;
+    position: relative;
 }
-    
-    .list-block .item-link.list-button{
-       width: 80%;
+    button#pqrsSend {
+    left: auto;
+    position: relative;
+}
+      button#registro {
+        width: 80%;
     margin: 0 auto;
     position: absolute;
     display: block;
@@ -3310,6 +3315,10 @@ width: 99%;
     padding: 10px;
     line-height: normal;
     z-index: -2;
+}
+    
+    .list-block .item-link.list-button{
+  
 }
     
     .cards__item1{ width: 50%;
