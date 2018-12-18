@@ -3292,7 +3292,15 @@ width: 99%;
 }
     
     .list-block .item-link.list-button{
-        width: 60%;
+       width: 80%;
+    margin: 0 auto;
+    position: absolute;
+    display: block;
+    left: -116px;
+    bottom: -50px;
+    padding: 10px;
+    line-height: normal;
+    z-index: -2;
 }
     
     .cards__item1{ width: 50%;
@@ -3311,6 +3319,7 @@ width: 99%;
     #pages_maincontent {
         width: 95%;
     margin: 0 auto;}
+    
     .emoji {
         margin: 20px;}
     .list-block .item-inner{
