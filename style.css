@@ -3300,6 +3300,7 @@ width: 99%;
     button#SendCongratulations {
     left: auto;
     position: relative;
+        width: 60%;
 }
     button#pqrsSend {
     left: auto;
@@ -3318,7 +3319,7 @@ width: 99%;
 }
     
     .list-block .item-link.list-button{
-  
+  width: 60%;
 }
     
     .cards__item1{ width: 50%;
