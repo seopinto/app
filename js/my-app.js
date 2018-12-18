@@ -1214,6 +1214,9 @@ function calendarioguia(){
 
 myApp.onPageInit('shopping', function(page){
        
+       posicionActual = 0;
+	RespuestasFinales = [];
+
 $$.ajax({ 
 			type: 'GET', 
 			url: 'http://35.231.135.74/preguntasRespuestas',
@@ -1222,6 +1225,9 @@ $$.ajax({
 			success: function (data) {
 
 				if(data.length > 0){
+					posicionActual = 0;
+	RespuestasFinales = [];
+	
 					for(var i in data){
 						var item = data[i];
 					    preguntas.push({ 
@@ -1346,7 +1352,7 @@ var cliente = {numeroDocumento : $("#documentsearchguiaa").val() }
 }
 
 
-function CambiarPregunta(button){
+function CambiarPregunta(button){				
 
 	RespuestasFinales.push($(button).attr("data-QB"));
 	var HTMLPregunta = "<div class=\"question\"><span class=\"question-text\">{Pregunta}</span></div>";
