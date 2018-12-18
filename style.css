@@ -3265,7 +3265,7 @@ h2.page_title{
     /* font-weight: 400; */
     padding: 5px 0;
     /* margin: 0 auto; */
-    width: 95%;
+    width: 90%;
     text-align: center;
 }
 .content-block {
@@ -3340,7 +3340,7 @@ width: 99%;
     .contenido-text {
     left: 0;
     right: 0;
-    margin: 1em 0 0 3em ;
+    margin: 0 auto;
     position: relative;
 }
     
