@@ -1226,7 +1226,7 @@ $$.ajax({
 
 				if(data.length > 0){
 					posicionActual = 0;
-	RespuestasFinales = [];
+					RespuestasFinales = [];
 	
 					for(var i in data){
 						var item = data[i];
