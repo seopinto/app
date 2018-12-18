@@ -3287,6 +3287,19 @@ width: 99%;
     margin: 15px 0 0 0;
 }
     
+    button #pqrsSend {
+    width: 80%;
+    margin: 1.5em auto;
+    position: relative;
+    display: block;
+    left: auto;
+    bottom: auto;
+    padding: 10px;
+        line-height: normal;}
+    button#SendCongratulations {
+    left: auto;
+}
+    
     .list-block .item-link.list-button{
        width: 80%;
     margin: 0 auto;
@@ -3348,6 +3361,23 @@ width: 99%;
     margin: 0 auto;
     position: relative;
 }
+    
+    .box {
+    width: 300px;
+    height: 300px;
+    overflow: hidden;
+}
+    .box img {
+    width: 100%;
+    height: auto;
+}
+    @supports(object-fit: contain){
+    .box img{
+      height: 100%;
+      object-fit: contain;
+      object-position: center center;
+    }
+} 
     
 }
 
