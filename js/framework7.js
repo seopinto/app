@@ -5491,6 +5491,7 @@
             }
             // Close SS Picker on HTML Click
             function closeOnHTMLClick(e) {
+                
                 var close = true;
                 if (e.target === smartSelect[0] || $(e.target).parents(smartSelect[0]).length > 0) {
                     close = false;
@@ -10002,7 +10003,7 @@
                     '</div>',
                 weekHeader: true,
                 // Common settings
-                closeByOutsideClick: false,
+                closeByOutsideClick: true,
                 scrollToInput: true,
                 inputReadOnly: true,
                 convertToPopover: true,

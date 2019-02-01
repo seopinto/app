@@ -1000,14 +1000,31 @@ function validar(){
 }
 
 
+	   
+
 myApp.onPageInit('registro2', function (page){
 
-	$("html").click(function() {
-    myApp.onPickerClose();
-});
-$('.popover-picker-calendar').click(function (e) {
-    e.stopPropagation();
-});
+
+	var myCalendar  = myApp.calendar({
+	    input: '#birthday',
+	    closeOnSelect: true,
+	    closeByOutsideClick: false,
+	    toolbarCloseText: 'Done',
+	    dateFormat: 'yyyy-mm-dd',
+	    yearPicker: true
+	}); 
+
+
+	$(function(){
+		$('[data-page="registro2"]').on('click', closeOnHTMLClick);
+	});
+
+
+    function closeOnHTMLClick(e) {
+        if(myCalendar.opened && myCalendar.container && myCalendar.container.length > 0 && myCalendar.container.parents('.popover').length > 0){
+	            if (e.target !== myCalendar.input[0] && $(e.target).parents('.picker-modal').length === 0) myCalendar.close();
+        }else return false;
+    }	
 
 	$$('.alert-text-title').on('click', function () {
 		myApp.modal({
@@ -1023,15 +1040,7 @@ $('.popover-picker-calendar').click(function (e) {
     ]
 	});
 });
-  
-	var myCalendar  = myApp.calendar({
-	    input: '#birthday',
-	    closeOnSelect: true,
-	    toolbarCloseText: 'Done',
-	    dateFormat: 'yyyy-mm-dd',
-	    yearPicker: true
-	}); 
-	   
+ 
     
 
 	$$('#document').change(function(){   
