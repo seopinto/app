@@ -1114,9 +1114,25 @@ function alertatermino(){
 
 myApp.onPageInit('pqrs', function (page){
 
-		
+	
+	$$('.alert-text-title').on('click', function () {
+		myApp.modal({
+	  title: 'Términos y Condiciones',
+	  text: 'Para darle cumplimiento a la ley 1581 de 2012, 1266 de 2008 y el decreto 1377 del 2013, al dar clic aquí, estoy autorizando de manera voluntaria a UNICO INTERIOR SAS con NIT número 811.007.707-2 ubicado en la dirección Carrera 50Âª #43-13  INT 115 (Itagui­ - Antioquia) para el tratamiento de datos personales así como de las demás normas que los modifiquen o sustituyan con sujeción a las polí­ticas de tratamiento de datos de Unico Interior SAS.',
+	  buttons: [
+      {
+        text: 'OK',
+        onClick: function() {
+         document.getElementById("termino").checked = true;
+        }
+      }
+    ]
+	});
+});	
 
-    $$('#pqrsSend').click(function(){  
+    $$('#pqrsSend').click(function(){ 
+
+	if ($('#termino').is(':checked') ) {		   
 	    var dataTienda = localStorage.getItem('TiendaLocal');
         var pqrsregister = { 
          pqrs : $('input[name=drone1]:checked', '.label-content1').val(),
@@ -1135,6 +1151,24 @@ myApp.onPageInit('pqrs', function (page){
                     console.log(xhr.responseText);
                 }
         });
+
+	}else{
+		myApp.modal({
+			  title: 'Advertencia',
+			  text: 'Para hacer parte de la Familia Mundo Único debes Aceptar los términos y Condiciones',
+			  buttons: [
+		      {
+		        text: 'Aceptar los Términos y Condiciones',
+		        onClick: function() {
+		         document.getElementById("termino").checked = true;
+		        }
+		      }
+		    ]
+			});
+	}
+
+
+
 	});   
 
     $$('#message_pqrs').change(function(){  
