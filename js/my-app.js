@@ -813,13 +813,21 @@ $(document).ready(function(){
 
 	$$('#SendCongratulations').click(function(){
 	    var dataTienda = localStorage.getItem('TiendaLocal');
-        var felregister = { 
-        puntaje : $('#calification').val(),
-    	mensaje : $('#why').val()};
-        if ($("#documentcalification").val() == "") {
-        	routepqrs = 'http://35.231.135.74:80/felicitaciones/tienda/'+dataTienda+''
+              
+
+        if ($('#why').val() == "") {
+        	myApp.alert("Por favor cuéntanos sobre tu experiencia en Mundo Único");
+        	
         }else{
-			routepqrs = 'http://35.231.135.74:80/felicitaciones/tienda/'+dataTienda+'/cliente/'+$("#documentcalification").val();
+        	
+        	if ($("#documentcalification").val() == "") {
+        		routepqrs = 'http://35.231.135.74:80/felicitaciones/tienda/'+dataTienda+''
+	        }else{
+				routepqrs = 'http://35.231.135.74:80/felicitaciones/tienda/'+dataTienda+'/cliente/'+$("#documentcalification").val();
+	        }
+	         var felregister = { 
+		        puntaje : $('#calification').val(),
+		    	mensaje : $('#why').val()}; 
         }
         $.ajax({
                 url : routepqrs,
@@ -838,13 +846,19 @@ $(document).ready(function(){
 	}); 
 
 	$$('#why').change(function(){
-	    var dataTienda = localStorage.getItem('TiendaLocal');
-        var felregister = { 
-        puntaje : $('#calification').val()};
-        if ($("#documentcalification").val() == "") {
-        	routepqrs = 'http://35.231.135.74:80/felicitaciones/tienda/'+dataTienda+''
+	    if ($('#why').val() == "") {
+        	myApp.alert("Por favor cuéntanos sobre tu experiencia en Mundo Único");
+        	
         }else{
-			routepqrs = 'http://35.231.135.74:80/felicitaciones/tienda/'+dataTienda+'/cliente/'+$("#documentcalification").val();
+        	
+        	if ($("#documentcalification").val() == "") {
+        		routepqrs = 'http://35.231.135.74:80/felicitaciones/tienda/'+dataTienda+''
+	        }else{
+				routepqrs = 'http://35.231.135.74:80/felicitaciones/tienda/'+dataTienda+'/cliente/'+$("#documentcalification").val();
+	        }
+	         var felregister = { 
+		        puntaje : $('#calification').val(),
+		    	mensaje : $('#why').val()}; 
         }
         $.ajax({
                 url : routepqrs,
@@ -987,6 +1001,13 @@ function validar(){
 
 
 myApp.onPageInit('registro2', function (page){
+
+	$("html").click(function() {
+    myApp.onPickerClose();
+});
+$('.popover-picker-calendar').click(function (e) {
+    e.stopPropagation();
+});
 
 	$$('.alert-text-title').on('click', function () {
 		myApp.modal({

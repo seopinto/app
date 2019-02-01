@@ -10002,7 +10002,7 @@
                     '</div>',
                 weekHeader: true,
                 // Common settings
-                closeByOutsideClick: true,
+                closeByOutsideClick: false,
                 scrollToInput: true,
                 inputReadOnly: true,
                 convertToPopover: true,
@@ -10027,7 +10027,7 @@
                     '<div class="picker-footer">' +
                         '<a href="#" class="button close-picker">{{closeText}}</a>' +
                     '</div>',
-        
+
                 /* Callbacks
                 onMonthAdd
                 onChange
@@ -10181,6 +10181,8 @@
                         $(p.input).val(inputValue);
                         $(p.input).trigger('change');
                     }
+
+
         
                 }
             };
@@ -10271,7 +10273,7 @@
                             p.resetMonth();
                         }
                     }
-        
+                
                     // Allow click
                     setTimeout(function () {
                         allowItemClick = true;
@@ -10313,8 +10315,11 @@
                     p.wrapper.on(app.touchEvents.move, handleTouchMove);
                     p.wrapper.on(app.touchEvents.end, handleTouchEnd);
                 }
+
+             
         
                 p.container[0].f7DestroyCalendarEvents = function () {
+                    myApp.closeModal();
                     p.container.find('.picker-calendar-prev-month').off('click', p.prevMonth);
                     p.container.find('.picker-calendar-next-month').off('click', p.nextMonth);
                     p.container.find('.picker-calendar-prev-year').off('click', p.prevYear);
@@ -10327,6 +10332,8 @@
                     }
                 };
         
+
+
         
             };
             p.destroyCalendarEvents = function (colContainer) {
