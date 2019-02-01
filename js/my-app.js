@@ -13,7 +13,10 @@ var myApp = new Framework7({
     touch: { tapHold: true},
     stackPages: false,	
     removeElements: true,
-
+     popover: {
+    closeByBackdropClick: true,
+  }
+ 
 
 
 });
@@ -1004,27 +1007,30 @@ function validar(){
 
 myApp.onPageInit('registro2', function (page){
 
-
 	var myCalendar  = myApp.calendar({
 	    input: '#birthday',
 	    closeOnSelect: true,
-	    closeByOutsideClick: false,
 	    toolbarCloseText: 'Done',
 	    dateFormat: 'yyyy-mm-dd',
 	    yearPicker: true
 	}); 
-
-
+	
 	$(function(){
-		$('[data-page="registro2"]').on('click', closeOnHTMLClick);
+		$('html').on('click', function closeOnHTMLClick(e) {
+        if(myCalendar.opened  && myCalendar.container && myCalendar.container.length > 0 && myCalendar.container.parents('.popover').length > 0){
+	            if (e.target !== myCalendar.input[0] && $(e.target).parents('.picker-modal').length === 0) myCalendar.close();
+        }else{
+		$('html').off('click', closeOnHTMLClick);    
+
+        };
+
+
+    }	);
 	});
 
 
-    function closeOnHTMLClick(e) {
-        if(myCalendar.opened && myCalendar.container && myCalendar.container.length > 0 && myCalendar.container.parents('.popover').length > 0){
-	            if (e.target !== myCalendar.input[0] && $(e.target).parents('.picker-modal').length === 0) myCalendar.close();
-        }else return false;
-    }	
+    
+
 
 	$$('.alert-text-title').on('click', function () {
 		myApp.modal({
