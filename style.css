@@ -208,10 +208,10 @@ background: #f9f9f9b3;
 .label-content input{
   margin: 0 10px 0 10px;
 }
-.label-content1{
-  font-size: 20px;
-  display: inline-flex;
-  margin: auto 8em;
+.label-content1 {
+    font-size: 20px;
+    display: table;
+    margin: 0 auto;
 }
 
 .popover.popover-picker-calendar{
@@ -3052,6 +3052,10 @@ max-width:60%;
         text-align: center;
     margin: 0 auto;
     }
+    
+    .w-box{
+            width: 50%;
+            margin: 0 auto;}
 }
 /* -------------TABLET PORTRAIT--------- */
 @media screen and (max-width: 800px) {
